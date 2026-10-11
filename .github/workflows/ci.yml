@@ -20,8 +20,12 @@ jobs:
         run: python scripts/check_paths.py
       - name: Reference manifest is valid
         run: python scripts/check_references.py
-      - name: Lesson code tests
+      - name: Lessons follow the template
+        run: python scripts/check_lessons.py
+      - name: Lesson code tests against the reference solutions
         run: pytest
+        env:
+          AEFS_IMPL: solution
 
   links:
     runs-on: ubuntu-latest

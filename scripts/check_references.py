@@ -53,7 +53,7 @@ def main():
             errors.append(f'{sid}: verification date {v} is older than {MAX_AGE_DAYS} days; re-verify')
 
     for md in sorted((ROOT / 'references').glob('phase-*.md')) + sorted((ROOT / 'references').glob('bridge-*.md')):
-        for ref in sorted(set(re.findall(r'@([a-z0-9][a-z0-9-]+)', md.read_text()))):
+        for ref in sorted(set(re.findall(r'(?<![\w.])@([a-z0-9][a-z0-9-]+)', md.read_text()))):
             if ref not in ids:
                 errors.append(f'{md.name}: references unknown source id @{ref}')
 
