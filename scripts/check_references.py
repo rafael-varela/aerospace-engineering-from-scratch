@@ -4,7 +4,7 @@
 Checks (always):
   * every source has the required fields and a valid access_tier;
   * every `access_tier: required-free` or `supplementary-free` source has a license recorded;
-  * every source id referenced in references/phase-*.md exists in sources.yaml;
+  * every `@id` referenced in references/phase-*.md and bridge-*.md exists in sources.yaml;
   * every source has a verification date no older than 18 months.
 
 With --links, additionally sends a HEAD/GET request to every url and reports non-2xx/3xx
@@ -53,14 +53,9 @@ def main():
             errors.append(f'{sid}: verification date {v} is older than {MAX_AGE_DAYS} days; re-verify')
 
     for md in sorted((ROOT / 'references').glob('phase-*.md')) + sorted((ROOT / 'references').glob('bridge-*.md')):
-        for ref in set(re.findall(r'`([a-z0-9][a-z0-9-]+)`', md.read_text())):
-            if ref.startswith('p') and re.fullmatch(r'p\d\d-\d\d', ref):
-                continue  # lesson ids
-            if ref not in ids and re.fullmatch(r'[a-z0-9-]+-(?:v\d|\d{4}|2e|3e|ocw|nasa|nist|bipm|docs)[a-z0-9-]*|[a-z]+-[a-z0-9-]+', ref):
-                # only flag things that look like source ids (contain a hyphen) and are not known
-                if ref in KNOWN_NON_SOURCES:
-                    continue
-                errors.append(f'{md.name}: references unknown source id `{ref}`')
+        for ref in sorted(set(re.findall(r'@([a-z0-9][a-z0-9-]+)', md.read_text()))):
+            if ref not in ids:
+                errors.append(f'{md.name}: references unknown source id @{ref}')
 
     if args.links:
         import requests  # optional dependency
@@ -82,9 +77,6 @@ def main():
         sys.exit(1)
     print('reference manifest OK')
 
-
-# identifiers that appear in backticks in the maps but are not source ids
-KNOWN_NON_SOURCES = {'required-free', 'supplementary-free', 'optional-paid', 'sources-yaml', 'check-references', 'lesson-md'}
 
 if __name__ == '__main__':
     main()

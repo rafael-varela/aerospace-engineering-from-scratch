@@ -1,3 +1,551 @@
-# Reference manifest. Validated by scripts/check_references.py.
+# Reference manifest. Validated by scripts/check_references.py; `--links` checks reachability.
 # access_tier: required-free | supplementary-free | optional-paid
-sources: []
+# Free to read does not mean free to copy: see each license. The curriculum links to these sources
+# and writes original explanations; it never reproduces their text or figures.
+sources:
+- id: openstax-precalculus-2e
+  title: Precalculus 2e
+  creator: Jay Abramson (Arizona State University); OpenStax, Rice University
+  version: 2nd edition, published 2021-12-21 (web version as of 2026-10-11)
+  url: https://openstax.org/details/books/precalculus-2e
+  license: CC BY-NC-SA 4.0 (stated in Preface and page footer; NOT CC BY 4.0)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 01-13
+  - 02-07
+  - 02-18
+  - B1-01
+  - B1-02
+  - B1-03
+  - B1-04
+  - B1-05
+  - B1-06
+  - B1-07
+- id: openstax-college-algebra-2e
+  title: College Algebra 2e
+  creator: Jay Abramson (Arizona State University); OpenStax, Rice University
+  version: 2nd edition, published 2021-12-21
+  url: https://openstax.org/details/books/college-algebra-2e
+  license: CC BY-NC-SA 4.0 (stated on book pages)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - B1-01
+- id: openstax-calculus-volume-1
+  title: Calculus Volume 1
+  creator: Gilbert Strang (MIT) and Edwin "Jed" Herman (UW-Stevens Point); OpenStax, Rice University
+  version: 1st edition, published 2016-03-30 (web version as of 2026-10-11)
+  url: https://openstax.org/details/books/calculus-volume-1
+  license: CC BY-NC-SA 4.0 (stated in Preface; NOT CC BY 4.0)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 01-01
+  - 01-02
+  - 01-03
+- id: openstax-calculus-volume-2
+  title: Calculus Volume 2
+  creator: Gilbert Strang and Edwin "Jed" Herman; OpenStax, Rice University
+  version: 1st edition, published 2016-03-30
+  url: https://openstax.org/details/books/calculus-volume-2
+  license: CC BY-NC-SA 4.0 (stated on book pages)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 01-03
+  - 01-04
+  - 01-05
+  - 01-06
+  - 02-01
+  - 02-07
+  - 02-08
+- id: openstax-calculus-volume-3
+  title: Calculus Volume 3
+  creator: Gilbert Strang and Edwin "Jed" Herman; OpenStax, Rice University
+  version: 1st edition, published 2016-03-30
+  url: https://openstax.org/details/books/calculus-volume-3
+  license: CC BY-NC-SA 4.0 (stated on book pages)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 01-06
+  - 01-07
+  - 01-08
+  - 01-09
+  - 01-10
+  - 01-11
+  - 01-12
+  - 02-02
+  - 02-03
+  - 02-04
+  - B1-05
+  - B1-06
+- id: openstax-introductory-statistics-2e
+  title: Introductory Statistics 2e
+  creator: Barbara Illowsky and Susan Dean (De Anza College); OpenStax, Rice University
+  version: 2nd edition, published 2023-12-13
+  url: https://openstax.org/details/books/introductory-statistics-2e
+  license: CC BY-NC-SA 4.0 (stated in Preface)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 02-15
+  - 02-16
+  - 02-17
+  - 02-18
+- id: mit-ocw-18-06-linear-algebra
+  title: 18.06 Linear Algebra
+  creator: Prof. Gilbert Strang; MIT OpenCourseWare
+  version: Spring 2010 (34 video lectures plus Lecture 24b)
+  url: https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/
+  license: CC BY-NC-SA 4.0 (confirmed on course page)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 01-13
+  - 01-14
+  - 01-15
+  - 01-16
+  - 01-17
+  - 01-18
+  - 02-05
+  - 02-09
+  - 02-10
+  - 02-18
+- id: mit-ocw-18-03-differential-equations
+  title: 18.03 Differential Equations
+  creator: Prof. Arthur Mattuck and Prof. Haynes Miller; MIT OpenCourseWare
+  version: Spring 2010 (32 available video lectures; lecture notes sessions 1-39)
+  url: https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/
+  license: CC BY-NC-SA 4.0 (confirmed on course page)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 02-01
+  - 02-02
+  - 02-03
+  - 02-04
+  - 02-05
+  - 02-06
+  - 02-07
+  - 02-08
+  - 02-09
+  - 02-10
+  - 02-11
+  - B1-07
+- id: openstax-university-physics-vol1
+  title: University Physics Volume 1
+  creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
+  version: 1st edition; first published 2016-09-19; web view continuously revised (footer shows copyright 2026)
+  url: https://openstax.org/books/university-physics-volume-1
+  license: 'CC BY-NC-SA 4.0 (preface: "University Physics is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
+    4.0 (CC BY-NC-SA) license")'
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Details page (openstax.org/details/books/...) is JavaScript-rendered; cite the /books/ reader URLs. Section URLs
+    marked "pattern" follow the verified slug scheme but were not individually loaded.
+  lessons:
+  - 04-01
+  - 04-02
+  - 04-03
+  - 04-04
+  - 04-05
+  - 04-06
+  - 04-13
+- id: openstax-university-physics-vol2
+  title: University Physics Volume 2
+  creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
+  version: 1st edition; first published 2016-10-06; web view continuously revised
+  url: https://openstax.org/books/university-physics-volume-2
+  license: CC BY-NC-SA 4.0 (same statement as Volume 1)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Same as Volume 1. Preface citation box also states "This book may not be used in the training of large language
+    models".
+  lessons:
+  - 04-07
+  - 04-08
+  - 04-09
+  - 04-10
+  - 04-11
+  - 04-15
+- id: openstax-university-physics-vol3
+  title: University Physics Volume 3
+  creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
+  version: 1st edition; first published 2016-09-29; web view continuously revised
+  url: https://openstax.org/books/university-physics-volume-3
+  license: CC BY-NC-SA 4.0 (same statement as Volume 1)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Same as Volume 1. Relativity chapter does not contain a GPS example.
+  lessons:
+  - 04-10
+  - 04-12
+  - 04-13
+  - 04-14
+- id: openstax-chemistry-2e
+  title: Chemistry 2e
+  creator: OpenStax (Rice University); senior contributing authors Paul Flowers, Klaus Theopold, Richard Langley, William
+    R. Robinson
+  version: 2nd edition (2e); first published 2019-02-14; web view continuously revised
+  url: https://openstax.org/books/chemistry-2e
+  license: 'CC BY-NC-SA 4.0 (preface: "Chemistry 2e is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
+    4.0 (CC BY-NC-SA) license")'
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Chapter titles cross-checked via the LibreTexts mirror because the OpenStax details page is JS-rendered; section
+    titles are from OpenStax chapter-outline pages.
+  lessons:
+  - B2-01
+  - B2-02
+  - B2-03
+  - B2-04
+  - B2-05
+  - B2-06
+- id: leishman-intro-aerospace-flight-vehicles
+  title: Introduction to Aerospace Flight Vehicles
+  creator: J. Gordon Leishman; publisher Embry-Riddle Aeronautical University (Eagle Pubs)
+  version: Open web edition, copyright 2022-2025; published 2023-01-01, last updated shown 2025-01-01; DOI 10.15394/eaglepub.2022.1066;
+    ISBN 979-8-9852614-0-0
+  url: https://eaglepubs.erau.edu/introductiontoaerospaceflightvehicles/
+  license: CC BY-NC-ND 4.0 ("licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License,
+    except where otherwise noted")
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: NoDerivatives — link only, do not adapt text or figures. Chapter numbering changes between site builds; cite by
+    title and URL. Several chapter URL slugs do not match their titles.
+  lessons:
+  - 04-05
+  - 04-07
+  - 04-12
+- id: ntrs-naca-tr-824-summary-of-airfoil-data
+  title: Summary of Airfoil Data
+  creator: Ira H. Abbott, Albert E. von Doenhoff, Louis S. Stivers, Jr.; National Advisory Committee for Aeronautics (NACA)
+  version: NACA Report No. 824 (NACA-TR-824), 1945; NTRS document ID 19930090976
+  url: https://ntrs.nasa.gov/citations/19930090976
+  license: US Government work, public domain (no license statement on the NTRS page; NASA/NACA reports are not subject to
+    copyright in the US)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: NTRS metadata lists only Stivers as author; the report itself credits all three. Inline PDF preview is unavailable;
+    learner must download the PDF (large scan).
+  lessons: []
+- id: ocw-18-330
+  title: 18.330 Introduction to Numerical Analysis (Spring 2012), Lecture Notes
+  creator: Laurent Demanet, MIT OpenCourseWare
+  version: Spring 2012
+  url: https://ocw.mit.edu/courses/18-330-introduction-to-numerical-analysis-spring-2012/pages/lecture-notes/
+  license: CC BY-NC-SA 4.0 (footer link; name not spelled out in text)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Seven PDF note sets only; no floating-point, linear-algebra or optimization chapters.
+  lessons:
+  - 03-01
+  - 03-02
+  - 03-03
+  - 03-04
+  - 03-05
+  - 03-07
+- id: ocw-18-335j
+  title: 18.335J Introduction to Numerical Methods (Spring 2019)
+  creator: Steven G. Johnson, MIT OpenCourseWare
+  version: Spring 2019
+  url: https://ocw.mit.edu/courses/18-335j-introduction-to-numerical-methods-spring-2019/
+  license: CC BY-NC-SA 4.0 (footer link)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Graduate level; organised by Week 1-14 pages; code examples in Julia.
+  lessons:
+  - 00-12
+  - 03-01
+  - 03-02
+  - 03-03
+  - 03-04
+  - 03-07
+  - 03-08
+  - 03-09
+  - 03-10
+  - 03-14
+  - 03-15
+  - 03-18
+- id: ocw-16-90
+  title: 16.90 Computational Methods in Aerospace Engineering (Spring 2014)
+  creator: Karen Willcox, Qiqi Wang (materials partly by David Darmofal), MIT OpenCourseWare
+  version: Spring 2014
+  url: https://ocw.mit.edu/courses/16-90-computational-methods-in-aerospace-engineering-spring-2014/
+  license: CC BY-NC-SA 4.0
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ocw.mit.edu pages errored from this environment; unit/section titles verified via DSpace archive https://dspace.mit.edu/handle/1721.1/143656
+    and a mirror.
+  lessons:
+  - 03-05
+  - 03-06
+  - 03-07
+  - 03-10
+  - 03-11
+  - 03-12
+  - 03-13
+  - 03-15
+  - 03-17
+- id: ocw-2-086
+  title: 2.086 Numerical Computation for Mechanical Engineers (Fall 2014)
+  creator: Nicolas G. Hadjiconstantinou, Anthony T. Patera, MIT OpenCourseWare
+  version: Fall 2014
+  url: https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-fall-2014/
+  license: CC BY-NC-SA 4.0
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: No lecture titles exposed; 'Open Textbook' and 'Nutshells & GUIs' sections, MATLAB-based. Secondary source.
+  lessons:
+  - 03-07
+- id: ocw-18-085
+  title: 18.085 Computational Science and Engineering I (Fall 2008), Video Lectures
+  creator: Gilbert Strang, MIT OpenCourseWare
+  version: Fall 2008
+  url: https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/
+  license: CC BY-NC-SA 4.0
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Video lectures (36); textbook not free.
+  lessons:
+  - 03-07
+  - 03-08
+  - 03-11
+  - 03-13
+- id: ocw-2-092
+  title: 2.092 Finite Element Analysis of Solids and Fluids I (Fall 2009), Lecture Notes
+  creator: Klaus-Jürgen Bathe, MIT OpenCourseWare
+  version: Fall 2009
+  url: https://ocw.mit.edu/courses/2-092-finite-element-analysis-of-solids-and-fluids-i-fall-2009/pages/lecture-notes/
+  license: CC BY-NC-SA 4.0
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Uses ADINA software in demos.
+  lessons:
+  - 03-08
+  - 03-13
+- id: ocw-16-920j
+  title: 16.920J Numerical Methods for Partial Differential Equations (SMA 5212) (Spring 2003)
+  creator: Khoo, White, Peraire, Patera; MIT OpenCourseWare
+  version: Spring 2003
+  url: https://ocw.mit.edu/courses/16-920j-numerical-methods-for-partial-differential-equations-sma-5212-spring-2003/
+  license: CC BY-NC-SA 4.0
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Course page lists topics, not individual note titles.
+  lessons:
+  - 03-12
+- id: nasa-seh-rev2
+  title: NASA Systems Engineering Handbook
+  creator: NASA Office of the Chief Engineer
+  version: NASA/SP-2016-6105 Rev 2 (2017-02-17); web edition last updated 2024-03-27
+  url: https://www.nasa.gov/reference/systems-engineering-handbook/
+  license: US Government work; NTRS record 20170001761 marks 'Public Use Permitted'. No license text on nasa.gov page.
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Web page does not state 'Rev 2'; confirmed via https://ntrs.nasa.gov/citations/20170001761 . Appendix C at https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/
+    (header 'Appendix C How to Write a Good Requirement— Checklist').
+  lessons:
+  - 03-18
+- id: nasa-std-7009b
+  title: NASA-STD-7009B Change 1, Standard for Models and Simulations
+  creator: NASA Technical Standards Program
+  version: Rev B, Change 1 (document date 2024-03-05)
+  url: https://standards.nasa.gov/standard/NASA/NASA-STD-7009
+  license: US Government standard, marked 'Internet Public'
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Standard, not a tutorial.
+  lessons:
+  - 03-18
+- id: nasa-mco-mib
+  title: Mars Climate Orbiter Mishap Investigation Board Phase I Report
+  creator: NASA Mishap Investigation Board
+  version: '1999-11-10'
+  url: https://llis.nasa.gov/llis_lib/pdf/1009464main1_0641-mr.pdf
+  license: US Government work (no statement in PDF)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Hosted on NASA LLIS; mirrors exist at discovery.larc.nasa.gov.
+  lessons:
+  - 00-05
+- id: jcgm-100-2008
+  title: JCGM 100:2008 Evaluation of measurement data — Guide to the expression of uncertainty in measurement (GUM)
+  creator: Joint Committee for Guides in Metrology (BIPM, IEC, IFCC, ILAC, ISO, IUPAC, IUPAP, OIML)
+  version: First edition Sept 2008, corrected 2010; Amd.1:2026 also published
+  url: https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf
+  license: Copyright JCGM member organisations; free to read, no reuse/re-branding without BIPM permission
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: 'Link to, do not redistribute. Publications index: https://www.bipm.org/en/committees/jc/jcgm/publications'
+  lessons:
+  - 00-14
+- id: nist-tn-1297
+  title: 'NIST Technical Note 1297: Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results'
+  creator: Barry N. Taylor, Chris E. Kuyatt, NIST
+  version: 1994 edition
+  url: https://www.nist.gov/pml/nist-technical-note-1297
+  license: US Government work (public domain in US)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: PDF via https://doi.org/10.6028/NIST.TN.1297 (DOI not re-resolved on 2026-10-11 due to fetch rate limit).
+  lessons:
+  - 00-14
+- id: numpy-userguide
+  title: NumPy user guide
+  creator: NumPy Developers
+  version: NumPy 2.5
+  url: https://numpy.org/doc/stable/user/index.html
+  license: BSD 3-Clause (per https://numpy.org/doc/stable/license.html; license name not stated on page)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: '''stable'' URL tracks releases; section names may move.'
+  lessons:
+  - 00-01
+  - 00-03
+  - 00-07
+  - 00-09
+- id: scipy-userguide
+  title: SciPy User Guide
+  creator: The SciPy community
+  version: SciPy 1.18.0
+  url: https://docs.scipy.org/doc/scipy/tutorial/index.html
+  license: BSD 3-Clause (project LICENSE.txt); no license statement on docs page
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 00-06
+  - 03-02
+  - 03-03
+  - 03-04
+  - 03-05
+  - 03-06
+  - 03-08
+  - 03-09
+  - 03-10
+  - 03-14
+  - 03-15
+- id: matplotlib-userguide
+  title: Using Matplotlib
+  creator: The Matplotlib development team
+  version: Matplotlib 3.11.2
+  url: https://matplotlib.org/stable/users/index.html
+  license: License agreement for matplotlib versions 1.3.0 and later (PSF-based, BSD-compatible)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 00-04
+- id: sympy-tutorial
+  title: Introductory Tutorial — SymPy documentation
+  creator: SymPy Development Team
+  version: SymPy 1.14.0
+  url: https://docs.sympy.org/latest/tutorials/intro-tutorial/index.html
+  license: BSD 3-Clause (project license; not stated on docs page)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 00-09
+- id: pytest-getstarted
+  title: Get Started — pytest documentation
+  creator: holger krekel and pytest-dev team
+  version: pytest 9.1.1
+  url: https://docs.pytest.org/en/stable/getting-started.html
+  license: MIT License (https://docs.pytest.org/en/stable/license.html)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 00-01
+  - 00-07
+- id: pint-tutorial
+  title: Tutorial — pint documentation
+  creator: Hernan E. Grecco and Pint Developers
+  version: stable (build string showed 0.1.dev50+g5a27ca223, a build artifact)
+  url: https://pint.readthedocs.io/en/stable/getting/tutorial.html
+  license: BSD 3-Clause (GitHub LICENSE; not stated on docs page)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Do not cite the displayed version number.
+  lessons:
+  - 00-05
+- id: openmdao-docs
+  title: OpenMDAO documentation (Getting Started; Basic User Guide)
+  creator: OpenMDAO Development Team (NASA Glenn)
+  version: latest (no version shown on pages)
+  url: https://openmdao.org/newdocs/versions/latest/main.html
+  license: No license statement on docs pages (project is Apache-2.0 on GitHub; verify before stating)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: ''
+  lessons:
+  - 03-16
+- id: goldberg-1991
+  title: What Every Computer Scientist Should Know About Floating-Point Arithmetic
+  creator: David Goldberg (reprinted as Appendix D, Oracle Numerical Computation Guide)
+  version: Computing Surveys, March 1991; Oracle doc 806-3568
+  url: https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
+  license: Copyright 1991 ACM, reprinted by permission; free to read, not freely licensed
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Link only; do not redistribute.
+  lessons:
+  - 03-01
+- id: psu-style-for-students
+  title: Style for Students Online
+  creator: Joe Schall, Penn State College of Earth and Mineral Sciences / Dutton Institute
+  version: archived online edition
+  url: https://courses.ems.psu.edu/styleforstudents/
+  license: CC BY-NC-SA 4.0 (footer; 'Permission to Use' section links CC BY-NC-SA 3.0 US)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Marked [Archived]; old URL e-education.psu.edu/styleforstudents redirects here.
+  lessons:
+  - 00-10
+- id: psu-writing-engineer
+  title: Writing as an Engineer or Scientist
+  creator: Michael Alley (content editor), Leonhard Center, Penn State
+  version: current web edition
+  url: https://writing.engr.psu.edu/
+  license: Not stated on page (free web resource)
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Sub-page 'Reports' could not be fetched directly from this environment; landing page confirms the section exists.
+  lessons:
+  - 00-10
+- id: nar-safety-code
+  title: Model Rocket Safety Code
+  creator: National Association of Rocketry
+  version: current web edition (page shows 'NSL West 2023-246'; no explicit revision date)
+  url: https://nar.org/ModelRocketSafetyCode
+  license: Not stated
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Hobby-rocketry scope only.
+  lessons:
+  - 00-13
+- id: jcgm-101-2008
+  title: JCGM 101:2008 Evaluation of measurement data — Supplement 1 to the GUM — Propagation of distributions using a Monte
+    Carlo method
+  creator: Joint Committee for Guides in Metrology
+  version: First edition 2008
+  url: https://www.bipm.org/en/committees/jc/jcgm/publications
+  license: Copyright JCGM member organisations; free to read, no reuse without permission
+  access_tier: required-free
+  verified: 2026-10-11
+  caveat: Listed on the JCGM publications index (DOI 10.59161/JCGM101-2008); the index page was verified, the PDF itself was
+    not opened.
+  lessons:
+  - 03-17
