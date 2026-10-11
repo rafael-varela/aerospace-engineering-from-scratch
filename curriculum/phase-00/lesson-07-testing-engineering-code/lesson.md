@@ -74,6 +74,21 @@ $$|a - b| \le \max\big(\text{rel\_tol} \cdot \max(|a|, |b|),\ \text{abs\_tol}\bi
 
 `pytest.approx(x, rel=..., abs=...)` implements this for scalars and small sequences (default `rel=1e-6`, `abs=1e-12`). `numpy.testing.assert_allclose(actual, desired, rtol=..., atol=...)` does it element-wise for arrays and prints the worst mismatch when it fails (its rule is `|a - d| <= atol + rtol * |d|`, a slightly different but equivalent-in-spirit form; note it is relative to `desired`, so put the reference second). Choosing the tolerance is an engineering decision, and the rule is: **as tight as the arithmetic allows, and justified by a number.** For an exact formula evaluated once, `1e-12` relative. For a value stored to 8 significant figures, `2e-7` relative. For a value that depends on a numerical method, the method's error estimate.
 
+The number line near 0.3, drawn to scale in ulps, makes the situation plain:
+
+```
+          stored 0.3                      stored 0.1 + stored 0.2
+              |                                     |
+   ...--------+-----------------+-------------------+--------...
+        0.29999999999999998890   (one float gap,    0.30000000000000004441
+                                  5.55e-17, no
+                                  value in between)
+```
+
+There is no float between those two ticks, so no amount of extra computation can make the sum "land" on 0.3. A tolerance of a few ulps (relative $10^{-15}$) accepts it; `==` never will.
+
+**Worked example: choosing a tolerance for $q$.** We want to test `dynamic_pressure(1.225, 50.0)` against the hand value 1531.25 Pa. Three operations are involved (store 1.225, multiply by 0.5, multiply by 2500), each contributing at most half an ulp of relative error, so the arithmetic bound is about $1.5\,u \approx 1.7 \times 10^{-16}$ relative, or $2.5 \times 10^{-13}$ Pa. Any tolerance above that passes a correct implementation. Now ask what *wrong* implementation we need to catch: a dropped factor $\tfrac12$ (100 % error), a density typed as 1.255 (2.4 %), a speed in knots (165 %). The smallest of those is 2.4 %. A tolerance of `rel=1e-12` is a million times above the arithmetic floor and ten billion times below the smallest bug: comfortable on both sides. That two-sided argument, *floor from the arithmetic, ceiling from the smallest bug worth catching*, is how every tolerance in this lesson is chosen, and it is what the tolerance note you submit must contain.
+
 ### 2.4 The five kinds of test in this lesson
 
 1. **Analytic value.** Compare with a hand calculation: $q(1.225, 50) = 1531.25$ Pa.
