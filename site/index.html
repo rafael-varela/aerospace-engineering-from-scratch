@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aerospace Engineering from Scratch</title>
+<meta name="description" content="A free, open-source curriculum that takes a motivated self-learner from algebra to the capabilities expected of a graduate from a top aerospace engineering program. Derive it, code it, build it at home, test it against reality.">
+<!--
+  SITE NAME AND DOMAIN
+  The project name is not final. Change it in ONE place: the SITE object in site/config.js.
+  Every element marked data-site-name is filled from it on load; the text already in the
+  HTML is only the fallback for readers without JavaScript (keep it in sync when you rename).
+-->
+<script src="config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a flight-test datasheet. Left-aligned, ruled, lots of air, one bold
+   accent (test-flight orange) reserved for the things a reader acts on or must not miss. */
+:root {
+  --paper: #f2f4f7;        /* cool drafting-paper white */
+  --paper-2: #e7ebf0;      /* ruled panel */
+  --ink: #0f1620;          /* near-black with blue bias */
+  --ink-2: #4a5666;        /* secondary text */
+  --rule: #c9d1db;         /* hairlines */
+  --blue: #214f7e;         /* blueprint line */
+  --blue-soft: #d9e4f0;
+  --orange: #d9571a;       /* test-flight orange: CTAs, measured data, warnings */
+  --orange-ink: #ffffff;
+  --ok: #2b7a4b;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --measure: 66ch;
+  --radius: 4px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b1119; --paper-2: #121a25; --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #27323f;
+    --blue: #8db2db; --blue-soft: #16263a; --orange: #ff7a3d; --orange-ink: #16110d; --ok: #63c48a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b1119; --paper-2: #121a25; --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #27323f;
+  --blue: #8db2db; --blue-soft: #16263a; --orange: #ff7a3d; --orange-ink: #16110d; --ok: #63c48a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 0.18em; }
+a:hover { text-decoration-color: var(--orange); }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+img { max-width: 100%; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 48px); }
+.eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.eyebrow::before { content: "// "; color: var(--orange); }
+.lede { font-size: 1.25rem; line-height: 1.5; max-width: var(--measure); color: var(--ink); }
+.muted { color: var(--ink-2); }
+section { padding-block: clamp(56px, 8vw, 112px); border-top: 1px solid var(--rule); }
+.section-head { display: grid; gap: 14px; margin-bottom: clamp(32px, 4vw, 56px); max-width: 60rem; }
+.section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
+.section-head p { max-width: var(--measure); color: var(--ink-2); font-size: 1.1rem; }
+
+/* Nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 60px; }
+.brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; text-decoration: none; }
+.brand svg { width: 28px; height: 28px; flex: none; }
+.nav-links { display: flex; gap: clamp(14px, 2vw, 28px); font-family: var(--font-display); font-weight: 500; font-size: 0.9rem; }
+.nav-links a { text-decoration: none; color: var(--ink-2); }
+.nav-links a:hover { color: var(--ink); }
+.nav-links .gh { color: var(--ink); }
+@media (max-width: 720px) { .nav-links a:not(.gh) { display: none; } }
+
+/* Hero */
+.hero { border-top: 0; padding-block: clamp(48px, 7vw, 96px) clamp(40px, 6vw, 80px); position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 48px 48px; opacity: 0.35;
+  mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+}
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
+.hero-copy { display: grid; gap: 24px; min-width: 0; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 0.98; }
+.hero h1 em { font-style: normal; color: var(--orange); }
+.hero .lede { font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.01em; padding: 14px 20px; border-radius: var(--radius); text-decoration: none; border: 1.5px solid transparent; transition: transform 120ms ease, background 120ms ease; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--orange); color: var(--orange-ink); }
+.btn-primary:hover { background: color-mix(in srgb, var(--orange) 88%, var(--ink)); }
+.btn-ghost { border-color: var(--rule); color: var(--ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--ink); }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); }
+.hero-facts span b { color: var(--ink); font-weight: 500; }
+
+/* Airfoil lab */
+.lab { min-width: 0; background: var(--paper-2); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; display: grid; gap: 14px; }
+.lab-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.lab-head .code { font-family: var(--font-mono); font-size: 1.35rem; font-weight: 500; letter-spacing: 0.04em; }
+.lab-head .code small { font-size: 0.75rem; color: var(--ink-2); letter-spacing: 0.08em; margin-right: 8px; }
+.lab canvas { width: 100%; height: auto; display: block; aspect-ratio: 16 / 7; max-width: 100%; }
+.lab-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 480px) { .lab-controls { grid-template-columns: 1fr; } }
+.lab-controls label { display: grid; gap: 6px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); }
+.lab-controls label output { color: var(--ink); font-size: 0.85rem; text-transform: none; letter-spacing: 0; }
+.lab-controls input[type=range] { width: 100%; accent-color: var(--orange); margin: 0; }
+.lab-readouts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; border-top: 1px dashed var(--rule); padding-top: 12px; }
+@media (max-width: 480px) { .lab-readouts { grid-template-columns: 1fr; } }
+.lab-readouts div { display: grid; gap: 2px; }
+.lab-readouts .k { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
+.lab-readouts .v { font-family: var(--font-mono); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.lab-foot { font-size: 0.9rem; color: var(--ink-2); line-height: 1.45; }
+
+/* Arc */
+.arc { counter-reset: step; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+@media (max-width: 1000px) { .arc { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .arc { grid-template-columns: 1fr; } }
+.arc > div { padding: 22px 20px 26px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 10px; align-content: start; background: var(--paper); min-width: 0; }
+.arc > div::before { counter-increment: step; content: "0" counter(step); font-family: var(--font-mono); font-size: 0.8rem; color: var(--orange); }
+.arc h3 { font-size: 1.05rem; }
+.arc p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
+.arc-note { margin-top: 28px; display: grid; gap: 10px; max-width: var(--measure); }
+.arc-note p { font-size: 1.05rem; }
+.arc-note strong { font-family: var(--font-display); font-weight: 700; }
+
+/* Curriculum */
+.phase-groups { display: grid; gap: 40px; }
+.phase-group { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 24px 48px; }
+@media (max-width: 860px) { .phase-group { grid-template-columns: 1fr; gap: 16px; } }
+.phase-group-head { display: grid; gap: 8px; align-content: start; }
+.phase-group-head h3 { font-size: 1.35rem; }
+.phase-group-head p { color: var(--ink-2); font-size: 0.98rem; line-height: 1.5; }
+.phase-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; border-top: 1px solid var(--rule); }
+@media (max-width: 640px) { .phase-list { grid-template-columns: 1fr; } }
+.phase { display: grid; grid-template-columns: 3ch minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.98rem; min-width: 0; }
+.phase .n { font-family: var(--font-mono); color: var(--blue); font-size: 0.85rem; }
+.phase .t { font-family: var(--font-display); font-weight: 500; }
+.phase .l { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-2); white-space: nowrap; }
+.phase.opt .t { color: var(--ink-2); }
+.status-line { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; margin-top: 32px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); }
+.status-line .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); margin-right: 8px; vertical-align: middle; }
+
+/* Paths */
+.paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 960px) { .paths { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .paths { grid-template-columns: 1fr; } }
+.path { border: 1px solid var(--rule); border-radius: var(--radius); padding: 22px; display: grid; gap: 12px; align-content: start; background: var(--paper); min-width: 0; }
+.path.full { border-color: var(--ink); }
+.path h3 { font-size: 1.15rem; }
+.path .scope { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
+.path p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
+.path .caps { font-size: 0.9rem; border-top: 1px dashed var(--rule); padding-top: 12px; }
+.path .caps b { font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 4px; }
+.core-note { margin-top: 28px; max-width: var(--measure); color: var(--ink-2); }
+
+/* Home lab */
+.lab-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+@media (max-width: 900px) { .lab-grid { grid-template-columns: 1fr; } }
+.tiers { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.tier { display: grid; grid-template-columns: 2.2ch minmax(0, 1fr); gap: 10px 16px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+.tier .n { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; line-height: 1; color: var(--blue); }
+.tier h3 { font-size: 1.1rem; }
+.tier h3 small { font-family: var(--font-mono); font-weight: 400; font-size: 0.72rem; color: var(--ink-2); letter-spacing: 0.05em; text-transform: uppercase; margin-left: 10px; }
+.tier p { grid-column: 2; font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
+.safety { border-left: 3px solid var(--orange); padding: 4px 0 4px 20px; display: grid; gap: 14px; }
+.safety h3 { font-size: 1.15rem; }
+.safety ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; font-size: 0.98rem; }
+.projects { margin-top: 36px; }
+.projects h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--font-mono); font-size: 0.78rem; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; color: var(--ink-2); white-space: nowrap; }
+
+/* Honesty */
+.honest { background: var(--paper-2); }
+.claims { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .claims { grid-template-columns: 1fr; } }
+.claim { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); padding: 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.claim .tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
+.claim .tag::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+.claim .yes { color: var(--ok); }
+.claim .goal { color: var(--blue); }
+.claim .no { color: var(--orange); }
+.claim h3 { font-size: 1.2rem; }
+.claim p { font-size: 0.98rem; color: var(--ink-2); line-height: 1.5; }
+.honest-foot { margin-top: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; }
+@media (max-width: 760px) { .honest-foot { grid-template-columns: 1fr; } }
+.honest-foot h4 { font-size: 1rem; margin-bottom: 8px; }
+.honest-foot p { color: var(--ink-2); font-size: 0.98rem; }
+
+/* Principles */
+.principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 28px; }
+@media (max-width: 900px) { .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .principles { grid-template-columns: 1fr; } }
+.principle { display: grid; gap: 10px; border-top: 2px solid var(--ink); padding-top: 14px; }
+.principle h3 { font-size: 1.1rem; }
+.principle h3 span { color: var(--orange); }
+.principle p { font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
+
+/* Start */
+.start .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+@media (max-width: 860px) { .start .wrap { grid-template-columns: 1fr; } }
+.start h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.025em; }
+.start .lede { margin-top: 16px; }
+.start .cta-row { margin-top: 28px; }
+.start pre { margin: 0; background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: 18px 20px; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; overflow-x: auto; }
+.start pre .c { color: color-mix(in srgb, var(--paper) 55%, transparent); }
+.start pre .o { color: var(--orange); }
+:root[data-theme="dark"] .start pre, .start pre { color: var(--paper); }
+
+/* Footer */
+footer { border-top: 1px solid var(--rule); padding-block: 36px 48px; font-size: 0.9rem; color: var(--ink-2); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; }
+footer a { color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 22 L29 10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M3 22 C 10 12, 22 8, 29 10 C 24 14, 12 20, 3 22 Z" fill="var(--orange)"/></svg>
+      <span data-site-name>Aerospace Engineering from Scratch</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#method">Method</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#paths">Paths</a>
+      <a href="#lab">Home lab</a>
+      <a href="#honest">What it is not</a>
+      <a class="gh" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch" data-repo-link>GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Free · open source · no lab required</p>
+      <h1>Learn aerospace engineering from first principles. <em>Then test it against reality.</em></h1>
+      <p class="lede">A complete, free curriculum that takes a motivated self-learner from algebra to the work expected of a graduate from a top aerospace program. Derive the physics. Write the solver yourself. Build the experiment at home. Explain the gap between your prediction and your measurement.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/ROADMAP.md#phase-00-setup-engineering-computing--first-measurements--24-h" data-repo-link="ROADMAP.md#phase-00-setup-engineering-computing--first-measurements--24-h">Start with Phase 00</a>
+        <a class="btn btn-ghost" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/ROADMAP.md" data-repo-link="ROADMAP.md">Read the full roadmap</a>
+      </div>
+      <div class="hero-facts">
+        <span><b>27</b> phases</span>
+        <span><b>467</b> lessons</span>
+        <span><b>6</b> learning paths</span>
+        <span><b>14</b> home projects</span>
+        <span><b>10</b> capstones</span>
+        <span><b>$0</b> required</span>
+      </div>
+    </div>
+
+    <div class="lab" aria-label="Interactive airfoil, generated from the NACA four-digit equations">
+      <div class="lab-head">
+        <div class="code"><small>NACA</small><span id="naca-code">2412</span></div>
+        <span class="eyebrow" style="font-size:0.68rem">Phase 10 · lesson 09</span>
+      </div>
+      <canvas id="airfoil" width="960" height="420" role="img" aria-label="Airfoil section drawn from the NACA four-digit thickness and camber equations"></canvas>
+      <div class="lab-controls">
+        <label>Max camber <output id="o-m">2 %</output><input id="m" type="range" min="0" max="9" step="1" value="2"></label>
+        <label>Camber position <output id="o-p">40 % chord</output><input id="p" type="range" min="1" max="9" step="1" value="4"></label>
+        <label>Thickness <output id="o-t">12 %</output><input id="t" type="range" min="4" max="30" step="1" value="12"></label>
+      </div>
+      <div class="lab-readouts">
+        <div><span class="k">Zero-lift angle</span><span class="v" id="r-a0">−2.08°</span></div>
+        <div><span class="k">Lift slope</span><span class="v">2π / rad</span></div>
+        <div><span class="k" style="text-transform:none">C<sub>L</sub> at α = 4°</span><span class="v" id="r-cl">0.67</span></div>
+      </div>
+      <p class="lab-foot">Drawn from the four-digit thickness polynomial; the readouts come from thin-airfoil theory, which you derive and then check against your own panel method and XFOIL in Phase 10.</p>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How a lesson works</p>
+      <h2>Every lesson is the same six steps, from the first falling object to the last design review.</h2>
+      <p>From scratch means understanding the assumptions, the governing equations, the numerical method, and the validation. You write the panel method before you open XFOIL, and the orbit propagator before you touch GMAT. You load a real beam before you trust your beam theory.</p>
+    </div>
+    <div class="arc">
+      <div><h3>The engineering problem</h3><p>A real physical question or design trade, with constraints and success criteria.</p></div>
+      <div><h3>Understand and derive</h3><p>The physics, the governing equations, the assumptions and where they fail. Worked analytic problems.</p></div>
+      <div><h3>Build the computational model</h3><p>Implement the method yourself in Python, test it, characterize its error, then compare with an established tool.</p></div>
+      <div><h3>Experiment, or investigate real data</h3><p>A safe, low-cost measurement when the physics allows it. An authentic dataset or a defined simulation study otherwise.</p></div>
+      <div><h3>Validate and improve</h3><p>Compare analysis, computation, and measurement. Quantify uncertainty. Explain discrepancies. Iterate.</p></div>
+      <div><h3>Defend your work</h3><p>Calculations, code, raw data, plots, interpretation, limitations, and a concise technical report.</p></div>
+    </div>
+    <div class="arc-note">
+      <p><strong>Completion means competence, not finished pages.</strong> Each major lesson assesses mathematical and physical reasoning, analytical problem solving, computational competence, and engineering interpretation separately. A passing code test alone does not pass a lesson.</p>
+      <p class="muted">Every lesson ends with adversarial self-checks: what if the load doubles, which assumption fails first, what measurement would falsify this, does the result survive a change of mesh or time step.</p>
+    </div>
+  </div>
+</section>
+
+<section id="curriculum">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Curriculum</p>
+      <h2>Twenty-seven phases, in teaching order.</h2>
+      <p>The scope is the union of the ABET aerospace program criteria and MIT's Course 16 core, so a finished path covers everything each requires. Graduate-level depth is included where top undergraduates routinely reach it, always optional.</p>
+    </div>
+
+    <div class="phase-groups">
+      <div class="phase-group">
+        <div class="phase-group-head">
+          <h3>Bridge</h3>
+          <p>Optional and placement-tested. A true beginner is never silently expected to know algebra, trigonometry, or chemistry.</p>
+        </div>
+        <div class="phase-list">
+          <div class="phase opt"><span class="n">B1</span><span class="t">Precalculus &amp; Trigonometry</span><span class="l">8 lessons</span></div>
+          <div class="phase opt"><span class="n">B2</span><span class="t">General Chemistry</span><span class="l">6 lessons</span></div>
+        </div>
+      </div>
+
+      <div class="phase-group">
+        <div class="phase-group-head">
+          <h3>Core</h3>
+          <p>Shared by every path. Computing, mathematics, numerical methods, physics, mechanics, thermodynamics, fluids, signals and control. Home experiments start in Phase 00.</p>
+        </div>
+        <div class="phase-list">
+          <div class="phase"><span class="n">00</span><span class="t">Setup, Engineering Computing &amp; First Measurements</span><span class="l">15</span></div>
+          <div class="phase"><span class="n">01</span><span class="t">Mathematics I: Calculus &amp; Linear Algebra</span><span class="l">18</span></div>
+          <div class="phase"><span class="n">02</span><span class="t">Mathematics II: ODEs, Transforms &amp; Probability</span><span class="l">20</span></div>
+          <div class="phase"><span class="n">03</span><span class="t">Numerical Methods &amp; Scientific Computing</span><span class="l">18</span></div>
+          <div class="phase"><span class="n">04</span><span class="t">Physics Foundations</span><span class="l">15</span></div>
+          <div class="phase"><span class="n">05</span><span class="t">Statics, Mechanics of Materials &amp; CAD</span><span class="l">18</span></div>
+          <div class="phase"><span class="n">06</span><span class="t">Dynamics &amp; Vibrations</span><span class="l">19</span></div>
+          <div class="phase"><span class="n">07</span><span class="t">Thermodynamics</span><span class="l">15</span></div>
+          <div class="phase"><span class="n">08</span><span class="t">Fluid Mechanics</span><span class="l">19</span></div>
+          <div class="phase"><span class="n">09</span><span class="t">Signals, Systems &amp; Control</span><span class="l">21</span></div>
+        </div>
+      </div>
+
+      <div class="phase-group">
+        <div class="phase-group-head">
+          <h3>Professional areas</h3>
+          <p>The aeronautical and astronautical disciplines, plus avionics, testing, and systems engineering. Paths pick from here.</p>
+        </div>
+        <div class="phase-list">
+          <div class="phase"><span class="n">10</span><span class="t">Aerodynamics</span><span class="l">23</span></div>
+          <div class="phase"><span class="n">11</span><span class="t">Compressible Flow, Hypersonics &amp; CFD</span><span class="l">18</span></div>
+          <div class="phase"><span class="n">12</span><span class="t">Aerospace Materials, Manufacturing &amp; Drawings</span><span class="l">16</span></div>
+          <div class="phase"><span class="n">13</span><span class="t">Aerospace Structures</span><span class="l">21</span></div>
+          <div class="phase"><span class="n">14</span><span class="t">Air-Breathing Propulsion</span><span class="l">16</span></div>
+          <div class="phase"><span class="n">15</span><span class="t">Rocket &amp; Space Propulsion</span><span class="l">16</span></div>
+          <div class="phase"><span class="n">16</span><span class="t">Aircraft Performance</span><span class="l">14</span></div>
+          <div class="phase"><span class="n">17</span><span class="t">Flight Dynamics, Stability &amp; Control</span><span class="l">19</span></div>
+          <div class="phase"><span class="n">18</span><span class="t">Estimation, Navigation, Guidance &amp; Autonomy</span><span class="l">20</span></div>
+          <div class="phase"><span class="n">19</span><span class="t">Orbital Mechanics &amp; Astrodynamics</span><span class="l">20</span></div>
+          <div class="phase"><span class="n">20</span><span class="t">Spacecraft Systems &amp; the Space Environment</span><span class="l">21</span></div>
+          <div class="phase"><span class="n">21</span><span class="t">Avionics, Embedded &amp; Flight Software</span><span class="l">17</span></div>
+          <div class="phase"><span class="n">22</span><span class="t">Experimental Methods &amp; Testing</span><span class="l">14</span></div>
+          <div class="phase"><span class="n">23</span><span class="t">Systems Engineering &amp; Professional Practice</span><span class="l">16</span></div>
+        </div>
+      </div>
+
+      <div class="phase-group">
+        <div class="phase-group-head">
+          <h3>Design and capstones</h3>
+          <p>Each capstone mirrors a senior design or lab course: requirements, verification plan, design review, build or high-fidelity simulation, test, failure analysis, and a defended report.</p>
+        </div>
+        <div class="phase-list">
+          <div class="phase"><span class="n">24</span><span class="t">Aircraft Design</span><span class="l">14</span></div>
+          <div class="phase"><span class="n">25</span><span class="t">Spacecraft &amp; Mission Design</span><span class="l">14</span></div>
+          <div class="phase"><span class="n">26</span><span class="t">Capstone Projects: one design, one build-and-test</span><span class="l">10</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-line">
+      <span><span class="dot"></span>Status: the roadmap and lesson standard are drafted. Lessons are being written phase by phase, starting with Phase 00.</span>
+      <a href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/ROADMAP.md" data-repo-link="ROADMAP.md">Every lesson and its status →</a>
+    </div>
+  </div>
+</section>
+
+<section id="paths">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Learning paths</p>
+      <h2>Six paths. One shared core. Every path ends in a design capstone and a build-and-test capstone.</h2>
+      <p>Each path contains every mandatory prerequisite of every lesson in it, and a script checks that before any change to the roadmap is merged.</p>
+    </div>
+    <div class="paths">
+      <article class="path full">
+        <span class="scope">Full ABET aeronautical + astronautical scope</span>
+        <h3>Aerospace Engineer</h3>
+        <p>The whole curriculum: Core, then Phases 10 through 25.</p>
+        <div class="caps"><b>Capstones</b>One design capstone and one build-and-test capstone of your choice.</div>
+      </article>
+      <article class="path">
+        <span class="scope">ABET aeronautical scope</span>
+        <h3>Aeronautical Engineer</h3>
+        <p>Aerodynamics, structures, air-breathing propulsion, performance, flight dynamics, GNC, avionics, testing, aircraft design.</p>
+        <div class="caps"><b>Capstones</b>Design a regional electric aircraft, then build and fly a UAV with your own autopilot or build a low-speed wind tunnel.</div>
+      </article>
+      <article class="path">
+        <span class="scope">ABET astronautical scope</span>
+        <h3>Astronautical Engineer</h3>
+        <p>Compressible flow, structures, rocket propulsion, GNC, astrodynamics, spacecraft systems, avionics, testing, mission design.</p>
+        <div class="caps"><b>Capstones</b>Design a CubeSat mission, a small launch vehicle, or a lunar lander, then an electric thrust stand or a desktop attitude-control demonstrator.</div>
+      </article>
+      <article class="path">
+        <span class="scope">Specialization, not a degree scope</span>
+        <h3>Propulsion Specialist</h3>
+        <p>Aerodynamics and compressible flow, materials, air-breathing and rocket propulsion, the orbital mechanics that sizes a launch vehicle, testing.</p>
+        <div class="caps"><b>Capstones</b>Design a small launch vehicle. Run an instrumented electric thrust-stand campaign at home.</div>
+      </article>
+      <article class="path">
+        <span class="scope">Specialization, not a degree scope</span>
+        <h3>GNC &amp; Autonomy Specialist</h3>
+        <p>Flight dynamics, estimation, navigation, guidance, orbital mechanics, spacecraft attitude control, avionics and flight software.</p>
+        <div class="caps"><b>Capstones</b>Design a lunar lander and its descent guidance. Build and fly a UAV with your own autopilot, or a desktop attitude demonstrator.</div>
+      </article>
+      <article class="path">
+        <span class="scope">Specialization, not a degree scope</span>
+        <h3>Structures &amp; Materials Specialist</h3>
+        <p>Aerodynamic loads, aerospace materials and manufacturing, structures, experimental methods, systems engineering.</p>
+        <div class="caps"><b>Capstones</b>Design a composite wing box to certification loads. Build a low-speed wind tunnel and validate your aero codes.</div>
+      </article>
+    </div>
+    <p class="core-note">The specialist paths are deliberately narrower than a degree, the way a master's student who already has the core would study.</p>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Home laboratory</p>
+      <h2>A kitchen scale with a known uncertainty teaches more than an uncalibrated wind tunnel.</h2>
+      <p>Equipment is bought at the point of use, never as an upfront kit. Every physical experiment offers a minimum-cost, a recommended, and an enhanced method, with household and phone-sensor substitutions where they are scientifically sound. No lesson requires a 3D printer, a machine shop, proprietary software, or a university lab.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="tiers">
+        <div class="tier">
+          <span class="n">1</span>
+          <h3>Basic engineering lab <small>Phases 00–04</small></h3>
+          <p>Ruler, tape, digital scale, weights, hand tools, safety glasses, clamps, breadboard, multimeter, a microcontroller and a few sensors, a phone camera. Mechanics, beam deflection, pendulum dynamics, calibration, logging, first feedback control.</p>
+        </div>
+        <div class="tier">
+          <span class="n">2</span>
+          <h3>Prototyping lab <small>Optional · Phases 05–13</small></h3>
+          <p>Soldering tools with ventilation, small servos and motors, an IMU, a load cell, simple fixtures. A 3D printer or cardboard, foam, and pre-cut parts. Materials testing, instrumented structures, embedded systems, bench aerodynamics.</p>
+        </div>
+        <div class="tier">
+          <span class="n">3</span>
+          <h3>Aerospace experimentation <small>Optional · Phases 10–21</small></h3>
+          <p>A guarded low-speed bench airflow rig, an instrumented foam glider, a flight-data logger, a desktop attitude platform, a CubeSat bench prototype. Lift and drag, structural validation, sensor fusion, closed-loop control.</p>
+        </div>
+      </div>
+      <div>
+        <div class="safety">
+          <h3>Safe, always</h3>
+          <ul>
+            <li>Every hands-on activity opens with a safety box: hazards, controls, supervision, operating envelope, stop criteria.</li>
+            <li>No lesson or capstone requires at-home combustion, rocket motor firing, propellant fabrication, pressure vessels, or autonomous outdoor flight. Those happen only at qualified supervised clubs, as optional extensions.</li>
+            <li>Every instrument gets a calibration plan, and every report states its uncertainty. Matching one data point does not pass; you must explain the discrepancies.</li>
+          </ul>
+        </div>
+        <div class="projects">
+          <h3>Fourteen integrated home projects</h3>
+          <div class="chips">
+            <span class="chip">Cantilever beam</span><span class="chip">System identification</span><span class="chip">Heat transfer</span><span class="chip">Fluid experiment</span><span class="chip">Bench airflow rig</span><span class="chip">Airfoil test</span><span class="chip">Instrumented glider</span><span class="chip">Materials comparison</span><span class="chip">Feedback controller</span><span class="chip">Attitude demonstrator</span><span class="chip">CubeSat bench prototype</span><span class="chip">Autonomous flight (sim)</span><span class="chip">Electric thrust stand</span><span class="chip">Mission trade study</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honest" class="honest">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What finishing means, and what it does not</p>
+      <h2>Three claims, kept separate on purpose.</h2>
+      <p>This is a hard course with an honest label. Here is exactly what it does and does not promise.</p>
+    </div>
+    <div class="claims">
+      <article class="claim">
+        <span class="tag yes">Established</span>
+        <h3>Curriculum scope comparable to a degree</h3>
+        <p>The subject matter is mapped to the ABET aerospace program criteria and to MIT Course 16. The roadmap's tables establish this claim, and the mapping is versioned and re-verified rather than treated as permanent.</p>
+      </article>
+      <article class="claim">
+        <span class="tag goal">Your goal</span>
+        <h3>Demonstrated competence comparable to a graduate</h3>
+        <p>Earned by passing independent, demanding assessments and completing validated projects comparable to undergraduate engineering work. It is something each learner demonstrates, never a status conferred by finishing pages.</p>
+      </article>
+      <article class="claim">
+        <span class="tag no">None</span>
+        <h3>Credential equivalence</h3>
+        <p>A self-directed roadmap grants no accredited degree, professional authorization, or engineering license, and this one will never claim to. Achievement is reported as practice completed, self-assessed mastery, or externally reviewed mastery.</p>
+      </article>
+    </div>
+    <div class="honest-foot">
+      <div>
+        <h4>How long does it take?</h4>
+        <p>We do not know yet, and we will not guess. Per-lesson estimates exist in the roadmap but none has been validated with real learners, so no total is published. Ranges by starting level will appear once pilot learners have measured them. The standard for finishing is demonstrated competence, not hours spent.</p>
+      </div>
+      <div>
+        <h4>Where are the solutions?</h4>
+        <p>Public and free, in their own tree so you can attempt first. Problem sets scaffold hint, then method, then full worked solution. Implementation tests check residuals, conservation laws, and convergence rather than exact output matching.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="principles">
+      <div class="principle"><h3>Free<span>,</span> always</h3><p>Every required reading is free to access and mapped to the exact section. Paid textbooks appear only in clearly marked optional notes and are never prerequisites.</p></div>
+      <div class="principle"><h3>Safe<span>,</span> always</h3><p>Every hands-on activity opens with a safety box. The dangerous things happen only at qualified supervised clubs, and only as optional extensions.</p></div>
+      <div class="principle"><h3>Accessible<span>,</span> always</h3><p>Three equipment tiers per experiment, household and phone-sensor substitutions, and no mandatory 3D printer, machine shop, or proprietary software.</p></div>
+      <div class="principle"><h3>Honest<span>,</span> always</h3><p>Scope comparable to a degree, no credential, no invented time totals. Lower the equipment barriers, never the standard of reasoning and evidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="start">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Begin</p>
+      <h2>Phase 00 starts with a falling object, a phone camera, and a prediction you have to defend.</h2>
+      <p class="lede">You need a computer, Python, basic hand tools, and a modest, incremental budget. Clone the repository, set up your environment in lesson 01, and make your first calibrated measurement by lesson 14.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch" data-repo-link>Open the repository</a>
+        <a class="btn btn-ghost" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/CONTRIBUTING.md" data-repo-link="CONTRIBUTING.md">Contribute a lesson</a>
+      </div>
+    </div>
+    <pre aria-label="Getting started commands"><span class="c"># Phase 00, lesson 01</span>
+git clone <span data-clone-url>https://github.com/rafael-varela/aerospace-engineering-from-scratch</span>.git
+cd aerospace-engineering-from-scratch
+python -m pip install -r requirements.txt
+pytest   <span class="c"># every lesson ships with tests</span>
+<span class="o">→ curriculum/phase-00/lesson-01/lesson.md</span></pre>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span data-site-name>Aerospace Engineering from Scratch</span>. Code under MIT; text, problems, and figures under CC BY-SA 4.0.</span>
+    <span>Inspired by the structure of <a href="https://github.com/rohitg00/ai-engineering-from-scratch">AI Engineering from Scratch</a>. <a href="https://github.com/rafael-varela/aerospace-engineering-from-scratch" data-repo-link>Source on GitHub</a>.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ---- Site name and repo, from site/config.js (single place to change) ----
+  var SITE = window.SITE || { name: "Aerospace Engineering from Scratch", repo: "https://github.com/rafael-varela/aerospace-engineering-from-scratch" };
+  document.title = SITE.name;
+  document.querySelectorAll("[data-site-name]").forEach(function (el) { el.textContent = SITE.name; });
+  document.querySelectorAll("[data-clone-url]").forEach(function (el) { el.textContent = SITE.repo; });
+  document.querySelectorAll("[data-repo-link]").forEach(function (a) {
+    var path = a.getAttribute("data-repo-link");
+    a.href = path ? SITE.repo + "/blob/main/" + path : SITE.repo;
+  });
+
+  // ---- Airfoil lab: NACA four-digit geometry + thin-airfoil theory ----
+  var canvas = document.getElementById("airfoil");
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext("2d");
+  var inM = document.getElementById("m"), inP = document.getElementById("p"), inT = document.getElementById("t");
+
+  function camber(x, m, p) {           // mean line z_c(x) and slope dz/dx, chord = 1
+    if (m === 0) return [0, 0];
+    if (x < p) return [m / (p * p) * (2 * p * x - x * x), 2 * m / (p * p) * (p - x)];
+    return [m / ((1 - p) * (1 - p)) * ((1 - 2 * p) + 2 * p * x - x * x), 2 * m / ((1 - p) * (1 - p)) * (p - x)];
+  }
+  function thickness(x, t) {           // NACA four-digit half-thickness, closed trailing edge
+    return 5 * t * (0.2969 * Math.sqrt(x) - 0.1260 * x - 0.3516 * x * x + 0.2843 * x * x * x - 0.1036 * x * x * x * x);
+  }
+  function zeroLiftAngle(m, p) {       // thin-airfoil theory: a_L0 = -(1/pi) * int_0^pi dz/dx (cos th - 1) dth
+    var n = 2000, sum = 0;
+    for (var i = 0; i < n; i++) {
+      var th = Math.PI * (i + 0.5) / n;
+      var x = 0.5 * (1 - Math.cos(th));
+      sum += camber(x, m, p)[1] * (Math.cos(th) - 1);
+    }
+    return -(1 / Math.PI) * sum * (Math.PI / n);
+  }
+  function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+  function fmtDeg(rad) { var d = rad * 180 / Math.PI; return (d < 0 ? "−" : "") + Math.abs(d).toFixed(2) + "°"; }
+
+  function draw() {
+    var m = +inM.value / 100, p = +inP.value / 10, t = +inT.value / 100;
+    var mDigit = +inM.value, pDigit = m === 0 ? 0 : +inP.value;
+    document.getElementById("naca-code").textContent = "" + mDigit + pDigit + (inT.value.length < 2 ? "0" : "") + inT.value;
+    document.getElementById("o-m").textContent = inM.value + " %";
+    document.getElementById("o-p").textContent = (inP.value * 10) + " % chord";
+    document.getElementById("o-t").textContent = inT.value + " %";
+    inP.disabled = m === 0;
+
+    var a0 = zeroLiftAngle(m, p);
+    var alpha = 4 * Math.PI / 180;
+    document.getElementById("r-a0").textContent = fmtDeg(a0);
+    document.getElementById("r-cl").textContent = (2 * Math.PI * (alpha - a0)).toFixed(2);
+
+    var W = canvas.width, H = canvas.height;
+    var pad = 60, chord = W - 2 * pad, cy = H * 0.52;
+    var ink = cssVar("--ink"), ink2 = cssVar("--ink-2"), rule = cssVar("--rule"), blue = cssVar("--blue"), orange = cssVar("--orange");
+    ctx.clearRect(0, 0, W, H);
+
+    // chord stations, like a drawing
+    ctx.strokeStyle = rule; ctx.lineWidth = 1; ctx.setLineDash([4, 6]);
+    for (var s = 0; s <= 10; s++) { var sx = pad + chord * s / 10; ctx.beginPath(); ctx.moveTo(sx, cy - 110); ctx.lineTo(sx, cy + 90); ctx.stroke(); }
+    ctx.setLineDash([]);
+    ctx.fillStyle = ink2; ctx.font = "500 22px JetBrains Mono, ui-monospace, monospace"; ctx.textAlign = "center";
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) { ctx.fillText((f * 100).toFixed(0) + "% c", pad + chord * f, cy + 118); });
+
+    // chord line
+    ctx.strokeStyle = ink2; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(pad, cy); ctx.lineTo(pad + chord, cy); ctx.stroke();
+
+    // mean camber line
+    ctx.strokeStyle = blue; ctx.lineWidth = 2; ctx.setLineDash([6, 4]); ctx.beginPath();
+    for (var i = 0; i <= 200; i++) { var x = i / 200, zc = camber(x, m, p)[0]; var px = pad + chord * x, py = cy - chord * zc; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+    ctx.stroke(); ctx.setLineDash([]);
+
+    // surface, with thickness applied normal to the camber line
+    var upper = [], lower = [], N = 240;
+    for (var k = 0; k <= N; k++) {
+      var th = Math.PI * k / N, xx = 0.5 * (1 - Math.cos(th));   // cosine spacing, dense at the nose
+      var c = camber(xx, m, p), yt = thickness(xx, t), ang = Math.atan(c[1]);
+      upper.push([xx - yt * Math.sin(ang), c[0] + yt * Math.cos(ang)]);
+      lower.push([xx + yt * Math.sin(ang), c[0] - yt * Math.cos(ang)]);
+    }
+    ctx.beginPath();
+    upper.forEach(function (q, idx) { var px = pad + chord * q[0], py = cy - chord * q[1]; idx ? ctx.lineTo(px, py) : ctx.moveTo(px, py); });
+    for (var j = lower.length - 1; j >= 0; j--) ctx.lineTo(pad + chord * lower[j][0], cy - chord * lower[j][1]);
+    ctx.closePath();
+    ctx.fillStyle = cssVar("--blue-soft"); ctx.fill();
+    ctx.strokeStyle = ink; ctx.lineWidth = 3.5; ctx.lineJoin = "round"; ctx.stroke();
+
+    // max-thickness marker, in orange, with its value
+    var best = 0, bx = 0.3;
+    for (var q2 = 0; q2 <= 100; q2++) { var xq = q2 / 100, tq = thickness(xq, t); if (tq > best) { best = tq; bx = xq; } }
+    var cb = camber(bx, m, p);
+    ctx.strokeStyle = orange; ctx.lineWidth = 2.5; ctx.beginPath();
+    ctx.moveTo(pad + chord * bx, cy - chord * (cb[0] + best)); ctx.lineTo(pad + chord * bx, cy - chord * (cb[0] - best)); ctx.stroke();
+    ctx.fillStyle = orange; ctx.font = "500 22px JetBrains Mono, ui-monospace, monospace"; ctx.textAlign = "left";
+    ctx.fillText("t/c = " + (2 * best).toFixed(2) + " at " + (bx * 100).toFixed(0) + "% c", pad + chord * bx + 10, cy - chord * (cb[0] + best) - 10);
+
+    // chord label
+    ctx.fillStyle = ink2; ctx.textAlign = "right"; ctx.fillText("chord c", pad + chord, cy - 10);
+  }
+
+  [inM, inP, inT].forEach(function (el) { el.addEventListener("input", draw); });
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  if (mq.addEventListener) mq.addEventListener("change", draw);
+  new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  draw();
+})();
+</script>
+</body>
+</html>
