@@ -1,0 +1,89 @@
+# Bill of materials for project p00-calibration (lesson 00-14 Measurement, Calibration & Uncertainty)
+# Prices are estimates in USD on the price_checked date and vary by region and time. Nothing here requires
+# a 3D printer, machine shop, or university lab. Everything is reused in later projects.
+project: p00-calibration
+title: Calibrate a scale and a length measurement, and state their uncertainty
+lessons: [P00.14]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-11
+reuse_from: []
+
+tiers:
+  minimum_cost:
+    description: Household items only. Enough to do Type A and Type B uncertainty and a two-point calibration.
+    items:
+      - id: kitchen-scale
+        qty: 1
+        spec: Any kitchen scale, 1 g resolution or better, up to 1 kg or more
+        search_term: "digital kitchen scale 1g"
+        price_range: [0, 15]
+        required: true
+        reusable_id: instruments.scale-1g
+        substitutes: ["a pocket scale with 0.1 g resolution (recommended tier)", "borrow one"]
+        safety_notes: null
+      - id: reference-masses
+        qty: 1
+        spec: Objects of known mass. Coins of your country are the easiest; look up their official mass from the issuing mint and record the source and date. Water measured by volume at a known temperature is the second choice (1.000 mL ≈ 0.998 g at 20 °C).
+        search_term: "coin specifications official mint"
+        price_range: [0, 0]
+        required: true
+        reusable_id: references.coins
+        substitutes: ["a sealed packaged food item with a printed net mass (state the larger uncertainty)"]
+      - id: ruler
+        qty: 1
+        spec: 300 mm ruler with 1 mm graduations, or a tape measure
+        search_term: "300mm ruler"
+        price_range: [1, 5]
+        required: true
+        reusable_id: tools.ruler
+        substitutes: ["a printed paper scale, after checking it against a credit card (85.60 mm × 53.98 mm, ISO/IEC 7810 ID-1)"]
+      - id: notebook
+        qty: 1
+        spec: Paper or digital lab notebook for raw readings, in ink or append-only
+        search_term: "lab notebook"
+        price_range: [0, 5]
+        required: true
+        reusable_id: tools.notebook
+  recommended:
+    description: Adds a second, finer instrument so the two can be compared.
+    items:
+      - id: pocket-scale
+        qty: 1
+        spec: 0.1 g resolution, 500 g capacity or more
+        search_term: "digital pocket scale 0.1g 500g"
+        price_range: [8, 20]
+        required: false
+        reusable_id: instruments.scale-0.1g
+        substitutes: ["kitchen scale only; the comparison exercise then uses two placements of the same object"]
+      - id: calipers
+        qty: 1
+        spec: Digital or vernier calipers, 150 mm, 0.02 mm or 0.01 mm resolution
+        search_term: "digital caliper 150mm"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.caliper
+        substitutes: ["ruler only (state the 0.5 mm resolution uncertainty)"]
+  enhanced:
+    description: Adds an electronic load cell for a logged, repeatable calibration curve. Used again in the beam and thrust-stand projects.
+    items:
+      - id: load-cell-kit
+        qty: 1
+        spec: 1 kg or 5 kg strain-gauge load cell with HX711 amplifier board
+        search_term: "load cell HX711 kit"
+        price_range: [5, 15]
+        required: false
+        reusable_id: electronics.load-cell
+        safety_notes: 3.3–5 V only, USB powered; no mains wiring.
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V board with USB serial (RP2040- or ESP32-class)
+        search_term: "RP2040 development board"
+        price_range: [4, 15]
+        required: false
+        reusable_id: electronics.mcu
+        safety_notes: USB power only.
+
+tools_required: [pen, flat stable table]
+consumables: [water if used as a reference mass]
+incremental_cost_if_reusing: {minimum_cost: [0, 5], recommended: [0, 45], enhanced: [0, 30]}
