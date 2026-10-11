@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+.DS_Store
+# learner outputs that should not be committed by accident
+curriculum/**/outputs/
+projects/**/data/raw/

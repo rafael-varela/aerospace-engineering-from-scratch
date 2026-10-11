@@ -1,0 +1,3 @@
+# Reference manifest. Validated by scripts/check_references.py.
+# access_tier: required-free | supplementary-free | optional-paid
+sources: []

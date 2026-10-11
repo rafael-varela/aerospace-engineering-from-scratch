@@ -1,0 +1,50 @@
+# Bill of materials for project <project-id>
+# Prices are estimates in the stated currency on the price_checked date. They vary by region and time.
+# Nothing here requires a 3D printer, machine shop, or university lab.
+project: <project-id>
+title: <Project title>
+lessons: [Pxx.yy]
+lab_level: 1            # 1 basic, 2 prototyping, 3 aerospace experimentation
+currency: USD
+price_checked: 2026-10-11
+reuse_from: []          # project ids whose items are reused here (see reusable_id below)
+
+tiers:
+  minimum_cost:
+    description: Household items and a phone; smallest spend that still produces assessable data.
+    items:
+      - id: ruler
+        qty: 1
+        spec: 300 mm steel or plastic rule, 1 mm graduations
+        search_term: "300mm ruler"
+        price_range: [1, 5]
+        required: true
+        reusable_id: tools.ruler
+        substitutes: ["tape measure", "printed paper scale (verify with a known object)"]
+        safety_notes: null
+  recommended:
+    description: Adds calibrated measurement and repeatability.
+    items:
+      - id: digital-scale
+        qty: 1
+        spec: 0.1 g resolution, 500 g+ capacity
+        search_term: "digital pocket scale 0.1g"
+        price_range: [8, 20]
+        required: false
+        reusable_id: instruments.scale-0.1g
+        substitutes: ["kitchen scale 1 g resolution (state the larger uncertainty)"]
+  enhanced:
+    description: Adds electronic data acquisition.
+    items:
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V board with ADC and USB serial (e.g. RP2040- or ESP32-class)
+        search_term: "RP2040 development board"
+        price_range: [4, 15]
+        required: false
+        reusable_id: electronics.mcu
+        safety_notes: USB power only; no mains wiring.
+
+tools_required: [safety glasses, clamps]
+consumables: []
+incremental_cost_if_reusing: {minimum_cost: [0, 5], recommended: [0, 20], enhanced: [0, 15]}
