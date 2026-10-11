@@ -390,6 +390,7 @@ sources:
   caveat: 'Link to, do not redistribute. Publications index: https://www.bipm.org/en/committees/jc/jcgm/publications'
   lessons:
   - 00-14
+  - 00-15
 - id: nist-tn-1297
   title: 'NIST Technical Note 1297: Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results'
   creator: Barry N. Taylor, Chris E. Kuyatt, NIST
