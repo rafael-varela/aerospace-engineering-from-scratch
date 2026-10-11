@@ -1,0 +1,9 @@
+# Runtime and development dependencies for lessons, scripts and CI (pyproject.toml mirrors these).
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+sympy>=1.12
+pint>=0.23
+pyyaml>=6.0
+pytest>=8.0
+requests>=2.31

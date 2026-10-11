@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Learn aerospace engineering from first principles. Design it on your computer. Build it at home. Test it against reality."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"
 dependencies = [
   "numpy>=1.26",
   "scipy>=1.11",
@@ -16,6 +16,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "requests>=2.31"]
+
+# This repository is a curriculum, not an installable package: nothing is discovered or built.
+[tool.setuptools]
+packages = []
 
 [tool.pytest.ini_options]
 testpaths = ["curriculum", "scripts"]
