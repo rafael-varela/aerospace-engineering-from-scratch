@@ -16,7 +16,7 @@ Every major concept connects to something the learner can calculate, simulate, m
 
 **How to read the tables.** Lessons inside a phase are sequential. The **Needs** column lists only prerequisites from *other* phases, written `P<phase>.<lesson>` (for example `P02.04` is Phase 2, lesson 4). A blank means the earlier lessons in the same phase are enough.
 
-**Legend:** ✅ Complete · 🚧 In progress · ⬚ Planned · **★** graduate-level depth, optional on every path · 🔬 lesson whose practical activity is a physical home experiment. Everything is ⬚ for now.
+**Legend:** ✅ Complete · 🚧 In progress · ⬚ Planned · **★** graduate-level depth, optional on every path · 🔬 lesson whose practical activity is a physical home experiment.
 
 ---
 
@@ -44,7 +44,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 |---|---|---|---|
 | B1 | Bridge: Precalculus & Trigonometry (optional, placement-tested) | 8 | 20 |
 | B2 | Bridge: General Chemistry (optional, placement-tested) | 6 | 15 |
-| 00 | Setup, Engineering Computing & First Measurements | 15 | 24 |
+| 00 | Setup, Engineering Computing & First Measurements ✅ | 15 | 24 |
 | 01 | Mathematics I: Calculus & Linear Algebra | 18 | 45 |
 | 02 | Mathematics II: Differential Equations, Transforms & Probability | 20 | 55 |
 | 03 | Numerical Methods & Scientific Computing | 18 | 45 |
@@ -107,7 +107,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 05 | Reaction Rates & Equilibrium Intro | Simple rate model | |
 | 06 | Electrochemistry & Corrosion Basics | Battery cell voltage, galvanic series | |
 
-## Phase 00: Setup, Engineering Computing & First Measurements ⬚ (~24 h)
+## Phase 00: Setup, Engineering Computing & First Measurements ✅ (~24 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|
