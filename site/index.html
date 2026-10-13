@@ -159,6 +159,9 @@ section { padding-block: clamp(56px, 8vw, 112px); border-top: 1px solid var(--ru
 .phase .t { font-family: var(--font-display); font-weight: 500; }
 .phase .l { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-2); white-space: nowrap; }
 .phase.opt .t { color: var(--ink-2); }
+a.phase { color: inherit; text-decoration: none; }
+a.phase.ready .l { color: var(--blue); }
+a.phase.ready:hover .t, a.phase.ready:focus-visible .t { color: var(--blue); text-decoration: underline; }
 .status-line { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; margin-top: 32px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); }
 .status-line .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); margin-right: 8px; vertical-align: middle; }
 
@@ -263,7 +266,7 @@ footer a { color: var(--ink-2); }
       <h1>Learn aerospace engineering from first principles. <em>Then test it against reality.</em></h1>
       <p class="lede">A complete, free curriculum that takes a motivated self-learner from algebra to the work expected of a graduate from a top aerospace program. Derive the physics. Write the solver yourself. Build the experiment at home. Explain the gap between your prediction and your measurement.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/ROADMAP.md#phase-00-setup-engineering-computing--first-measurements--24-h" data-repo-link="ROADMAP.md#phase-00-setup-engineering-computing--first-measurements--24-h">Start with Phase 00</a>
+        <a class="btn btn-primary" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/curriculum/phase-00/README.md" data-repo-link="curriculum/phase-00/README.md">Start with Phase 00</a>
         <a class="btn btn-ghost" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/ROADMAP.md" data-repo-link="ROADMAP.md">Read the full roadmap</a>
       </div>
       <div class="hero-facts">
@@ -345,7 +348,7 @@ footer a { color: var(--ink-2); }
           <p>Shared by every path. Computing, mathematics, numerical methods, physics, mechanics, thermodynamics, fluids, signals and control. Home experiments start in Phase 00.</p>
         </div>
         <div class="phase-list">
-          <div class="phase"><span class="n">00</span><span class="t">Setup, Engineering Computing &amp; First Measurements</span><span class="l">15</span></div>
+          <a class="phase ready" href="https://github.com/rafael-varela/aerospace-engineering-from-scratch/blob/main/curriculum/phase-00/README.md" data-repo-link="curriculum/phase-00/README.md"><span class="n">00</span><span class="t">Setup, Engineering Computing &amp; First Measurements</span><span class="l">15 · open ↗</span></a>
           <div class="phase"><span class="n">01</span><span class="t">Mathematics I: Calculus &amp; Linear Algebra</span><span class="l">18</span></div>
           <div class="phase"><span class="n">02</span><span class="t">Mathematics II: ODEs, Transforms &amp; Probability</span><span class="l">20</span></div>
           <div class="phase"><span class="n">03</span><span class="t">Numerical Methods &amp; Scientific Computing</span><span class="l">18</span></div>
