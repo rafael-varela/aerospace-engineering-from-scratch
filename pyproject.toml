@@ -12,6 +12,7 @@ dependencies = [
   "sympy>=1.12",
   "pint>=0.23",
   "pyyaml>=6.0",
+  "h5py>=3.10",
 ]
 
 [project.optional-dependencies]
@@ -24,4 +25,4 @@ packages = []
 [tool.pytest.ini_options]
 testpaths = ["curriculum", "scripts"]
 python_files = ["test_*.py"]
-addopts = "-q"
+addopts = "-q --import-mode=importlib"

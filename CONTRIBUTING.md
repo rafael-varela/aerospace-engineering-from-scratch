@@ -7,7 +7,7 @@ Thank you for helping build a free aerospace engineering education. This file sa
 1. **Free and original.** Required readings link to free sources. Explanations, problems, and solutions are written by you, in your own words. Never paste protected textbook text, instructor answer keys, or test banks.
 2. **Safe.** Every hands-on activity has a safety box before the procedure: hazards, controls, supervision, operating envelope, stop criteria. No at-home combustion, motor firing, pressure vessels, high-speed unguarded rotors, or autonomous outdoor flight, ever, as a requirement.
 3. **Honest.** Say what a model assumes and where it fails. Never claim a simulation is a physical test. Never claim the course grants a credential.
-4. **Checked.** `python scripts/check_paths.py` and `python scripts/check_references.py` pass, and `pytest` passes for any lesson you touch.
+4. **Checked.** `python scripts/check_paths.py`, `python scripts/check_references.py` and `python scripts/check_lessons.py` pass, and `AEFS_IMPL=solution pytest <lesson dir>` passes for any lesson you touch.
 
 ## Writing a lesson
 

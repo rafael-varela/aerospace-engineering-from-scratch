@@ -1,0 +1,92 @@
+# Bill of materials for project p00-first-experiment (lesson 00-15 First Experiment: Predict, Measure, Compare)
+# Prices are estimates in USD on the price_checked date and vary by region and time.
+project: p00-first-experiment
+title: Time a falling object and test the free-fall prediction
+lessons: [P00.15]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-11
+reuse_from: [p00-calibration]
+
+tiers:
+  minimum_cost:
+    description: A phone and household objects.
+    items:
+      - id: phone-camera
+        qty: 1
+        spec: Any phone that records video at a known frame rate (30 or 60 fps; check the camera settings and record the value)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+        substitutes: ["a stopwatch or the phone's stopwatch app (expect reaction-time scatter of about 0.1–0.2 s; that is part of the lesson)"]
+      - id: drop-object
+        qty: 1
+        spec: A dense, compact object that will not break or bounce dangerously, about 50–200 g: a bean bag, a small rubber ball, a sock filled with rice, or a bolt wrapped in tape
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.drop-object
+        substitutes: ["any similar object; avoid anything light enough for drag to matter (no paper, feathers, ping-pong balls)"]
+      - id: tape-measure
+        qty: 1
+        spec: Tape measure, 2 m or longer, 1 mm graduations
+        search_term: "tape measure 3m"
+        price_range: [2, 8]
+        required: true
+        reusable_id: tools.tape-measure
+        substitutes: ["ruler from p00-calibration, used repeatedly with a pencil mark (state the extra uncertainty)"]
+      - id: landing-pad
+        qty: 1
+        spec: A folded towel or cushion where the object lands
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.towel
+      - id: tripod-or-stack
+        qty: 1
+        spec: Anything that holds the phone still and level with the drop path: a stack of books, a cup, a tripod
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: true
+        reusable_id: tools.phone-stand
+  recommended:
+    description: Adds a release mechanism and a scale reference in the frame, reducing two of the largest uncertainties.
+    items:
+      - id: release-clip
+        qty: 1
+        spec: A clothes peg or binder clip taped to a shelf edge, so the release does not involve a hand in the frame
+        search_term: "binder clip"
+        price_range: [0, 3]
+        required: false
+        reusable_id: misc.clip
+      - id: reference-marks
+        qty: 1
+        spec: Two pieces of tape on the wall, exactly 1.000 m apart (measured with the tape measure), visible in every frame
+        search_term: "masking tape"
+        price_range: [0, 3]
+        required: false
+        reusable_id: misc.tape
+  enhanced:
+    description: Electronic timing that removes frame-rate quantization. Reused in the pendulum project.
+    items:
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V board with USB serial (RP2040- or ESP32-class)
+        search_term: "RP2040 development board"
+        price_range: [4, 15]
+        required: false
+        reusable_id: electronics.mcu
+        safety_notes: USB power only.
+      - id: ir-break-beam-pair
+        qty: 2
+        spec: Infrared break-beam sensor pairs (emitter and receiver), 3.3–5 V
+        search_term: "IR break beam sensor 3mm"
+        price_range: [3, 8]
+        required: false
+        reusable_id: electronics.break-beam
+        safety_notes: Low voltage; infrared LEDs are not a laser.
+
+tools_required: [pencil, masking tape]
+consumables: []
+incremental_cost_if_reusing: {minimum_cost: [0, 10], recommended: [0, 6], enhanced: [0, 25]}

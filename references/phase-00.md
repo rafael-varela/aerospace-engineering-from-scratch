@@ -119,7 +119,17 @@ Sources: `@jcgm-100-2008`, `@nist-tn-1297`
 
 
 
+## 00-15 First Experiment: Predict, Measure, Compare
+
+Sources: `@jcgm-100-2008` (supplementary-free here; required in 00-14)
+
+- Original instruction. The propagation and reporting rules reuse the GUM extract from 00-14. Procedure,
+  bill of materials and safety box live in `projects/p00-first-experiment/`.
+
 ## Lessons without a mapped free source
 
-- **00-02 Git & Collaboration**, **00-08 Reading Data**, **00-15 First Experiment**: use the tool vendors' own documentation (git-scm.com, Python `csv`/`h5py` docs) and original instruction; to be added to the manifest when the lessons are written.
+- **00-02 Git & Collaboration**: original instruction; the authoritative reference is the manual installed
+  with Git (`git help <command>`), as the lesson states.
+- **00-08 Reading Data**: `@numpy-userguide` for array I/O and `@nasa-mco-mib` as the worked telemetry
+  case; Python `csv` and `h5py` documentation linked directly from the lesson.
 - **00-11 Reading a Technical Paper**: see the NTRS pick in [phase-04.md](phase-04.md#00-11-reading-a-technical-paper-ntrs-pick), `@ntrs-naca-tr-824-summary-of-airfoil-data`.
