@@ -1,0 +1,10 @@
+# P01.10  Hints
+
+One hint per problem. A hint points at the idea, not the answer. Read `method.md` next if the hint is not enough.
+
+1. An untapered, unswept box is a rectangular block of width $w = (f_1 - f_0)c$, height $h = \tau c$ and length $L$, with its CG at the block's centre: $x_{cg} = \tfrac12(f_0 + f_1)c$, $y_{cg} = L/2$, $z_{cg} = 0$. The block formulas give the tensor about the CG; the parallel-axis theorem (10) with $\mathbf d = \mathbf r_{cg}$ gives it about the root, and the product term is $-m\,x_{cg}y_{cg}$.
+2. For (a)–(b) substitute $u = c(y)$, $\mathrm{d}y = L\,\mathrm{d}u/(c_t - c_r)$, and integrate powers of $u$; or expand $c^2$ as a quadratic in $y$. For (c) the matrix is upper-triangular after reordering the rows $(y, x, z)$. For (d) write $\mathbf r = \mathbf r_{cg} + \mathbf r'$ and use $\int\rho\mathbf r'\,\mathrm{d}V = \mathbf 0$. For (e) write out $I_{xx} + I_{yy} - I_{zz}$ from the definitions.
+3. Integrate over $\theta$ (gives $2\pi$) and $r$ (gives $\tfrac12r_{\max}^2$ or $\tfrac14r_{\max}^4$) first; what remains is a polynomial in $z$ with $r_{\max}^2 = 2Rz - z^2$. For (d) the tank's axis is parallel to the roll axis at distance 2 m, so the parallel-axis term is $m \times 4$ m².
+4. The one-dimensional midpoint error is $-\tfrac{h^2}{24}[g'(1) - g'(0)]$ per direction; for $g = \eta^2c(\eta)^2$ with $c_t = c_r/2$ evaluate $g'$ at both ends. Richardson assumes the error is $Ch^2$ with one $C$; it cannot help when two terms of different order compete.
+5. The rod along $x$ through the CG contributes nothing to $I_{xx}$. Shift each half-wing from its own CG to the aircraft CG with $\mathbf d = (0, \pm y_{cg}, 0)$; the mirrored products of inertia cancel.
+6. The cross-section area $A(y) = (f_1 - f_0)\tau c^2$ does not change; only the weight $\rho(y)$ in each integrand does. In `midpoint_3d` the integrand receives the physical $(x, y, z)$, so `lambda x, y, z: rho(y)` works unchanged. For $I_{xx}$ keep the $z^2$ part: $\int\rho(y)A(y)[y^2 + (\tau c)^2/12]\,\mathrm{d}y$.
