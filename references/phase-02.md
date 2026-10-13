@@ -1,6 +1,6 @@
 # Reference map: Phase 02: Mathematics II: Differential Equations, Transforms & Probability
 
-Verified 2026-10-11 by loading the live pages; section numbers and titles are copied from the publishers' own chapter outlines or section pages. Every source here is **required-free** unless marked otherwise; sources are identified by an `@`-prefixed identifier and recorded in [sources.yaml](sources.yaml) with license, version, and caveats. **GAP** marks a lesson that no listed free source covers adequately: the lesson must carry original instruction there, and any "candidate" named is unverified until it is added to the manifest.
+Verified 2026-10-11 (02-10 continuous FT, 02-11 to 02-14, 02-15 counting, 02-17 9.3-9.5, 02-19, 02-20 added and verified 2026-10-13) by loading the live pages; section numbers and titles are copied from the publishers' own chapter outlines or section pages. Every source here is **required-free** unless marked otherwise; sources are identified by an `@`-prefixed identifier and recorded in [sources.yaml](sources.yaml) with license, version, and caveats. **GAP** marks a lesson that no listed free source covers adequately: the lesson must carry original instruction there, and any "candidate" named is unverified until it is added to the manifest.
 
 Conventions: OpenStax section URLs follow `https://openstax.org/books/<book-slug>/pages/<n>-<m>-<title-slug>`; a URL written as `.../pages/...` continues the last full URL above it. MIT OCW video URLs follow `https://ocw.mit.edu/courses/<course-slug>/resources/lecture-<n>-<slug>/`. OpenStax and MIT OCW are **CC BY-NC-SA 4.0**, Leishman is **CC BY-NC-ND 4.0**: the curriculum links to them and writes its own explanations; nothing is copied or adapted.
 
@@ -79,26 +79,65 @@ Sources: `@mit-ocw-18-06-linear-algebra`, `@mit-ocw-18-03-differential-equations
 
 ## 02-10 Fourier Transform & the FFT
 
-Sources: `@mit-ocw-18-06-linear-algebra`, `@mit-ocw-18-03-differential-equations`
+Sources: `@mit-ocw-18-06-linear-algebra`, `@mit-ocw-18-03-differential-equations`, `@mit-ocw-6-003-signals-and-systems`
 
 - 18.06 Lecture 26: Complex matrices; fast fourier transform — https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-26-complex-matrices-fast-fourier-transform/ — DFT matrix F_n, its unitary structure, and the FFT factorization. Covers the discrete transform only.
-- Continuous Fourier transform (definition, properties, convolution theorem, transform pairs, sampling/aliasing): **GAP** across all listed sources (18.03 Spring 2010 does Fourier *series* and Laplace only). Candidate free fills to verify: MIT OCW 18.03SC (Fall 2011) has no FT either; MIT OCW 6.003 "Signals and Systems" (Fall 2011) lectures on CT/DT Fourier transforms and sampling (CC BY-NC-SA).
+- 6.003 Lecture 14: Fourier Representations; Lecture 15: Fourier Series; Lecture 16: Fourier Transform — https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/resources/lecture-16-fourier-transform/ etc. — continuous Fourier transform as the aperiodic limit of the series; relation to the Laplace transform; transform pairs.
+- 6.003 Lecture 19: Relations Among Fourier Representations; Lecture 20: Applications of Fourier Transforms — .../resources/lecture-19-relations-among-fourier-representations/, .../resources/lecture-20-applications-of-fourier-transforms/ — CT/DT, series/transform relations; convolution and filtering in the frequency domain.
+- 6.003 Lecture 17: Discrete-Time (DT) Frequency Representations; Lecture 18: Discrete-Time (DT) Fourier Representations — the DTFT and DFT side, bridging to the 18.06 FFT lecture.
+- 6.003 Lecture 21: Sampling; Lecture 22: Sampling and Quantization — .../resources/lecture-21-sampling/, .../resources/lecture-22-sampling-and-quantization/ — sampling theorem, aliasing, reconstruction (flight-test data acquisition).
+- Matching lecture-note PDFs with the same titles: https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/pages/lecture-notes/ .
 
 ## 02-11 PDEs: Heat, Wave & Laplace
 
-Sources: `@mit-ocw-18-03-differential-equations`
+Sources: `@mit-ocw-18-303-linear-pdes`, `@mit-ocw-18-03-differential-equations`, `@dawkins-differential-equations-notes` (supplementary-free)
 
-- **GAP.** None of the listed sources cover PDEs: the 18.03 Spring 2010 lecture-notes page lists no heat/wave sessions (confirmed), and OpenStax Calculus stops at ODEs. Candidate free fills to verify: MIT OCW 18.303 "Linear Partial Differential Equations" (CC BY-NC-SA); Paul Dawkins' "Differential Equations" notes, chapter "Partial Differential Equations" (tutorial.math.lamar.edu; free to read but not CC-licensed).
+- 18.303 Lecture 1 "Overview of linear PDEs and analogies with matrix algebra"; Lecture 2 "Poisson's equation and eigenfunctions in 1d: Fourier sine series" — https://ocw.mit.edu/courses/18-303-linear-partial-differential-equations-analysis-and-numerics-fall-2014/pages/lecture-summaries/ (one-line summaries per lecture with handout PDFs; no videos) — the Laplace/Poisson equation and the eigenfunction viewpoint.
+- 18.303 Lecture 8 "Music and wave equations, Separation of variables, in time and space"; Lecture 9 "Separation of variables in cylindrical geometries: Bessel functions"; Lecture 10 "General Dirichlet and Neumann boundary conditions" — same page — wave equation, separation of variables, boundary conditions.
+- 18.303 Lecture 22 "Von Neumann analysis and the heat equation"; Lecture 23 "Algebraic properties of wave equations and unitary time evolution, Conservation of energy in a stretched string"; Lecture 25 "Traveling waves: D'Alembert's solution"; Lecture 26 "Group-velocity derivation and dispersion" — heat equation, d'Alembert, dispersion (the acoustics/structural-vibration context).
+- 18.303 syllabus — .../pages/syllabus/ — lists the topics (heat/diffusion, wave, Poisson equations; separation of variables; Green's functions) and the recommended, non-free texts (Strang CSE; Olver). Fourier-series prerequisites: 18.03 notes 20-22 (see 02-09).
+- Supplementary-free, not CC: Dawkins, Differential Equations, Chapter 9 Partial Differential Equations — https://tutorial.math.lamar.edu/Classes/DE/IntroPDE.aspx — sections "The Heat Equation", "The Wave Equation", "Terminology", "Separation of Variables", "Solving the Heat Equation", "Heat Equation with Non-Zero Temperature Boundaries", "Laplace's Equation", "Vibrating String", "Summary of Separation of Variables" (slugs TheHeatEquation.aspx, TheWaveEquation.aspx, PDETerminology.aspx, SeparationofVariables.aspx, SolvingHeatEquation.aspx, HeatEqnNonZero.aspx, LaplacesEqn.aspx, VibratingString.aspx, PDESummary.aspx) — a gentler worked-example walk-through; link only.
+
+## 02-12 Complex Variables & Conformal Maps
+
+Sources: `@mit-ocw-18-04-complex-variables`
+
+- 18.04 Topic 1: Complex Algebra and the Complex Plane (sections 1.1-1.6.2, 1.6.3-1.14.2); Topic 2: Analytic Functions (2.1-2.5, 2.6-2.9) — https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/pages/lecture-notes/ (PDF notes; no videos) — Cauchy-Riemann equations, analyticity.
+- 18.04 Topic 3: Cauchy's Theorem; Topic 4: Cauchy Integral Formula; Topic 5: Harmonic Functions (5.1-5.4, 5.5-5.6) — harmonic functions as the link to Laplace's equation (potential flow).
+- 18.04 Topic 6: Two-Dimensional Hydrodynamics and Complex Potentials (6.1-6.4, 6.5-6.7) — complex potential, streamlines, sources/vortices: the direct aerodynamics application.
+- 18.04 Topic 7: Taylor and Laurent Series; Topic 8: Residue Theorem; Topic 9: Definite Integrals Using the Residue Theorem — residues (inverse Laplace transforms, Kutta-Joukowski integrals).
+- 18.04 Topic 10: Conformal Transformations (10.1-10.4, 10.5-10.8, 10.8-10.11) — conformal maps; the Joukowski airfoil transformation belongs here (verify the specific example in the PDF before citing it by name).
+- 18.04 Topic 12: Laplace Transform; Topic 11: Argument Principle — optional cross-links to 02-08 and to Nyquist stability in control.
+
+## 02-13 Calculus of Variations
+
+Sources: `@mit-ocw-16-323-principles-of-optimal-control`, `@mit-ocw-8-033-relativity` (supplementary-free)
+
+- 16.323 Lecture 5: Calculus of variations — https://ocw.mit.edu/courses/16-323-principles-of-optimal-control-spring-2008/resources/lec5/ — functionals, first variation, Euler-Lagrange equation (resource description: "an alternative approach to solve general optimization problems for continuous systems").
+- 16.323 Lecture 6: Calculus of variations applied to optimal control — .../resources/lec6/ — the bridge to trajectory optimisation (Pontryagin-style necessary conditions). Lecture Notes index: .../pages/lecture-notes/ (topics are listed in place of formal titles).
+- 16.323 Lecture 2: Nonlinear optimization: constrained nonlinear optimization, Lagrange multipliers — .../resources/lec2/ — finite-dimensional Lagrange multipliers as the warm-up.
+- Supplementary-free: 8.033 Session 8 "Variational Calculus" slides — https://ocw.mit.edu/courses/8-033-relativity-fall-2006/resources/lecture8_euler/ — extremisation of path integrals, Euler-Lagrange equations and constants of motion, brachistochrone (a short, undergraduate-level introduction; the 16.323 notes are graduate-level).
+- Hamilton's principle / Lagrangian mechanics for flight-vehicle dynamics is not covered by either source beyond the 8.033 optional problems: original instruction.
+
+## 02-14 Tensor Notation
+
+Sources: `@mit-ocw-3-11-mechanics-of-materials`, `@mit-ocw-8-07-electromagnetism-ii` (supplementary-free), `@mit-ocw-18-06-linear-algebra`
+
+- 3.11 Appendix "Matrix and Index Notation" — https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/resources/mit3_11f99_index/ — index notation, summation convention, Kronecker delta, matrix-index correspondence (short PDF module).
+- 3.11 Module "Tensor Transformations" (under "General Concepts of Stress and Strain") — .../resources/mit3_11f99_trans/; module index https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/pages/modules/ — transformation of stress/strain tensors under rotation, principal values (the stress-tensor use in structures).
+- Supplementary-free: 8.07 "Electromagnetism II, Lecture Notes 2" (resource description: rotations in index notation) — https://ocw.mit.edu/courses/8-07-electromagnetism-ii-fall-2012/resources/mit8_07f12_ln2/ — rotation matrices, Levi-Civita symbol and index gymnastics in a physics setting.
+- 18.06 for the eigenvalue/orthogonal-matrix background (see 01-16 to 01-18). Neither source does general curvilinear tensor calculus (covariant/contravariant components, Christoffel symbols): if the lesson needs it, that part is original instruction; 18.065 (Spring 2018) was not found to cover tensor notation and is not cited.
 
 ## 02-15 Probability Fundamentals
 
-Sources: `@openstax-introductory-statistics-2e`
+Sources: `@openstax-introductory-statistics-2e`, `@openstax-precalculus-2e`, `@mit-ocw-18-05-introduction-to-probability-and-statistics`
 
 - IS 3.1 Terminology — https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology — sample space, events, P(A), conditional probability notation.
 - IS 3.2 Independent and Mutually Exclusive Events — .../pages/3-2-independent-and-mutually-exclusive-events.
 - IS 3.3 Two Basic Rules of Probability — .../pages/3-3-two-basic-rules-of-probability — multiplication and addition rules.
 - IS 3.4 Contingency Tables; 3.5 Tree and Venn Diagrams — .../pages/3-4-contingency-tables, .../pages/3-5-tree-and-venn-diagrams — Bayes-style reasoning via trees (Bayes' theorem itself is not a named section; note this when writing the lesson).
-- Counting/combinatorics: PC Chapter 11 "Sequences, Probability and Counting Theory" has sections on counting principles and binomial theorem (chapter outline not fetched in this pass; confirm numbers before citing).
+- Counting/combinatorics: PC 11.5 Counting Principles; 11.6 Binomial Theorem; 11.7 Probability — https://openstax.org/books/precalculus-2e/pages/11-introduction-to-sequences-probability-and-counting-theory (chapter outline, confirmed 2026-10-13: 11.1 Sequences and Their Notations, 11.2 Arithmetic Sequences, 11.3 Geometric Sequences, 11.4 Series and Their Notations, 11.5 Counting Principles, 11.6 Binomial Theorem, 11.7 Probability) — permutations, combinations, binomial coefficients.
+- 18.05 Reading 1b: Counting and Sets; Reading 2: Probability: Terminology and Examples; Reading 3: Conditional Probability, Independence and Bayes' Theorem — https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/readings/ — Bayes' theorem stated and named (filling the gap noted above for IS 3.4-3.5).
 
 ## 02-16 Random Variables & Distributions
 
@@ -116,7 +155,7 @@ Sources: `@openstax-introductory-statistics-2e`
 
 - IS 8.1 A Single Population Mean using the Normal Distribution; 8.2 A Single Population Mean using the Student t-Distribution — https://openstax.org/books/introductory-statistics-2e/pages/8-1-a-single-population-mean-using-the-normal-distribution, .../pages/8-2-a-single-population-mean-using-the-student-t-distribution — confidence intervals, error bound.
 - IS 9.1 Null and Alternative Hypotheses; 9.2 Outcomes and the Type I and Type II Errors — .../pages/9-1-null-and-alternative-hypotheses, .../pages/9-2-outcomes-and-the-type-i-and-type-ii-errors.
-- IS 9.3 Distribution Needed for Hypothesis Testing; 9.4 Rare Events, the Sample, Decision and Conclusion; 9.5 Additional Information and Full Hypothesis Test Examples — slugs 9-3-distribution-needed-for-hypothesis-testing, 9-4-rare-events-the-sample-decision-and-conclusion, 9-5-additional-information-and-full-hypothesis-test-examples (9.3 page returned an error during verification; titles for 9.3-9.5 are inferred from URL slugs seen in Previous/Next links; confirm before publishing).
+- IS 9.3 Probability Distribution Needed for Hypothesis Testing; 9.4 Rare Events, the Sample, Decision and Conclusion; 9.5 Additional Information and Full Hypothesis Test Examples — .../pages/9-3-probability-distribution-needed-for-hypothesis-testing, .../pages/9-4-rare-events-the-sample-decision-and-conclusion, .../pages/9-5-additional-information-and-full-hypothesis-test-examples (headings confirmed on the live pages 2026-10-13; the 9.3 slug previously recorded as 9-3-distribution-needed-for-hypothesis-testing was wrong, which is why it errored).
 - IS 9.6 Hypothesis Testing of a Single Mean and Single Proportion — .../pages/9-6-hypothesis-testing-of-a-single-mean-and-single-proportion — worked p-value procedure (acceptance testing of components).
 - Descriptive statistics (mean, SD, histograms): IS Chapter 2 "Descriptive Statistics" (not fetched in this pass).
 
@@ -130,8 +169,23 @@ Sources: `@openstax-precalculus-2e`, `@openstax-introductory-statistics-2e`, `@m
 - IS 12.5 Prediction; 12.6 Outliers — .../pages/12-5-prediction, .../pages/12-6-outliers — extrapolation caveats, outlier detection (wind-tunnel data cleaning).
 - 18.06 Lecture 16: Projection matrices and least squares — the linear-algebra derivation of the same fit; general polynomial/multi-parameter curve fitting via normal equations or QR (Lecture 17). PC 4.8 Fitting Exponential Models to Data for nonlinear-in-parameter fits via log transform.
 
+## 02-19 Random Processes & Power Spectra
 
+Sources: `@mit-ocw-6-011-signals-systems-and-inference`, `@mit-ocw-6-003-signals-and-systems`
 
-## Lessons without a mapped free source
+- 6.011 Lecture 12: Probabilistic Models, Random Variables; Lecture 13: Vector Picture for First- and Second-Order Statistics, MMSE and LMMSE Estimation; Lecture 14: LMMSE Estimation, Orthogonality — https://ocw.mit.edu/courses/6-011-signals-systems-and-inference-spring-2018/pages/lecture-notes/ (PDF slides; no videos; list is out of numeric order on the page) — second-order statistics, correlation, linear estimation.
+- 6.011 Lecture 15: Normal Equations, Random Processes; Lecture 16: Wide-sense Stationary Processes, LTI Filtering of WSS Processes; Lecture 17: LTI Filtering of WSS Processes — autocorrelation, WSS, response of LTI systems to random inputs (gust loads, sensor noise).
+- 6.011 Lecture 18: Power Spectral Density; Lecture 19: Einstein-Wiener-Khinchin Theorem, PSD Applications, Modeling Filters — PSD, Wiener-Khinchin (turbulence spectra such as Dryden/von Karman are the aerospace application; not in the source).
+- 6.011 Lecture 3: Energy Spectral Density; Lecture 20: Wiener Filtering; Lecture 22: Hypothesis Testing; Lecture 24: Matched Filtering — optional extensions (estimation and detection).
+- The 6.011 Readings page assigns Oppenheim & Verghese, *Signals, Systems and Inference* (Pearson, not free): do not cite it as required. Deterministic Fourier background: 6.003 Lectures 16, 19-21 (see 02-10).
 
-- **02-12 Complex Variables & Conformal Maps**, **02-13 Calculus of Variations**, **02-14 Tensor Notation**, **02-19 Random Processes & Power Spectra**, **02-20 Bayesian Inference**: not in this verification pass. Candidates to verify: MIT OCW 18.04 Complex Variables with Applications, 18.06/18.065 for tensors, 6.011/6.041 for random processes and Bayesian inference.
+## 02-20 Bayesian Inference
+
+Sources: `@mit-ocw-18-05-introduction-to-probability-and-statistics`
+
+- 18.05 Reading 3: Conditional Probability, Independence and Bayes' Theorem — https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/pages/readings/ (PDF readings) — Bayes' theorem, base-rate reasoning.
+- 18.05 Reading 10a: Introduction to Statistics; Reading 10b: Maximum Likelihood Estimates — likelihood as the common ground with 02-17.
+- 18.05 Reading 11: Bayesian Updating with Discrete Priors; Reading 12a: Bayesian Updating: Probabilistic Prediction; Reading 12b: Bayesian Updating: Odds — prior/likelihood/posterior tables, predictive probabilities, odds form.
+- 18.05 Reading 13a: Bayesian Updating with Continuous Priors; Reading 13b: Notational conventions; Reading 14: Continuous Data with Continuous Priors; Reading 15: Conjugate priors: Beta and normal — continuous updating; the normal-normal conjugate pair is the scalar Kalman-filter measurement update.
+- 18.05 Reading 16a: Choosing priors; Reading 16b: Probability intervals; Reading 20: Comparison of frequentist and Bayesian inference — priors, credible intervals, frequentist vs Bayesian (reliability and fault-diagnosis framing).
+- Readings numbers are not contiguous on the page (no 8, 9, 21, 25). The same materials are on MIT Open Learning Library per the course page.
