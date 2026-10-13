@@ -45,7 +45,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | B1 | Bridge: Precalculus & Trigonometry (optional, placement-tested) | 8 | 20 |
 | B2 | Bridge: General Chemistry (optional, placement-tested) | 6 | 15 |
 | 00 | Setup, Engineering Computing & First Measurements ✅ | 15 | 24 |
-| 01 | Mathematics I: Calculus & Linear Algebra | 18 | 45 |
+| 01 | Mathematics I: Calculus & Linear Algebra ✅ | 18 | 45 |
 | 02 | Mathematics II: Differential Equations, Transforms & Probability | 20 | 55 |
 | 03 | Numerical Methods & Scientific Computing | 18 | 45 |
 | 04 | Physics Foundations | 15 | 38 |
@@ -127,7 +127,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 14 | Measurement, Calibration & Uncertainty | Calibrate a kitchen scale and a phone sensor; report uncertainty 🔬 | |
 | 15 | First Experiment: Predict, Measure, Compare | Time a falling object with phone video; compare with prediction 🔬 | |
 
-## Phase 01: Mathematics I: Calculus & Linear Algebra ⬚ (~45 h)
+## Phase 01: Mathematics I: Calculus & Linear Algebra ✅ (~45 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|
