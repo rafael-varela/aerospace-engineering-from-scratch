@@ -255,7 +255,6 @@ sources:
   - 03-03
   - 03-04
   - 03-05
-  - 03-07
 - id: ocw-18-335j
   title: 18.335J Introduction to Numerical Methods (Spring 2019)
   creator: Steven G. Johnson, MIT OpenCourseWare
@@ -271,7 +270,6 @@ sources:
   - 03-02
   - 03-03
   - 03-04
-  - 03-07
   - 03-08
   - 03-09
   - 03-10
@@ -291,7 +289,6 @@ sources:
   lessons:
   - 03-05
   - 03-06
-  - 03-07
   - 03-10
   - 03-11
   - 03-12
@@ -307,8 +304,7 @@ sources:
   access_tier: required-free
   verified: 2026-10-11
   caveat: No lecture titles exposed; 'Open Textbook' and 'Nutshells & GUIs' sections, MATLAB-based. Secondary source.
-  lessons:
-  - 03-07
+  lessons: []
 - id: ocw-18-085
   title: 18.085 Computational Science and Engineering I (Fall 2008), Video Lectures
   creator: Gilbert Strang, MIT OpenCourseWare
@@ -667,3 +663,57 @@ sources:
   lessons:
   - 02-15
   - 02-20
+- id: langtangen-linge-fd-computing-pdes
+  title: 'Finite Difference Computing with PDEs: A Modern Software Approach'
+  creator: Hans Petter Langtangen and Svein Linge; Springer Open (Texts in Computational Science and Engineering 16)
+  version: 1st edition, 2017 (eBook published 2017-06-21); DOI 10.1007/978-3-319-55456-3
+  url: https://link.springer.com/book/10.1007/978-3-319-55456-3
+  license: CC BY 4.0 (book page states open access under a CC BY 4.0 license)
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Chapter pages (DOI suffix _1 Vibration ODEs, _2 Wave Equations) are open access; the Springer HTML view
+    truncated in this environment, so chapter 1 headings were verified through 1.9 from the chapter PDF and headings
+    after 1.9 were not loaded. "Symplectic" appears only in the chapter abstract, not in any heading.
+  lessons:
+  - 03-07
+  - 03-18
+- id: langtangen-fd-computing-exponential-decay
+  title: Finite Difference Computing with Exponential Decay Models
+  creator: Hans Petter Langtangen (Simula Research Laboratory); Springer Open (Lecture Notes in Computational Science and Engineering 110)
+  version: 1st edition, 2016 (eBook published 2016-06-10); DOI 10.1007/978-3-319-29439-1
+  url: https://link.springer.com/book/10.1007/978-3-319-29439-1
+  license: CC BY-NC 4.0 (chapter "Rights and permissions" states "distributed under the terms of the Creative Commons
+    Attribution-NonCommercial 4.0 International License")
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: NonCommercial. Chapter 3 "Generalizations" is the one used; its adaptive-RK section demonstrates Dormand-Prince
+    via the Odespy package (unmaintained Python 2-era library) rather than deriving a step controller.
+  lessons:
+  - 03-06
+  - 03-07
+  - 03-18
+- id: nasa-nparc-cfd-vv-tutorial
+  title: NPARC Alliance CFD Verification and Validation Web Site, Tutorial
+  creator: NASA Glenn Research Center (Responsible NASA Official/Curator John W. Slater); NPARC Alliance
+  version: Web pages last updated 2021-02-10
+  url: https://www.grc.nasa.gov/www/wind/valid/tutorial/tutorial.html
+  license: US Government work (public domain in the US); no license statement on the pages, only a "Web Privacy Policy
+    and Important Notices" link
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: 1990s-style static HTML; WIND-code centric examples. Covers Richardson extrapolation and GCI but does not
+    mention the method of manufactured solutions.
+  lessons:
+  - 03-18
+- id: chaospy-docs
+  title: chaospy User guide
+  creator: Jonathan Feinberg and chaospy contributors
+  version: chaospy 4.3.13 (shown in page titles)
+  url: https://chaospy.readthedocs.io/en/latest/user_guide/index.html
+  license: MIT License (GitHub repository LICENCE.txt; not stated on the docs pages)
+  access_tier: supplementary-free
+  verified: 2026-10-16
+  caveat: Software documentation, not a course; polynomial chaos theory is explained only as far as needed to use the
+    library. "latest" URL tracks releases; page titles may move.
+  lessons:
+  - 03-17
