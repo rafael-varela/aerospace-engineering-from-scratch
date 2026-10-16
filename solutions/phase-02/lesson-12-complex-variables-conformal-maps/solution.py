@@ -355,6 +355,7 @@ def main(out_dir: str | Path = ".") -> None:
     fig.suptitle("P02.12  Joukowski airfoil from a circle")
     fig.tight_layout()
     fig.savefig(out_dir / "joukowski_airfoil.png", dpi=150)
+    plt.close(fig)
     print(f"\nsaved {out_dir / 'joukowski_airfoil.png'}")
 
 
