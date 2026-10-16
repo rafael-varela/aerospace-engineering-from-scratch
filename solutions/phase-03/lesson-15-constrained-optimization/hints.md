@@ -1,0 +1,10 @@
+# P03.15  Hints
+
+One hint per problem. A hint points at the idea, not the answer. Read `method.md` next if the hint is not enough.
+
+1. The unconstrained minimum is (3, 2). If it satisfies x + y ≤ 2 + s/10 the constraint is inactive and λ = 0; otherwise the solution is the orthogonal projection of (3, 2) onto the line x + y = 2 + s/10, and λ follows from ∇f = λ∇g with ∇g = (−1, −1).
+2. (a) Differentiate f*(ε) = L(x*(ε), λ*(ε); ε) and watch every term vanish except ∂L/∂ε. (b) Write the gradient of the QP's Lagrangian with respect to p and set it to zero; compare with Newton's linearisation of ∇f − J_𝒲ᵀλ = 0, g_𝒲 = 0. (c) ∇φ = ∇f + μ Σ min(g_i, 0) ∇g_i: match coefficients with ∇f = Σ λ_i ∇g_i. (d) In log variables the constraint gradients are the exponent vectors (3, 1) and (0, 2); a multiplier in log space multiplies d ln m, and d m = m d ln m.
+3. Once L is eliminated the mass is m(R, t) = ρ t (2V/R + (4/3)πR²): the first term is the cylinder, the second the two hemispheres. With t fixed at the gauge, dm/dR = 0 gives the sphere. The multiplier of R ≤ R_max is −dm/dR at the solution (per unit of the normalised constraint, divide by R_max to get kg/m).
+4. The thresholds in 2.6 scale: the gauge threshold 2πkE t_min² does not depend on L; the stress threshold does, through r*. Compute the stress at the Euler + local vertex first and compare with 240 MPa. The observed order comes from `observed_order(err[-3:])` after dropping errors below 10⁻¹².
+5. Count calls with a small wrapper: `def f_counted(x): count[0] += 1; return prob.f(x)` and build a new `Problem` with it. The penalty Hessian has eigenvalues of order μ along active constraint normals and of order 1 along the boundary, so BFGS needs more line-search steps as μ grows. For the augmented Lagrangian the multiplier error shrinks by a factor of order 1/μ per outer iteration.
+6. Think in orders of magnitude: a thickness of 0.002 m and a stress of 3 × 10⁸ Pa differ by eleven decades, and BFGS starts from the identity. A multiplier is a derivative of the objective, so compare it with the objective's size. For (d), the lesson's m* ∝ γ^{−1/3} law is the calculation.
