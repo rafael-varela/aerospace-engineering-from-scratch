@@ -183,6 +183,16 @@ sources:
   - 04-11
   - 04-15
   - 05-07
+  - 07-01
+  - 07-02
+  - 07-03
+  - 07-04
+  - 07-05
+  - 07-06
+  - 07-12
+  - 07-13
+  - 07-14
+  - 07-15
 - id: openstax-university-physics-vol3
   title: University Physics Volume 3
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -216,6 +226,9 @@ sources:
   - B2-04
   - B2-05
   - B2-06
+  - 07-09
+  - 07-10
+  - 07-11
 - id: leishman-intro-aerospace-flight-vehicles
   title: Introduction to Aerospace Flight Vehicles
   creator: J. Gordon Leishman; publisher Embry-Riddle Aeronautical University (Eagle Pubs)
@@ -1031,3 +1044,167 @@ sources:
     FreeCAD manual for the tool steps.
   lessons:
   - 05-17
+- id: nasa-tp-2002-211556-glenn-coefficients
+  title: NASA Glenn Coefficients for Calculating Thermodynamic Properties of Individual Species
+  creator: Bonnie J. McBride, Michael J. Zehe and Sanford Gordon, NASA Glenn Research Center
+  version: NASA/TP-2002-211556 (E-13336), September 2002; NTRS document ID 20020085330
+  url: https://ntrs.nasa.gov/citations/20020085330
+  license: US Government work; NTRS record copyright determination "GOV_PUBLIC_USE_PERMITTED" (Public Use Permitted)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Documents the 9-coefficient cp/R, H/RT, S/R fits (eqs. 1-3) and lists the whole database (Appendix D) in fixed
+    FORTRAN format; the coefficients the curriculum uses are taken from the machine-readable copy in the NASA CEA repository
+    (data/thermo.inp). Fits used R = 8.314510 J/(mol K) and p° = 1 bar. The NASA CEA README links this report to the wrong
+    NTRS record (20020036214, which is NASA/TP-2001-210959/REV1, CAP); cite 20020085330.
+  lessons:
+  - 07-01
+  - 07-05
+  - 07-06
+  - 07-08
+  - 07-09
+  - 07-10
+  - 07-11
+- id: nasa-cea-github
+  title: CEA (Chemical Equilibrium with Applications) - source code and thermodynamic database
+  creator: NASA (re-implementation supported by the NASA Engineering & Safety Center; descends from the NASA Glenn/Lewis
+    CEA programs of Gordon and McBride); GitHub repository nasa/cea
+  version: Repository main branch as of 2026-10-17; data/thermo.inp (1 234 323 bytes) loaded from raw.githubusercontent.com
+  url: https://github.com/nasa/cea
+  license: Apache License 2.0 (LICENSE.txt "Apache License Version 2.0, January 2004"; README license badge Apache-2.0)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Cited for data provenance (data/thermo.inp, the NASA Glenn coefficient file) and as the reference implementation
+    of Gibbs minimization; tested lesson code must not import or call CEA. README references list TP-2002-211556 under an
+    incorrect NTRS link and do not list RP-1311.
+  lessons:
+  - 07-01
+  - 07-10
+  - 07-11
+- id: nasa-rp-1311-cea-analysis
+  title: Computer Program for Calculation of Complex Chemical Equilibrium Compositions and Applications. I. Analysis
+  creator: Sanford Gordon and Bonnie J. McBride, NASA Lewis Research Center
+  version: NASA Reference Publication 1311 (NASA-RP-1311, E-8017), October 1994; NTRS document ID 19950013764. Part II
+    "Users Manual and Program Description" (McBride and Gordon, June 1996) is NTRS 19960044559 (record loaded, PDF not read)
+  url: https://ntrs.nasa.gov/citations/19950013764
+  license: US Government work; NTRS record copyright determination "GOV_PUBLIC_USE_PERMITTED" (Public Use Permitted)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Scanned 1994 report; the text layer has OCR errors, so read the PDF pages, not the extracted text. Derives the
+    Gibbs-minimization iteration with Lagrangian multipliers (the element-potential method) at a research level; the lesson
+    must build up to it. §4.2 gives both the "old" 7-coefficient and the "new" 9-coefficient fit forms; the database itself
+    is documented in TP-2002-211556.
+  lessons:
+  - 07-10
+  - 07-11
+- id: libretexts-yan-engineering-thermodynamics
+  title: Introduction to Engineering Thermodynamics (Yan)
+  creator: Claire Yu Yan (BCcampus); LibreTexts adaptation (source tag pressbooks.bccampus.ca/thermo1)
+  version: LibreTexts edition as of 2026-10-17 (book page last modified 29 Jan 2024; chapter pages Nov 2022)
+  url: https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Introduction_to_Engineering_Thermodynamics_(Yan)
+  license: 'CC BY-NC-SA 4.0 for the book and chapters 1-6 (pages "shared under a CC BY-NC-SA 4.0 license"); the Chapter 7
+    Appendices pages say "shared under a not declared license". The CC BY-SA 4.0 hint on the book page belongs to the cover
+    thumbnail image only.'
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Subsection numbers inside sections lag the section numbers by one (inherited from the Pressbooks original, e.g.
+    section 6.8 contains subsections 6.7.1-6.7.4); cite by section title. Appendix tables (Tables A1-A3 water, B1-B2 ammonia,
+    D1-D2 CO2, E1, F1, G1-G3) state their source as NIST Chemistry WebBook SRD 69 (Lemmon, McLinden and Friend); use the
+    numbers as data with a citation to Yan and NIST, and do not copy table layouts. The Front Matter "Licensing" and Back
+    Matter "Detailed Licensing" pages are JavaScript-rendered and showed no text. The BCcampus original could not be loaded
+    (pressbooks.bccampus.ca unreachable). No isentropic-efficiency, cycle, mixture or combustion chapters.
+  lessons:
+  - 07-01
+  - 07-02
+  - 07-03
+  - 07-04
+  - 07-05
+  - 07-07
+  - 07-09
+- id: lienhard-heat-transfer-textbook
+  title: A Heat Transfer Textbook, 6th edition
+  creator: John H. Lienhard V (MIT) and John H. Lienhard IV (University of Houston); Phlogiston Press, Cambridge, Massachusetts
+  version: Version 6.00, 19 April 2024, 810 pp. (PDF AHTTv600.pdf)
+  url: https://ahtt.mit.edu/
+  license: Copyright 2000-2024 J. H. Lienhard V and J. H. Lienhard IV, all rights reserved; "The authors grant you the right
+    to download and print it for your personal use or for non-profit instructional use."
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Free to download, not openly licensed - link and cite, use Appendix A property values as data, never copy text,
+    figures or tables. PDF at https://ahtt.mit.edu/wp-content/uploads/2024/04/AHTTv600.pdf; subsections are unnumbered,
+    so cite section number plus subsection title. Steady 2-D conduction is treated analytically and by flux plotting and
+    shape factors (§5.7), not by finite differences. Revised versions are posted regularly; section numbers may shift.
+  lessons:
+  - 07-01
+  - 07-07
+  - 07-09
+  - 07-12
+  - 07-13
+  - 07-14
+  - 07-15
+- id: mit-16-unified-thermodynamics-propulsion-notes
+  title: '16.Unified: Thermodynamics and Propulsion (course notes)'
+  creator: Notes by E. M. Greitzer, Z. S. Spakovszky and I. A. Waitz; LaTeX editing by D. Quattrochi; MIT Department of Aeronautics
+    and Astronautics
+  version: Version 6.2 of the notes (HTML generated 2007-09-03); the Fall thermodynamics and Spring propulsion notes URLs
+    serve the same document
+  url: https://web.mit.edu/16.unified/www/FALL/thermodynamics/notes/
+  license: 'All rights reserved; the course home pages state "No portion of this web site may be copied, borrowed or used
+    without written consent from the authors." Free to read; link only.'
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Link by section title only; never adapt text, equations layout or figures. Page headings sometimes extend the
+    contents-list titles (e.g. 6.6 adds "(Lost Work by Another Name)", 19.4 reads "Between Black Surfaces of Arbitrary
+    Geometry"). Some math in headings is rendered as images. An openly licensed (CC BY-NC-SA) earlier version is MIT OCW
+    16.050 Fall 2002.
+  lessons:
+  - 07-01
+  - 07-02
+  - 07-03
+  - 07-04
+  - 07-05
+  - 07-06
+  - 07-07
+  - 07-08
+  - 07-09
+  - 07-10
+  - 07-12
+  - 07-13
+  - 07-14
+  - 07-15
+- id: mit-ocw-16-050-thermal-energy
+  title: 16.050 Thermal Energy
+  creator: Prof. Zoltan S. Spakovszky; notes by E. M. Greitzer and Z. S. Spakovszky; MIT OpenCourseWare
+  version: Fall 2002 (lecture notes in 11 PDFs, Parts 0-3 with table of contents and index)
+  url: https://ocw.mit.edu/courses/16-050-thermal-energy-fall-2002/
+  license: CC BY-NC-SA 4.0 (OCW footer "Creative Commons License" linking creativecommons.org/licenses/by-nc-sa/4.0/)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Earlier version of the 16.Unified notes, openly licensed through OCW. Part 3 (heat transfer) reproduces view-factor
+    figures from a commercial textbook (Fundamentals of Heat Transfer), which are third-party material outside the OCW license.
+    Resource PDFs follow https://ocw.mit.edu/courses/16-050-thermal-energy-fall-2002/resources/<code>/.
+  lessons:
+  - 07-04
+  - 07-05
+  - 07-06
+  - 07-07
+  - 07-08
+  - 07-10
+  - 07-12
+  - 07-13
+  - 07-14
+  - 07-15
+- id: libretexts-ellgen-thermodynamics-chemical-equilibrium
+  title: Thermodynamics and Chemical Equilibrium (Ellgen)
+  creator: Paul Ellgen; LibreTexts (chem.libretexts.org)
+  version: LibreTexts edition as of 2026-10-17 (book page last modified 14 Jun 2021)
+  url: https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Thermodynamics_and_Chemical_Equilibrium_(Ellgen)
+  license: CC BY-SA 4.0 (book page "shared under a CC BY-SA 4.0 license and was authored, remixed, and/or curated by Paul
+    Ellgen")
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Physical-chemistry text; uses the extent of reaction and equilibrium constants rather than multi-species Gibbs
+    minimization of a many-species mixture (that is in RP-1311). Chapter pages and section titles only were loaded; individual
+    section pages were spot-checked (13.6).
+  lessons:
+  - 07-03
+  - 07-11
