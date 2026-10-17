@@ -482,6 +482,7 @@ sources:
   caveat: ''
   lessons:
   - 00-09
+  - 08-05
 - id: pytest-getstarted
   title: Get Started — pytest documentation
   creator: holger krekel and pytest-dev team
@@ -1348,6 +1349,7 @@ sources:
     mean profiles themselves for comparison. Lesson-bundled data are synthetic.
   lessons:
   - 08-14
+  - 08-15
 - id: kth-schlatter-orlu-tbl-dns-data
   title: Turbulent Boundary Layer DNS/LES Data (zero pressure gradient)
   creator: Philipp Schlatter and Ramis Örlü (KTH Mechanics)
