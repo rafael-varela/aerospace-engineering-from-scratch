@@ -1135,6 +1135,8 @@ sources:
     shape factors (§5.7), not by finite differences. Revised versions are posted regularly; section numbers may shift.
   lessons:
   - 07-01
+  - 07-02
+  - 07-05
   - 07-07
   - 07-09
   - 07-12
