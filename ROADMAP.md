@@ -50,7 +50,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 03 | Numerical Methods & Scientific Computing ✅ | 18 | 45 |
 | 04 | Physics Foundations ✅ | 15 | 38 |
 | 05 | Statics, Mechanics of Materials & CAD ✅ | 18 | 46 |
-| 06 | Dynamics & Vibrations | 19 | 48 |
+| 06 | Dynamics & Vibrations ✅ | 19 | 48 |
 | 07 | Thermodynamics | 15 | 38 |
 | 08 | Fluid Mechanics | 19 | 48 |
 | 09 | Signals, Systems & Control | 21 | 53 |
@@ -241,7 +241,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 17 | CAD & Technical Drawings I | Model and dimension a bracket; produce a drawing | |
 | 18 | Home Lab: Cantilever Beam Deflection | Load a clamped beam, measure deflection, compare with theory 🔬 | P00.15 |
 
-## Phase 06: Dynamics & Vibrations ⬚ (~45 h)
+## Phase 06: Dynamics & Vibrations ✅ (~45 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|
