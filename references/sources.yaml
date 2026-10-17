@@ -129,6 +129,9 @@ sources:
   - 06-08
   - 06-09
   - 06-14
+  - 09-13
+  - 09-14
+  - 09-16
 - id: mit-ocw-18-03-differential-equations
   title: 18.03 Differential Equations
   creator: Prof. Arthur Mattuck and Prof. Haynes Miller; MIT OpenCourseWare
@@ -158,6 +161,7 @@ sources:
   - 06-16
   - 06-17
   - 06-19
+  - 09-02
 - id: openstax-university-physics-vol1
   title: University Physics Volume 1
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -490,7 +494,10 @@ sources:
   license: BSD 3-Clause (project LICENSE.txt); no license statement on docs page
   access_tier: required-free
   verified: 2026-10-17
-  caveat: ''
+  caveat: Phase 09 (verified 2026-10-17) uses the tutorial pages "Signal Processing (scipy.signal)" and "Linear Algebra
+    (scipy.linalg)" and the API reference pages "Signal processing (scipy.signal)" and "Linear algebra (scipy.linalg)"
+    (https://docs.scipy.org/doc/scipy/reference/signal.html, .../reference/linalg.html) for the test oracles only; the
+    tutorial does not cover state space, pole placement or Riccati solvers, which appear only in the API reference.
   lessons:
   - 00-06
   - 03-02
@@ -514,6 +521,16 @@ sources:
   - 06-16
   - 06-18
   - 06-19
+  - 09-02
+  - 09-03
+  - 09-05
+  - 09-06
+  - 09-07
+  - 09-13
+  - 09-15
+  - 09-16
+  - 09-17
+  - 09-19
 - id: matplotlib-userguide
   title: Using Matplotlib
   creator: The Matplotlib development team
@@ -638,10 +655,24 @@ sources:
   access_tier: required-free
   verified: 2026-10-17
   caveat: Lecture titles are identical on the Lecture Videos and Lecture Notes pages; video resource slugs follow lecture-<n>-<slug>.
+    Lecture-note PDFs follow resources/mit6_003f11_lec<NN>/ (re-loaded 2026-10-17 for Phase 09). The notes are slide decks
+    (one heading per slide), not prose; no lecture defines causality, memory or BIBO stability as system properties, and
+    there is no state-space or digital filter-design material.
   lessons:
   - 02-10
   - 06-16
   - 06-19
+  - 09-01
+  - 09-02
+  - 09-03
+  - 09-04
+  - 09-05
+  - 09-06
+  - 09-07
+  - 09-08
+  - 09-10
+  - 09-17
+  - 09-21
 - id: mit-ocw-18-303-linear-pdes
   title: '18.303 Linear Partial Differential Equations: Analysis and Numerics'
   creator: Prof. Steven G. Johnson; MIT OpenCourseWare
@@ -683,11 +714,15 @@ sources:
   url: https://ocw.mit.edu/courses/16-323-principles-of-optimal-control-spring-2008/
   license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
   access_tier: required-free
-  verified: 2026-10-13
+  verified: 2026-10-17
   caveat: Graduate course; the Lecture Notes page lists topics rather than formal titles. Lectures 5-6 are the calculus-of-variations
-    material; the rest is optimal control.
+    material; the rest is optimal control. Lecture PDFs follow resources/lec<n>/; examples use MATLAB. Phase 09 uses
+    Lectures 3, 4, 13, 15 and 16 (PDFs loaded 2026-10-17).
   lessons:
   - 02-13
+  - 09-16
+  - 09-18
+  - 09-20
 - id: mit-ocw-8-033-relativity
   title: 8.033 Relativity
   creator: Prof. Max Tegmark; MIT OpenCourseWare
@@ -751,11 +786,16 @@ sources:
   access_tier: required-free
   verified: 2026-10-17
   caveat: The Readings page assigns the Oppenheim-Verghese textbook "Signals, Systems and Inference" (Pearson), which is NOT free;
-    only the lecture-notes PDFs are. The lecture-notes page lists lectures out of numeric order.
+    only the lecture-notes PDFs are. The lecture-notes page lists lectures out of numeric order. Lecture PDFs (resources
+    mit6_011s18lec<n>) are sparse slides (about 130-660 words each for Lectures 4-11); this offering has no sampling or
+    discrete-time filter-design lectures.
   lessons:
   - 02-19
   - 06-16
   - 06-17
+  - 09-13
+  - 09-14
+  - 09-15
 - id: mit-ocw-18-05-introduction-to-probability-and-statistics
   title: 18.05 Introduction to Probability and Statistics
   creator: Dr. Jeremy Orloff and Dr. Jennifer French Kamrin; MIT OpenCourseWare
@@ -852,35 +892,40 @@ sources:
   - 04-10
 - id: sparkfun-learn-tutorials
   title: SparkFun Learn tutorials (Digital Logic; What is an Arduino?; Analog to Digital Conversion; Getting Started with
-    Load Cells; Accelerometer Basics; How to Use a Multimeter; How to Use a Breadboard)
+    Load Cells; Accelerometer Basics; How to Use a Multimeter; How to Use a Breadboard; Hobby Servo Tutorial; Pulse Width
+    Modulation; TB6612FNG Hookup Guide; Motors and Selecting the Right One)
   creator: SparkFun Electronics
-  version: Web pages as of 2026-10-16 (undated; "/all" single-page views)
+  version: Web pages as of 2026-10-16 (undated; "/all" single-page views); the four Phase 09 tutorials as of 2026-10-17
   url: https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter/all
   license: CC BY-SA 4.0 (each tutorial page states "Creative Commons tutorials are CC BY-SA 4.0" with a link to the license)
   access_tier: required-free
-  verified: 2026-10-16
-  caveat: Vendor site; tutorials contain product-purchase sections ("Purchasing a Multimeter", "Our Recommendations")
-    that the curriculum ignores. No specific product is required. Only the seven tutorials named in the title were loaded.
+  verified: 2026-10-17
+  caveat: Vendor site; tutorials contain product-purchase sections ("Purchasing a Multimeter", "Our Recommendations",
+    "Suggested Materials", "Required Materials") that the curriculum ignores. No specific product is required. Only the
+    eleven tutorials named in the title were loaded. The servo and motor-driver tutorials use Arduino code, not MicroPython.
   lessons:
   - 04-10
   - 04-12
   - 04-15
+  - 09-21
 - id: micropython-docs
-  title: MicroPython documentation (Quick reference for the RP2; class ADC - analog to digital conversion)
+  title: MicroPython documentation (Quick reference for the RP2; class ADC - analog to digital conversion; class PWM - pulse
+    width modulation; class Timer - control hardware timers)
   creator: Damien P. George and MicroPython contributors
-  version: '"latest" documentation build, "Last updated on 13 Oct 2026"; Copyright 2014-2026 MicroPython authors and
-    contributors'
+  version: '"latest" documentation build, "Last updated on 13 Oct 2026" (re-loaded 2026-10-17: "Last updated on 16 Oct
+    2026"); Copyright 2014-2026 MicroPython authors and contributors'
   url: https://docs.micropython.org/en/latest/rp2/quickref.html
   license: MIT License (docs "MicroPython license information" page, https://docs.micropython.org/en/latest/license.html,
     "The MIT License (MIT)", Copyright (c) 2013-2017 Damien P. George, and others)
   access_tier: required-free
-  verified: 2026-10-16
+  verified: 2026-10-17
   caveat: The "latest" build tracks the development branch and warns that it "may refer to features that are not available
     in released versions"; pin to a release URL (e.g. /en/v1.x/) when the lesson is written. Board-specific (RP2040 /
     Raspberry Pi Pico); the lesson does not require that board.
   lessons:
   - 04-10
   - 04-15
+  - 09-21
 - id: ellingson-electromagnetics-vol2
   title: 'Electromagnetics, Volume 2 (LibreTexts title "Book: Electromagnetics II (Ellingson)")'
   creator: Steven W. Ellingson (Virginia Tech); Virginia Tech Libraries Open Education Initiative; Engineering LibreTexts
@@ -1767,3 +1812,128 @@ sources:
     is conventionally cited and was not checked against the article itself.
   lessons:
   - 08-18
+- id: mit-ocw-16-06-principles-of-automatic-control
+  title: 16.06 Principles of Automatic Control
+  creator: Prof. Steven Hall; MIT OpenCourseWare
+  version: Fall 2012 (lecture notes 1-35, typeset PDFs)
+  url: https://ocw.mit.edu/courses/16-06-principles-of-automatic-control-fall-2012/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to creativecommons.org/licenses/by-nc-sa/4.0/)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Lecture-note PDFs follow resources/mit16_06f12_lecture_<n>/. The Readings page assigns Franklin, Powell and Emami-Naeini,
+    "Feedback Control of Dynamic Systems" (Prentice Hall), which is NOT free; only the notes are. The Lecture Notes page's
+    topic for a lecture and the heading inside its PDF sometimes differ (e.g. Lecture 20 is listed as "The Nyquist stability
+    criterion" but the PDF is headed "Bode Plots With Complex Poles" and introduces the argument principle; Lecture 26 is
+    listed as "Lag compensation (cont.)" and its PDF continues the lead example). Design steps use MATLAB commands. The
+    Lecture Notes page lists no state-space lectures, and Lecture 10 "PID Control" has no Ziegler-Nichols, derivative-filter
+    or anti-windup material.
+  lessons:
+  - 09-03
+  - 09-04
+  - 09-05
+  - 09-07
+  - 09-08
+  - 09-09
+  - 09-10
+  - 09-11
+  - 09-12
+  - 09-17
+  - 09-18
+  - 09-21
+- id: mit-ocw-16-30-feedback-control-systems
+  title: 16.30 Feedback Control Systems
+  creator: Prof. Jonathan P. How and Prof. Emilio Frazzoli; MIT OpenCourseWare
+  version: Fall 2010 (lecture notes Topics 1-24, PDFs headed "16.30/31 Feedback Control Systems")
+  url: https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to creativecommons.org/licenses/by-nc-sa/4.0/)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Lecture PDFs follow resources/mit16_30f10_lec<NN>/ and are dense slide-style notes with MATLAB code listings. The
+    syllabus requires no textbook and recommends Franklin-Powell-Emami-Naeini (paid) and Astrom-Murray. There is no separate
+    16.31 offering on OCW (the 16.31 Fall 2007 and Fall 2010 course URLs return 404); these notes cover both. No Gramian,
+    Ziegler-Nichols, disk-margin or Bode-sensitivity-integral treatment was found.
+  lessons:
+  - 09-03
+  - 09-05
+  - 09-08
+  - 09-09
+  - 09-10
+  - 09-11
+  - 09-12
+  - 09-13
+  - 09-14
+  - 09-15
+  - 09-16
+  - 09-17
+  - 09-18
+  - 09-19
+- id: mit-ocw-6-341-discrete-time-signal-processing
+  title: 6.341 Discrete-Time Signal Processing
+  creator: Prof. Alan V. Oppenheim; MIT OpenCourseWare
+  version: Fall 2005 (lecture notes, PDFs; footer of the PDFs reads "OpenCourseWare 2006")
+  url: https://ocw.mit.edu/courses/6-341-discrete-time-signal-processing-fall-2005/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to creativecommons.org/licenses/by-nc-sa/4.0/)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Graduate course. Each lecture names its reading in Oppenheim, Schafer and Buck, "Discrete-Time Signal Processing"
+    (paid); only the lecture PDFs (resources/lec<NN>/) are free. Only Lectures 7-9 were loaded.
+  lessons:
+  - 09-06
+  - 09-07
+- id: mit-ocw-6-243j-dynamics-of-nonlinear-systems
+  title: 6.243J Dynamics of Nonlinear Systems
+  creator: Prof. Alexandre Megretski; MIT OpenCourseWare
+  version: Fall 2003 (lecture notes 1-13, PDFs)
+  url: https://ocw.mit.edu/courses/6-243j-dynamics-of-nonlinear-systems-fall-2003/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to creativecommons.org/licenses/by-nc-sa/4.0/)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Graduate and proof-oriented; well beyond the depth of 09-19. Lecture PDFs follow resources/lec<n>_6243_2003/;
+    only the Lecture Notes page (titles) was loaded, not the PDFs. MIT OCW 2.152 Nonlinear Control was not found (course URL
+    returned 404).
+  lessons:
+  - 09-19
+- id: rawlings-mayne-diehl-mpc-2nd-edition
+  title: 'Model Predictive Control: Theory, Computation, and Design (2nd edition)'
+  creator: James B. Rawlings, David Q. Mayne and Moritz M. Diehl; Nob Hill Publishing
+  version: 2nd edition, 6th printing PDF (MPC-book-2nd-edition-6th-printing.pdf), copyright 2026
+  url: https://sites.engineering.ucsb.edu/~jbraw/mpc/
+  license: All rights reserved (copyright page "Copyright (c) 2026 by Nob Hill Publishing, LLC. All rights reserved. No part
+    of this book may be reproduced, in any form or by any means, without permission in writing from the publisher."); the
+    authors' page offers the text as a free PDF download but states no license
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Free to read from the authors' page, not openly licensed. Link only; do not copy or adapt text, figures, examples or
+    exercises. Graduate research-level text; Chapters 1-2 are the accessible part. Software examples use Octave/MATLAB and
+    CasADi.
+  lessons:
+  - 09-20
+- id: smith-dsp-guide
+  title: The Scientist and Engineer's Guide to Digital Signal Processing
+  creator: Steven W. Smith; California Technical Publishing
+  version: Web edition (chapter PDFs CH<n>.PDF), site copyright 1997-2011
+  url: https://www.dspguide.com/pdfbook.htm
+  license: All rights reserved, personal use permitted ("Copyright and Permissible Use" page, https://www.dspguide.com/copyrite.htm
+    - "You may download any or all of the book in electronic form, for your personal use"; "You may link other webpages to
+    this site"); not openly licensed
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Free to read for personal use only. Link only; do not copy, adapt or redistribute text, figures or code tables.
+    Practitioner-level; its programs are in BASIC. The book's table-of-contents page did not render its chapter list through
+    the verification proxy; chapters were loaded directly by URL (www.dspguide.com/ch<n>.htm and CH<n>.PDF).
+  lessons:
+  - 09-06
+  - 09-07
+- id: nasa-tn-d-7843-f8-digital-fly-by-wire
+  title: Description and Flight Test Results of the NASA F-8 Digital Fly-by-Wire Control System
+  creator: NASA Flight Research Center (collection of papers; paper 2 by Dwain A. Deets, paper 6 by Kenneth J. Szalai)
+  version: NASA TN D-7843 (H-853), February 1975; NTRS 19750010173 (collection), 19750010175 (Deets), 19750010179 (Szalai)
+  url: https://ntrs.nasa.gov/citations/19750010173
+  license: US Government work; NTRS records state copyright determination "GOV_PUBLIC_USE_PERMITTED" (Public Use Permitted)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Historical (1972-1974 flight program, Apollo guidance computer); scanned PDFs with OCR errors; US customary units.
+    Used as aerospace context for sampled-data flight control, not as a method text.
+  lessons:
+  - 09-07
+  - 09-17
