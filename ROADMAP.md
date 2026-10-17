@@ -53,7 +53,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 06 | Dynamics & Vibrations | 19 | 48 |
 | 07 | Thermodynamics | 15 | 38 |
 | 08 | Fluid Mechanics | 19 | 48 |
-| 09 | Signals, Systems & Control | 21 | 53 |
+| 09 | Signals, Systems & Control ✅ | 21 | 53 |
 | 10 | Aerodynamics | 23 | 64 |
 | 11 | Compressible Flow, Hypersonics & CFD | 18 | 50 |
 | 12 | Aerospace Materials, Manufacturing & Drawings | 16 | 35 |
@@ -309,7 +309,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 18 | Incompressible CFD from Scratch | 2D lid-driven cavity solver | P03.12 |
 | 19 | Home Lab: Flow & Pressure Measurement | Low-energy flow rig; Reynolds reasoning and calibrated pressure 🔬 | P00.14 |
 
-## Phase 09: Signals, Systems & Control ⬚ (~50 h)
+## Phase 09: Signals, Systems & Control ✅ (~50 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|
