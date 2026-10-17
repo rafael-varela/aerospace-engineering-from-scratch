@@ -611,11 +611,13 @@ sources:
   url: https://ocw.mit.edu/courses/8-033-relativity-fall-2006/
   license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
   access_tier: supplementary-free
-  verified: 2026-10-13
-  caveat: Only Session 8 "Variational Calculus" (slides, resource lecture8_euler) is relevant; it is a short slide deck, not full
-    notes.
+  verified: 2026-10-16
+  caveat: Slide decks, not full notes. Session 8 "Variational Calculus" (resource lecture8_euler) serves 02-13; Session 23
+    "General Relativity and Black Holes" (topics include "Gravitational Redshift" and "Application to the GPS System";
+    the file is served as resource lecture21_bh1, pdf 281 kB) serves 04-13.
   lessons:
   - 02-13
+  - 04-13
 - id: mit-ocw-3-11-mechanics-of-materials
   title: 3.11 Mechanics of Materials
   creator: Prof. David Roylance; MIT OpenCourseWare
@@ -717,3 +719,151 @@ sources:
     library. "latest" URL tracks releases; page titles may move.
   lessons:
   - 03-17
+- id: fiore-opamps-linear-ics
+  title: 'Operational Amplifiers and Linear Integrated Circuits: Theory and Application'
+  creator: James M. Fiore (Mohawk Valley Community College); Engineering LibreTexts
+  version: LibreTexts edition published 2018-05-02, last modified 2021-03-22 (page ID 3542)
+  url: https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Operational_Amplifiers_and_Linear_Integrated_Circuits_-_Theory_and_Application_(Fiore)
+  license: CC BY-NC-SA 4.0 (page footer "shared under a CC BY-NC-SA 4.0 license")
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Full second-year electronics text; the curriculum uses only Ch. 4 (basic op amp circuits) and Ch. 12
+    (analog-to-digital conversion). Chapter section titles verified on the chapter pages; others not loaded.
+  lessons:
+  - 04-10
+  - 04-12
+- id: kahn-digital-circuit-projects
+  title: 'Digital Circuit Projects: An Overview of Digital Circuits Through Implementing Integrated Circuits'
+  creator: Charles W. Kann III (Gettysburg College); Engineering LibreTexts
+  version: LibreTexts edition (edited to LibreTexts style), as of 2026-10-16
+  url: https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Digital_Circuit_Projects_-_An_Overview_of_Digital_Circuits_Through_Implementing_Integrated_Circuits_(Kahn)
+  license: CC BY 4.0 (page footer "shared under a CC BY 4.0 license")
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Breadboard-based lab book built around 74xx-series ICs; chapter titles verified from the book table of
+    contents, section titles inside chapters not loaded.
+  lessons:
+  - 04-10
+- id: sparkfun-learn-tutorials
+  title: SparkFun Learn tutorials (Digital Logic; What is an Arduino?; Analog to Digital Conversion; Getting Started with
+    Load Cells; Accelerometer Basics; How to Use a Multimeter; How to Use a Breadboard)
+  creator: SparkFun Electronics
+  version: Web pages as of 2026-10-16 (undated; "/all" single-page views)
+  url: https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter/all
+  license: CC BY-SA 4.0 (each tutorial page states "Creative Commons tutorials are CC BY-SA 4.0" with a link to the license)
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Vendor site; tutorials contain product-purchase sections ("Purchasing a Multimeter", "Our Recommendations")
+    that the curriculum ignores. No specific product is required. Only the seven tutorials named in the title were loaded.
+  lessons:
+  - 04-10
+  - 04-12
+  - 04-15
+- id: micropython-docs
+  title: MicroPython documentation (Quick reference for the RP2; class ADC - analog to digital conversion)
+  creator: Damien P. George and MicroPython contributors
+  version: '"latest" documentation build, "Last updated on 13 Oct 2026"; Copyright 2014-2026 MicroPython authors and
+    contributors'
+  url: https://docs.micropython.org/en/latest/rp2/quickref.html
+  license: MIT License (docs "MicroPython license information" page, https://docs.micropython.org/en/latest/license.html,
+    "The MIT License (MIT)", Copyright (c) 2013-2017 Damien P. George, and others)
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: The "latest" build tracks the development branch and warns that it "may refer to features that are not available
+    in released versions"; pin to a release URL (e.g. /en/v1.x/) when the lesson is written. Board-specific (RP2040 /
+    Raspberry Pi Pico); the lesson does not require that board.
+  lessons:
+  - 04-10
+  - 04-15
+- id: ellingson-electromagnetics-vol2
+  title: 'Electromagnetics, Volume 2 (LibreTexts title "Book: Electromagnetics II (Ellingson)")'
+  creator: Steven W. Ellingson (Virginia Tech); Virginia Tech Libraries Open Education Initiative; Engineering LibreTexts
+  version: LibreTexts edition published 2020-04-02, last modified 2022-10-18 (page ID 19441)
+  url: https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electro-Optics/Book%3A_Electromagnetics_II_(Ellingson)
+  license: CC BY-SA 4.0 (page footer "shared under a CC BY-SA 4.0 license")
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Junior-level EE text assuming vector calculus and phasors; the curriculum points to Ch. 9 "Radiation" and Ch. 10
+    "Antennas" only and uses the results (pattern, gain, effective aperture, Friis) rather than the derivations.
+  lessons:
+  - 04-11
+- id: nasa-basics-of-space-flight
+  title: Basics of Space Flight
+  creator: NASA / Jet Propulsion Laboratory (hosted on science.nasa.gov)
+  version: 'Web edition; Chapter 10 page shows "Page Last Updated: Nov 04, 2024"'
+  url: https://science.nasa.gov/learn/basics-of-space-flight/
+  license: US Government work (public domain in the US); no license line on the pages, NASA "Images and Media" usage
+    guidelines state NASA content "generally are not subject to copyright in the United States"
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Qualitative, no equations. Chapter pages are split into numbered sub-pages (chapter10-1, chapter11-2,
+    chapter11-3); headings verified on those three pages only.
+  lessons:
+  - 04-11
+  - 04-12
+  - 04-14
+- id: ashby-relativity-in-gps
+  title: Relativity in the Global Positioning System
+  creator: Neil Ashby (University of Colorado, Boulder); Living Reviews in Relativity
+  version: Living Rev. Relativ. 6, 1 (2003), DOI 10.12942/lrr-2003-1; PubMed Central copy PMC5253894
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5253894/
+  license: Free to read (open-access journal article mirrored on PubMed Central); the PMC copy shows only "(c) The Author(s)
+    2003" with no Creative Commons statement, and the EMIS mirror shows "(c) Springer International Publishing AG".
+    Link only; do not excerpt.
+  access_tier: supplementary-free
+  verified: 2026-10-16
+  caveat: The publisher page (link.springer.com/article/10.12942/lrr-2003-1) could not be loaded on 2026-10-16 (rate
+    limited), so the journal's open-access license text was not confirmed. The relevant material is the section
+    "Relativistic Effects on Satellite Clocks" (run-in headings "Satellite orbits", "The eccentricity correction"); the
+    numeric clock-offset result is in equation images not readable as text in this verification.
+  lessons:
+  - 04-13
+- id: nasa-why-space-radiation-matters
+  title: Why Space Radiation Matters
+  creator: NASA (Analog Missions / Field Testing pages)
+  version: 'Published 2017-04-13; "Page Last Updated: Aug 22, 2025"'
+  url: https://www.nasa.gov/missions/analog-field-testing/why-space-radiation-matters/
+  license: US Government work (public domain in the US); no license line on the page, NASA "Images and Media" usage
+    guidelines state NASA content "generally are not subject to copyright in the United States"
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Human-spaceflight framing (astronaut dose); no electronics or shielding calculations.
+  lessons:
+  - 04-14
+- id: ntrs-pellish-radiation-effects-tutorial
+  title: 'Tutorial: Radiation Effects in Electronic Systems'
+  creator: Jonathan A. Pellish; NASA (presented at the Applied Space Environments Conference, Huntsville, AL, May 2017)
+  version: NTRS document ID 20170004674, report number GSFC-E-DAA-TN42599, published 2017-05-01; 22 slides (PDF)
+  url: https://ntrs.nasa.gov/citations/20170004674
+  license: 'NTRS record: "Work of the US Gov. Public Use Permitted."; Distribution Limits: Public'
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Slide deck, not prose; defines TID, displacement damage/NIEL, and single-event effects (SEU, SEL) but has no
+    dedicated slides on the environment, shielding, or test methods.
+  lessons:
+  - 04-14
+- id: doe-what-is-radioisotope-power-system
+  title: What is a Radioisotope Power System?
+  creator: US Department of Energy, Office of Nuclear Energy (blog article)
+  version: Published 2021-02-16; page metadata modified 2026-05-14
+  url: https://www.energy.gov/ne/articles/what-radioisotope-power-system
+  license: US Government work; energy.gov Web Policies page states "Government information at DOE websites is in the public
+    domain"
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Short popular article; thermoelectric (Seebeck) physics is described only qualitatively.
+  lessons:
+  - 04-14
+- id: nasa-hdbk-4002b-in-space-charging
+  title: Mitigating In-Space Charging Effects - A Guideline
+  creator: NASA Technical Standards Program
+  version: NASA-HDBK-4002 Revision B, Change 0, dated 2022-06-07 (status Active)
+  url: https://standards.nasa.gov/standard/NASA/NASA-HDBK-4002
+  license: US Government work; standards.nasa.gov record marked "Internet Public" ("Standard is cleared for public
+    accessibility on the internet")
+  access_tier: supplementary-free
+  verified: 2026-10-16
+  caveat: Only the record page loaded on 2026-10-16; the PDF itself did not load through the verification proxy, so
+    section titles are not recorded. Covers surface and internal charging, not single-event upsets or dose.
+  lessons:
+  - 04-14

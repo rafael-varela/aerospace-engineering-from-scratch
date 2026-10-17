@@ -48,7 +48,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 01 | Mathematics I: Calculus & Linear Algebra ✅ | 18 | 45 |
 | 02 | Mathematics II: Differential Equations, Transforms & Probability ✅ | 20 | 55 |
 | 03 | Numerical Methods & Scientific Computing ✅ | 18 | 45 |
-| 04 | Physics Foundations | 15 | 38 |
+| 04 | Physics Foundations ✅ | 15 | 38 |
 | 05 | Statics, Mechanics of Materials & CAD | 18 | 46 |
 | 06 | Dynamics & Vibrations | 19 | 48 |
 | 07 | Thermodynamics | 15 | 38 |
@@ -198,7 +198,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 17 | Uncertainty Quantification | Monte Carlo and polynomial chaos | P02.16 |
 | 18 | Verification & Validation | Method of manufactured solutions | |
 
-## Phase 04: Physics Foundations ⬚ (~35 h)
+## Phase 04: Physics Foundations ✅ (~35 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|

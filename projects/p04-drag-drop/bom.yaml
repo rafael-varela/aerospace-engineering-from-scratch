@@ -1,0 +1,130 @@
+# Bill of materials for project p04-drag-drop (lesson 04-01 Kinematics & Newton's Laws: projectile with drag)
+# Prices are estimates in USD on the price_checked date and vary by region and time.
+# Nothing here requires a 3D printer, machine shop, or university lab.
+project: p04-drag-drop
+title: Drop and toss light objects, time them on video, and measure a drag coefficient
+lessons: [P04.01]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-16
+reuse_from: [p00-first-experiment, p00-calibration]
+
+tiers:
+  minimum_cost:
+    description: The p00-first-experiment kit plus a ping-pong ball. Produces drop data at 30 fps; the drag of the ball is marginal at that frame rate and the lesson says so.
+    items:
+      - id: ping-pong-ball
+        qty: 3
+        spec: Standard 40 mm table-tennis ball, about 2.7 g (weigh it); any colour that contrasts with your background
+        search_term: "table tennis balls 40mm"
+        price_range: [1, 5]
+        required: true
+        reusable_id: misc.ping-pong-ball
+        substitutes: ["a paper cone (state its mass and base diameter; C_D is unknown and becomes the result)", "a hollow plastic practice golf ball"]
+        safety_notes: Light and soft; harmless on impact. Do not substitute a hard or heavy ball.
+      - id: control-object
+        qty: 1
+        spec: A dense, soft object of 50-100 g that will not bounce: the bean bag or rice-filled sock from p00-first-experiment
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.drop-object
+        substitutes: ["a tennis ball (58 g; bounces, so a thicker mat is needed)"]
+      - id: phone-camera
+        qty: 1
+        spec: Any phone that records video at a known frame rate (30 fps minimum; record the setting)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+      - id: tape-measure
+        qty: 1
+        spec: Tape measure, 3 m or longer, 1 mm graduations
+        search_term: "tape measure 3m"
+        price_range: [2, 8]
+        required: true
+        reusable_id: tools.tape-measure
+      - id: landing-mat
+        qty: 1
+        spec: A folded towel or yoga mat at the drop point and along the toss lane
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.towel
+      - id: phone-stand
+        qty: 1
+        spec: Anything that holds the phone still and level: a stack of books, a cup, a tripod
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: true
+        reusable_id: tools.phone-stand
+      - id: kitchen-scale
+        qty: 1
+        spec: Kitchen or pocket scale, 0.1 g resolution preferred (1 g resolution gives a 40 % uncertainty on a 2.7 g ball; state it)
+        search_term: "digital pocket scale 0.1g"
+        price_range: [8, 20]
+        required: true
+        reusable_id: instruments.scale-0.1g
+        substitutes: ["use the nominal 2.7 g with u = 0.1 g and say so"]
+  recommended:
+    description: A 60 or 120 fps camera mode and a scale reference in the frame: resolves the ping-pong ball's drag cleanly and gives C_D to about 10-20 %.
+    items:
+      - id: slow-motion-mode
+        qty: 1
+        spec: A phone with a 60, 120 or 240 fps video mode (most phones since about 2016); verify the real frame rate against a stopwatch display
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: instruments.phone
+      - id: reference-marks
+        qty: 1
+        spec: Masking tape marks on the wall every 0.3 m (drops) and on the floor every 0.5 m (tosses), measured with the tape measure
+        search_term: "masking tape"
+        price_range: [0, 3]
+        required: false
+        reusable_id: misc.tape
+      - id: callipers
+        qty: 1
+        spec: Plastic or steel callipers, 0.1 mm, for the ball's diameter
+        search_term: "digital caliper 150mm"
+        price_range: [8, 20]
+        required: false
+        reusable_id: tools.callipers
+        substitutes: ["ruler across the ball between two books (0.5 mm)"]
+      - id: release-clip
+        qty: 1
+        spec: A clothes peg or binder clip taped to a shelf edge, so the drop release does not involve a hand or a push
+        search_term: "binder clip"
+        price_range: [0, 3]
+        required: false
+        reusable_id: misc.clip
+  enhanced:
+    description: Electronic timing of the drops (removes the frame quantisation; shared with the p00 enhanced tier) and a barometer app for the local air density.
+    items:
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V board with USB serial (RP2040- or ESP32-class)
+        search_term: "RP2040 development board"
+        price_range: [4, 15]
+        required: false
+        reusable_id: electronics.mcu
+        safety_notes: USB power only; no mains wiring.
+      - id: ir-break-beam-pair
+        qty: 2
+        spec: Infrared break-beam sensor pairs (emitter and receiver), 3.3-5 V, beam wide enough for a 40 mm ball
+        search_term: "IR break beam sensor 5mm"
+        price_range: [3, 8]
+        required: false
+        reusable_id: electronics.break-beam
+        safety_notes: Low voltage; infrared LEDs are not a laser.
+      - id: barometer-thermometer
+        qty: 1
+        spec: Any source of today's station pressure and room temperature (a phone barometer, a weather station, the airport METAR corrected to your elevation) to compute rho = p / (R T)
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: instruments.phone
+
+tools_required: [pencil, masking tape, safety glasses]
+consumables: []
+incremental_cost_if_reusing: {minimum_cost: [1, 5], recommended: [0, 25], enhanced: [0, 25]}
