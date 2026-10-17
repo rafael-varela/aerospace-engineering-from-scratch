@@ -46,8 +46,8 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | B2 | Bridge: General Chemistry (optional, placement-tested) | 6 | 15 |
 | 00 | Setup, Engineering Computing & First Measurements ✅ | 15 | 24 |
 | 01 | Mathematics I: Calculus & Linear Algebra ✅ | 18 | 45 |
-| 02 | Mathematics II: Differential Equations, Transforms & Probability | 20 | 55 |
-| 03 | Numerical Methods & Scientific Computing | 18 | 45 |
+| 02 | Mathematics II: Differential Equations, Transforms & Probability ✅ | 20 | 55 |
+| 03 | Numerical Methods & Scientific Computing ✅ | 18 | 45 |
 | 04 | Physics Foundations | 15 | 38 |
 | 05 | Statics, Mechanics of Materials & CAD | 18 | 46 |
 | 06 | Dynamics & Vibrations | 19 | 48 |
@@ -150,7 +150,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 17 | Orthogonality, Least Squares & QR | Fit a drag polar to wind tunnel data | |
 | 18 | SVD & Matrix Norms | Conditioning of a structural stiffness matrix | |
 
-## Phase 02: Mathematics II: Differential Equations, Transforms & Probability ⬚ (~55 h)
+## Phase 02: Mathematics II: Differential Equations, Transforms & Probability ✅ (~55 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|
@@ -175,7 +175,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 19 | Random Processes & Power Spectra | Gust spectrum (Dryden) generator | |
 | 20 | Bayesian Inference | Update a failure-rate estimate | |
 
-## Phase 03: Numerical Methods & Scientific Computing ⬚ (~45 h)
+## Phase 03: Numerical Methods & Scientific Computing ✅ (~45 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|

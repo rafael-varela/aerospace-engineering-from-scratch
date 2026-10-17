@@ -15,6 +15,7 @@ sources:
   lessons:
   - 01-13
   - 02-07
+  - 02-15
   - 02-18
   - B1-01
   - B1-02
@@ -254,7 +255,6 @@ sources:
   - 03-03
   - 03-04
   - 03-05
-  - 03-07
 - id: ocw-18-335j
   title: 18.335J Introduction to Numerical Methods (Spring 2019)
   creator: Steven G. Johnson, MIT OpenCourseWare
@@ -270,7 +270,6 @@ sources:
   - 03-02
   - 03-03
   - 03-04
-  - 03-07
   - 03-08
   - 03-09
   - 03-10
@@ -290,7 +289,6 @@ sources:
   lessons:
   - 03-05
   - 03-06
-  - 03-07
   - 03-10
   - 03-11
   - 03-12
@@ -306,8 +304,7 @@ sources:
   access_tier: required-free
   verified: 2026-10-11
   caveat: No lecture titles exposed; 'Open Textbook' and 'Nutshells & GUIs' sections, MATLAB-based. Secondary source.
-  lessons:
-  - 03-07
+  lessons: []
 - id: ocw-18-085
   title: 18.085 Computational Science and Engineering I (Fall 2008), Video Lectures
   creator: Gilbert Strang, MIT OpenCourseWare
@@ -548,5 +545,175 @@ sources:
   verified: 2026-10-11
   caveat: Listed on the JCGM publications index (DOI 10.59161/JCGM101-2008); the index page was verified, the PDF itself was
     not opened.
+  lessons:
+  - 03-17
+- id: mit-ocw-6-003-signals-and-systems
+  title: 6.003 Signals and Systems
+  creator: Prof. Dennis Freeman; MIT OpenCourseWare
+  version: Fall 2011 (25 lecture videos with matching lecture-note PDFs)
+  url: https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link on course and lecture pages)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: Lecture titles are identical on the Lecture Videos and Lecture Notes pages; video resource slugs follow lecture-<n>-<slug>.
+  lessons:
+  - 02-10
+- id: mit-ocw-18-303-linear-pdes
+  title: '18.303 Linear Partial Differential Equations: Analysis and Numerics'
+  creator: Prof. Steven G. Johnson; MIT OpenCourseWare
+  version: Fall 2014 (lecture summaries 1-38 with handout PDFs; no videos)
+  url: https://ocw.mit.edu/courses/18-303-linear-partial-differential-equations-analysis-and-numerics-fall-2014/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: No lecture videos; the "Lecture Summaries" page gives one-line topic summaries per lecture and links handout PDFs.
+    Linear-algebra viewpoint (operators, eigenproblems) and Julia-based homework; heavier than a first PDE course.
+  lessons:
+  - 02-11
+- id: dawkins-differential-equations-notes
+  title: Paul's Online Notes, Differential Equations, Chapter 9 Partial Differential Equations
+  creator: Paul Dawkins (Lamar University)
+  version: web edition, copyright 2003-2026
+  url: https://tutorial.math.lamar.edu/Classes/DE/IntroPDE.aspx
+  license: Copyright Paul Dawkins; free to read, not CC-licensed (site Terms of Use at https://tutorial.math.lamar.edu/Terms.aspx)
+  access_tier: supplementary-free
+  verified: 2026-10-13
+  caveat: Free to read, not CC. Link only; do not copy or adapt text, figures or worked examples.
+  lessons:
+  - 02-11
+- id: mit-ocw-18-04-complex-variables
+  title: 18.04 Complex Variables with Applications
+  creator: Dr. Jeremy Orloff; MIT OpenCourseWare
+  version: Spring 2018 (lecture notes organised as Topics 1-13, PDFs; no videos)
+  url: https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: No lecture videos. Notes are split across lectures by section range (e.g. Topic 10 sections 10.1-10.4, 10.5-10.8, 10.8-10.11).
+  lessons:
+  - 02-12
+- id: mit-ocw-16-323-principles-of-optimal-control
+  title: 16.323 Principles of Optimal Control
+  creator: Prof. Jonathan P. How; MIT OpenCourseWare
+  version: Spring 2008 (lecture notes 1-16, PDFs)
+  url: https://ocw.mit.edu/courses/16-323-principles-of-optimal-control-spring-2008/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: Graduate course; the Lecture Notes page lists topics rather than formal titles. Lectures 5-6 are the calculus-of-variations
+    material; the rest is optimal control.
+  lessons:
+  - 02-13
+- id: mit-ocw-8-033-relativity
+  title: 8.033 Relativity
+  creator: Prof. Max Tegmark; MIT OpenCourseWare
+  version: Fall 2006 (lecture slides, PDFs)
+  url: https://ocw.mit.edu/courses/8-033-relativity-fall-2006/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: supplementary-free
+  verified: 2026-10-13
+  caveat: Only Session 8 "Variational Calculus" (slides, resource lecture8_euler) is relevant; it is a short slide deck, not full
+    notes.
+  lessons:
+  - 02-13
+- id: mit-ocw-3-11-mechanics-of-materials
+  title: 3.11 Mechanics of Materials
+  creator: Prof. David Roylance; MIT OpenCourseWare
+  version: Fall 1999 (web modules, PDFs)
+  url: https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link on course, modules and resource pages)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: Modules are short stand-alone PDFs; the "Matrix and Index Notation" appendix and "Tensor Transformations" module are the
+    only tensor material. Solid-mechanics framing (stress/strain), not general tensor calculus.
+  lessons:
+  - 02-14
+- id: mit-ocw-8-07-electromagnetism-ii
+  title: 8.07 Electromagnetism II
+  creator: Prof. Alan Guth and Prof. Min Chen; MIT OpenCourseWare
+  version: Fall 2012 (lecture notes, PDFs)
+  url: https://ocw.mit.edu/courses/8-07-electromagnetism-ii-fall-2012/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: supplementary-free
+  verified: 2026-10-13
+  caveat: Only "Lecture Notes 2" (rotations in index notation) is relevant; physics framing.
+  lessons:
+  - 02-14
+- id: mit-ocw-6-011-signals-systems-and-inference
+  title: 6.011 Signals, Systems and Inference
+  creator: Prof. George Verghese, Prof. Alan V. Oppenheim, Prof. Peter Hagelstein; MIT OpenCourseWare
+  version: Spring 2018 (lecture notes/slides 1-24, PDFs; no videos)
+  url: https://ocw.mit.edu/courses/6-011-signals-systems-and-inference-spring-2018/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: The Readings page assigns the Oppenheim-Verghese textbook "Signals, Systems and Inference" (Pearson), which is NOT free;
+    only the lecture-notes PDFs are. The lecture-notes page lists lectures out of numeric order.
+  lessons:
+  - 02-19
+- id: mit-ocw-18-05-introduction-to-probability-and-statistics
+  title: 18.05 Introduction to Probability and Statistics
+  creator: Dr. Jeremy Orloff and Dr. Jennifer French Kamrin; MIT OpenCourseWare
+  version: Spring 2022 (readings 1a-26, PDFs; also on MIT Open Learning Library)
+  url: https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
+  access_tier: required-free
+  verified: 2026-10-13
+  caveat: Reading numbers are not contiguous (no 8, 9, 21, 25). R is used for computation.
+  lessons:
+  - 02-15
+  - 02-20
+- id: langtangen-linge-fd-computing-pdes
+  title: 'Finite Difference Computing with PDEs: A Modern Software Approach'
+  creator: Hans Petter Langtangen and Svein Linge; Springer Open (Texts in Computational Science and Engineering 16)
+  version: 1st edition, 2017 (eBook published 2017-06-21); DOI 10.1007/978-3-319-55456-3
+  url: https://link.springer.com/book/10.1007/978-3-319-55456-3
+  license: CC BY 4.0 (book page states open access under a CC BY 4.0 license)
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: Chapter pages (DOI suffix _1 Vibration ODEs, _2 Wave Equations) are open access; the Springer HTML view
+    truncated in this environment, so chapter 1 headings were verified through 1.9 from the chapter PDF and headings
+    after 1.9 were not loaded. "Symplectic" appears only in the chapter abstract, not in any heading.
+  lessons:
+  - 03-07
+  - 03-18
+- id: langtangen-fd-computing-exponential-decay
+  title: Finite Difference Computing with Exponential Decay Models
+  creator: Hans Petter Langtangen (Simula Research Laboratory); Springer Open (Lecture Notes in Computational Science and Engineering 110)
+  version: 1st edition, 2016 (eBook published 2016-06-10); DOI 10.1007/978-3-319-29439-1
+  url: https://link.springer.com/book/10.1007/978-3-319-29439-1
+  license: CC BY-NC 4.0 (chapter "Rights and permissions" states "distributed under the terms of the Creative Commons
+    Attribution-NonCommercial 4.0 International License")
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: NonCommercial. Chapter 3 "Generalizations" is the one used; its adaptive-RK section demonstrates Dormand-Prince
+    via the Odespy package (unmaintained Python 2-era library) rather than deriving a step controller.
+  lessons:
+  - 03-06
+  - 03-07
+  - 03-18
+- id: nasa-nparc-cfd-vv-tutorial
+  title: NPARC Alliance CFD Verification and Validation Web Site, Tutorial
+  creator: NASA Glenn Research Center (Responsible NASA Official/Curator John W. Slater); NPARC Alliance
+  version: Web pages last updated 2021-02-10
+  url: https://www.grc.nasa.gov/www/wind/valid/tutorial/tutorial.html
+  license: US Government work (public domain in the US); no license statement on the pages, only a "Web Privacy Policy
+    and Important Notices" link
+  access_tier: required-free
+  verified: 2026-10-16
+  caveat: 1990s-style static HTML; WIND-code centric examples. Covers Richardson extrapolation and GCI but does not
+    mention the method of manufactured solutions.
+  lessons:
+  - 03-18
+- id: chaospy-docs
+  title: chaospy User guide
+  creator: Jonathan Feinberg and chaospy contributors
+  version: chaospy 4.3.13 (shown in page titles)
+  url: https://chaospy.readthedocs.io/en/latest/user_guide/index.html
+  license: MIT License (GitHub repository LICENCE.txt; not stated on the docs pages)
+  access_tier: supplementary-free
+  verified: 2026-10-16
+  caveat: Software documentation, not a course; polynomial chaos theory is explained only as far as needed to use the
+    library. "latest" URL tracks releases; page titles may move.
   lessons:
   - 03-17
