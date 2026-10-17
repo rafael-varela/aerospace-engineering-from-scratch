@@ -55,7 +55,7 @@ sources:
   url: https://openstax.org/details/books/calculus-volume-2
   license: CC BY-NC-SA 4.0 (stated on book pages)
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 01-03
@@ -73,7 +73,7 @@ sources:
   url: https://openstax.org/details/books/calculus-volume-3
   license: CC BY-NC-SA 4.0 (stated on book pages)
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 01-06
@@ -96,7 +96,7 @@ sources:
   url: https://openstax.org/details/books/introductory-statistics-2e
   license: CC BY-NC-SA 4.0 (stated in Preface)
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 02-15
@@ -111,7 +111,7 @@ sources:
   url: https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/
   license: CC BY-NC-SA 4.0 (confirmed on course page)
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 01-13
@@ -136,7 +136,7 @@ sources:
   url: https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/
   license: CC BY-NC-SA 4.0 (confirmed on course page)
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 02-01
@@ -155,7 +155,6 @@ sources:
   - 06-12
   - 06-13
   - 06-14
-  - 06-15
   - 06-16
   - 06-17
   - 06-19
@@ -167,7 +166,7 @@ sources:
   license: 'CC BY-NC-SA 4.0 (preface: "University Physics is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
     4.0 (CC BY-NC-SA) license")'
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: Details page (openstax.org/details/books/...) is JavaScript-rendered; cite the /books/ reader URLs. Section URLs
     marked "pattern" follow the verified slug scheme but were not individually loaded.
   lessons:
@@ -327,10 +326,6 @@ sources:
   - 03-13
   - 03-15
   - 03-17
-  - 06-05
-  - 06-09
-  - 06-15
-  - 06-18
 - id: ocw-2-086
   title: 2.086 Numerical Computation for Mechanical Engineers (Fall 2014)
   creator: Nicolas G. Hadjiconstantinou, Anthony T. Patera, MIT OpenCourseWare
@@ -348,7 +343,7 @@ sources:
   url: https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/
   license: CC BY-NC-SA 4.0
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: Video lectures (36); textbook not free.
   lessons:
   - 03-07
@@ -421,7 +416,7 @@ sources:
   url: https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf
   license: Copyright JCGM member organisations; free to read, no reuse/re-branding without BIPM permission
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: 'Link to, do not redistribute. Publications index: https://www.bipm.org/en/committees/jc/jcgm/publications'
   lessons:
   - 00-14
@@ -459,7 +454,7 @@ sources:
   url: https://docs.scipy.org/doc/scipy/tutorial/index.html
   license: BSD 3-Clause (project LICENSE.txt); no license statement on docs page
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 00-06
@@ -502,7 +497,7 @@ sources:
   url: https://docs.sympy.org/latest/tutorials/intro-tutorial/index.html
   license: BSD 3-Clause (project license; not stated on docs page)
   access_tier: required-free
-  verified: 2026-10-11
+  verified: 2026-10-17
   caveat: ''
   lessons:
   - 00-09
@@ -605,7 +600,7 @@ sources:
   url: https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/
   license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link on course and lecture pages)
   access_tier: required-free
-  verified: 2026-10-13
+  verified: 2026-10-17
   caveat: Lecture titles are identical on the Lecture Videos and Lecture Notes pages; video resource slugs follow lecture-<n>-<slug>.
   lessons:
   - 02-10
@@ -657,7 +652,6 @@ sources:
     material; the rest is optimal control.
   lessons:
   - 02-13
-  - 06-11
 - id: mit-ocw-8-033-relativity
   title: 8.033 Relativity
   creator: Prof. Max Tegmark; MIT OpenCourseWare
@@ -672,7 +666,6 @@ sources:
   lessons:
   - 02-13
   - 04-13
-  - 06-11
 - id: mit-ocw-3-11-mechanics-of-materials
   title: 3.11 Mechanics of Materials
   creator: Prof. David Roylance; MIT OpenCourseWare
@@ -720,7 +713,7 @@ sources:
   url: https://ocw.mit.edu/courses/6-011-signals-systems-and-inference-spring-2018/
   license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link)
   access_tier: required-free
-  verified: 2026-10-13
+  verified: 2026-10-17
   caveat: The Readings page assigns the Oppenheim-Verghese textbook "Signals, Systems and Inference" (Pearson), which is NOT free;
     only the lecture-notes PDFs are. The lecture-notes page lists lectures out of numeric order.
   lessons:
@@ -746,7 +739,7 @@ sources:
   url: https://link.springer.com/book/10.1007/978-3-319-55456-3
   license: CC BY 4.0 (book page states open access under a CC BY 4.0 license)
   access_tier: required-free
-  verified: 2026-10-16
+  verified: 2026-10-17
   caveat: Chapter pages (DOI suffix _1 Vibration ODEs, _2 Wave Equations) are open access; the Springer HTML view
     truncated in this environment, so chapter 1 headings were verified through 1.9 from the chapter PDF and headings
     after 1.9 were not loaded. "Symplectic" appears only in the chapter abstract, not in any heading.
@@ -871,7 +864,7 @@ sources:
   license: US Government work (public domain in the US); no license line on the pages, NASA "Images and Media" usage
     guidelines state NASA content "generally are not subject to copyright in the United States"
   access_tier: required-free
-  verified: 2026-10-16
+  verified: 2026-10-17
   caveat: Qualitative, no equations. Chapter pages are split into numbered sub-pages (chapter10-1, chapter11-2,
     chapter11-3); headings verified on those three pages only.
   lessons:
@@ -1117,6 +1110,7 @@ sources:
   - 06-11
   - 06-13
   - 06-14
+  - 06-18
   - 06-19
 - id: mit-ocw-2-003sc-engineering-dynamics
   title: 2.003SC Engineering Dynamics
