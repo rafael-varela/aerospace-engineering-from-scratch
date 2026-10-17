@@ -49,7 +49,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 02 | Mathematics II: Differential Equations, Transforms & Probability ✅ | 20 | 55 |
 | 03 | Numerical Methods & Scientific Computing ✅ | 18 | 45 |
 | 04 | Physics Foundations ✅ | 15 | 38 |
-| 05 | Statics, Mechanics of Materials & CAD | 18 | 46 |
+| 05 | Statics, Mechanics of Materials & CAD ✅ | 18 | 46 |
 | 06 | Dynamics & Vibrations | 19 | 48 |
 | 07 | Thermodynamics | 15 | 38 |
 | 08 | Fluid Mechanics | 19 | 48 |
@@ -218,7 +218,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 14 | Atomic & Radiation Physics | Radiation dose basics | |
 | 15 | Electronics Bench Lab | Breadboard, multimeter, microcontroller: measure voltage, current, and a sensor 🔬 | P00.14 |
 
-## Phase 05: Statics & Mechanics of Materials ⬚ (~40 h)
+## Phase 05: Statics & Mechanics of Materials ✅ (~40 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|

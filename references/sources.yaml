@@ -162,6 +162,9 @@ sources:
   - 04-05
   - 04-06
   - 04-13
+  - 05-01
+  - 05-02
+  - 05-06
 - id: openstax-university-physics-vol2
   title: University Physics Volume 2
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -179,6 +182,7 @@ sources:
   - 04-10
   - 04-11
   - 04-15
+  - 05-07
 - id: openstax-university-physics-vol3
   title: University Physics Volume 3
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -625,11 +629,27 @@ sources:
   url: https://ocw.mit.edu/courses/3-11-mechanics-of-materials-fall-1999/
   license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link on course, modules and resource pages)
   access_tier: required-free
-  verified: 2026-10-13
+  verified: 2026-10-17
   caveat: Modules are short stand-alone PDFs; the "Matrix and Index Notation" appendix and "Tensor Transformations" module are the
-    only tensor material. Solid-mechanics framing (stress/strain), not general tensor calculus.
+    only tensor material. Solid-mechanics framing (stress/strain), not general tensor calculus. Phase 05 (re-verified 2026-10-17)
+    uses the Trusses, Shear and Torsion, Constitutive Relations, Stresses in Beams, Beam Displacements, Tensor Transformations
+    and Yield and Plastic Flow modules; PDFs are dated 2000-2001, use US and SI units, contain no shear-flow, Johnson-column or
+    thermal-stress treatment, and the Mohr's circle / strs3d Java applets no longer run.
   lessons:
   - 02-14
+  - 05-03
+  - 05-06
+  - 05-07
+  - 05-08
+  - 05-09
+  - 05-10
+  - 05-11
+  - 05-12
+  - 05-13
+  - 05-14
+  - 05-15
+  - 05-16
+  - 05-18
 - id: mit-ocw-8-07-electromagnetism-ii
   title: 8.07 Electromagnetism II
   creator: Prof. Alan Guth and Prof. Min Chen; MIT OpenCourseWare
@@ -867,3 +887,147 @@ sources:
     section titles are not recorded. Covers surface and internal charging, not single-event upsets or dose.
   lessons:
   - 04-14
+- id: libretexts-baker-haynes-engineering-statics
+  title: 'Engineering Statics: Open and Interactive'
+  creator: Daniel W. Baker and William Haynes (with contributing faculty; some chapters adapted from Jacob Moore's Mechanics
+    Map); LibreTexts mirror of the PreTeXt original at engineeringstatics.org
+  version: First released Fall 2020, continuously revised (no edition number shown); LibreTexts and engineeringstatics.org
+    builds as of 2026-10-17
+  url: https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Engineering_Statics%3A_Open_and_Interactive_(Baker_and_Haynes)
+  license: CC BY-NC-SA 4.0 (LibreTexts page "shared under a CC BY-NC-SA 4.0 license and was authored, remixed, and/or curated
+    by Daniel W. Baker and William Haynes")
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: The engineeringstatics.org pages loaded showed no license line (only the LibreTexts mirror states it). Section
+    titles differ slightly between the two builds (e.g. Ch. 8 "Internal Loadings" vs. "Internal Forces"); the LibreTexts
+    Ch. 9 is a single page "9.1 Friction" plus a stray "9.2 Untitled Chapter 5", so cite engineeringstatics.org for friction.
+    Interactive GeoGebra figures need JavaScript.
+  lessons:
+  - 05-01
+  - 05-02
+  - 05-03
+  - 05-04
+  - 05-05
+  - 05-08
+  - 05-09
+  - 05-18
+- id: tudelft-alderliesten-aerospace-structures-materials
+  title: Introduction to Aerospace Structures and Materials
+  creator: René C. Alderliesten, Faculty of Aerospace Engineering, Delft University of Technology; TU Delft OPEN Books
+  version: Published 2018-12-12 (introduction signed "Delft, August 2018"); DOI 10.5074/t.2018.003; ISBN 978-94-6366-075-4
+  url: https://books.open.tudelft.nl/home/catalog/book/197
+  license: 'Conflicting statements: TU Delft catalogue page "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
+    4.0 International License"; the book''s own front matter (DelftX AE1102 PDF) says "licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives
+    4.0 International License". Treat as CC BY-NC-ND 4.0: link only.'
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: The full PDF did not load through the verification proxy; chapter and section titles were taken from the DelftX
+    front-matter PDF (courses.edx.org asset Introduction-to-Aerospace-Structures-and-Materials_inclCover_intro.pdf), so
+    section content is not individually verified. Descriptive, aerospace-context text rather than a problem-driven mechanics
+    of materials course. The LibreTexts book shelved under this title and author contains unrelated civil structural-analysis
+    content and must not be cited.
+  lessons:
+  - 05-01
+  - 05-06
+  - 05-07
+  - 05-08
+  - 05-10
+  - 05-11
+  - 05-13
+  - 05-14
+- id: libretexts-wierzbicki-structural-mechanics
+  title: Structural Mechanics (Wierzbicki)
+  creator: Tomasz Wierzbicki (MIT); LibreTexts adaptation of MIT OCW 2.080J Structural Mechanics, Fall 2013
+  version: LibreTexts edition as of 2026-10-17 (source tag ocw.mit.edu/courses/2-080j-structural-mechanics-fall-2013)
+  url: https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Structural_Mechanics_(Wierzbicki)
+  license: CC BY-NC-SA 4.0 (LibreTexts page "shared under a CC BY-NC-SA 4.0 license")
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Graduate-level (2.080J); use for energy methods, imperfections and plastic buckling, not as a first text. Several
+    sections show "No headers". Covers tangent-modulus plastic buckling but not the Johnson parabola; Euler load derived only
+    for pin-pin ends.
+  lessons:
+  - 05-12
+  - 05-15
+  - 05-16
+- id: mit-ocw-16-001-unified-materials-structures
+  title: '16.001 Unified Engineering: Materials and Structures'
+  creator: Prof. Raúl Radovitzky; MIT OpenCourseWare
+  version: Fall 2021 (lecture-note PDFs, labs, problem sets)
+  url: https://ocw.mit.edu/courses/16-001-unified-engineering-materials-and-structures-fall-2021/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to by-nc-sa/4.0)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Lecture notes are slide-style PDFs grouped by lecture range (lecture numbers inferred from file names). No shear-flow,
+    deflection or failure-theory lectures listed; buckling notes stop short of inelastic (Johnson) columns. Lab 01 (tensile
+    test, Howe truss) and Lab 02 (cantilever deflection, column buckling) assume MIT lab equipment. The "Labs" navigation
+    link points to pages/problem-sets/; the pages/labs/ URL returned a server error on 2026-10-17.
+  lessons:
+  - 05-02
+  - 05-03
+  - 05-05
+  - 05-06
+  - 05-08
+  - 05-10
+  - 05-12
+  - 05-13
+  - 05-15
+  - 05-18
+- id: nasa-tm-x-73305-astronautic-structures-manual
+  title: Astronautic Structures Manual (Volumes I-III)
+  creator: NASA George C. Marshall Space Flight Center
+  version: NASA TM X-73305 (Vol. I, NTRS 19760071125), TM X-73306 (Vol. II, NTRS 19760071126), TM X-73307 (Vol. III, NTRS
+    19760071127); dated August 1975
+  url: https://ntrs.nasa.gov/citations/19760071125
+  license: US Government work; NTRS records state "Work of the US Gov. Public Use Permitted."
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Hand-calculation handbook, not a textbook; US customary units; 1975 practice. Large scanned PDFs only partly loaded
+    through the verification proxy - Vol. I subject index and Sections A1-A3 contents, Vol. III Section D contents were read;
+    the body of Section C1 "COLUMNS" was not reached, so its subsections are not recorded.
+  lessons:
+  - 05-07
+  - 05-13
+  - 05-14
+  - 05-15
+- id: nasa-rp-1228-fastener-design-manual
+  title: Fastener Design Manual
+  creator: Richard T. Barrett, NASA Lewis Research Center
+  version: NASA Reference Publication 1228 (NASA-RP-1228, E-4911), March 1990; NTRS document ID 19900009424
+  url: https://ntrs.nasa.gov/citations/19900009424
+  license: US Government work; NTRS record states "Work of the US Gov. Public Use Permitted."
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Practical design guide; preload and joint stiffness are covered inside "Fastener Torque" and "Fatigue (Cyclic)
+    Loading of Bolts" rather than in a dedicated joint-mechanics chapter. Torque coefficients are typical values, not design
+    data for a specific fastener.
+  lessons:
+  - 05-07
+- id: freecad-manual-van-havre
+  title: A FreeCAD manual
+  creator: Yorik van Havre and FreeCAD community contributors (source repository yorikvanhavre/FreeCAD-manual on GitHub)
+  version: First edition for FreeCAD 0.16 (release tag 0.16); repository head as of 2026-10-17
+  url: https://github.com/yorikvanhavre/FreeCAD-manual
+  license: CC BY 4.0 (README "All the contents of this manual are published under the Creative Commons 4.0 license", linked
+    to creativecommons.org/licenses/by/4.0/)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Written for FreeCAD 0.16-era interfaces; menus and the TechDraw dimensioning workflow differ in FreeCAD 1.x, and
+    the drawing chapter dimensions with the Drawing Dimensioning add-on. Its stated official home, wiki.freecad.org/Manual,
+    returned a bot-protection "Access Denied" page on 2026-10-17, so the GitHub copy is cited.
+  lessons:
+  - 05-17
+- id: ford-engineering-graphics-and-design
+  title: Engineering Graphics and Design
+  creator: Matthew Ford (Pressbooks, uw.pressbooks.pub)
+  version: Pressbooks web edition as of 2026-10-17 (no edition or date shown)
+  url: https://uw.pressbooks.pub/enggraphics/
+  license: CC BY-NC-SA 4.0 ("Engineering Graphics and Design Copyright © by Matthew Ford is licensed under a Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License, except where otherwise noted")
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Chapter URLs were not shown in the loaded pages; cite by chapter title from the book's contents. Follows ASME
+    conventions (third-angle projection); ISO first-angle practice is not covered. Software-neutral, so it pairs with the
+    FreeCAD manual for the tool steps.
+  lessons:
+  - 05-17

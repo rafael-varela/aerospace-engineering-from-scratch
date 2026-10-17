@@ -1,0 +1,167 @@
+# Bill of materials for project p05-cantilever (lesson P05.18 Home Lab: Cantilever Beam Deflection)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
+# Hard limits from safety.md: total hanging mass <= 2 kg and never above the safe load computed for the strip;
+# no glass, carbon-fibre rods, wood or anything else that can splinter; safety glasses when loading anything that can snap.
+project: p05-cantilever
+title: Load-deflection and deflected shape of a clamped metal strip
+lessons: [P05.18]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p00-calibration, p00-first-experiment, p04-pendulum]
+
+tiers:
+  minimum_cost:
+    description: A metal strip, a C-clamp, a ruler read from phone photos, and weighed bags of coins or water. Enough to measure the compliance and E to about 4 % with a known thickness; the clamp rotation is below this tier's resolution.
+    items:
+      - id: strip
+        qty: 1
+        spec: Aluminium flat bar 25 x 3 mm (6061 or 6063), 330-400 mm long, straight; deburr the cut ends. Any straight metal strip 15-30 mm wide and 1-4 mm thick will do if you recompute the safe load for it
+        search_term: "aluminum flat bar 1 inch x 1/8 inch"
+        price_range: [3, 10]
+        required: true
+        reusable_id: specimens.al-flat-bar
+        substitutes: ["a stainless-steel rule 25-30 mm wide (lesson Problem 3; safety glasses required)", "a flexible, bendable plastic ruler sold as shatter-resistant (polypropylene or polycarbonate; never a clear rigid polystyrene or acrylic ruler; safety glasses required; expect creep)"]
+        safety_notes: Recompute the safe load (clamp stress <= F_ty/2) for any substitute before loading. No wooden rulers, glass, carbon-fibre rods or anything that can splinter.
+      - id: c-clamp
+        qty: 1
+        spec: C-clamp or F-clamp with at least 75 mm opening, to hold the strip flat on a sturdy table edge with 10-30 mm of overlap
+        search_term: "C clamp 3 inch"
+        price_range: [4, 12]
+        required: true
+        reusable_id: tools.clamp
+        substitutes: ["a quick-grip bar clamp (check it does not creep under load)"]
+        safety_notes: Check tightness before every load; a clamp that slips lets the strip spring up.
+      - id: ruler
+        qty: 1
+        spec: 300 mm ruler with 1 mm (or 0.5 mm) graduations, held vertically beside the strip end to read deflection; also used to measure a and the free length
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: tools.ruler
+        substitutes: ["the ruler from p00-calibration", "a printed mm grid taped to a stiff card, checked against a ruler"]
+      - id: ruler-support
+        qty: 1
+        spec: Something to hold the reading ruler vertical and still without touching the strip - a heavy book with the ruler taped to its spine, or a second clamp
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.book
+      - id: phone-camera
+        qty: 1
+        spec: Any phone camera, to photograph the ruler at the strip's height; zoom in on the photo to read to 0.5 mm or better
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+      - id: masses
+        qty: 1
+        spec: Coins or water in a strong zip bag, made up in roughly 100 g steps up to the top load (800 g for the lesson's strip); every load weighed with its string and hook
+        search_term: null
+        price_range: [0, 2]
+        required: true
+        reusable_id: references.coins
+        substitutes: ["small water bottles in a cloth bag (weigh each)", "bags of rice"]
+        safety_notes: Total hanging mass never above 2 kg and never above the safe load for the strip.
+      - id: hanger
+        qty: 1
+        spec: A short loop of strong string or a bent paper clip / S-hook, sitting in a small filed notch at the load point so it cannot slide
+        search_term: null
+        price_range: [0, 2]
+        required: true
+        reusable_id: misc.string
+        substitutes: ["the string from p04-pendulum"]
+      - id: kitchen-scale
+        qty: 1
+        spec: Kitchen scale, 1 g resolution, up to 1 kg or more, to weigh every load including the hanger
+        search_term: "digital kitchen scale 1g"
+        price_range: [0, 15]
+        required: true
+        reusable_id: instruments.scale-1g
+        substitutes: ["the scale from p00-calibration"]
+      - id: catch-cushion
+        qty: 1
+        spec: A box, folded towel or cushion under the hanging load, a few cm below its lowest position
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.towel
+        substitutes: ["the landing pad from p00-first-experiment"]
+      - id: file-or-sandpaper
+        qty: 1
+        spec: Small file or coarse sandpaper, to deburr the cut ends and file the hanger notch
+        search_term: "small metal file"
+        price_range: [0, 4]
+        required: true
+        reusable_id: tools.file
+      - id: safety-glasses
+        qty: 1
+        spec: Safety glasses or goggles, impact-rated (EN 166 or ANSI Z87.1 marked)
+        search_term: "safety glasses Z87.1"
+        price_range: [2, 8]
+        required: true
+        reusable_id: safety.glasses
+        safety_notes: Required whenever the specimen can snap (plastic rulers, steel rules, any strip loaded near its safe load); recommended always.
+  recommended:
+    description: A caliper for the thickness (the dominant measured term in the budget), a steadier camera, and a stiffer clamp. Brings E to about 3 % and makes the thickness term small.
+    items:
+      - id: caliper
+        qty: 1
+        spec: Digital or vernier caliper, 150 mm, 0.01-0.02 mm resolution, to measure b and h at several points along the strip
+        search_term: "digital caliper 150mm"
+        price_range: [8, 25]
+        required: false
+        reusable_id: instruments.caliper
+        substitutes: ["the caliper from p00-calibration"]
+      - id: phone-stand
+        qty: 1
+        spec: Anything that holds the phone level with the strip's top edge and still between photos
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: false
+        reusable_id: tools.phone-stand
+        substitutes: ["the phone stand from p00-first-experiment or p04-pendulum"]
+      - id: clamp-plates
+        qty: 2
+        spec: Two short steel bars or a steel block (about 50 x 25 x 5 mm) to clamp the strip between, so the clamp bites on steel rather than on the strip and the table; raises the clamp's rotational stiffness
+        search_term: "steel flat bar 2 inch x 3/16"
+        price_range: [3, 10]
+        required: false
+        reusable_id: specimens.steel-plates
+      - id: second-clamp
+        qty: 1
+        spec: A second C-clamp, to hold the reading ruler or to add a second clamping point
+        search_term: "C clamp 3 inch"
+        price_range: [4, 12]
+        required: false
+        reusable_id: tools.clamp
+  enhanced:
+    description: A dial gauge on a stand reads deflection to 0.01 mm, which makes the clamp rotation (about 1 mrad) detectable in the profile fit and cuts the slope term below 0.1 %.
+    items:
+      - id: dial-gauge
+        qty: 1
+        spec: Dial indicator, 0-10 mm travel, 0.01 mm graduation, with a flat or ball contact point
+        search_term: "dial indicator 0-10mm 0.01mm"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.dial-gauge
+        safety_notes: Keep the plunger within its travel; lift it off before removing a load so the strip does not spring against it.
+      - id: gauge-stand
+        qty: 1
+        spec: Magnetic base on a steel plate, or a clamp-on holder, rigid enough not to move when the strip is loaded
+        search_term: "magnetic base dial indicator holder"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.gauge-stand
+      - id: micrometer
+        qty: 1
+        spec: Outside micrometer 0-25 mm, 0.01 mm, for the thickness to +/- 0.005 mm (lesson Problem 5)
+        search_term: "outside micrometer 0-25mm"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.micrometer
+
+tools_required: [masking tape, pencil, scissors]
+consumables: [string, masking tape]
+incremental_cost_if_reusing: {minimum_cost: [7, 30], recommended: [3, 30], enhanced: [20, 75]}
