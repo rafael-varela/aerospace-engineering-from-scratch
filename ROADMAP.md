@@ -52,7 +52,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 05 | Statics, Mechanics of Materials & CAD ✅ | 18 | 46 |
 | 06 | Dynamics & Vibrations ✅ | 19 | 48 |
 | 07 | Thermodynamics ✅ | 15 | 38 |
-| 08 | Fluid Mechanics | 19 | 48 |
+| 08 | Fluid Mechanics ✅ | 19 | 48 |
 | 09 | Signals, Systems & Control | 21 | 53 |
 | 10 | Aerodynamics | 23 | 64 |
 | 11 | Compressible Flow, Hypersonics & CFD | 18 | 50 |
@@ -285,7 +285,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 14 | Heat Transfer: Radiation | View factor and radiative balance | |
 | 15 | Home Lab: Cooling Curve | Measure cooling of a small object; fit lumped and distributed models 🔬 | P00.14 |
 
-## Phase 08: Fluid Mechanics ⬚ (~45 h)
+## Phase 08: Fluid Mechanics ✅ (~45 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|

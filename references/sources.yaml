@@ -192,6 +192,10 @@ sources:
   - 06-13
   - 06-18
   - 06-19
+  - 08-01
+  - 08-04
+  - 08-07
+  - 08-19
 - id: openstax-university-physics-vol2
   title: University Physics Volume 2
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -272,6 +276,24 @@ sources:
   - 04-05
   - 04-07
   - 04-12
+  - 08-01
+  - 08-02
+  - 08-03
+  - 08-04
+  - 08-05
+  - 08-06
+  - 08-07
+  - 08-08
+  - 08-09
+  - 08-10
+  - 08-11
+  - 08-12
+  - 08-13
+  - 08-14
+  - 08-15
+  - 08-16
+  - 08-17
+  - 08-19
 - id: ntrs-naca-tr-824-summary-of-airfoil-data
   title: Summary of Airfoil Data
   creator: Ira H. Abbott, Albert E. von Doenhoff, Louis S. Stivers, Jr.; National Advisory Committee for Aeronautics (NACA)
@@ -515,6 +537,7 @@ sources:
   lessons:
   - 00-09
   - 06-11
+  - 08-05
 - id: pytest-getstarted
   title: Get Started — pytest documentation
   creator: holger krekel and pytest-dev team
@@ -789,6 +812,7 @@ sources:
     mention the method of manufactured solutions.
   lessons:
   - 03-18
+  - 08-18
 - id: chaospy-docs
   title: chaospy User guide
   creator: Jonathan Feinberg and chaospy contributors
@@ -1418,3 +1442,328 @@ sources:
   caveat: Java desktop application; a tool, not a text. Optional; never required.
   lessons:
   - 06-19
+- id: mit-ocw-2-25-advanced-fluid-mechanics
+  title: 2.25 Advanced Fluid Mechanics (Fall 2013)
+  creator: Prof. Gareth McKinley, MIT OpenCourseWare (class notes include material by Ain A. Sonin)
+  version: Fall 2013 (graduate)
+  url: https://ocw.mit.edu/courses/2-25-advanced-fluid-mechanics-fall-2013/
+  license: CC BY-NC-SA 4.0 (OCW site footer "Creative Commons License", linked to creativecommons.org/licenses/by-nc-sa/4.0/)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: No full lecture notes; each topic page gives textbook readings (Panton, Kundu & Cohen; paid), short class-note
+    PDFs, and Shapiro & Sonin problem sets with solutions. The "Videos Seen During Class" links point to third-party YouTube
+    uploads of the NCFMF films and to web.mit.edu/hml/ncfmf/*.pdf film notes that returned 404 on 2026-10-17; neither is
+    cited. Some class notes carry their own copyright line (e.g. Sonin "© Ain A. Sonin", March 2003).
+  lessons:
+  - 08-02
+  - 08-03
+  - 08-04
+  - 08-05
+  - 08-06
+  - 08-08
+  - 08-09
+  - 08-10
+- id: mit-ocw-1-060-engineering-mechanics-ii
+  title: 1.060 Engineering Mechanics II (Spring 2006), Lecture Notes
+  creator: Prof. David Gonzalez-Rodriguez and Prof. Ole Madsen, MIT OpenCourseWare
+  version: Spring 2006 (undergraduate)
+  url: https://ocw.mit.edu/courses/1-060-engineering-mechanics-ii-spring-2006/pages/lecture-notes/
+  license: CC BY-NC-SA 4.0 (OCW site footer)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Lecture PDFs are scans of handwritten notes with no text layer (checked lecture 4, 8, 16, 20, 35-36); not
+    searchable. Second half is open-channel hydraulics, which Phase 08 does not use.
+  lessons:
+  - 08-01
+  - 08-03
+  - 08-04
+  - 08-07
+  - 08-16
+  - 08-19
+- id: mit-ocw-16-100-aerodynamics
+  title: 16.100 Aerodynamics (Fall 2005), Lecture Notes
+  creator: Prof. David Darmofal, MIT OpenCourseWare
+  version: Fall 2005 (undergraduate)
+  url: https://ocw.mit.edu/courses/16-100-aerodynamics-fall-2005/pages/lecture-notes/
+  license: CC BY-NC-SA 4.0 (OCW site footer)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Short typed notes (one to three pages each), no derivations beyond the essentials. Lecture 23 states Thwaites's
+    correlation but does not tabulate l(lambda) and H(lambda).
+  lessons:
+  - 08-05
+  - 08-10
+  - 08-11
+  - 08-13
+  - 08-17
+- id: mit-ocw-16-01-unified-engineering-fluids
+  title: 16.01-16.04 Unified Engineering I-IV (Fall 2005-Spring 2006), Fluid Mechanics notes
+  creator: Prof. Mark Drela (fluids) with the Unified Engineering staff, MIT OpenCourseWare
+  version: Fall 2005-Spring 2006
+  url: https://ocw.mit.edu/courses/16-01-unified-engineering-i-ii-iii-iv-fall-2005-spring-2006/pages/fluid-mechanics/
+  license: CC BY-NC-SA 4.0 (OCW site footer)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Lecture notes are a few pages each and keyed to Anderson, Fundamentals of Aerodynamics (paid). The page holds two
+    numbered series (16.01-16.02 F1-F21 and 16.03-16.04 F1-F20); cite by series and title.
+  lessons:
+  - 08-01
+  - 08-02
+  - 08-03
+  - 08-04
+  - 08-05
+  - 08-08
+  - 08-09
+  - 08-17
+- id: mit-ocw-2-27-turbulent-flow-transport
+  title: 2.27 Turbulent Flow and Transport (Spring 2002), Lecture Notes
+  creator: Prof. Ain Sonin, MIT OpenCourseWare
+  version: Spring 2002 (graduate)
+  url: https://ocw.mit.edu/courses/2-27-turbulent-flow-and-transport-spring-2002/pages/lecture-notes/
+  license: CC BY-NC-SA 4.0 (OCW site footer)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: The "lecture notes" are one-page topic outlines with readings (Pope, White, Schlichting; paid), not instructional
+    text. Useful as a syllabus of what a turbulence course covers.
+  lessons:
+  - 08-12
+  - 08-13
+  - 08-14
+  - 08-15
+- id: mit-ocw-2-29-numerical-fluid-mechanics
+  title: 2.29 Numerical Fluid Mechanics (Spring 2015), Lecture Notes and References
+  creator: Prof. Pierre Lermusiaux, MIT OpenCourseWare
+  version: Spring 2015 (graduate)
+  url: https://ocw.mit.edu/courses/2-29-numerical-fluid-mechanics-spring-2015/pages/lecture-notes-and-references/
+  license: CC BY-NC-SA 4.0 (OCW site footer)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Slide decks, MATLAB scripts. The topic column of the course table and the PDF contents are offset by about one
+    lecture; cite by the PDF's own "TODAY (Lecture N)" outline.
+  lessons:
+  - 08-13
+  - 08-15
+  - 08-18
+- id: nasa-glenn-beginners-guide-aeronautics
+  title: Beginner's Guide to Aeronautics
+  creator: NASA Glenn Research Center (Page Editor / NASA Official Nancy Hall)
+  version: Legacy pages at www.grc.nasa.gov/www/k-12/airplane/ (last updated May 13 2021) being migrated to
+    www1.grc.nasa.gov/beginners-guide-to-aeronautics/ (pages updated 2024-2026)
+  url: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/
+  license: US Government work (public domain in the US); no license statement on the pages, only Privacy Policy / No Fear
+    Act / Accessibility / FOIA footer links
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Introductory level (middle school to college). Mid-migration; some topics exist only at the legacy URL (atmosmet,
+    reynolds, mach, isentrop, viscosity) and some legacy pages are now "This site has moved" stubs (pitot, sound,
+    dragsphere, boundlay). Cite the URL marked loaded in the reference map.
+  lessons:
+  - 08-01
+  - 08-02
+  - 08-03
+  - 08-04
+  - 08-05
+  - 08-10
+  - 08-16
+  - 08-17
+  - 08-19
+- id: barba-cfd-python-12-steps
+  title: 'CFD Python: 12 steps to Navier-Stokes'
+  creator: Lorena A. Barba and Gilbert F. Forsyth (barbagroup, GitHub)
+  version: GitHub repository barbagroup/CFDPython, master branch as of 2026-10-17
+  url: https://github.com/barbagroup/CFDPython
+  license: 'Content CC BY 4.0, code BSD-3-Clause (README: "All content is under Creative Commons Attribution CC-BY 4.0, and
+    all code is under BSD-3 clause (previously under MIT, and changed on March 8, 2018)")'
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Jupyter notebooks. Step 11 (cavity) uses a collocated grid with a pressure Poisson equation and is not compared
+    against Ghia et al. 1982; the benchmark comparison is the lesson's own.
+  lessons:
+  - 08-18
+- id: libretexts-bar-meir-fluid-mechanics
+  title: Fluid Mechanics (Bar-Meir)
+  creator: Genick Bar-Meir (Potto Project); LibreTexts Engineering
+  version: LibreTexts edition, pages last modified 2022; source potto.org/fluidMech
+  url: https://eng.libretexts.org/Bookshelves/Civil_Engineering/Fluid_Mechanics_(Bar-Meir)
+  license: GNU Free Documentation License 1.3 (LibreTexts page footer); the author's own notice says "GNU Free
+    Documentation License, Version 1.2 or later or Potto license"
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Shelved as "Basics of Fluid Mechanics" at Potto; LibreTexts title is "Fluid Mechanics (Bar-Meir)". Chapter 1 page
+    slug is 00%3A_Introduction. Uneven editing (duplicated numbers, an untitled "10.2"); no pipe-flow chapter. Section
+    lists were read by following the site's next-page links because the contents panel is script-rendered.
+  lessons:
+  - 08-01
+  - 08-03
+  - 08-04
+  - 08-05
+  - 08-06
+  - 08-08
+  - 08-17
+- id: libretexts-liburdy-intermediate-fluid-mechanics
+  title: Intermediate Fluid Mechanics (Liburdy)
+  creator: James Liburdy (Oregon State University); LibreTexts Engineering
+  version: LibreTexts edition, pages last modified 2022-05-02; source open.oregonstate.education/intermediate-fluid-mechanics
+  url: https://eng.libretexts.org/Bookshelves/Civil_Engineering/Intermediate_Fluid_Mechanics_(Liburdy)
+  license: CC BY-NC-SA 4.0 (page footer "shared under a CC BY-NC-SA 4.0 license")
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Each chapter is a single page; subsection headings are cited as they appear on the page.
+  lessons:
+  - 08-04
+  - 08-06
+  - 08-08
+  - 08-10
+  - 08-11
+  - 08-12
+  - 08-13
+  - 08-14
+- id: libretexts-smyth-all-things-flow
+  title: All Things Flow - Fluid Mechanics for the Natural Sciences (Smyth)
+  creator: Bill Smyth (Oregon State University); LibreTexts Engineering
+  version: LibreTexts edition, pages last modified 2021-2022
+  url: https://eng.libretexts.org/Bookshelves/Civil_Engineering/All_Things_Flow_-_Fluid_Mechanics_for_the_Natural_Sciences_(Smyth)
+  license: CC BY-NC 4.0 (page footer "shared under a CC BY-NC 4.0 license")
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Geophysical/natural-science framing with heavy tensor notation; used only for kinematics and vortex dynamics.
+  lessons:
+  - 08-02
+  - 08-06
+  - 08-09
+  - 08-13
+- id: libretexts-ahmari-kabir-fluid-mechanics-lab-manual
+  title: Applied Fluid Mechanics Lab Manual (Ahmari and Kabir)
+  creator: Habib Ahmari and Shah Md Imran Kabir (Mavs Open Press, University of Texas at Arlington); LibreTexts Engineering
+  version: LibreTexts edition, pages last modified 2021-03-05; source uta.pressbooks.pub/appliedfluidmechanics
+  url: https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Applied_Fluid_Mechanics_Lab_Manual_(Ahmari_and_Kabir)
+  license: CC BY 4.0 (page footer "shared under a CC BY 4.0 license")
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Written for university bench apparatus (hydraulics bench, Armfield-type rigs), not home equipment.
+  lessons:
+  - 08-01
+  - 08-04
+  - 08-07
+  - 08-19
+- id: libretexts-marchman-aerodynamics-aircraft-performance
+  title: Aerodynamics and Aircraft Performance 3e (Marchman)
+  creator: James F. Marchman (Virginia Tech Libraries' Open Education Initiative); LibreTexts Engineering
+  version: 3rd edition, LibreTexts page last modified 2021-08-25; source pressbooks.lib.vt.edu/aerodynamics
+  url: https://eng.libretexts.org/Bookshelves/Aerospace_Engineering/Aerodynamics_and_Aircraft_Performance_3e_(Marchman)
+  license: CC BY 4.0 (page footer "shared under a CC BY 4.0 license")
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Chapter 1 is one long page with numbered headings 1.1-1.22; US customary units appear alongside SI.
+  lessons:
+  - 08-01
+  - 08-04
+  - 08-05
+- id: ntrs-us-standard-atmosphere-1976
+  title: U.S. Standard Atmosphere, 1976
+  creator: NOAA, NASA and U.S. Air Force (U.S. Government Printing Office); NTRS document ID 19770009539
+  version: October 1976; report numbers NOAA-S/T-76-1562, NASA-TM-X-74335
+  url: https://ntrs.nasa.gov/citations/19770009539
+  license: US Government work; NTRS copyright determination "GOV_PUBLIC_USE_PERMITTED", distribution PUBLIC
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Verified through the NTRS API record and the 243-page PDF (18 MB scan; the NTRS plain-text extraction is
+    unusable OCR). The NTRS citation page itself is script-rendered.
+  lessons:
+  - 08-01
+  - 08-17
+- id: ntrs-naca-tr-1235-standard-atmosphere
+  title: Standard Atmosphere - Tables and Data for Altitudes to 65,800 Feet
+  creator: International Civil Aviation Organization and Langley Aeronautical Laboratory; NACA
+  version: NACA Report 1235 (NACA-TR-1235), 1955; NTRS document ID 19930090991
+  url: https://ntrs.nasa.gov/citations/19930090991
+  license: US Government work; NTRS copyright determination "GOV_PUBLIC_USE_PERMITTED"
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Historical (ICAO 1954 standard, mainly English units); superseded by the 1976 U.S. Standard Atmosphere for
+    numbers. Verified from the NTRS API record and the report's text file.
+  lessons:
+  - 08-01
+- id: ntrs-naca-tr-1135-compressible-flow
+  title: Equations, Tables, and Charts for Compressible Flow
+  creator: Ames Research Staff, Ames Aeronautical Laboratory; NACA
+  version: NACA Report 1135 (NACA-TR-1135), 1953; NTRS document ID 19930091059
+  url: https://ntrs.nasa.gov/citations/19930091059
+  license: US Government work; NTRS copyright determination "GOV_PUBLIC_USE_PERMITTED", distribution PUBLIC
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Reference tables rather than instruction; supersedes NACA TN 1428. Verified through the NTRS API record and
+    text file.
+  lessons:
+  - 08-17
+- id: ntrs-malik-1987-stability-theory-lfc
+  title: Stability Theory Applications to Laminar-Flow Control
+  creator: Mujeeb R. Malik (High Technology Corporation, Hampton VA)
+  version: Conference paper in "Research in Natural Laminar Flow and Laminar-Flow Control, Part 1" (NASA Langley),
+    1987-12; NTRS document ID 19900003197
+  url: https://ntrs.nasa.gov/citations/19900003197
+  license: US Government-sponsored work; NTRS copyright determination "GOV_PUBLIC_USE_PERMITTED"
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Viewgraph-style paper, not a tutorial; shows the Orr-Sommerfeld equation, N-factor envelopes and the e^N
+    criterion in use. Verified through the NTRS API record and text file.
+  lessons:
+  - 08-12
+- id: jhtdb-johns-hopkins-turbulence-database
+  title: Johns Hopkins Turbulence Databases (JHTDB)
+  creator: Johns Hopkins University (IDIES), with NSF support
+  version: Web service and datasets as of 2026-10-17
+  url: https://turbulence.idies.jhu.edu/home
+  license: 'Open Data Commons Attribution License (ODC-By) ("The data in Johns Hopkins Turbulence Databases are made available
+    under the Open Data Commons Attribution License(ODC-By)", Citing page)'
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Access is through web-service clients (Python, MATLAB, Fortran, C) or the cutout service; large queries need an
+    authorization token. Citation of the database is requested on the Citing page.
+  lessons:
+  - 08-13
+  - 08-14
+- id: lee-moser-2015-channel-dns-data
+  title: DNS Data for Turbulent Channel Flow (Re_tau 180-5200)
+  creator: Myoungkyu Lee and Robert D. Moser (Oden Institute, University of Texas at Austin)
+  version: Channel Data (2015), turbulence.oden.utexas.edu file server, as of 2026-10-17
+  url: https://turbulence.oden.utexas.edu/channel2015/content/README_2015.html
+  license: 'No license stated. README asks: "When publishing results obtained using the channel flow fields provided here,
+    we ask you to cite the source of the data" (Lee & Moser, J. Fluid Mech. 774, 395-415, 2015)'
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Free to download, but with no license the files are not redistributed in this repository; learners download the
+    mean profiles themselves for comparison. Lesson-bundled data are synthetic.
+  lessons:
+  - 08-14
+  - 08-15
+- id: kth-schlatter-orlu-tbl-dns-data
+  title: Turbulent Boundary Layer DNS/LES Data (zero pressure gradient)
+  creator: Philipp Schlatter and Ramis Örlü (KTH Mechanics)
+  version: DNS data last updated 2012-05-27 (Schlatter & Örlü, J. Fluid Mech. 659, 116-126, 2010)
+  url: https://www.mech.kth.se/~pschlatt/DATA/
+  license: 'Terms on the page, not a formal license: "The data is free to use; please include a proper reference to the
+    original publications."'
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Personal university web directory; the linked Phys. Fluids 2009 article is "for personal use only" (AIP) and is
+    not the dataset. Profiles at Re_theta 670-4060.
+  lessons:
+  - 08-14
+- id: ghia-ghia-shin-1982-cavity
+  title: High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method
+  creator: U. Ghia, K. N. Ghia and C. T. Shin; Journal of Computational Physics (Elsevier/Academic Press)
+  version: J. Comput. Phys. 48(3), 387-411, December 1982; DOI 10.1016/0021-9991(82)90058-4
+  url: https://doi.org/10.1016/0021-9991(82)90058-4
+  license: Paywalled journal article (Crossref lists only the Elsevier text-and-data-mining user license; no open license)
+  access_tier: optional-paid
+  value_added: The source of the lid-driven-cavity benchmark tables (Table I, u on the vertical centreline; Table II, v on
+    the horizontal centreline; Re 100-10000) that P08.18 validates against. The lesson cites the published Re = 100 values
+    as data from Table I/II; the paper adds the multigrid method and higher-Re results.
+  verified: 2026-10-17
+  caveat: Bibliographic data verified via Crossref and doi.org resolution to Elsevier; the ScienceDirect page returned 403
+    to the verification proxy, so the article text was not read. No freely licensed reproduction of the tables was
+    verified; table values are factual data and are cited, not copied as text. The Table I/II numbering is as the paper
+    is conventionally cited and was not checked against the article itself.
+  lessons:
+  - 08-18
