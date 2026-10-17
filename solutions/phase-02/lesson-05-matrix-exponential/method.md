@@ -1,0 +1,27 @@
+# P02.05  Method
+
+The route to each answer, without the final numbers. Pair with `hints.md`; `worked-solutions.md` has the numbers for s = 15.
+
+## 1. Exponentials by hand
+
+(a) N² = 0 ⇒ e^{Nt} = I + Nt. (b) A² = −ω²I. Even terms: Σ(−1)^k (ωt)^{2k}/(2k)! · I = cos(ωt) I; odd terms: Σ(−1)^k (ωt)^{2k+1}/(2k+1)! · A/ω = sin(ωt) A/ω. So e^{At} = [[cos ωt, sin ωt], [−sin ωt, cos ωt]], orthogonal with determinant 1 (= e^{tr A · t} = e⁰). Evaluate at t = 1 with ω = s/10. (c) e^{Dt} = diag(e^{−t}, e^{−3t}). (d) Compare with `expm_taylor` (exact for N in two terms) and `expm_scaling_squaring`; `expm_eig` works for A (distinct eigenvalues ±iω) and D (already diagonal) but raises for N (double eigenvalue 0, one eigenvector).
+
+## 2. Properties of Φ
+
+(a) d/dt Σ A^k t^k/k! = Σ_{k≥1} A^k t^{k−1}/(k−1)! = A Σ_{j≥0} A^j t^j/j! = AΦ; factoring A on the right gives ΦA. At t = 0 only the k = 0 term survives. (b) X(t) = Φ(t)Φ(s) has Ẋ = AΦ(t)Φ(s) = AX and X(0) = Φ(s); Y(t) = Φ(t + s) has Ẏ = AY and Y(0) = Φ(s); the linear IVP has a unique solution, so X = Y. Put s = −t to get Φ(t)Φ(−t) = Φ(0) = I. (c) Jacobi's formula: (d/dt) det Φ = det Φ · tr(Φ⁻¹Φ̇) = det Φ · tr(Φ⁻¹AΦ) = det Φ · tr A. Solve the scalar ODE with det Φ(0) = 1. (Alternative for diagonalisable A: det(V e^{Λt} V⁻¹) = Π e^{λ_k t} = e^{Σλ_k t} = e^{tr A·t}.) (d) e^A e^B = Σ_{j,k} A^j B^k/(j!k!); e^{A+B} = Σ_m (A+B)^m/m! and, when AB = BA, (A+B)^m = Σ_j C(m,j) A^j B^{m−j}, so the coefficient of A^j B^k is C(j+k,j)/(j+k)! = 1/(j!k!). Equal. For the nilpotent pair compute e^A = I + A, e^B = I + B, their product, and e^{A+B} with (A+B)² = I (so e^{A+B} = cosh(1) I + sinh(1)(A+B)). (e) M² = [[A², AB], [0, 0]], M^k = [[A^k, A^{k−1}B], [0, 0]]; sum with h^k/k!: upper-left Σ A^k h^k/k! = e^{Ah}; upper-right Σ_{k≥1} A^{k−1} h^k/k! B = (∫₀^h e^{As} ds) B; lower-right I.
+
+## 3. Nutation
+
+(a) A = −dI + λJ, J = [[0, 1], [−1, 0]]. I commutes with J, so e^{At} = e^{−dt} e^{λJt}, and e^{λJt} is the rotation matrix of Problem 1(b) with ω = λ. (b) Period 2π/λ; amplitude |ω| = e^{−dt}|ω₀| halves at t = ln 2/d; cycles in that time = (ln 2/d)/(2π/λ). (c) e^{−10d} R(10λ) with R(θ) = [[cos θ, sin θ], [−sin θ, cos θ]]; determinant e^{−20d}. Check with `state_transition(A, 10.0)`. (d) e^{−dt} = 0.01 ⇒ t = ln 100/d, independent of λ (λ only rotates); `is_stable` is True because both eigenvalues −d ± iλ have negative real part.
+
+## 4. Your rendezvous
+
+(a) With x₀ = ẋ₀ = ẏ₀ = 0 the only non-zero column of Φ is the y₀ column, which is (0, 1, 0, 0)ᵀ for all t: the chaser is on the same orbit, phase-shifted, and stays at (0, y₀) for ever. (b) `rendezvous_delta_v(n, r0, [0, 0], 0.4 * P)` with P = 2π/n; total = |Δv₁| + |Δv₂|; T in minutes. (c) `propagate(cw_matrix(n), [r0, v0 + dv1], linspace(0, T, 9))`; the minimum of x is negative: to move forward (toward +y) the chaser must drop to a lower, faster orbit. (d) Repeat (b) for the three fractions. (e) `rendezvous_delta_v(..., P)` raises `ValueError`; det Φ_rv = [8(1 − cos nT) − 3nT sin nT]/n² = 0 at nT = 2π because every chaser returns to its radial starting position after exactly one orbit regardless of its velocity (the x row of Φ at t = P is (1, 0, 0, 0) for position... precisely, Φ_rv(P) = [[0, 0], [0, −6π/n]] has rank 1).
+
+## 5. Judgment
+
+(a) Many times, one matrix, diagonalisable: `modal_decomposition` once, then Φ(t_k) = V diag(e^{λt_k}) V⁻¹, which is O(n²) per step after one O(n³) decomposition; for a defective matrix at one time, `expm_scaling_squaring` (or the closed form if it exists). (b) ‖At‖₁ = 4.8 × 60 = 288; the largest term is ~288^288/288! ≈ e^{288} ≈ 10¹²⁵, so 30 terms have not even reached the peak and the partial sum is enormous and meaningless; the true entries are of order e^{−60} ≈ 10⁻²⁶. (c) Order the three error sources by size for the given transfer: burn execution (percent of Δv × transfer time), differential drag (acceleration × T²/2), linearisation (∝ separation²/a per orbit). (d) The ZOH model *is* the controller's behaviour (the command is constant between updates), so (3) is exact; RK4 at h = 10 s assumes the right-hand side is smooth within the step and samples the input at the midpoint, where the command is not what the controller output at the step start. RK4 wins when the dynamics are nonlinear (`P02.06`) or the input varies continuously within a step.
+
+## 6. Exact versus Euler
+
+(a) λ = −ζω_n ± iω_d with ω_n = √k, ζ = c/(2√k); A_d = e^{Ah} = V e^{Λh} V⁻¹ has eigenvalues e^{λh}, |e^{λh}| = e^{−ζω_n h} < 1 for any h > 0: the exact discretisation is stable whenever the continuous system is. (b) A_E = I + hA has eigenvalues 1 + hλ; |1 + hλ|² = (1 − hζω_n)² + (hω_d)² < 1 ⇔ h < 2ζω_n/(ζ²ω_n² + ω_d²) = 2ζω_n/ω_n² = 2ζ/ω_n = −2 Re λ/|λ|². Compute for your s. (c) `discretize(A, [[0], [1]], h)` → A_d; `np.abs(np.linalg.eigvals(.)).max()` for A_d and for I + hA at the four h. A_d stays below 1 and equals e^{−ζω_n h} exactly; Euler exceeds 1 beyond the limit found in (b): a stable oscillator simulated with forward Euler at too large a step blows up. (d) Bound ‖A‖₁^N/N! · e^{‖A‖₁} with `math.factorial`; actual error from `expm_taylor(A, N)` versus `expm(A)`. The bound is loose because it ignores the cancellation that makes e^{A} small while the terms are large; the actual error is still enormous relative to the answer because that same cancellation happens in floating point among terms of size ‖A‖^k/k!, which lose all significant figures. Squarings = ⌈log₂(‖A‖₁/0.5)⌉.
