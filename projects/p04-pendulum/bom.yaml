@@ -1,0 +1,121 @@
+# Bill of materials for project p04-pendulum (lesson P04.06 Oscillations & Waves)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced), which correspond to
+# the minimum-cost, standard and extended tiers of the Phase 04 brief.
+# Hard limits from safety.md: string length <= 2.0 m, bob mass <= 0.2 kg, amplitude <= 45 deg.
+project: p04-pendulum
+title: Period of a string pendulum against length and amplitude
+lessons: [P04.06]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p00-first-experiment, p00-calibration]
+
+tiers:
+  minimum_cost:
+    description: A phone, household string and a soft bob. Enough to measure T against L and to see the 30 deg amplitude effect.
+    items:
+      - id: phone-camera
+        qty: 1
+        spec: Any phone that records video at a known frame rate (30 or 60 fps); verify the rate by filming a stopwatch
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+        substitutes: ["a stopwatch, timing 20 swings at a time (reaction bias per run, so state it)"]
+      - id: string
+        qty: 1
+        spec: Thin, low-stretch string or braided fishing line, 2.5 m (enough for a 2.0 m pendulum plus the clamp); avoid elastic or knitting yarn
+        search_term: "braided fishing line 20 lb"
+        price_range: [0, 6]
+        required: true
+        reusable_id: misc.string
+        substitutes: ["kite string", "dental floss (check its stretch by hanging the bob and measuring L before and after one minute)"]
+        safety_notes: Inspect for fraying before every session; replace if frayed.
+      - id: bob
+        qty: 1
+        spec: Compact, soft bob of 50-200 g and at most 5 cm across - a small bag of rice or beans, a rubber ball with a screw eye, or a padded steel nut in a sock
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.drop-object
+        substitutes: ["the bean bag from p00-first-experiment"]
+        safety_notes: Mass <= 0.2 kg (weigh it, or use a kitchen scale). No glass, no unpadded metal.
+      - id: support
+        qty: 1
+        spec: A rigid pivot - a broom handle or stick clamped or weighted (with books) on a sturdy table so 0.3 m overhangs, or a door frame with a clamp; the string pinched in a binder clip so the pivot point is sharp
+        search_term: "binder clip large"
+        price_range: [0, 4]
+        required: true
+        reusable_id: misc.clip
+        substitutes: ["a coat hook screwed into a door frame (with permission), string pinched under a clip"]
+        safety_notes: Test the support with twice the bob's weight before swinging.
+      - id: tape-measure
+        qty: 1
+        spec: Tape measure, 2 m or longer, 1 mm graduations
+        search_term: "tape measure 3m"
+        price_range: [2, 8]
+        required: true
+        reusable_id: tools.tape-measure
+      - id: protractor-printout
+        qty: 1
+        spec: A printed protractor (0-45 deg) taped behind the pivot, in the camera's view, to read the release and end amplitudes
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.printout
+      - id: phone-stand
+        qty: 1
+        spec: Anything that holds the phone still, level with the bob, 1.5-2 m away and outside the swing arc
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: true
+        reusable_id: tools.phone-stand
+  recommended:
+    description: Better length reference and timing; makes the 10 deg amplitude effect detectable.
+    items:
+      - id: ruler-or-caliper
+        qty: 1
+        spec: 300 mm ruler (or a cheap plastic caliper) to measure the bob's diameter and locate its centre
+        search_term: "plastic vernier caliper 150mm"
+        price_range: [1, 8]
+        required: false
+        reusable_id: tools.ruler
+        substitutes: ["ruler from p00-calibration"]
+      - id: kitchen-scale
+        qty: 1
+        spec: Kitchen or pocket scale, 1 g resolution or better, to confirm the bob is under 0.2 kg
+        search_term: "digital pocket scale 0.1g"
+        price_range: [0, 15]
+        required: false
+        reusable_id: instruments.scale-0.1g
+      - id: slow-motion-mode
+        qty: 1
+        spec: A phone slow-motion mode of 120 or 240 fps (check the true frame rate with a stopwatch film)
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: instruments.phone
+  enhanced:
+    description: Electronic timing of every passage, removing frame quantisation. Reuses the p00-first-experiment enhanced kit.
+    items:
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V board with USB serial (RP2040- or ESP32-class)
+        search_term: "RP2040 development board"
+        price_range: [4, 15]
+        required: false
+        reusable_id: electronics.mcu
+        safety_notes: USB power only.
+      - id: ir-break-beam-pair
+        qty: 1
+        spec: Infrared break-beam sensor pair, 3.3-5 V, mounted at the bottom of the arc so the bob interrupts the beam at each passage
+        search_term: "IR break beam sensor 3mm"
+        price_range: [3, 8]
+        required: false
+        reusable_id: electronics.break-beam
+        safety_notes: Low voltage; infrared LEDs are not a laser. Mount outside the bob's path except for the beam itself.
+
+tools_required: [scissors, masking tape, pencil]
+consumables: [string]
+incremental_cost_if_reusing: {minimum_cost: [0, 10], recommended: [0, 15], enhanced: [0, 5]}
