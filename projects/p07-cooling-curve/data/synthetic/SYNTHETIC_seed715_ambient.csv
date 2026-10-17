@@ -1,0 +1,6 @@
+# SYNTHETIC data from make_synthetic_cooling_data(seed=715) in P07.15 solution.py: NOT a measurement
+# 25.4 mm x 50 mm 6061 aluminium bar (nominal), hung horizontally in still air; room air temperature, second thermometer, 1 m from the bar; 0.1 C resolution
+t_s,T_air_C
+0,21.3
+1800,21.3
+3600,21.3
