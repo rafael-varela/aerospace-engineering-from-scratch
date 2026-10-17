@@ -1,0 +1,21 @@
+# P03.06  Method outlines
+
+The steps, without final numbers. Read `worked-solutions.md` only after you have an answer of your own.
+
+## 1.
+1. C_s = 100 s. λ_fast ≈ −(k_c/C_s)(1 + C_s/C_b), λ_slow ≈ −k_b/C_b; then `np.linalg.eigvals(thermal_jac(0, [300, 300], SkinStructure(C_s=100*s)))`; ratio = max|Re λ|/min|Re λ|. 2. h_EE = 2/|λ_fast|, h_DP = 3.3066/|λ_fast|; steps = 3600/h. 3. z = 60λ for each mode; |R| = 1/|1 − z|; z_fast ≈ −100 gives |R| ≈ 1/100 (the transient is removed in one step), z_slow ≈ −0.007 gives |R| ≈ 0.993 (one percent decay per step, close to e^{z} = 0.9926: the slow mode is integrated with first-order accuracy).
+
+## 2.
+(a) E(h_new) = E (h_new/h)^q; set equal to 1 (tolerance units) → h_new = h E^{−1/q}. Safety factor: the estimate is asymptotic and the next step is at a different point, so aim below the limit. Clamp: E measured at h says nothing reliable about 5h; growth is limited so that a rejected step costs little. (b) y_{n+1}(1 − z/2) = y_n(1 + z/2) → R = (1 + z/2)/(1 − z/2) = (2 + z)/(2 − z); |2 + z| < |2 − z| iff z is closer to −2 than to +2 iff Re z < 0; R → −1 as z → −∞: a fast mode is not damped but flipped in sign every step with magnitude ≈ 1, against backward Euler's R → 0. (c) A = [[−k_c/C_s, k_c/C_s], [k_c/C_b, −(k_c + k_b)/C_b]]; tr A = −k_c/C_s − (k_c + k_b)/C_b; det A = k_c(k_c + k_b)/(C_s C_b) − k_c²/(C_s C_b) = k_c k_b/(C_s C_b). λ = [tr ± √(tr² − 4 det)]/2; since det ≪ tr², λ_fast ≈ tr and λ_slow ≈ det/tr. Radiation adds 4εσT³ to the skin's loss conductance: add it to k_c in the (1,1) entry and to the leak path in the determinant.
+
+## 3.
+(a) λ_act = −1/τ; λ_phugoid = ±2πi/60, λ_sp = ±2πi/3. Ratio = |λ_act|/|λ_phugoid|. (b) h_stab = 3.307 τ; N = 600/h_stab; evaluations = 7N (6N with FSAL). Accuracy step ≈ 3 s/40; compare. (c) Removing the lag removes the −1/τ eigenvalue; the remaining ratio is |λ_sp|/|λ_phugoid| = 20, not stiff; lost: the actuator's phase lag and rate limit, which matter for control-law stability. (d) `Radau` or `BDF`, with `jac` (analytic or sparse structure) so that Newton is cheap and reliable.
+
+## 4.
+(a) a_max = v_E² |sin γ_E|/(2eH); h* = H ln[ρ₀H/(β|sin γ_E|)]. (b) `solve_rk45(f, (0, 1500), entry_state(gamma_e_deg=g), rtol, atol=1e-3, stop=lambda t, y: y[0] < 20e3)`; `deceleration`; `argmax`. (c) Same with `rtol=1e-10, h_max=0.25`; the stored-point peak depends on where the steps happen to fall, not on accuracy. (d) exponent = log(N₈/N₆)/log 100; the −1/5 law assumes every step is error-limited; the start-up steps (fixed count, growth by 5×) and the clamped steps are not.
+
+## 5.
+(a) Substitute f = λy: z_new(1 − hλ/2) = y(1 + hλ/2). (b) `solve_fixed(trapezoidal_step, f, (0, 3600), [400, 300], n, jac=jac)` for n = 60, 120, 240; same with `implicit_euler_step`; reference `solve_ivp(..., method="Radau", rtol=1e-12, atol=1e-10)`. (c) R(−301) ≈ −0.987: the 100 K excess flips sign each step and decays by 1.3 % per step, which is the non-L-stability of Problem 2(b); the error is dominated by this surviving transient, not by the h² term, so the three runs do not show order 2. (d) n = 3600, 7200, 14400; order ≈ 2 appears once |hλ_fast| is of order 1, i.e. h ≲ 1/|λ_fast| ≈ 0.2 s, where the transient is actually damped.
+
+## 6.
+(a) The thermal block: the trajectory's own eigenvalues are of order 1/100 s⁻¹; the skin's is 5 s⁻¹; h_stab = 0.658 s for RK45. (b) (i) 200/0.658 ≈ 300 steps × 7; (ii) 200 steps × ~3 evaluations (Newton); (iii) scale the lesson's Radau count (17 steps, 127 evaluations per hour of smooth solution; the entry heating pulse will need more, say 100 steps); multiply by 10 000 cases and 20 μs. (c) Tolerances are per component: set `atol` per state so that the temperature components are allowed 0.1 K while the trajectory components get 10⁻⁸ relative (`solve_ivp` accepts an array `atol`); or integrate the trajectory first and the thermal model after with q(t) interpolated. (d) Gains: each solver runs at its own step and the explicit one keeps its tolerance; risks: the 1 s exchange is a first-order splitting error, and q changes by a large fraction per second near the peak; test by halving the exchange interval and checking the change in peak skin temperature is below the model uncertainty.

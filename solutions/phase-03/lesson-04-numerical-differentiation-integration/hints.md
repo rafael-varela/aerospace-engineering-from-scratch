@@ -1,0 +1,11 @@
+# P03.04  Hints
+
+One hint per problem. A hint points at the idea, not the answer. Read `method.md` next if the hint is not enough.
+
+1. `deceleration_from_velocity(h, p, dh)` is `central_diff` of `entry_velocity` times V sin γ; its error inherits the stencil's dh²V‴/6. A fourth-order stencil for V‴ is (f(x + 2h) − 2f(x + h) + 2f(x − h) − f(x − 2h))/(2h³) with h = 20–50 m. The rounding floor is where halving dh stops helping.
+2. (a) Expand f(x ± h) to fourth order and add or subtract. (b) ∫₀ʰ ½f″(ξ)t(t − h)dt. (c) Put the midpoint at the origin; odd powers integrate to zero on [−h, h] and are killed by the symmetric weights. (d) Divide the two rates to get dV/dh; separate; the maxima are where d ln(ρV²)/dh = 0 and d ln(√ρ V³)/dh = 0. (e) dh = −H du/u, and ∫u^{−1/2}e^{−2Bu}du is an erf.
+3. The exact impulse is a triangle plus a truncated exponential. Simpson's parabola through three points is a poor fit when one of its pairs straddles the kink; on nodes, the kink is invisible to it. The trapezoid error on the exponential tail is −h²[F′(6) − F′(0.2⁺)]/12 plus a kink contribution h²[F′(0.2⁺) − F′(0.2⁻)]/12 that does not vanish: compute both.
+4. `EntryParams(beta=...)`; `heat_load_analytic(120e3, p)`; a loop over even n for (c). Q ∝ 1/√B ∝ √β at fixed γ holds in (5) up to the small erf(√(2Bu_top)) term, which moves the ratio by about 0.1 %.
+5. (a) Loop over even n; `gauss_legendre(f, 0, 2, n)` for n = 1, 2, …. (b) Boole's rule on 4 panels samples the integrand at spacing 0.5 while it oscillates with period 2π/3 ≈ 2.1: the sixth-derivative error term is large. (c) x^a has an unbounded second derivative at 0; the trapezoid and Simpson errors are dominated by the first panel, ∝ h^{a+1}; Gauss has no node at 0 and does better but is not spectral.
+6. Gauss needs the integrand at irrational nodes; the samples are at fixed times. The lesson's table gives Simpson's error against panel width; the simulation's spacing is 40–400 m. The Richardson estimate is |S_h − S_{2h}|/15.
+7. (a) Interpolation on n nodes is exact for degree n − 1. (b) ∫qPₙ = 0 because Pₙ is orthogonal to all lower degrees; Pₙ(xᵢ) = 0 kills the qPₙ term at the nodes. (c) The hinted polynomial has degree 2n, is positive almost everywhere, yet the rule gives zero. (d) ℓᵢ² has degree 2n − 2 ≤ 2n − 1 and the rule gives wᵢ.
