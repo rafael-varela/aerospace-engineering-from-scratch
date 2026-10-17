@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `signals_and_systems.png`, the hand verdict table for the zoo with one line of reasoning per entry, the BIBO proof, the two sweep tables, and a short note stating which blocks of the gyro path may be analysed with transfer functions and what each numerical verdict does and does not prove. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the BIBO theorem and three hand verdicts (accumulator, decimator, bias correction) are derived; all public tests pass; the amplitude and record-length failures of the numerical tests are explained with numbers. |
-| **References** | `@mit-ocw-18-03-differential-equations` notes 17 "LTI systems, superposition, RLC circuits" and 23 "Step functions and delta functions" (required-free: superposition and the elementary signals); notes 24 "Step response, impulse response" (supplementary-free). GAP: signal energy and power, even/odd parts and numerical property testing of sampled operators are original instruction here. The Phase 09 reference map (`references/phase-09.md`) was not available when this lesson was written; the topics marked GAP are covered by original instruction in this lesson. |
+| **References** | `@mit-ocw-6-003-signals-and-systems` Lecture 1 "Signals and Systems" (The Signals and Systems Abstraction; Example System: Leaky Tank; Analysis of the Leaky Tank), Lecture 2 "Discrete-Time (DT) Systems" (Difference Equations; Operator Notation; Operator Algebra; Example: Accumulator; Finite and Infinite Impulse Responses), Lecture 4 "Continuous-Time (CT) Systems" (Elementary Building-Block Signals; Unit-Impulse and Unit-Step Signals) and Lecture 8 "Convolution" (Superposition; Linearity; Time-Invariance) (required-free): a system as an operator on whole signals, the delay and accumulator as the canonical discrete-time operators, and linearity plus time invariance as the two properties that make superposition work. Causality, memory, BIBO stability, signal energy and power, the even/odd decomposition, the numerical property tests on sampled operators and the analytic verdicts (including the time-varying gain and the squarer) are original instruction in this lesson. |
 | **Extensions** | ★ Add an "incremental linearity" tester (S(x₁) − S(x₂) linear in x₁ − x₂) and show the bias correction passes it while the squarer fails. ★ Extend the zoo with a median filter, a rate limiter and a deadband, and classify them by hand first. ★ Replace the fixed test inputs of `is_bibo_stable` by the worst-case input sign(h[n − k]) for LTI systems and measure how much shorter a record it needs. |
 | **Time** | unmeasured |
 
@@ -47,7 +47,7 @@ Three operations act on the time axis: the **shift** x(t − t₀) (a delay for 
 
 ### 2.4 Systems and their five properties
 
-A **system** S maps an input signal x to an output signal y = S(x). In this lesson a system is a sampled operator: a function that takes the array x[0..N−1] and returns y[0..N−1], with the convention of **initial rest** (everything is zero before n = 0). The properties are statements about S for *all* inputs:
+A **system** S maps an input signal x to an output signal y = S(x) (the abstraction of 6.003 Lecture 1; the delay and the accumulator of Lecture 2 are the canonical discrete-time examples). In this lesson a system is a sampled operator: a function that takes the array x[0..N−1] and returns y[0..N−1], with the convention of **initial rest** (everything is zero before n = 0). The properties are statements about S for *all* inputs:
 
 - **Linear**: S(a x₁ + b x₂) = a S(x₁) + b S(x₂) for all inputs and all constants (superposition = additivity + homogeneity). Taking a = b = 0 shows a linear system maps zero to zero.
 - **Time-invariant**: if y = S(x), then delaying the input by k samples delays the output by k samples and changes nothing else.
@@ -55,7 +55,7 @@ A **system** S maps an input signal x to an output signal y = S(x). In this less
 - **Memoryless** (static): y[n] depends only on x[n].
 - **BIBO stable** (bounded input, bounded output): every input with |x[n]| ≤ M for all n gives an output with |y[n]| ≤ M′ < ∞ for all n.
 
-For an LTI system everything is carried by the **impulse response** h = S(δ). Because x = Σ_k x[k] δ[n − k], linearity and time invariance give y[n] = Σ_k x[k] h[n − k]: the convolution of `P09.02`. Causality is then h[n] = 0 for n < 0, memorylessness is h = h[0]δ, and stability has a clean test:
+For an LTI system everything is carried by the **impulse response** h = S(δ). Because x = Σ_k x[k] δ[n − k], linearity and time invariance give (6.003 Lecture 8) y[n] = Σ_k x[k] h[n − k]: the convolution of `P09.02`. Causality is then h[n] = 0 for n < 0, memorylessness is h = h[0]δ, and stability has a clean test:
 
 **Theorem (BIBO stability of LTI systems).** An LTI system is BIBO stable if and only if Σ_n |h[n]| < ∞.
 

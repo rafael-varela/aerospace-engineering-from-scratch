@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `block_diagram.png`, the hand reduction of the pitch loop, the table of closed-loop poles against K_q, the comparison of the reduced and unreduced simulations, and a short note on what the reduction hides (internal signals, cancellations, limits). |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the feedback formula and the two-loop reduction are derived by hand; all public tests pass; the reduced and unreduced responses agree and the agreement is explained; the note identifies at least one thing the reduced transfer function cannot show. |
-| **References** | `@mit-ocw-18-03-differential-equations` notes 29 "The pole diagram" and 30 "The transfer function and frequency response" (required-free); notes 17 "LTI systems, superposition, RLC circuits" (supplementary-free). GAP: block-diagram algebra, controllable canonical realisation and the pitch-attitude loop are original instruction here. The Phase 09 reference map (`references/phase-09.md`) was not available when this lesson was written; the topics marked GAP are covered by original instruction in this lesson. |
+| **References** | `@mit-ocw-16-06-principles-of-automatic-control` Lecture 2 "Block diagrams, the effect of feedback" (plant, actuator, sensor and sensor noise; open-loop vs. closed-loop control) and Lecture 4 "Block diagram manipulations, Mason' rule" [sic] (PDF "Block Diagram Manipulations": the single-loop gain rule; Mason's Rule) (required-free): the blocks of a control loop and the series, parallel and feedback rules. `@mit-ocw-16-30-feedback-control-systems` Topic 2 "Basic root locus: analysis and examples": Aircraft Longitudinal Control; First Short Period Autopilot (required-free): the pitch-attitude loop with an elevator servo that this lesson reduces. `@mit-ocw-6-003-signals-and-systems` Lecture 6 "Laplace Transform" (Solving Differential Equations with Laplace Transforms; Properties of Laplace Transforms) and Lecture 10 "Feedback and Control" (Structure of a Control Problem; Analysis of wallFinder System: Block Diagram; Analysis of wallFinder System: System Function) (required-free): G(s) as the transform of the impulse response, and L/(1 + L) for a whole loop. `@scipy-userguide` API reference "Signal processing (scipy.signal)": "Continuous-time linear systems" (`lti`, `lsim`, `step`) (required-free, oracle only). The polynomial-algebra reducer and its check by simulating the unreduced diagram are original instruction in this lesson; the pitch-loop numbers are a representative model written for it. |
 | **Extensions** | ★ Implement Mason's gain formula for a signal-flow graph and check it on the pitch loop. ★ Add a feed-forward path from θ_c to the servo command and show that it adds a zero but leaves the closed-loop poles unchanged. ★ Extend `simulate_diagram` to blocks with a direct term (D ≠ 0) by ordering the evaluation, and detect algebraic loops. |
 | **Time** | unmeasured |
 
@@ -37,13 +37,13 @@ Reductions are easy to get wrong. A sign at a summing junction, a block on the w
 
 q/δ_e = M_δ (s + 1/T_θ2)/(s² + 2ζ_sp ω_sp s + ω_sp²).   (1)
 
-The lesson takes ω_sp = 4 rad/s, ζ_sp = 0.4, 1/T_θ2 = 1.5 s⁻¹ and M_δ = 12 s⁻², with positive δ_e defined as nose-up. These are representative of a light aircraft or small UAV at moderate speed, not data for a specific airframe.
+The lesson takes ω_sp = 4 rad/s, ζ_sp = 0.4, 1/T_θ2 = 1.5 s⁻¹ and M_δ = 12 s⁻², with positive δ_e defined as nose-up. These are representative of a light aircraft or small UAV at moderate speed, not data for a specific airframe. The loop they form is the one 16.30 Topic 2 sketches as its "First Short Period Autopilot".
 
 **Integrator.** θ̇ = q, so θ/q = 1/s: one pole at the origin. **Gyro filter.** q_m/q = 1/(τ_g s + 1), τ_g = 0.01 s.
 
 ### 2.2 Series, parallel, feedback
 
-Write each signal as the output of its block and solve. **Series**: Y = G₂(G₁U) gives G₁G₂; with G_i = n_i/d_i, the numerator is n₁n₂ and the denominator d₁d₂. **Parallel**: Y = G₁U + G₂U gives (n₁d₂ + n₂d₁)/(d₁d₂). **Feedback**: with forward block G, feedback block H and error E = R ∓ HY (minus for negative feedback), Y = GE gives Y(1 ± GH) = GR:
+Write each signal as the output of its block and solve (16.06 Lecture 4). **Series**: Y = G₂(G₁U) gives G₁G₂; with G_i = n_i/d_i, the numerator is n₁n₂ and the denominator d₁d₂. **Parallel**: Y = G₁U + G₂U gives (n₁d₂ + n₂d₁)/(d₁d₂). **Feedback**: with forward block G, feedback block H and error E = R ∓ HY (minus for negative feedback), Y = GE gives Y(1 ± GH) = GR:
 
 **T = G/(1 + GH) = n_G d_H/(d_G d_H + n_G n_H)**   (negative feedback).   (2)
 

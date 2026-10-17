@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `sampling_aliasing.png`, the derivations of the folding rule, the Butterworth poles and the order rule, the experiment table (labelled SYNTHETIC), and a half-page design note giving the order, corner, attenuation, droop and delay of your anti-aliasing filter. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the folding rule and the pole formula are derived; all public tests pass; the note shows that order 2 fails and order 3 passes, with numbers; the SYNTHETIC check is labelled as such and its agreement with the prediction explained. |
-| **References** | `@mit-ocw-6-003-signals-and-systems` Lecture 21 "Sampling" and Lecture 22 "Sampling and Quantization" (required-free: the sampling theorem, aliasing, reconstruction); Lecture 17 "Discrete-Time (DT) Frequency Representations" (supplementary-free). `@scipy-userguide` "Signal Processing (scipy.signal)" (supplementary-free: `butter`, `freqs`, `lsim`, used here only as oracles). The Butterworth design rules and the anti-aliasing order selection are original instruction (no free source mapped). Map `references/phase-09.md` not yet available when written; only ids already in `sources.yaml` are cited, with lecture titles as recorded in `references/phase-02.md`. |
+| **References** | `@mit-ocw-6-003-signals-and-systems` Lecture 21 "Sampling" (Sampling and Reconstruction; The Sampling Theorem; CT Model of Sampling and Reconstruction; Aliasing; Anti-Aliasing Filter) and Lecture 22 "Sampling and Quantization" (Aliasing; Anti-Aliasing Filter; Quantization; Dithering; Discrete-Time Sampling (Resampling)) (required-free): the folding (alias) frequency, why the anti-alias filter must act before the ADC, and sinc interpolation as ideal reconstruction. `@mit-ocw-6-341-discrete-time-signal-processing` Lecture 8 "DT Filter Design: IIR Filters": IIR Filter Design; Butterworth Filters; Chebyshev Filters; Elliptic Filters (supplementary-free): the maximally flat, monotonic Butterworth magnitude among its alternatives. `@smith-dsp-guide` Ch. 3 "ADC and DAC" (Quantization; The Sampling Theorem; Digital-to-Analog Conversion; Analog Filters for Data Conversion) and Ch. 20 "Chebyshev Filters" (The Chebyshev and Butterworth Responses) (supplementary-free, personal use, link only): the sampling chain from an engineer's bench and the Bessel/Butterworth/Chebyshev trade. `@scipy-userguide` tutorial "Signal Processing (scipy.signal)": Filter Design, Analog Filter Design, and API reference `butter` (analog=True) (required-free, oracle only). No verified free source sizes an anti-alias filter for a MEMS IMU against rotor or engine vibration lines: the IMU scenario, its synthetic record and the order-selection walk-through are original instruction in this lesson. |
 | **Extensions** | ★ Replace the Butterworth with a Bessel prototype (maximally flat delay) of the same order and compare the attenuation at 370 Hz and the phase at 5 Hz. ★ Let the blade-pass line sweep from 351 to 429 Hz (± 10 % rotor speed) and plot where its alias moves and how large it is. ★ Add quantisation (a 16-bit gyro output) and find the order at which the alias falls below one LSB. |
 | **Time** | unmeasured |
 
@@ -35,7 +35,7 @@ Sample x(t) = cos(2πft + φ) at t = n/f_s: x[n] = cos(2π(f/f_s)n + φ). Replac
 
 **f_a = \|f − f_s round(f/f_s)\|.**   (1)
 
-The **Nyquist frequency** f_s/2 is the highest frequency a sampler represents without ambiguity (the sampling theorem of `P02.10`). For the gyro, f_s = 400 Hz and f_s/2 = 200 Hz:
+The **Nyquist frequency** f_s/2 is the highest frequency a sampler represents without ambiguity (the sampling theorem of `P02.10`; 6.003 Lecture 21). For the gyro, f_s = 400 Hz and f_s/2 = 200 Hz:
 
 | true frequency | 10 | 190 | 210 | 390 | 410 | 780 | 1190 Hz |
 |---|---|---|---|---|---|---|---|
@@ -47,7 +47,7 @@ The 390 Hz line and its second harmonic at 780 Hz both land inside 0–30 Hz. Th
 
 ### 2.2 The Butterworth prototype
 
-Ask for a low-pass whose magnitude is as flat as possible at ω = 0 and falls monotonically:
+Ask for a low-pass whose magnitude is as flat as possible at ω = 0 and falls monotonically (the Butterworth filter of 6.341 Lecture 8):
 
 **\|H(jω)\|² = 1 / (1 + (ω/ω_c)²ⁿ).**   (2)
 

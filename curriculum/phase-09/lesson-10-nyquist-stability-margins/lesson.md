@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `nyquist_margins.png`, a hand sketch of the servo's Nyquist plot including the image of the indentation, the derivations of Z = N + P and of the servo's GM in closed form, the three sweep tables, and a half-page robustness note on one of the loops. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the criterion and the servo's margins are derived; all public tests pass; the note states GM, PM and DM with numbers, says what each protects against, and names one thing the margins miss. |
-| **References** | `@mit-ocw-6-003-signals-and-systems` Lecture 20 "Applications of Fourier Transforms" (supplementary-free: frequency response of LTI systems). The Nyquist criterion, the D-contour and the gain, phase and delay margins: GAP in the mapped free sources; this lesson is original instruction. `@scipy-userguide` "Signal Processing (scipy.signal)" (supplementary-free: `bode`, the margin oracle). Map `references/phase-09.md` not yet available when written; only ids already in `sources.yaml` are cited, with lecture titles as recorded in `references/phase-02.md`. |
+| **References** | `@mit-ocw-16-06-principles-of-automatic-control` Lecture 20 "The Nyquist stability criterion" (PDF "Bode Plots With Complex Poles": neutral stability; The Argument Principle), Lecture 21 "The Nyquist stability criterion (cont.)" (P, the number of unstable poles; Examples), Lecture 22 "Nyquist with poles on imaginary axis" (also: Nyquist Plot of Open Loop Unstable System) and Lecture 23 "Stability margins, Bode gain-phase theorem" (Stability Margins; Relationship between PM and damping) (required-free): the argument principle and Z = N + P, indenting the contour around imaginary-axis poles, the open-loop unstable case, and gain and phase margins from the −1 point. `@mit-ocw-16-30-feedback-control-systems` Topic 3 "Frequency response methods": Frequency Stability Tests; Gain and Phase Margins; Nyquist Stability; FR: Summary (required-free): the criterion and the margins in compact form. `@mit-ocw-6-003-signals-and-systems` Lecture 10 "Feedback and Control": Analysis of wallFinder System: Adding Sensor Delay; Destabilizing Effect of Delay (required-free): how a delay in the loop destabilises it. None of these notes defines the delay margin (PM divided by crossover frequency) or counts encirclements numerically by a winding number: both are original instruction in this lesson. |
 | **Extensions** | ★ Compute the peak sensitivity M_s = max 1/\|1 + L(jω)\| for the servo sweep and show that GM ≥ M_s/(M_s − 1) and PM ≥ 2 arcsin(1/(2M_s)) (a preview of `P09.18`). ★ Add a zero-order hold and a one-sample computation delay at 200 Hz to the servo and find the gain that keeps 45° of phase margin. ★ Draw the Nyquist plot of an inverted-pendulum launch stand under PD control and find the range of K for stability. |
 | **Time** | unmeasured |
 
@@ -35,13 +35,13 @@ Let F(s) be rational and C a closed curve, traversed clockwise, that passes thro
 
 ### 2.2 Nyquist's criterion
 
-Apply it to F = 1 + L. The zeros of 1 + L are the closed-loop poles; its poles are the open-loop poles. Choose C to enclose the whole right half plane: the **Nyquist D-contour**, up the imaginary axis from −jR to +jR and back along a semicircle of radius R → ∞. Encircling the origin by 1 + L is the same as encircling −1 by L. Hence
+Apply it to F = 1 + L (16.06 Lectures 20 and 21). The zeros of 1 + L are the closed-loop poles; its poles are the open-loop poles. Choose C to enclose the whole right half plane: the **Nyquist D-contour**, up the imaginary axis from −jR to +jR and back along a semicircle of radius R → ∞. Encircling the origin by 1 + L is the same as encircling −1 by L. Hence
 
 **Z = N + P,**   (1)
 
 with Z the number of closed-loop poles in the right half plane, P the number of open-loop poles there, and N the number of **clockwise** encirclements of −1 by L(s) on the contour. For stability Z = 0, so N = −P: an open-loop stable loop must not encircle −1, and an open-loop unstable loop must encircle it counterclockwise once per unstable pole.
 
-**Indentations.** The contour must not pass through a pole of L. A servo's integrator (pole at 0) and a satellite's double integrator lie on the imaginary axis, so the contour detours around them on small semicircles s = jω_k + εe^{jφ}, φ from −90° to +90°, to the right, which keeps them outside (they are not counted in P). Near a k-fold pole at the origin, L ≈ c/s^k, and on the small semicircle L ≈ (c/ε^k)e^{−jkφ}: **a huge arc swinging clockwise through kπ**. For the servo (k = 1) that is a half circle at infinity from +90° through 0° to −90° (the image of φ = −90° … 90°); for the satellite (k = 2), a full circle. Forgetting the indentation is the most common error in Nyquist plots, and the winding count is wrong without it.
+**Indentations.** The contour must not pass through a pole of L (16.06 Lecture 22). A servo's integrator (pole at 0) and a satellite's double integrator lie on the imaginary axis, so the contour detours around them on small semicircles s = jω_k + εe^{jφ}, φ from −90° to +90°, to the right, which keeps them outside (they are not counted in P). Near a k-fold pole at the origin, L ≈ c/s^k, and on the small semicircle L ≈ (c/ε^k)e^{−jkφ}: **a huge arc swinging clockwise through kπ**. For the servo (k = 1) that is a half circle at infinity from +90° through 0° to −90° (the image of φ = −90° … 90°); for the satellite (k = 2), a full circle. Forgetting the indentation is the most common error in Nyquist plots, and the winding count is wrong without it.
 
 **On the big arc**, every strictly proper L tends to 0, so it maps to the origin and contributes nothing. With a delay e^{−sT}, \|e^{−sT}\| = e^{−T Re s} ≤ 1 on the right half of the arc, so the same holds.
 
@@ -51,7 +51,7 @@ Sample the contour densely, evaluate z_k = L(s_k), and add up the angle incremen
 
 ### 2.4 The three margins
 
-Write L(jω) = \|L\|e^{jφ}. For a loop that is open-loop stable and stable as designed:
+Write L(jω) = \|L\|e^{jφ} (16.06 Lecture 23; 16.30 Topic 3, "Gain and Phase Margins"). For a loop that is open-loop stable and stable as designed:
 
 - **Gain crossover** ω_gc: \|L(jω_gc)\| = 1. **Phase margin PM = 180° + φ(ω_gc)**: the extra phase lag at ω_gc that would put the curve through −1.
 - **Phase crossover** ω_pc: φ(ω_pc) = −180° (the curve crosses the negative real axis). **Gain margin GM = 1/\|L(jω_pc)\|**: the factor by which the gain can rise before the crossing reaches −1. In decibels, GM_dB = −20 log₁₀\|L(jω_pc)\|.

@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `time_response.png`, the derivations of the second-order formulas and of the servo's fixed real part, the design table (target, K, ζ, ω_n, measured and predicted metrics), the third-pole and zero tables, and a short note recommending a servo gain with its metrics and its sensitivity to τ. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the overshoot and peak-time formulas and the fixed real part are derived; all public tests pass; the measured and predicted metrics are compared in a table with the discrepancies explained; the note states why 4/(ζω_n) is misleading for this servo. |
-| **References** | `@mit-ocw-18-03-differential-equations` notes 12 "Good vibrations, damping conditions", 24 "Step response, impulse response", 28 "Second order equations; completing the squares" and 29 "The pole diagram" (required-free); L9 "Solving Second-order Linear ODE's with Constant Coefficients" (supplementary-free). GAP: step-response metrics, dominant poles and the effect of zeros are original instruction here. The Phase 09 reference map (`references/phase-09.md`) was not available when this lesson was written; the topics marked GAP are covered by original instruction in this lesson. |
+| **References** | `@mit-ocw-16-06-principles-of-automatic-control` Lecture 5 "Dynamic response of closed-loop systems" (PDF "Dynamic Response"), Lecture 6 "Time-domain specifications" (the step response of H(s); desired pole locations) and Lecture 7 "Effect of zeros" (PDF "Effects of Zeros on Step Response", including "Non-Minimum Phase Zeros") (required-free): rise time, peak time, overshoot and settling time against ζ and ω_n, the desired-pole region, dominant poles, and why a left-half-plane zero adds overshoot and a right-half-plane zero gives undershoot. `@mit-ocw-6-003-signals-and-systems` Lecture 3 "Feedback, Poles, and Fundamental Modes" (Geometric Growth: Poles; Second-Order Systems; Partial Fractions; Complex Poles), Lecture 4 "Continuous-Time (CT) Systems" (CT Feedback; Convergent and Divergent Poles) and Lecture 6 "Laplace Transform" (Initial Value Theorem; Final Value Theorem) (required-free): partial fractions as a sum of modes, and the initial and final values read from G(s). |
 | **Extensions** | ★ Extend `step_residues` to repeated poles with the derivative formula and check ζ = 1. ★ Add a velocity (tachometer) feedback K_v s to the servo and show that the real part −1/(2τ) can now be moved; find K and K_v for 10 % overshoot and 0.15 s settling. ★ Fit ζ and ω_n to a SYNTHETIC noisy step response by least squares and report their uncertainty (the method `P09.21` uses on measured data). |
 | **Time** | unmeasured |
 
@@ -49,7 +49,7 @@ G(s) = ω_n²/(s² + 2ζω_n s + ω_n²) has poles at **s = −ζω_n ± jω_n�
 - ζ > 1: y = 1 + (p₂e^{p₁t} − p₁e^{p₂t})/(p₁ − p₂) with real poles p₁,₂ = −ζω_n ± ω_n√(ζ² − 1);
 - ζ = 0: y = 1 − cos(ω_n t), oscillating between 0 and 2 for ever.
 
-Setting ẏ = 0 gives ω_n e^{−σt} sin(ω_d t)/√(1 − ζ²) = 0, so the first peak is at **t_p = π/ω_d** and
+Setting ẏ = 0 (16.06 Lecture 6) gives ω_n e^{−σt} sin(ω_d t)/√(1 − ζ²) = 0, so the first peak is at **t_p = π/ω_d** and
 
 **M_p = 100 exp(−πζ/√(1 − ζ²))**,   inverted:   **ζ = −ln M/√(π² + ln² M)**,  M = M_p/100.   (1)
 
@@ -75,7 +75,7 @@ For a proper G = N_G/D_G, the step response transform is Y(s) = G(s)/s = N(s)/D(
 
 **y(t) = Σ_k r_k e^{p_k t},  r_k = N(p_k)/D′(p_k)**   (4)
 
-(`P02.08`). The residue at p = 0 is G(0), the steady state. For a strictly proper G, y(0) = Σ r_k = 0. Each other residue measures **how strongly the step excites that mode**: a pole with a tiny residue hardly shows in the response wherever it sits. (4) is exact; the test compares it with RK4 and with `scipy.signal.step`.
+(`P02.08`; 6.003 Lecture 3, "Partial Fractions"). The residue at p = 0 is G(0), the steady state. For a strictly proper G, y(0) = Σ r_k = 0. Each other residue measures **how strongly the step excites that mode**: a pole with a tiny residue hardly shows in the response wherever it sits. (4) is exact; the test compares it with RK4 and with `scipy.signal.step`.
 
 ### 2.5 Dominant poles and the third pole
 
@@ -87,7 +87,7 @@ The **dominant poles** are those closest to the imaginary axis, and the usual ru
 
 ### 2.6 The effect of a zero
 
-Add a zero at s = z to the standard system with unit DC gain: G_z(s) = ω_n²(1 − s/z)/(s² + 2ζω_n s + ω_n²) = G(s) − (s/z)G(s). Multiplying by s differentiates, so
+Add a zero at s = z (16.06 Lecture 7) to the standard system with unit DC gain: G_z(s) = ω_n²(1 − s/z)/(s² + 2ζω_n s + ω_n²) = G(s) − (s/z)G(s). Multiplying by s differentiates, so
 
 **y_z(t) = y(t) − (1/z) ẏ(t)**,   ẏ = (ω_n/√(1 − ζ²)) e^{−σt} sin(ω_d t),   (5)
 

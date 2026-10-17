@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `convolution.png`, the hand convolution of Problem 1, the derivations of the closed forms and of the wrap-around formula, the convergence table, the SYNTHETIC gyro check (labelled), and a short note recommending how to compute the servo's response in a test-planning tool. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the convolution sum and the first-order responses are derived; all public tests pass; the convergence orders are measured and explained, including the first-order error at a jump; the SYNTHETIC record is labelled as such. |
-| **References** | `@mit-ocw-18-03-differential-equations` L21 "Convolution Formula", L23 "Use with Impulse Inputs", notes 24 "Step response, impulse response" and 25 "Convolution" (required-free); `@mit-ocw-6-003-signals-and-systems` Lecture 20 "Applications of Fourier Transforms" (supplementary-free: convolution and filtering in the frequency domain); `@mit-ocw-18-06-linear-algebra` Lecture 26 "Complex matrices; fast fourier transform" (supplementary-free). GAP: circular convolution, zero padding and Riemann-sum error analysis are original instruction here. The Phase 09 reference map (`references/phase-09.md`) was not available when this lesson was written; the topics marked GAP are covered by original instruction in this lesson. |
+| **References** | `@mit-ocw-6-003-signals-and-systems` Lecture 8 "Convolution" (Responses to arbitrary signals; Superposition; Structure of Superposition; Structure of Convolution; DT Convolution: Summary; CT Convolution; Applications of Convolution; Impulse Response: Summary) and Lecture 4 "Continuous-Time (CT) Systems" (Impulse Response of Acyclic CT System; Mass and Spring System) (required-free): y = h * x as a sum of shifted, scaled impulse responses, the flip-and-slide picture and the continuous integral as the limit of the sum. `@mit-ocw-18-03-differential-equations` Lecture 21 "Convolution Formula" and Lecture 23 "Use with Impulse Inputs" (required-free): the convolution integral for a linear ODE and the step response as the running integral of h. `@scipy-userguide` tutorial "Signal Processing (scipy.signal)": Filtering, Convolution/Correlation (required-free, oracle only: `fftconvolve`, `lfilter`, `lsim`, `step`). The RC IMU front end and first-order servo examples, and the FFT-versus-direct cost comparison, are original instruction in this lesson. |
 | **Extensions** | ★ Implement overlap-add block convolution and show that it beats both the direct sum and a single FFT for a long record and a 65-tap filter. ★ Estimate an unknown impulse response from a SYNTHETIC noisy input-output record by least squares (deconvolution) and show how noise limits it. ★ Make `convolve_continuous` step-invariant for piecewise-constant inputs (Problem 6) and use it for the servo. |
 | **Time** | unmeasured |
 
@@ -31,7 +31,7 @@ Success criteria, written first: the direct sum equals FFT multiplication with z
 
 ### 2.1 The convolution sum
 
-Any sequence is a sum of scaled, shifted impulses: x[n] = Σ_k x[k] δ[n − k]. Feed this to an LTI system S with h = S(δ). Time invariance gives S(δ[n − k]) = h[n − k]; linearity lets the sum and the scale factors through:
+Any sequence is a sum of scaled, shifted impulses: x[n] = Σ_k x[k] δ[n − k]. Feed this to an LTI system S with h = S(δ) (6.003 Lecture 8, "Structure of Superposition"). Time invariance gives S(δ[n − k]) = h[n − k]; linearity lets the sum and the scale factors through:
 
 **y[n] = Σ_k x[k] h[n − k] = (x * h)[n].**   (1)
 
@@ -41,7 +41,7 @@ Two small hand examples fix the mechanics. [1, 2, 4] * [3, −1, 1]: slide, mult
 
 ### 2.2 The convolution integral
 
-Approximate a continuous input by a staircase of width Δ: the strip at τ_k is a pulse of area x(τ_k)Δ, which for small Δ acts like x(τ_k)Δ δ(t − τ_k) and produces x(τ_k)Δ h(t − τ_k). Summing and letting Δ → 0:
+Approximate a continuous input by a staircase of width Δ: the strip at τ_k is a pulse of area x(τ_k)Δ, which for small Δ acts like x(τ_k)Δ δ(t − τ_k) and produces x(τ_k)Δ h(t − τ_k). Summing and letting Δ → 0 (6.003 Lecture 8, "CT Convolution"; 18.03 Lecture 21):
 
 **y(t) = ∫ x(τ) h(t − τ) dτ,**   and for causal signals   **y(t) = ∫₀ᵗ x(τ) h(t − τ) dτ.**   (2)
 

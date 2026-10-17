@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `root_locus.png`, a hand sketch of the locus with segments, asymptotes, breakaway and jω crossing marked before running the code, the Routh table at the critical gain, the T_d experiment table, and a half-page recommendation of a gain (and T_d if used) with its predicted and simulated step metrics. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the hand sketch has the right segments, asymptotes and crossing; all public tests pass; the recommendation explains with numbers when the dominant-pair prediction fails. |
-| **References** | Root locus, its construction rules and the Routh array: GAP in the mapped free sources; this lesson is original instruction. `@mit-ocw-6-003-signals-and-systems` lecture-notes page (supplementary-free: the pole-zero view of LTI systems that the locus builds on). `@scipy-userguide` "Signal Processing (scipy.signal)" (supplementary-free: `step`, the simulation oracle). Map `references/phase-09.md` not yet available when written; only ids already in `sources.yaml` are cited, with lecture titles as recorded in `references/phase-02.md`. |
+| **References** | `@mit-ocw-16-06-principles-of-automatic-control` Lecture 8 "The Routh criterion" (The Routh Stability Criterion; The Routh Array), Lecture 11 "The root locus method", Lecture 12 "Root locus rules" and Lecture 13 "Root locus rules, lead compensation" (PDF "Root Locus Rules (cont-d)", with a Routh array for the jω crossing) (required-free): the angle and magnitude conditions and the construction rules (real-axis segments, asymptotes and centroid, breakaway, jω crossing by Routh); Lecture 15 "Zero degree root locus" (required-free) for the K < 0 extension. `@mit-ocw-16-30-feedback-control-systems` Topic 2 "Basic root locus: analysis and examples": Root Locus Basics; Root Locus Analysis; Root Locus Examples; Dynamic Compensation; Classic Root Locus Approach (required-free): the same rules from an aerospace course, and picking K for a damping-ratio target. No verified free source treats an outer altitude loop around an inner pitch loop by root locus: the altitude-hold loop is original instruction in this lesson. |
 | **Extensions** | ★ Draw the complementary locus (K < 0) and explain what it would mean physically for the altitude loop. ★ Add a second-order inner pitch loop (ω_n = 3 rad/s, ζ = 0.7) instead of the first-order lag and find how much the critical gain changes. ★ Place a lead compensator (zero at −0.7, pole at −5) and design for ζ = 0.5 with the fastest ω_n you can get; compare with `P09.12`. |
 | **Time** | unmeasured |
 
@@ -45,11 +45,11 @@ A point s is a closed-loop pole for some K > 0 if and only if 1 + KG(s) = 0, i.e
 
 **∠G(s) = Σ∠(s − z_i) − Σ∠(s − p_j) = 180° (mod 360°),  K = 1/\|G(s)\|.**   (3)
 
-The angle condition alone decides whether s is on the locus; the magnitude condition then gives the gain that puts a pole there. Every point computed in this lesson is checked against both: of 1800 points (600 gains, three branches), the worst angle error is 1.4 × 10⁻¹³ degrees and the worst \|K\|G\| − 1\| is 3.2 × 10⁻¹².
+The angle condition alone (16.06 Lecture 11) decides whether s is on the locus; the magnitude condition then gives the gain that puts a pole there. Every point computed in this lesson is checked against both: of 1800 points (600 gains, three branches), the worst angle error is 1.4 × 10⁻¹³ degrees and the worst \|K\|G\| − 1\| is 3.2 × 10⁻¹².
 
 ### 2.3 Construction rules
 
-All follow from (3) and from the polynomial D + KN.
+All follow from (3) and from the polynomial D + KN (16.06 Lecture 12; 16.30 Topic 2, "Root Locus Analysis").
 
 1. **Branches.** There are n = deg D branches. At K = 0 they start at the open-loop poles; as K → ∞, m of them end at the zeros (D/K + N → N) and n − m go to infinity.
 2. **Real axis.** For a real s, each complex-conjugate pair contributes zero net angle, and each real pole or zero to the left contributes 0°, to the right 180°. So **a real point is on the locus when the number of real poles and zeros to its right is odd.** For (1): (−∞, −2] and [−1, 0].
@@ -60,7 +60,7 @@ All follow from (3) and from the polynomial D + KN.
 
 ### 2.4 Routh: the independent check on the crossing
 
-The **Routh array** decides how many roots of a real polynomial lie in the right half plane without computing them. Write the even-indexed coefficients in the first row and the odd-indexed ones in the second; each further entry is R[i, j] = (R[i−1, 0]R[i−2, j+1] − R[i−2, 0]R[i−1, j+1])/R[i−1, 0]. The number of sign changes down the first column equals the number of right-half-plane roots. For (2):
+The **Routh array** (16.06 Lecture 8) decides how many roots of a real polynomial lie in the right half plane without computing them. Write the even-indexed coefficients in the first row and the odd-indexed ones in the second; each further entry is R[i, j] = (R[i−1, 0]R[i−2, j+1] − R[i−2, 0]R[i−1, j+1])/R[i−1, 0]. The number of sign changes down the first column equals the number of right-half-plane roots. For (2):
 
 | row | first column |
 |---|---|

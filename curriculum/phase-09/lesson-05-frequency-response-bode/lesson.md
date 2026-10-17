@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `bode.png`, the derivation of the steady-state response and of the corner corrections, the table of computed against SIMULATED sine-test gain and phase (labelled), the straight-line error figures, and a short note answering the engineering question with numbers. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the steady-state response and the corner corrections are derived; all public tests pass; the computed and simulated responses agree and the residual is explained; the SIMULATED test is labelled as a simulation everywhere. |
-| **References** | `@mit-ocw-18-03-differential-equations` notes 7 "Linear system response to exponential and sinusoidal input; gain, phase lag", 16 "Frequency response" and 30 "The transfer function and frequency response" (required-free); `@mit-ocw-6-003-signals-and-systems` Lecture 16 "Fourier Transform" (supplementary-free: the frequency response as the transform on the imaginary axis). GAP: asymptotic Bode construction, phase unwrapping and the sine-test fit are original instruction here. The Phase 09 reference map (`references/phase-09.md`) was not available when this lesson was written; the topics marked GAP are covered by original instruction in this lesson. |
+| **References** | `@mit-ocw-6-003-signals-and-systems` Lecture 9 "Frequency Response" (Eigenfunctions; Complex Exponentials; Rational System Functions; Vector Diagrams; Example: Mass, Spring, and Dashpot) and Lecture 11 "Continuous-Time (CT) Frequency Response and Bode Plot" (Frequency Response: H(s)\|s←jω; Asymptotic Behavior: Isolated Zero; Asymptotic Behavior: Isolated Pole; Bode Plot: Adding Instead of Multiplying; Bode Plot: dB; Bode Plot: Accuracy; Frequency Response of a High-Q System) (required-free): G(jω) as the steady-state complex gain on a sinusoid, why dB and log frequency make factors add, break-frequency asymptotes and their worst-case error, and the resonant peak of a lightly damped pair. `@mit-ocw-16-06-principles-of-automatic-control` Lecture 16 "Frequency response design" (The Frequency Response; Bode Diagram), Lecture 17 "Bode plot problems" (PDF "Frequency Response Design": Bode Plot Construction) and Lecture 18 "Bode plots (cont.)" (required-free): building a Bode diagram by hand, factor by factor. `@mit-ocw-16-30-feedback-control-systems` Topic 3 "Frequency response methods": Frequency Response Function; Bode Example (required-free): one more worked example. `@scipy-userguide` API reference "Signal processing (scipy.signal)": "Continuous-time linear systems" (`bode`, `freqs`) (required-free, oracle only). |
 | **Extensions** | ★ Add a pure time delay e^{−sT} to the plotter (magnitude 1, phase −ωT) and compare with its first-order Padé approximation (Problem 6). ★ Replace the single-frequency sine test by a SYNTHETIC chirp and estimate the frequency response from the ratio of the FFTs of output and input (`P02.10`); compare its accuracy and test time with the sine sweep. ★ Implement the Nichols chart (magnitude against phase) and plot the pitch loop on it. |
 | **Time** | unmeasured |
 
@@ -35,7 +35,7 @@ Let a stable LTI system with impulse response h be driven by x(t) = Re{A e^{jωt
 
 y(t) = Re{A ∫₀ᵗ h(τ) e^{jω(t − τ)} dτ} = Re{A e^{jωt} [G(jω) − ∫_t^∞ h(τ) e^{−jωτ} dτ]},
 
-with **G(jω) = ∫₀^∞ h(τ) e^{−jωτ} dτ**, the Laplace transform on the imaginary axis (`P02.10`). The last integral is the transient: for a stable system h decays exponentially, so it decays too, at the rate of the slowest pole. What remains is
+with **G(jω) = ∫₀^∞ h(τ) e^{−jωτ} dτ**, the Laplace transform on the imaginary axis (`P02.10`; 6.003 Lecture 11, "Frequency Response: H(s)|s←jω"). The last integral is the transient: for a stable system h decays exponentially, so it decays too, at the rate of the slowest pole. What remains is
 
 **y_ss(t) = A |G(jω)| cos(ωt + ∠G(jω))**.   (1)
 
@@ -52,7 +52,7 @@ The phase of a complex number from `np.angle` lies in (−180°, 180°], so a ph
 
 ### 2.3 The Bode form and the straight-line diagram
 
-Collect the factors in **Bode form**:
+Collect the factors in **Bode form** (6.003 Lecture 11; 16.06 Lecture 17, "Bode Plot Construction"):
 
 G(s) = K_B s^{−type} Π(1 + s/ω_b)^{±1} Π(1 + 2ζs/ω_n + s²/ω_n²)^{±1},   (2)
 
