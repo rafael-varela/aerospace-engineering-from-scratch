@@ -1,0 +1,25 @@
+# AUTHENTIC wind-tunnel results (not synthetic): measured lift-curve slopes of finite wings at low speed.
+# Sources (all NACA Technical Notes; US Government works, public domain):
+#   NACA TN-1669, Goodman & Brewer 1948, NTRS 19930082295, https://ntrs.nasa.gov/citations/19930082295
+#   NACA TN-1671, Letko & Cowan 1948, NTRS 19930082298, https://ntrs.nasa.gov/citations/19930082298
+#   NACA TN-1422, Sivells 1947, NTRS 19930082118, https://ntrs.nasa.gov/citations/19930082118
+# cla_per_deg: TN-1422 values printed in its Table I; TN-1669 and TN-1671 values DIGITIZED from report figures
+#   (TN-1669 Fig. 5, +/-0.0005 per deg; TN-1671 Fig. 6, C_L < 0.6, +/-0.0003 per deg) on 2026-10-17. See README.md.
+# taper_ratio is tip/root. Jet-boundary corrections were applied by the reports; no blockage corrections.
+# One reynolds cell is a text range because TN-1671 does not state that wing's value.
+report,ntrs_id,page,planform,aspect_ratio,taper_ratio,sweep_quarter_chord_deg,section,reynolds,mach,cla_per_deg,cla_source_note
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 1: untapered unswept (rectangular; rounded streamwise tips),1.34,1.00,0,NACA 0012 (normal to leading edge),1.58e6,0.13,0.0280,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 4: untapered unswept (rectangular; rounded streamwise tips),2.61,1.00,0,NACA 0012 (normal to leading edge),1.10e6,0.13,0.0486,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 7: untapered unswept (rectangular; rounded streamwise tips),5.16,1.00,0,NACA 0012 (normal to leading edge),7.8e5,0.13,0.0689,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 2: untapered swept back,1.34,1.00,45,NACA 0012 (normal to leading edge),1.56e6,0.13,0.0315,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 5: untapered swept back,2.61,1.00,45,NACA 0012 (normal to leading edge),1.10e6,0.13,0.0463,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 8: untapered swept back,5.16,1.00,45,NACA 0012 (normal to leading edge),7.7e5,0.13,0.0560,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 3: untapered swept back,1.34,1.00,60,NACA 0012 (normal to leading edge),1.56e6,0.13,0.0286,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 6: untapered swept back,2.61,1.00,60,NACA 0012 (normal to leading edge),1.08e6,0.13,0.0360,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1669,19930082295,PDF p.21 (printed p.20),wing 9: untapered swept back,5.16,1.00,60,NACA 0012 (normal to leading edge),7.6e5,0.13,0.0434,"digitized from figure 5, reading uncertainty +/-0.0005 per deg"
+NACA TN-1671,19930082298,PDF p.17 (printed p.15),tapered swept back (straight edges),2.61,0.25,45,NACA 0012 (normal to quarter-chord line),1.23e6,0.13,0.0440,"digitized from figure 6 (C_L < 0.6), reading uncertainty +/-0.0003 per deg"
+NACA TN-1671,19930082298,PDF p.17 (printed p.15),tapered swept back (straight edges),2.61,0.50,45,NACA 0012 (normal to quarter-chord line),1.1e6-1.23e6 (only end values stated),0.13,0.0439,"digitized from figure 6 (C_L < 0.6), reading uncertainty +/-0.0003 per deg"
+NACA TN-1671,19930082298,PDF p.17 (printed p.15),untapered swept back,2.61,1.00,45,NACA 0012 (normal to quarter-chord line),1.10e6,0.13,0.0449,"digitized from figure 6 (C_L < 0.6), reading uncertainty +/-0.0003 per deg"
+NACA TN-1422,19930082118,PDF p.10 (printed p.9),"tapered unswept, 3 deg dihedral, 2 deg linear washout",9,0.40,0,NACA 64-210,4.4e6,0.17,0.086,"table I (experimental dCL/dalpha; calculated 0.083)"
+NACA TN-1422,19930082118,PDF p.10 (printed p.9),"tapered unswept, 3 deg dihedral, 2 deg linear washout",9,0.40,0,NACA 65-210,4.4e6,0.17,0.085,"table I (experimental dCL/dalpha; calculated 0.085)"
+NACA TN-1422,19930082118,PDF p.10 (printed p.9),"tapered unswept, 3 deg dihedral, no washout",9,0.40,0,NACA 65-210,4.4e6,0.17,0.085,"table I (experimental dCL/dalpha; calculated 0.085)"
