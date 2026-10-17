@@ -1,0 +1,10 @@
+# SYNTHETIC data from make_synthetic_cantilever_data(seed=518) in P05.18 solution.py: NOT a measurement
+# strip 25 x 3 mm aluminium (nominal), free length 300 mm, load at a = 290 mm; load 700 g, readings along the strip
+x_mm,reading_unloaded_mm,reading_loaded_mm
+50,152.1,152.6
+100,152.3,154.6
+150,152.4,157.1
+200,152.0,160.8
+250,151.9,163.8
+290,152.3,167.3
+300,152.8,168.0
