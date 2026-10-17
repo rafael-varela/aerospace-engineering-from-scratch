@@ -64,7 +64,10 @@ def test_mode_shapes_satisfy_ode_bcs_and_orthogonality(bc):
     x = np.linspace(0, L, 20001)
     dx = x[1] - x[0]
     phis = [impl.mode_shape(x, L, b, bc) for b in bl]
-    xc = np.linspace(0, L, 1001)                                 # coarser grid for the fourth difference (round-off)
+    # Coarser grid for the fourth difference: round-off in cosh - s sinh grows as eps cosh(bL) / h^4, which at
+    # h = L/1000 is ~0.8 of the tolerance for the third clamped-clamped mode and platform-dependent; at h = L/400
+    # round-off is ~40x smaller and the O(h^2) truncation error stays below 0.07 of the tolerance.
+    xc = np.linspace(0, L, 401)
     dc = xc[1] - xc[0]
     for b, ph in zip(bl, phis):
         assert np.max(np.abs(ph)) == pytest.approx(1.0, abs=1e-6)
