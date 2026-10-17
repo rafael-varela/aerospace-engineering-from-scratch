@@ -1,0 +1,204 @@
+# Bill of materials for project p08-flow-pressure (lesson P08.19 Home Lab: Flow & Pressure Measurement)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
+# Hard limits from safety.md: water at room temperature, no more than 2 L in total; fans guarded (finger-proof
+# grille) and drawing at most 30 W; a hair dryer on its COOL setting only, kept away from water; no compressed gas,
+# no pressurised containers (never squeeze or pressurise a bottle); no mains appliance near spilled water.
+project: p08-flow-pressure
+title: Discharge coefficient of a draining bottle, and airspeed from a water U-tube manometer
+lessons: [P08.19]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p00-calibration, p00-first-experiment, p04-pendulum, p04-drag-drop]
+
+tiers:
+  minimum_cost:
+    description: A plastic bottle with a small hole, a ruler, a phone video and a clear tube bent into a U against a ruler. Enough to fit C_d to about 5 % (the hole diameter dominates) and to read airspeeds above about 7 m/s (a hair dryer on cool) to 10 %; a small fan is below the upright tube's resolution.
+    items:
+      - id: bottle
+        qty: 1
+        spec: Clear plastic (PET) drinks bottle, 1-1.5 L, with a straight cylindrical section at least 200 mm tall above a point 20-40 mm from the base; inner diameter measured, not taken from the label
+        search_term: null
+        price_range: [0, 1]
+        required: true
+        reusable_id: specimens.pet-bottle
+        substitutes: ["any straight-walled clear plastic container of 1-2 L (never glass)"]
+        safety_notes: Total water in the whole session no more than 2 L. Never squeeze, cap tightly while draining, or pressurise the bottle; the flow must be driven by gravity alone.
+      - id: hole-maker
+        qty: 1
+        spec: A 4 mm hole in the bottle wall, 20-40 mm above the base, made with a hand drill bit twisted by hand or a heated nail held in pliers (adult only); deburr with fine sandpaper so the edge is clean and square
+        search_term: "4mm drill bit"
+        price_range: [0, 3]
+        required: true
+        reusable_id: tools.drill-bit-4mm
+        substitutes: ["a leather punch or paper punch of about 4 mm"]
+        safety_notes: Make the hole before filling, on a cutting board, cutting away from the hand that holds the bottle. A heated nail only with an adult, pliers, and ventilation; let it cool on a non-flammable surface.
+      - id: hole-gauge
+        qty: 1
+        spec: Something of known diameter to gauge the hole (the shank of the 4 mm drill bit, or the inside jaws of the p00 caliper); the hole diameter enters squared, so it is the measurement that matters most
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: tools.drill-bit-4mm
+      - id: tape-for-hole
+        qty: 1
+        spec: A strip of waterproof tape (electrical or duct tape) to seal the hole while filling, pulled off to start the run
+        search_term: "electrical tape"
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.tape
+        substitutes: ["a finger over the hole (the start time is then less certain)"]
+      - id: ruler
+        qty: 2
+        spec: 300 mm rulers with 1 mm graduations; one taped vertically to the bottle with its zero at the hole centre, one for the manometer board
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: tools.ruler
+        substitutes: ["the ruler from p00-calibration", "a printed mm scale checked against a ruler and taped on"]
+      - id: basin
+        qty: 1
+        spec: Sink, bathtub or a plastic basin of at least 3 L on the floor to catch the jet and everything that drains
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.basin
+      - id: measuring-jug
+        qty: 1
+        spec: Kitchen measuring jug, to fill the bottle and to keep count of the water used (no more than 2 L in total)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.measuring-jug
+      - id: phone-camera
+        qty: 1
+        spec: Any phone camera filming at 30 frames per second or faster; the video time stamps give t to about 0.05 s
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+        substitutes: ["the phone from p00-first-experiment, p04-pendulum or p04-drag-drop"]
+      - id: phone-stand
+        qty: 1
+        spec: Anything that holds the phone still and level with the water surface or the menisci, about 300 mm away
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: true
+        reusable_id: tools.phone-stand
+        substitutes: ["the phone stand from p00-first-experiment, p04-pendulum or p04-drag-drop", "a stack of books"]
+      - id: clear-tube
+        qty: 1
+        spec: Clear flexible PVC or silicone tubing, 4-6 mm inner diameter, about 1.5 m long, bent into a U on a board; both legs the same bore
+        search_term: "clear vinyl tubing 1/4 inch"
+        price_range: [2, 6]
+        required: true
+        reusable_id: specimens.clear-tube
+      - id: manometer-board
+        qty: 1
+        spec: A flat board or stiff card about 400 x 150 mm to tape the U-tube and a ruler to, which can stand upright or be propped at a measured angle
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.board
+        substitutes: ["a clipboard", "a shelf from a bookcase"]
+      - id: pitot-probe
+        qty: 1
+        spec: A straight drinking straw or a 4-6 mm rigid tube, 100-150 mm long, cut square at the open end, pushed 10-20 mm into one leg's tube and taped airtight, the open end facing the flow
+        search_term: null
+        price_range: [0, 1]
+        required: true
+        reusable_id: misc.straw
+      - id: water-for-manometer
+        qty: 1
+        spec: About 20 mL of room-temperature tap water, optionally with a drop of food colouring; filled with a syringe or by dipping, never by mouth
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.water
+      - id: air-source
+        qty: 1
+        spec: A hair dryer used ONLY on its cool (no-heat) setting, or a small desk fan with a finger-proof grille drawing at most 30 W (check the rating plate)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.air-source
+        safety_notes: Hair dryer on cool only, on a separate dry table from the water; fans guarded and at most 30 W; mains plugs and cables kept away from the basin and from any spilled water.
+      - id: thermometer-barometer
+        qty: 1
+        spec: Room temperature to 1 C and air pressure to 1 hPa, from a household thermometer and a phone's barometer or the nearest weather station; for the air density
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+        substitutes: ["the barometer-thermometer item of p04-drag-drop"]
+      - id: towel
+        qty: 2
+        spec: Towels to mop spills at once and to stand the manometer board on
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.towel
+        substitutes: ["the landing pad from p00-first-experiment or p04-drag-drop"]
+      - id: protractor-printout
+        qty: 1
+        spec: A printed protractor (or a phone inclinometer app) to set and read the board's tilt
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.printout
+        substitutes: ["the protractor printout from p04-pendulum"]
+  recommended:
+    description: A caliper for the hole and the bottle (the dominant terms in the C_d budget) and a ramp for a tilted manometer, which brings a small fan's 3 m/s into reach.
+    items:
+      - id: caliper
+        qty: 1
+        spec: Digital or vernier caliper, 150 mm, 0.01-0.02 mm resolution, inside jaws for the hole and outside jaws for the bottle (inner diameter = outer minus twice the wall)
+        search_term: "digital caliper 150mm"
+        price_range: [8, 25]
+        required: false
+        reusable_id: instruments.caliper
+        substitutes: ["the caliper from p00-calibration"]
+      - id: drill-bit-set
+        qty: 1
+        spec: A few drill bits from 3.5 to 4.5 mm in 0.5 mm steps, used as plug gauges (the largest shank that enters the hole bounds its diameter)
+        search_term: "drill bit set metric"
+        price_range: [3, 10]
+        required: false
+        reusable_id: tools.drill-bits
+      - id: tilt-ramp
+        qty: 1
+        spec: A stable ramp to hold the manometer board at 10-30 degrees (books under one end, or a hinged board with a stop), with the angle measured from rise over run to 0.5 degrees
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: misc.board
+      - id: syringe
+        qty: 1
+        spec: A 10-20 mL plastic syringe (no needle) to fill the manometer tube without bubbles
+        search_term: "10ml plastic syringe without needle"
+        price_range: [1, 4]
+        required: false
+        reusable_id: tools.syringe
+  enhanced:
+    description: An independent airspeed reading from a vane anemometer, to check the manometer route, and a stopwatch-free timing from the video's frame counter.
+    items:
+      - id: vane-anemometer
+        qty: 1
+        spec: Handheld vane anemometer, 0.3-30 m/s, stated accuracy about +/- 3 % of reading; battery powered
+        search_term: "handheld vane anemometer"
+        price_range: [12, 30]
+        required: false
+        reusable_id: instruments.anemometer
+        safety_notes: Battery powered only; keep it out of the hair dryer's heated setting (which is not used in this project anyway).
+      - id: video-frame-app
+        qty: 1
+        spec: A free video player or editor that steps frame by frame and shows the frame time
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: instruments.phone
+
+tools_required: [scissors, fine sandpaper, pencil, waterproof marker]
+consumables: [tape, straws, water]
+incremental_cost_if_reusing: {minimum_cost: [2, 12], recommended: [4, 20], enhanced: [12, 30]}
