@@ -232,6 +232,28 @@ sources:
   - 04-05
   - 04-07
   - 04-12
+  - 10-01
+  - 10-02
+  - 10-03
+  - 10-04
+  - 10-05
+  - 10-06
+  - 10-07
+  - 10-08
+  - 10-09
+  - 10-10
+  - 10-11
+  - 10-12
+  - 10-13
+  - 10-14
+  - 10-15
+  - 10-16
+  - 10-17
+  - 10-18
+  - 10-19
+  - 10-20
+  - 10-22
+  - 10-23
 - id: ntrs-naca-tr-824-summary-of-airfoil-data
   title: Summary of Airfoil Data
   creator: Ira H. Abbott, Albert E. von Doenhoff, Louis S. Stivers, Jr.; National Advisory Committee for Aeronautics (NACA)
@@ -243,7 +265,14 @@ sources:
   verified: 2026-10-11
   caveat: NTRS metadata lists only Stivers as author; the report itself credits all three. Inline PDF preview is unavailable;
     learner must download the PDF (large scan).
-  lessons: []
+  lessons:
+  - 10-02
+  - 10-04
+  - 10-07
+  - 10-08
+  - 10-13
+  - 10-15
+  - 10-23
 - id: ocw-18-330
   title: 18.330 Introduction to Numerical Analysis (Spring 2012), Lecture Notes
   creator: Laurent Demanet, MIT OpenCourseWare
@@ -1031,3 +1060,444 @@ sources:
     FreeCAD manual for the tool steps.
   lessons:
   - 05-17
+- id: mit-ocw-16-100-aerodynamics
+  title: 16.100 Aerodynamics
+  creator: Prof. David Darmofal; MIT OpenCourseWare
+  version: Fall 2005 (49 lecture-note PDFs, study materials, BWB project assignments)
+  url: https://ocw.mit.edu/courses/16-100-aerodynamics-fall-2005/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to by-nc-sa/4.0)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Lecture notes are short (1-5 page) handwritten-style summaries keyed to Anderson's Fundamentals of Aerodynamics
+    (the course's purchased text); some study-material PDFs (Lift and Drag Primer, Thin Airfoil Theory Summary) have no
+    usable text layer. No panel-method or propeller lectures despite the course description.
+  lessons:
+  - 10-01
+  - 10-03
+  - 10-04
+  - 10-06
+  - 10-09
+  - 10-10
+  - 10-13
+  - 10-20
+  - 10-22
+  - 10-23
+- id: mit-ocw-16-unified-fluids
+  title: '16.01 Unified Engineering I, II, III, & IV: Fluid Mechanics'
+  creator: Prof. Mark Drela (fluids instructor); MIT OpenCourseWare
+  version: Fall 2005 - Spring 2006 (fluids lecture notes F1-F21 fall, F1-F20 spring)
+  url: https://ocw.mit.edu/courses/16-01-unified-engineering-i-ii-iii-iv-fall-2005-spring-2006/pages/fluid-mechanics/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to by-nc-sa/4.0)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Typeset 2-5 page notes ("Fluids - Lecture N Notes") with readings from Anderson's Fundamentals of Aerodynamics
+    (paid); notes are short and lean on that text. Resource URLs follow resources/fNN_fall/ and resources/fNN_sp/ (F7 and
+    F8 fall are f07_new_fall, f08_new_fall).
+  lessons:
+  - 10-01
+  - 10-03
+  - 10-04
+  - 10-05
+  - 10-07
+  - 10-09
+  - 10-10
+  - 10-12
+  - 10-13
+- id: mit-ocw-16-13-aerodynamics-viscous-fluids
+  title: 16.13 Aerodynamics of Viscous Fluids
+  creator: Prof. Mark Drela and Dr. Ali Merchant; MIT OpenCourseWare
+  version: Fall 2003 (graduate; lecture notes 1-33 plus supporting handouts)
+  url: https://ocw.mit.edu/courses/16-13-aerodynamics-of-viscous-fluids-fall-2003/pages/lecture-notes/
+  license: CC BY-NC-SA 4.0 (footer "Creative Commons License" link to by-nc-sa/4.0)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Graduate level. PDFs are scans of handwritten notes with no text layer (pages were rendered and read as images);
+    not searchable and hard to read in places.
+  lessons:
+  - 10-06
+  - 10-14
+- id: drela-xfoil
+  title: XFOIL Subsonic Airfoil Development System
+  creator: Mark Drela (MIT) and Harold Youngren
+  version: XFOIL 6.99 (Dec 23, 2013) and 6.996 Unix source (Jan 1, 2026) on the page; xfoil_doc.txt "XFOIL 6.9 User
+    Primer", last update 30 Nov 2001
+  url: https://web.mit.edu/drela/Public/web/xfoil/
+  license: GNU General Public License (stated under "Release Conditions" on the page; no GPL version number given there)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Optional free tool; the User Primer predates 6.99 and some menus differ. Windows build is 6.99; macOS only via a
+    third-party build. Students build their own panel/boundary-layer codes first and use XFOIL only as a cross-check.
+  lessons:
+  - 10-05
+  - 10-06
+  - 10-07
+  - 10-14
+  - 10-21
+- id: drela-avl
+  title: AVL (Athena Vortex Lattice)
+  creator: Mark Drela (MIT) and Harold Youngren
+  version: AVL 3.52 (3 Sep 25) on the page; avl_doc.txt "AVL 3.40 User Primer", last update 22 Feb 22
+  url: https://web.mit.edu/drela/Public/web/avl/
+  license: GNU General Public License (stated under "Release Conditions" on the page; no GPL version number given there)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Optional free tool. Prebuilt executables listed for 3.40b (Linux, macOS Intel/ARM, Windows) and 3.52 (Windows);
+    graphics need X11/XQuartz.
+  lessons:
+  - 10-11
+  - 10-16
+  - 10-21
+  - 10-22
+- id: openvsp-docs
+  title: OpenVSP (website, wiki and VSPAERO documentation)
+  creator: NASA (original developer J.R. Gloudemans and others); OpenVSP open-source project; VSPAERO by David Kinney,
+    NASA Ames
+  version: OpenVSP 3.55.0 (released 2026-10-12, download page as of 2026-10-17); wiki pages as of 2026-10-17
+  url: https://openvsp.org/
+  license: Software under the NASA Open Source Agreement version 1.3 (openvsp.org/license.shtml); wiki text CC BY-SA 4.0
+    ("Except where otherwise noted, content on this wiki is licensed under ... CC Attribution-Share Alike 4.0 International")
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Optional free tool. The wiki "vspaerotutorial" page says a new tutorial "is under construction" (dated June 29,
+    2015) and mixes VSPAERO 1.x material; the Ground School (vspu.larc.nasa.gov) was not loaded.
+  lessons:
+  - 10-13
+  - 10-17
+  - 10-21
+- id: nasa-grc-beginners-guide-aeronautics
+  title: Beginner's Guide to Aeronautics
+  creator: NASA Glenn Research Center (NASA Official and Page Editor shown as Nancy Hall)
+  version: Pages migrated to www1.grc.nasa.gov/beginners-guide-to-aeronautics/ (e.g. "Induced Drag Coefficient" page last
+    updated July 27, 2023); some legacy pages still served at www.grc.nasa.gov/www/k-12/airplane/ as of 2026-10-17
+  url: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/
+  license: US Government work (NASA web content), public domain in the US; no license statement on the pages
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Written for middle-school to college students; qualitative, with results quoted rather than derived. Many legacy
+    URLs are now "This site has moved to a new URL" stubs; cite the new www1 URL where one exists. The new index page is
+    script-driven, so page titles were taken from the legacy index (short.html) and the loaded pages.
+  lessons:
+  - 10-01
+  - 10-03
+  - 10-08
+  - 10-09
+  - 10-13
+  - 10-16
+  - 10-17
+  - 10-23
+- id: ntrs-naca-tr-460-78-related-airfoils
+  title: The characteristics of 78 related airfoil sections from tests in the variable-density wind tunnel
+  creator: Eastman N. Jacobs, Kenneth E. Ward, Robert M. Pinkerton; NACA
+  version: NACA Report No. 460, 1933; NTRS document ID 19930091108
+  url: https://ntrs.nasa.gov/citations/19930091108
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Scanned report (61 pages); OCR garbles tables. Variable-density-tunnel data at effective Reynolds numbers of the
+    1930s; use TR-824 for later low-turbulence section data.
+  lessons:
+  - 10-02
+- id: ntrs-nasa-tm-4074-ladson-naca0012
+  title: Effects of independent variation of Mach and Reynolds numbers on the low-speed aerodynamic characteristics of
+    the NACA 0012 airfoil section
+  creator: Charles L. Ladson, NASA Langley Research Center
+  version: NASA TM-4074 (L-16472), October 1988; NTRS document ID 19880019495
+  url: https://ntrs.nasa.gov/citations/19880019495
+  license: US Government work; NTRS citation page states "Public Use Permitted."
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Two-dimensional Langley LTPT data, M = 0.05-0.36, Re about 2-12 million (Table I extends to 18.9 million at
+    M = 0.15). The OCR text layer garbles the tables; read values from the page images (see curriculum/phase-10/data/README.md).
+  lessons:
+  - 10-06
+  - 10-13
+  - 10-15
+  - 10-22
+  - 10-23
+- id: ntrs-naca-tr-921-span-loading
+  title: Theoretical symmetric span loading at subsonic speeds for wings having arbitrary plan form
+  creator: John DeYoung and Charles W. Harper; NACA
+  version: NACA Report No. 921, 1948; NTRS document ID 19930091985
+  url: https://ntrs.nasa.gov/citations/19930091985
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Scanned report (61 pages); hand-computation procedure and charts of its era. Useful as an independent check of
+    span loadings, not as a modern method.
+  lessons:
+  - 10-10
+  - 10-12
+  - 10-22
+- id: ntrs-naca-tr-116-prandtl-modern-hydrodynamics
+  title: Applications of Modern Hydrodynamics to Aeronautics
+  creator: L. Prandtl; NACA
+  version: NACA Report No. 116, 1923; NTRS document ID 19930091180
+  url: https://ntrs.nasa.gov/citations/19930091180
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Historical primary source (1923 translation); notation and terminology ("aerofoil", "monoplane") are dated and the
+    OCR is noisy. Read for the original lifting-line argument, not as a textbook.
+  lessons:
+  - 10-09
+  - 10-10
+  - 10-20
+- id: ntrs-nasa-sp-405-vortex-lattice-utilization
+  title: Vortex-Lattice Utilization
+  creator: NASA Langley Research Center (workshop proceedings; papers by DeYoung, Lamar, Miranda, DeJarnette and others)
+  version: NASA SP-405 (L-10948), 1976; NTRS document ID 19760021075
+  url: https://ntrs.nasa.gov/citations/19760021075
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: 423-page workshop volume; most papers are research-level. Read the first paper and the lattice-arrangement
+    papers only.
+  lessons:
+  - 10-11
+  - 10-22
+- id: ntrs-nasa-tn-d-6142-vortex-lattice-program
+  title: Vortex-lattice FORTRAN program for estimating subsonic aerodynamic characteristics of complex planforms
+  creator: Richard J. Margason and John E. Lamar, NASA Langley Research Center (NTRS metadata lists Lamar first)
+  version: NASA TN D-6142 (L-7262), February 1971; NTRS document ID 19710007949
+  url: https://ntrs.nasa.gov/citations/19710007949
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Includes a full FORTRAN listing for CDC 6600; read the method and lattice-arrangement sections, do not port the
+    code.
+  lessons:
+  - 10-11
+  - 10-22
+- id: ntrs-nasa-cr-4746-high-lift-systems
+  title: High-Lift Systems on Commercial Subsonic Airliners
+  creator: Peter K. C. Rudolph; prepared for NASA Ames Research Center
+  version: NASA CR-4746 (A-962169), September 1996; NTRS document ID 19960052267
+  url: https://ntrs.nasa.gov/citations/19960052267
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Descriptive engineering survey (geometry, mechanisms, economics), little aerodynamic theory; airliner examples
+    stop at 1996.
+  lessons:
+  - 10-08
+- id: ntrs-naca-tr-938-trailing-edge-high-lift
+  title: Summary of section data on trailing-edge high-lift devices
+  creator: Jones F. Cahill; NACA
+  version: NACA Report No. 938, 1949; NTRS document ID 19930092003
+  url: https://ntrs.nasa.gov/citations/19930092003
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Scanned report; data are two-dimensional section data at Reynolds numbers of a few million.
+  lessons:
+  - 10-08
+- id: ntrs-naca-tr-184-munk-airship-hulls
+  title: The Aerodynamic Forces on Airship Hulls
+  creator: Max M. Munk; NACA
+  version: NACA Report No. 184, 1924; NTRS document ID 19930091249
+  url: https://ntrs.nasa.gov/citations/19930091249
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Historical primary source; the scan carries the notice that certain portions are illegible.
+  lessons:
+  - 10-16
+- id: ntrs-naca-tr-1048-slender-inclined-bodies
+  title: A Study of Effects of Viscosity on Flow over Slender Inclined Bodies of Revolution
+  creator: H. Julian Allen and Edward W. Perkins; NACA
+  version: NACA Report No. 1048, 1951; NTRS document ID 19930090962
+  url: https://ntrs.nasa.gov/citations/19930090962
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Scanned report (16 pages); the viscous cross-flow correction is semi-empirical.
+  lessons:
+  - 10-16
+- id: ntrs-naca-tr-640-full-scale-propellers
+  title: The Aerodynamic Characteristics of Full-Scale Propellers Having 2, 3, and 4 Blades of Clark Y and R.A.F. 6 Airfoil
+    Sections
+  creator: Edwin P. Hartman and David Biermann; NACA
+  version: NACA Report No. 640, 1938; NTRS document ID 19930091715
+  url: https://ntrs.nasa.gov/citations/19930091715
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Experimental data report (large 20 MB scan); no blade-element theory. Charts must be digitised by hand.
+  lessons:
+  - 10-17
+- id: ntrs-naca-tr-496-theodorsen-flutter
+  title: General Theory of Aerodynamic Instability and the Mechanism of Flutter
+  creator: Theodore Theodorsen; NACA
+  version: NACA Report No. 496; NTRS document ID 19930090935 (NTRS metadata date 1949-01-01)
+  url: https://ntrs.nasa.gov/citations/19930090935
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: NTIS reproduction with the notice that certain portions are illegible; the OCR text is unreliable, so read the
+    page images. The original publication year is not legible in the scan's text layer; NTRS lists 1949.
+  lessons:
+  - 10-19
+- id: ntrs-naca-tn-667-jones-operational-nonuniform-lift
+  title: Operational treatment of the nonuniform-lift theory in airplane dynamics
+  creator: Robert T. Jones; NACA Langley Memorial Aeronautical Laboratory
+  version: NACA Technical Note No. 667, October 1938; NTRS document ID 19930081472
+  url: https://ntrs.nasa.gov/citations/19930081472
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: 12-page typewritten scan with poor OCR. The task brief called this "NACA TR-681"; NTRS and the scan's cover give
+    Technical Note No. 667, and TR-681 is a different Jones report (see ntrs-naca-tr-681-jones-unsteady-lift-finite-wing).
+  lessons:
+  - 10-19
+- id: ntrs-naca-tr-681-jones-unsteady-lift-finite-wing
+  title: The unsteady lift of a wing of finite aspect ratio
+  creator: Robert T. Jones; NACA Langley Memorial Aeronautical Laboratory
+  version: NACA Report No. 681, 1940 (NTRS date); NTRS document ID 19930091758
+  url: https://ntrs.nasa.gov/citations/19930091758
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Scanned report (13 pages); extends the two-dimensional indicial (Wagner) response to finite wings.
+  lessons:
+  - 10-19
+- id: ntrs-naca-tm-77-wieselsberger-ground
+  title: Wing resistance near the ground
+  creator: C. Wieselsberger (translated from Zeitschrift fur Flugtechnik und Motorluftschiffahrt); NACA
+  version: NACA Technical Memorandum No. 77, April 1922; NTRS document ID 19930081293
+  url: https://ntrs.nasa.gov/citations/19930081293
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: 14-page typewritten scan; OCR is nearly unreadable, read the page images. Image-vortex method applied with
+    Prandtl's wing theory; 1920s notation.
+  lessons:
+  - 10-20
+- id: ntrs-naca-tn-705-recant-ground-effect-flaps
+  title: Wind-tunnel Investigation of Ground Effect on Wings with Flaps
+  creator: Isidore G. Recant; NACA
+  version: NACA Technical Note No. 705, May 1939; NTRS document ID 19930081443
+  url: https://ntrs.nasa.gov/citations/19930081443
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Scanned report (26 pages, 13 MB); fixed-ground-board tunnel technique of 1939.
+  lessons:
+  - 10-20
+- id: ntrs-nasa-cr-3082-rotary-wing-aerodynamics
+  title: Rotary-Wing Aerodynamics. Volume I - Basic Theories of Rotor Aerodynamics (With Application to Helicopters)
+  creator: W. Z. Stepniewski, Boeing Vertol Company; prepared for NASA Ames Research Center
+  version: NASA CR-3082, January 1979; NTRS document ID 19790013868
+  url: https://ntrs.nasa.gov/citations/19790013868
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: 380-page scanned textbook-style report; US customary units; 1970s practice. The free substitute for the paid
+    helicopter texts.
+  lessons:
+  - 10-17
+  - 10-18
+- id: ntrs-naca-tn-2502-airfoil-stall-types
+  title: Examples of Three Representative Types of Airfoil-section Stall at Low Speed
+  creator: George B. McCullough and Donald E. Gault; NACA
+  version: NACA Technical Note No. 2502, September 1951; NTRS document ID 19930083422
+  url: https://ntrs.nasa.gov/citations/19930083422
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Typewritten scan; OCR runs words together. NTRS misspells the first author's given name ("Goerge").
+  lessons:
+  - 10-15
+- id: ntrs-nasa-tm-4062-eppler-387-low-re
+  title: Experimental results for the Eppler 387 airfoil at low Reynolds numbers in the Langley low-turbulence pressure
+    tunnel
+  creator: Robert J. McGhee, Betty S. Walker, Betty F. Millard; NASA Langley Research Center
+  version: NASA TM-4062 (L-16430), October 1988; NTRS document ID 19890001471
+  url: https://ntrs.nasa.gov/citations/19890001471
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: 234-page data report; chord Reynolds numbers 60 000-460 000 at M 0.03-0.13; includes oil-flow
+    laminar-separation and reattachment locations and comparisons with two other facilities.
+  lessons:
+  - 10-14
+  - 10-23
+- id: ntrs-nasa-tp-2995-panel-methods
+  title: 'Panel methods: An introduction'
+  creator: Larry L. Erickson, NASA Ames Research Center
+  version: NASA TP-2995 (A-89266), December 1990; NTRS document ID 19910009745
+  url: https://ntrs.nasa.gov/citations/19910009745
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Three-dimensional, source-doublet (PAN AIR) viewpoint; it does not walk through a two-dimensional linear-vortex
+    airfoil code.
+  lessons:
+  - 10-05
+- id: ntrs-naca-tr-452-arbitrary-wing-sections
+  title: General Potential Theory of Arbitrary Wing Sections
+  creator: T. Theodorsen and I. E. Garrick; NACA
+  version: NACA Report No. 452 (NTRS date 1934-01-01); NTRS document ID 19930091527
+  url: https://ntrs.nasa.gov/citations/19930091527
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: NTIS reproduction with the "certain portions are illegible" notice; advanced complex-variable treatment.
+  lessons:
+  - 10-03
+  - 10-05
+- id: ntrs-naca-tn-1669-untapered-wings-aspect-ratio-sweep
+  title: Investigation at Low Speeds of the Effect of Aspect Ratio and Sweep on Static and Yawing Stability Derivatives of
+    Untapered Wings
+  creator: Alex Goodman and Jack D. Brewer; NACA Langley Aeronautical Laboratory
+  version: NACA Technical Note No. 1669, August 1948; NTRS document ID 19930082295
+  url: https://ntrs.nasa.gov/citations/19930082295
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Source of part of curriculum/phase-10/data/finite_wing_cla.csv; read values from the page images, not the OCR.
+  lessons:
+  - 10-12
+  - 10-22
+- id: ntrs-naca-tn-1671-swept-wings-taper-ratio
+  title: Effect of Taper Ratio on Low-speed Static and Yawing Stability Derivatives of 45 Degree Sweptback Wings with Aspect
+    Ratio of 2.61
+  creator: William Letko and John W. Cowan; NACA
+  version: NACA Technical Note No. 1671, July 1948; NTRS document ID 19930082298
+  url: https://ntrs.nasa.gov/citations/19930082298
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Source of part of curriculum/phase-10/data/finite_wing_cla.csv; read values from the page images, not the OCR.
+  lessons:
+  - 10-12
+  - 10-22
+- id: ntrs-naca-tn-1422-sivells-three-wings
+  title: Experimental and calculated characteristics of three wings of NACA 64-210 and 65-210 airfoil sections with and
+    without 2 degree washout
+  creator: James C. Sivells; NACA
+  version: NACA Technical Note No. 1422, August 1947; NTRS document ID 19930082118
+  url: https://ntrs.nasa.gov/citations/19930082118
+  license: US Government work; NTRS record states "Public Use Permitted" (determination GOV_PUBLIC_USE_PERMITTED)
+  access_tier: required-free
+  verified: 2026-10-17
+  caveat: Source of part of curriculum/phase-10/data/finite_wing_cla.csv; compares measured wings with calculated
+    (lifting-line type) characteristics. OCR is poor; read the page images.
+  lessons:
+  - 10-10
+  - 10-12
+  - 10-22
+- id: uiuc-selig-summary-low-speed-airfoil-data
+  title: Summary of Low-Speed Airfoil Data (Vols. 1-3, 5) and the UIUC Low-Speed Airfoil Tests page
+  creator: Michael S. Selig and co-authors (Guglielmo, Broeren, Giguere, Lyon, Ninham, Gopalarathnam, Williamson and others);
+    UIUC Applied Aerodynamics Group
+  version: Vol. 1 (SoarTech Publications, 1995), Vol. 2 (1996), Vol. 3 (1998), Vol. 5 (2012); page as of 2026-10-17
+  url: https://m-selig.ae.illinois.edu/uiuc_lsat.html
+  license: 'Free download, all rights reserved: Vol. 1 front matter reads "Copyright (c) 1995 by Michael S. Selig, James J.
+    Guglielmo, Andy P. Broeren, and Philippe Giguere. All rights reserved."; no open license on the page'
+  access_tier: supplementary-free
+  verified: 2026-10-17
+  caveat: Link only; do not redistribute the PDFs or the data. Only Vol. 1 was downloaded and its contents read; the other
+    volumes are listed on the page but not opened.
+  lessons:
+  - 10-14
+  - 10-23
