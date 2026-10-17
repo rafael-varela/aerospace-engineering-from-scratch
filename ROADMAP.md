@@ -51,7 +51,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 04 | Physics Foundations ✅ | 15 | 38 |
 | 05 | Statics, Mechanics of Materials & CAD ✅ | 18 | 46 |
 | 06 | Dynamics & Vibrations ✅ | 19 | 48 |
-| 07 | Thermodynamics | 15 | 38 |
+| 07 | Thermodynamics ✅ | 15 | 38 |
 | 08 | Fluid Mechanics | 19 | 48 |
 | 09 | Signals, Systems & Control | 21 | 53 |
 | 10 | Aerodynamics | 23 | 64 |
@@ -265,7 +265,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 18 | Multibody Simulation | Landing gear multibody sim | |
 | 19 | Home Lab: Pendulum System Identification | Log a pendulum with phone or IMU; fit damping and frequency 🔬 | P02.18 |
 
-## Phase 07: Thermodynamics ⬚ (~35 h)
+## Phase 07: Thermodynamics ✅ (~35 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|
