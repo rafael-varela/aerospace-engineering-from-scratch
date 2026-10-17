@@ -1,0 +1,140 @@
+# Bill of materials for project p04-electronics-bench (lesson 04-15 Electronics Bench Lab)
+# Prices are estimates in USD on the price_checked date and vary by region and time.
+# Nothing here requires a soldering iron, a bench power supply, mains wiring, or a specific vendor's board.
+project: p04-electronics-bench
+title: Breadboard, multimeter, microcontroller - measure voltage, current and a sensor
+lessons: [P04.15]          # optional measurements in P04.08 and P04.10 reuse this kit
+lab_level: 2
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p00-first-experiment, p00-calibration]   # electronics.mcu from the p00 enhanced tier; the kitchen thermometer if owned
+
+tiers:
+  minimum_cost:
+    description: Enough to build every circuit and read it with a multimeter and an ADC. Battery or USB power only.
+    items:
+      - id: breadboard
+        qty: 1
+        spec: Solderless breadboard, about 400 tie points or more, with power rails
+        search_term: "solderless breadboard 400 points"
+        price_range: [2, 6]
+        required: true
+        reusable_id: electronics.breadboard
+        substitutes: ["a larger breadboard"]
+      - id: jumper-wires
+        qty: 1
+        spec: Pack of male-male jumper wires (and a few male-female if the board has header pins)
+        search_term: "jumper wires male male"
+        price_range: [2, 5]
+        required: true
+        reusable_id: electronics.jumpers
+        substitutes: ["solid-core 22 AWG hookup wire, stripped 8 mm"]
+      - id: resistor-kit
+        qty: 1
+        spec: Assorted 1/4 W resistors, E12 values 10 ohm - 1 Mohm, 5 % or better (1 % metal film preferred); must include 150, 220, 330 ohm, 8.2 k, 10 k, 12 k, and two 1 Mohm
+        search_term: "resistor assortment kit 1/4W metal film"
+        price_range: [4, 10]
+        required: true
+        reusable_id: electronics.resistors
+        safety_notes: 1/4 W parts; the lab never dissipates more than about 30 mW in one resistor.
+      - id: leds
+        qty: 5
+        spec: 5 mm or 3 mm indicator LEDs, red (and optionally green); standard indicator LEDs, not high-power or laser diodes
+        search_term: "5mm red LED"
+        price_range: [1, 3]
+        required: true
+        reusable_id: electronics.leds
+        safety_notes: Always through a series resistor.
+      - id: potentiometer
+        qty: 1
+        spec: 10 kohm linear potentiometer (breadboard-friendly trimmer or panel pot)
+        search_term: "10k potentiometer breadboard"
+        price_range: [0.5, 2]
+        required: true
+        reusable_id: electronics.pot-10k
+      - id: thermistor
+        qty: 1
+        spec: 10 kohm NTC thermistor (bead or epoxy-coated), with its datasheet beta value (e.g. 3435-3950 K)
+        search_term: "10k NTC thermistor"
+        price_range: [0.5, 3]
+        required: true
+        reusable_id: electronics.ntc-10k
+        substitutes: ["photoresistor (LDR) for a light-sensor variant; the temperature fit is then replaced by a resistance-vs-light comparison"]
+      - id: multimeter
+        qty: 1
+        spec: Digital multimeter with DC volts, DC mA (fused), ohms and continuity; manual giving accuracy specifications and input resistance
+        search_term: "digital multimeter auto range"
+        price_range: [10, 30]
+        required: true
+        reusable_id: instruments.dmm
+        safety_notes: Keep the leads in the V/ohm jack except when deliberately measuring current; replace a blown fuse only with the rated type.
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V or 5 V microcontroller board with at least one ADC input, programmable over USB (MicroPython-capable or Arduino-style); vendor-neutral
+        search_term: "microcontroller development board ADC USB"
+        price_range: [4, 15]
+        required: true
+        reusable_id: electronics.mcu
+        safety_notes: USB power only. Never apply more than the board's supply voltage to an analog pin.
+      - id: usb-cable
+        qty: 1
+        spec: USB data cable matching the board, plugged into a computer or a USB power bank (5 V, <= 500 mA available)
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.usb-cable
+      - id: thermometer-and-water
+        qty: 1
+        spec: Kitchen or digital thermometer (+-0.5 to 1 C), two mugs, ice and warm tap water, a small zip bag for the thermistor
+        search_term: "digital kitchen thermometer"
+        price_range: [0, 10]
+        required: true
+        reusable_id: instruments.thermometer
+        safety_notes: Warm tap water only, never boiling or kettle-hot; keep the water away from the board.
+  recommended:
+    description: Adds a battery supply for the divider and LED circuits and makes wiring tidier.
+    items:
+      - id: battery-holder
+        qty: 1
+        spec: 3 x AA (4.5 V) or 4 x AA (6 V) holder with leads, alkaline or NiMH cells; or a 9 V battery clip and battery
+        search_term: "4xAA battery holder with leads"
+        price_range: [1, 4]
+        required: false
+        reusable_id: electronics.battery-holder
+        safety_notes: Never short the leads; remove cells when not in use. No lithium cells outside their own device.
+      - id: alligator-leads
+        qty: 1
+        spec: Set of insulated crocodile-clip test leads
+        search_term: "alligator clip test leads"
+        price_range: [2, 5]
+        required: false
+        reusable_id: electronics.croc-leads
+      - id: precision-resistors
+        qty: 4
+        spec: 0.1 % 10 kohm resistors (to make the fixed resistor a small term in the budget)
+        search_term: "10k 0.1% resistor"
+        price_range: [1, 4]
+        required: false
+        reusable_id: electronics.resistors-0.1pct
+  enhanced:
+    description: Adds a second meter and a better temperature reference for cross-checks.
+    items:
+      - id: second-multimeter
+        qty: 1
+        spec: A second digital multimeter (to compare input resistances and readings)
+        search_term: "digital multimeter"
+        price_range: [10, 30]
+        required: false
+        reusable_id: instruments.dmm-2
+      - id: reference-thermometer
+        qty: 1
+        spec: Digital probe thermometer with a stated accuracy of +-0.2 C or better over 0-50 C
+        search_term: "digital probe thermometer 0.1 resolution"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.thermometer-precise
+
+tools_required: [small flat screwdriver for a trimmer pot, wire stripper or scissors for hookup wire]
+consumables: [AA cells for the battery holder]
+not_included: [soldering iron, bench power supply, mains adapters, lithium cells or chargers, capacitors above 25 V or 1000 uF]
+incremental_cost_if_reusing: {minimum_cost: [20, 70], recommended: [0, 15], enhanced: [0, 55]}
