@@ -1,0 +1,173 @@
+# Bill of materials for project p09-servo-control (lesson P09.21 Home Lab: Servo Feedback Control)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
+# Hard limits from safety.md: battery or USB power only, never mains; motor supply <= 6 V (measured);
+# motor stall current <= 500 mA; nothing on the shaft except a light pointer arm (no propellers, no blades);
+# fingers clear while the loop runs; a software duty (or command) limit and a stop button, tested before the
+# first closed-loop run. No soldering is required in any tier.
+project: p09-servo-control
+title: Close a feedback loop on a hobby servo or a small gear motor; identify, predict, measure
+lessons: [P09.21]
+lab_level: 2
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p04-electronics-bench]   # microcontroller, breadboard, jumpers, USB cable, multimeter, 10 k pot, battery holder
+
+tiers:
+  minimum_cost:
+    description: >-
+      Option A. A micro servo whose feedback potentiometer is read by the board's ADC, closed in an outer loop
+      by the board. Everything else is reused from p04-electronics-bench. Enough for the open-loop step test,
+      the PI design, the dated prediction and the closed-loop comparison.
+    items:
+      - id: microcontroller
+        qty: 1
+        spec: The p04 board - any 3.3 V or 5 V microcontroller board with an ADC input, a PWM-capable output pin and a spare input pin for the stop button, programmable over USB (MicroPython-capable or Arduino-style)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: electronics.mcu
+        safety_notes: USB power for the board only; the servo or motor never runs from the board's 3.3 V regulator or from a GPIO pin.
+      - id: breadboard-and-jumpers
+        qty: 1
+        spec: The p04 solderless breadboard and jumper wires
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: electronics.breadboard
+      - id: usb-cable
+        qty: 1
+        spec: The p04 USB data cable, to a computer (for logging) or a USB power bank
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.usb-cable
+      - id: multimeter
+        qty: 1
+        spec: The p04 digital multimeter (DC volts to check the motor supply is <= 6.0 V before every session; DC mA for the stall-current check)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.dmm
+      - id: feedback-servo
+        qty: 1
+        spec: Micro hobby servo (9 g class, 4.8-6 V) with an analog feedback wire (the internal potentiometer's wiper brought out on a fourth lead); stated or measured stall current <= 500 mA at the supply you use
+        search_term: "analog feedback micro servo"
+        price_range: [8, 16]
+        required: true
+        reusable_id: actuators.servo-feedback
+        substitutes: ["a standard 9 g micro servo plus the p04 10 kohm potentiometer coupled to the output horn with a short piece of silicone tubing (no case opening, no soldering; the pot then measures the output directly)", "a standard micro servo with the wiper wire brought out by opening the case and soldering one wire (optional; an adult, with the soldering-iron controls of p04's safety box)"]
+        safety_notes: Nothing on the horn except the pointer arm. Keep the commanded angle inside the software command limit.
+      - id: battery-holder
+        qty: 1
+        spec: 4 x AA holder with a switch and leads, loaded with NiMH cells (4.8-5.6 V); or a 3 x AA holder with alkaline cells (4.5-4.9 V). Never 4 fresh alkaline cells (up to about 6.4 V)
+        search_term: "4xAA battery holder with switch"
+        price_range: [1, 4]
+        required: true
+        reusable_id: electronics.battery-holder
+        safety_notes: Measure the pack with the multimeter before each session; it must read <= 6.0 V. No lithium cells, no wall adapters.
+      - id: resettable-fuse
+        qty: 2
+        spec: Radial PTC resettable fuse, hold current about 0.5 A (trip about 1 A), rated >= 6 V, leads that fit a breadboard; in series with the + lead of the battery pack
+        search_term: "PTC resettable fuse 500mA radial"
+        price_range: [0.2, 2]
+        required: true
+        reusable_id: electronics.ptc-fuse-0.5A
+        safety_notes: The hardware backstop behind the software limit; a warm fuse means a stalled or shorted motor - switch the pack off.
+      - id: stop-button
+        qty: 2
+        spec: Momentary push button (tactile switch) that fits a breadboard; wired from an input pin to ground with the pin's pull-up enabled
+        search_term: "tactile push button breadboard 6mm"
+        price_range: [0.1, 1]
+        required: true
+        reusable_id: electronics.button
+      - id: supply-capacitor
+        qty: 1
+        spec: Electrolytic capacitor 100-470 uF, rated 10 V or more (and <= 25 V, <= 1000 uF, as in p04), across the servo supply at the breadboard, observing polarity
+        search_term: "220uF 16V electrolytic capacitor"
+        price_range: [0.1, 1]
+        required: true
+        reusable_id: electronics.cap-electrolytic
+        safety_notes: Observe polarity; discharge through 1 kohm before removing.
+      - id: pointer-and-scale
+        qty: 1
+        spec: Light pointer arm cut from card or a craft stick, <= 5 g and <= 80 mm long, taped to the horn or shaft; a protractor printed on paper and taped to the mount
+        search_term: null
+        price_range: [0, 1]
+        required: true
+        reusable_id: misc.pointer-card
+        safety_notes: The only thing ever attached to the output. No propellers, fans, blades, wheels or weights.
+      - id: mount
+        qty: 1
+        spec: A block of wood, a heavy book or a small clamp, and double-sided foam tape, so the servo or motor cannot move on the bench
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.mount-block
+  recommended:
+    description: >-
+      Option B. A small DC gear motor driven by a low-voltage H-bridge module, with the p04 potentiometer on the
+      output shaft. The plant is a true integrator with a dead zone, which the lesson's P design and dead-zone
+      compensation are built around. Uses the minimum_cost fuse, button, battery, pointer and mount.
+    items:
+      - id: gear-motor
+        qty: 1
+        spec: Micro metal gear motor (N20 class), 3-6 V, output 100-300 rpm at 6 V, stated stall current <= 500 mA at 6 V (check with the multimeter for one second if the listing does not say)
+        search_term: "N20 micro gear motor 6V 150rpm"
+        price_range: [3, 8]
+        required: false
+        reusable_id: actuators.gear-motor-n20
+        substitutes: ["any small brushed gear motor with stall current <= 500 mA at <= 6 V and an output under about 300 rpm", "the yellow plastic 'TT' gear motor only if its stall current is measured <= 500 mA at your supply (many are higher)"]
+        safety_notes: Output speed under about 300 rpm; nothing on the shaft but the pointer; the stall check is a one-second measurement, never a sustained stall.
+      - id: motor-driver
+        qty: 1
+        spec: Low-voltage dual H-bridge motor-driver module accepting a 2.7-6 V motor supply and 3.3 V logic, with an enable or sleep pin; driven by two PWM pins
+        search_term: "low voltage dual H-bridge motor driver module 3.3V"
+        price_range: [2, 6]
+        required: false
+        reusable_id: electronics.hbridge-lv
+        substitutes: ["any H-bridge module rated for the motor's stall current, logic-level compatible with your board, and with an enable pin"]
+        safety_notes: Motor supply from the battery pack through the fuse, never from the board; common ground between board, driver and pack.
+      - id: shaft-pot-coupling
+        qty: 1
+        spec: The p04 10 kohm linear potentiometer, coupled to the motor's output shaft by a 20-30 mm piece of silicone tubing (about 3 mm bore), both taped or clamped to the mount
+        search_term: "silicone tubing 3mm ID"
+        price_range: [0, 3]
+        required: false
+        reusable_id: electronics.pot-10k
+        substitutes: ["a stiffer coupling from heat-shrink tube; check there is no slip by marking shaft and pot"]
+        safety_notes: The potentiometer's end stops are a hard mechanical limit - the firmware travel limit must stop the motor before them.
+  enhanced:
+    description: >-
+      Adds an encoder (no end stops, finer resolution), a current sensor so the firmware can enforce a current
+      limit as well as a duty limit, and an independent angle check by slow-motion video.
+    items:
+      - id: encoder-gear-motor
+        qty: 1
+        spec: N20-class gear motor with a built-in magnetic (Hall) quadrature encoder, 3-6 V, stall current <= 500 mA at 6 V
+        search_term: "N20 gear motor with encoder 6V"
+        price_range: [8, 16]
+        required: false
+        reusable_id: actuators.gear-motor-encoder
+        safety_notes: Same limits as the plain gear motor; an encoder has no end stops, so keep the software travel limit.
+      - id: current-sensor
+        qty: 1
+        spec: High-side current-sense breakout (I2C or analog output) for the motor supply line, range at least 0-1 A
+        search_term: "I2C current sensor breakout high side"
+        price_range: [3, 8]
+        required: false
+        reusable_id: instruments.current-sense
+        safety_notes: Lets the firmware cut the output when the measured current exceeds a set value (for example 400 mA).
+      - id: slow-motion-video
+        qty: 1
+        spec: A phone camera with a slow-motion (120-240 frames per second) mode on a stand, filming the pointer against the printed protractor
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: instruments.phone-camera
+        substitutes: ["a normal 30 frames per second video gives a coarse check of the settled angle only"]
+
+tools_required: [small screwdriver, scissors or craft knife for the pointer, a ruler]
+consumables: [AA NiMH cells (or 3 alkaline AA cells), double-sided foam tape]
+not_included: [propellers, fans, blades or wheels of any kind, mains adapters or bench power supplies, lithium cells or chargers, soldering iron (optional only for the servo-case substitute), any motor with stall current above 500 mA]
+incremental_cost_if_reusing: {minimum_cost: [9, 28], recommended: [5, 17], enhanced: [11, 24]}
