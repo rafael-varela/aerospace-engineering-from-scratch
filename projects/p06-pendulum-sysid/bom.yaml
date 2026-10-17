@@ -1,0 +1,143 @@
+# Bill of materials for project p06-pendulum-sysid (lesson P06.19 Home Lab: Pendulum System Identification)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
+# The apparatus is the p04-pendulum string pendulum, reused. New items are only the logging extras.
+# Hard limits from safety.md: string length <= 2.0 m, bob mass <= 0.2 kg (phone, pouch and string included
+# when the phone is the bob), release amplitude <= 45 deg, no powered drive of the pendulum.
+project: p06-pendulum-sysid
+title: Frequency and damping of a string pendulum, identified from a logged swing
+lessons: [P06.19]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p04-pendulum, p00-calibration, p04-electronics-bench]
+
+tiers:
+  minimum_cost:
+    description: The p04-pendulum kit and a phone video against a printed protractor or grid, with the angle read frame by frame or with any free video-tracking tool. Enough to measure the frequency to better than 0.01 % and the damping ratio to a few per cent over a 2-minute swing.
+    items:
+      - id: pendulum-kit
+        qty: 1
+        spec: The p04-pendulum string, soft bob (50-200 g, at most 5 cm across), rigid support with the string pinched in a clip, and tape measure
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.string
+        substitutes: ["build it from projects/p04-pendulum/bom.yaml (minimum_cost tier, 0-20 USD)"]
+        safety_notes: Same limits as p04-pendulum; inspect the string for fraying before every session.
+      - id: phone-camera
+        qty: 1
+        spec: Any phone that records video at a known frame rate (30 or 60 fps); check the true rate by filming a stopwatch (p04-pendulum procedure)
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+      - id: phone-stand
+        qty: 1
+        spec: Anything that holds the phone still, square to the swing plane, 1.5-2 m away and outside the arc
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: true
+        reusable_id: tools.phone-stand
+        substitutes: ["the phone stand from p04-pendulum", "a stack of books with the phone taped to it"]
+      - id: angle-reference
+        qty: 1
+        spec: A printed protractor (0-45 deg, 1 deg marks) or a printed 10 mm grid taped flat behind the pivot, in the plane of the swing
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.printout
+      - id: contrast-marker
+        qty: 1
+        spec: A small high-contrast sticker or a strip of coloured tape on the bob (and one on the string just below the pivot), so a tracking tool or your eye can locate it in every frame
+        search_term: "round colour coding labels"
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.stickers
+        substitutes: ["a dot of marker pen on a strip of white tape"]
+      - id: computer
+        qty: 1
+        spec: The computer used for the course (Python environment from P00.01) to read the angle series and run the analysis; a free video-tracking program is optional
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: tools.computer
+  recommended:
+    description: The phone's own gyroscope, logged by a free sensor-logging app, with the phone as the bob in a padded pouch (total <= 0.2 kg); or a slow-motion video of a high-contrast marker. Rate data at 100 Hz or more with low noise cut the damping uncertainty several-fold.
+    items:
+      - id: sensor-logging-app
+        qty: 1
+        spec: Any free app that records the phone's gyroscope (angular rate, rad/s) with timestamps and exports CSV; check the sample rate it actually achieves
+        search_term: "free sensor logging app gyroscope CSV export"
+        price_range: [0, 0]
+        required: false
+        reusable_id: software.sensor-logger
+      - id: padded-pouch
+        qty: 1
+        spec: A padded zip pouch or a thick sock with a draw string, to hold the phone as the bob; two attachment points on the pouch so the phone cannot spin about the string
+        search_term: "padded phone pouch"
+        price_range: [0, 8]
+        required: false
+        reusable_id: misc.phone-pouch
+        safety_notes: Weigh phone + pouch + string clip together; the total must be <= 0.2 kg or the phone is not used as the bob.
+      - id: kitchen-scale
+        qty: 1
+        spec: Kitchen or pocket scale, 1 g resolution, to confirm the bob (or phone + pouch) is within 0.2 kg and to measure its mass for the drag estimate
+        search_term: "digital kitchen scale 1g"
+        price_range: [0, 15]
+        required: false
+        reusable_id: instruments.scale-1g
+        substitutes: ["the scale from p00-calibration"]
+      - id: ruler-or-caliper
+        qty: 1
+        spec: Ruler or caliper to measure the bob's diameter (for the air-drag prediction) and to locate its centre (for L)
+        search_term: "plastic vernier caliper 150mm"
+        price_range: [0, 8]
+        required: false
+        reusable_id: tools.ruler
+        substitutes: ["the ruler from p00-calibration or p04-pendulum"]
+      - id: soft-landing
+        qty: 1
+        spec: A folded blanket or cushion on the floor under the arc, in case the phone or the bob falls
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: misc.towel
+  enhanced:
+    description: A small IMU breakout on the p04-electronics-bench microcontroller, taped to the bob and logged over USB; independent of the phone, at a sample rate you set.
+    items:
+      - id: microcontroller
+        qty: 1
+        spec: The 3.3 V microcontroller board from p04-electronics-bench (I2C capable, USB serial)
+        search_term: "RP2040 development board"
+        price_range: [0, 15]
+        required: false
+        reusable_id: electronics.mcu
+        safety_notes: USB power only; no batteries on the swinging bob.
+      - id: imu-breakout
+        qty: 1
+        spec: 6-axis IMU breakout (3-axis gyroscope + accelerometer), 3.3 V, I2C, gyro range +/- 250 deg/s or more, under 5 g
+        search_term: "6 axis IMU breakout I2C 3.3V"
+        price_range: [3, 15]
+        required: false
+        reusable_id: electronics.imu
+        safety_notes: Low voltage only. Tape it flat to the bob; its mass counts towards the 0.2 kg limit.
+      - id: light-cable
+        qty: 1
+        spec: Four thin, flexible wires (about 0.1 mm^2, 2.5 m) from the bob to the board, tied to the string at intervals so they hang without pulling; or the jumper wires from p04-electronics-bench extended
+        search_term: "silicone hookup wire 30 AWG"
+        price_range: [2, 8]
+        required: false
+        reusable_id: electronics.jumpers
+        safety_notes: The cable adds stiffness and damping to the pendulum; keep it slack and light, and say in the report that it was there.
+      - id: usb-cable
+        qty: 1
+        spec: USB data cable from the board to the computer
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: misc.usb-cable
+
+tools_required: [scissors, masking tape, pencil]
+consumables: [masking tape, stickers]
+incremental_cost_if_reusing: {minimum_cost: [0, 5], recommended: [0, 15], enhanced: [5, 25]}
