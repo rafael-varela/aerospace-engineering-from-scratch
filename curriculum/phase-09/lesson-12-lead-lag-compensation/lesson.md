@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `lead_lag.png`, the derivation of φ_max and of the design equations, the two sweep tables, and a half-page design note giving the compensator, its measured margins, Kv, overshoot and settling time. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: φ_max and the lead equations are derived; all public tests pass; the note shows the margins measured on the compensated loop, not just the design inputs, and explains the lag's slow tail with numbers. |
-| **References** | `@mit-ocw-6-003-signals-and-systems` course lecture notes (required-free, course level: feedback and the Laplace-domain view of LTI systems). `@scipy-userguide` "Linear Algebra (scipy.linalg)" (supplementary-free: the oracle routines used in the tests). The Phase 09 reference map (`references/phase-09.md`) did not exist when this lesson was written, so no section of a control text is mapped yet: the PID, compensation, state-space and observer material here is original instruction (GAP), to be linked to exact sections when the map is published. |
+| **References** | `@mit-ocw-16-30-feedback-control-systems` Topic 4 "Control design using Bode plots" (https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/resources/mit16_30f10_lec04/): Bode's Gain Phase Relationship; Frequency Domain Design; Lead Mechanics; Design Example; Lag Mechanics; Lag Compensation; Lag Example (required-free): φ_max at the geometric mean of zero and pole, placing the lead's maximum at the new crossover, and a lag that raises low-frequency gain while costing little phase at crossover. `@mit-ocw-16-06-principles-of-automatic-control` Lecture 16 "Frequency response design" (Frequency Response of Lead Compensator); Lecture 25 "Lead compensation" (the maximum phase lead); Lecture 26 "Lag compensation (cont.)" (Mr predicted by PM; Kv constraint), https://ocw.mit.edu/courses/16-06-principles-of-automatic-control-fall-2012/resources/mit16_06f12_lecture_25/ (required-free): the frequency-domain lead and lag design steps with a Kv requirement; Lecture 13 "Root locus rules, lead compensation" and Lecture 14 "Lag compensation" (Lead Compensator Example) (supplementary-free): the same compensators seen on the root locus. `@scipy-userguide` API reference "Signal processing (scipy.signal)": "Continuous-time linear systems" (`bode`, `freqs`, `lsim`, `step`) (supplementary-free): the test oracles only. |
 | **Extensions** | ★ Add the motor's electrical time constant (a second pole near 200 rad/s) and a 1 ms computation delay, and redesign for the same targets; how much of the phase margin is left? ★ Replace the lag by a PI (lag with β → ∞) and compare the step tail. ★ Add measurement noise and compare the actuator activity of lead designs with PM 45°, 55° and 65°. |
 | **Time** | unmeasured |
 
@@ -52,7 +52,7 @@ There, with x = ω_maxT = 1/√α, tan φ_max = (x − αx)/(1 + αx²) = (1 −
 
 **sin φ_max = (1 − α)/(1 + α),  α = (1 − sin φ)/(1 + sin φ),**   (2)
 
-and |(jω_maxT + 1)/(jω_maxαT + 1)| = √((1 + 1/α)/(1 + α)) = **1/√α**. A lead with α = 0.1 gives 54.9° at 3.16 times its zero frequency and raises the high-frequency gain by 1/α = 10 (20 dB). One stage is practical up to about 60–65°; beyond that α is tiny and the high-frequency gain enormous, and two stages are used (Problem 6).
+(the result 16.30 Topic 4 "Lead Mechanics" and 16.06 Lecture 25 design with), and |(jω_maxT + 1)/(jω_maxαT + 1)| = √((1 + 1/α)/(1 + α)) = **1/√α**. A lead with α = 0.1 gives 54.9° at 3.16 times its zero frequency and raises the high-frequency gain by 1/α = 10 (20 dB). One stage is practical up to about 60–65°; beyond that α is tiny and the high-frequency gain enormous, and two stages are used (Problem 6).
 
 **Design for crossover ω_c and margin PM** (`design_lead`):
 
@@ -64,7 +64,7 @@ For the servo, φ = 55° − 33.69° = **21.31°**, α = **0.4669**, zero 20.50 
 
 ### 2.3 The lag compensator
 
-C_lag(s) = (s + z)/(s + z/β), β > 1: DC gain β, high-frequency gain 1, a pole below its zero. Placed a decade below the crossover (z = ω_c/10) it multiplies Kv by β, while at ω_c its gain is ≈ 1 and its phase is arctan(ω_c/z) − arctan(βω_c/z) = arctan 10 − arctan(10β), which lies between −5.7° and 0° for every β. For β = 5.95 it is **−4.75°**.
+C_lag(s) = (s + z)/(s + z/β), β > 1 (16.30 Topic 4 "Lag Mechanics"): DC gain β, high-frequency gain 1, a pole below its zero. Placed a decade below the crossover (z = ω_c/10) it multiplies Kv by β, while at ω_c its gain is ≈ 1 and its phase is arctan(ω_c/z) − arctan(βω_c/z) = arctan 10 − arctan(10β), which lies between −5.7° and 0° for every β. For β = 5.95 it is **−4.75°**.
 
 Because the lag changes the phase at ω_c slightly, the lead is designed on G C_lag, not on G. And because the lead's gain Kc then changes slightly, β must be iterated: start with β = 1, design the lead on G C_lag, compute Kv = Kc β K, update β ← β · Kv,target/Kv, and repeat until β settles (a few iterations; `design_lead_lag`). Result: **β = 5.9534** (lag zero 3.00 rad/s, pole 0.504 rad/s), and the lead needs α = **0.3896** (φ_max = 26.06°, the extra 4.75° covering the lag), Kc = **1.6797**. Kv = 1.6797 × 5.9534 × 20 = **200.0 s⁻¹**.
 
@@ -74,7 +74,7 @@ For the standard loop L = ω_n²/(s(s + 2ζω_n)), whose closed loop is the text
 
 PM = arctan[2ζ / √(√(1 + 4ζ⁴) − 2ζ²)],
 
-which is close to PM ≈ 100ζ (in degrees) for ζ ≤ 0.7: ζ = 0.5 gives 51.8°, ζ = 0.55 gives 55.7° and 12.6 % overshoot. The lead loop is not exactly this system (it has a zero and a third pole), but the rule predicts its 13.3 % overshoot well. The phase margin also sets the **delay margin**, the pure time delay that would destabilise the loop: PM (rad)/ω_c = 0.960/30 = **32.0 ms**. Sampling, computation and a slow sensor all eat into it (`P09.17`).
+which is close to PM ≈ 100ζ (in degrees) for ζ ≤ 0.7 (16.06 Lecture 23, "Relationship between PM and damping"): ζ = 0.5 gives 51.8°, ζ = 0.55 gives 55.7° and 12.6 % overshoot. The lead loop is not exactly this system (it has a zero and a third pole), but the rule predicts its 13.3 % overshoot well. The phase margin also sets the **delay margin**, the pure time delay that would destabilise the loop: PM (rad)/ω_c = 0.960/30 = **32.0 ms**. Sampling, computation and a slow sensor all eat into it (`P09.17`).
 
 ### 2.5 Where the model stops being valid
 

@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `robustness.png`, the derivations of S + T = 1, the disk margin and the small-gain factorisation, the design table, and a half-page note choosing a lead gain with its guaranteed and true margins and the evidence you would want from a hardware test. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the disk margin and small-gain results are derived; all public tests pass; the design table is explained, including a design that fails the test but is stable and one that passes; the note separates guarantees from measurements. |
-| **References** | See part 2 and the list at the end of the lesson. |
+| **References** | `@mit-ocw-16-30-feedback-control-systems` Topic 24 "Closed-loop system analysis" (https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/resources/mit16_30f10_lec24/): SISO Performance Objectives; SISO Design Approaches; Bounded Gain; Typical Application; Issues; Appendix: Sketch of Proof (required-free): working with S and T, and the bounded-gain theorem that tests sup|G(jω)| < γ through the eigenvalues of a Hamiltonian matrix (§2.2). `@mit-ocw-16-323-principles-of-optimal-control` Lecture 15 "Signals and system norms: H∞ synthesis" (PDF headings "Signals and System Norms" and "H∞ Synthesis": H∞ norm for the system; Computation) (https://ocw.mit.edu/courses/16-323-principles-of-optimal-control-spring-2008/resources/lec15/) (required-free; graduate): the H∞ norm and its computation by bisection on γ. Lecture 13 "LQG robustness" (.../lec13/) (supplementary-free): why sensitivity is high where L(jω) comes close to −1. `@mit-ocw-16-06-principles-of-automatic-control` Lecture 9 "Effect of noise, steady-state errors" (PDF heading "Unity Feedback Control With Noise") and Lecture 23 "Stability margins, Bode gain-phase theorem" (https://ocw.mit.edu/courses/16-06-principles-of-automatic-control-fall-2012/resources/mit16_06f12_lecture_23/) (supplementary-free review): S, T and the tracking/noise trade-off; gain and phase margins. `@scipy-userguide` API reference "Signal processing (scipy.signal)": `freqs` (supplementary-free): the test oracle only. Partial GAP (original instruction): no verified free source covers the disk margin and its bounds on gain and phase margin from Ms (§2.3), the multiplicative-uncertainty model with the small-gain test ‖WT‖∞ < 1 as a derivation, including the destabilising all-pass (§2.4), or the Bode sensitivity integral (§2.5); these are written here. The paid texts under "Optional textbooks" in `references/phase-09.md` treat them but are never required. |
 | **Extensions** | ★ Replace the first-order weight by a second-order one shaped around the compliance mode and recompute the robust gain limit; how much of the conservatism of Problem 6 disappears? ★ Add a real gain uncertainty k ∈ [0.8, 1.2] and compute the exact real stability margin by scanning k, against the complex small-gain bound. ★ Compute the structured singular value (μ) lower bound for two simultaneous perturbations (gain and delay) by a power iteration. |
 | **Time** | unmeasured |
 
@@ -35,7 +35,7 @@ Write the loop with controller C, plant G and loop transfer L = CG. Add a refere
 
 y = T(r − n) + S d,  r − y = S(r − d) + T n,  u = KS (r − n − d),   (1)
 
-with **S = 1/(1 + L)** (the sensitivity), **T = L/(1 + L)** (the complementary sensitivity) and KS = C/(1 + L) (control effort per unit reference); a fourth map GS = G/(1 + L) carries input disturbances to the output. Two facts organise everything:
+with **S = 1/(1 + L)** (the sensitivity), **T = L/(1 + L)** (the complementary sensitivity; both as in 16.06 Lecture 9) and KS = C/(1 + L) (control effort per unit reference); a fourth map GS = G/(1 + L) carries input disturbances to the output. Two facts organise everything:
 
 - **S + T = 1** at every frequency. Disturbance rejection wants |S| small; noise rejection and robustness (2.4) want |T| small. Both cannot be small at the same frequency, so good loops make S small at low frequency and T small at high frequency, and cross over in between.
 - For a type-1 loop (an integrator in L), S(0) = 0 and T(0) = 1: zero steady-state error to a step (`P09.08`).
@@ -52,7 +52,7 @@ For a stable transfer function G, the **H∞ norm** is its peak gain, ‖G‖∞
 
 H(γ) = [[A, BBᵀ/γ²], [−CᵀC, −Aᵀ]]   (2)
 
-(with a nonzero D the blocks change; the code uses the general form). Then **jω is an eigenvalue of H(γ) if and only if γ is a singular value of G(jω)** (Problem 2d). So ‖G‖∞ ≥ γ exactly when H(γ) has an imaginary-axis eigenvalue, and bisection on γ finds the norm to any tolerance without a frequency grid. This is the Boyd–Balakrishnan / Bruinsma–Steinbuch idea used in control toolboxes. For the lesson's chosen servo design both methods give Ms = 1.18243359 at 71.2 rad/s; on random systems they agree to 10⁻⁶ (the test), and for a resonance ω_n²/(s² + 2ζω_ns + ω_n²) both reproduce the closed form 1/(2ζ√(1 − ζ²)) to 10⁻⁷.
+(with a nonzero D the blocks change; the code uses the general form). Then **jω is an eigenvalue of H(γ) if and only if γ is a singular value of G(jω)** (Problem 2d). So ‖G‖∞ ≥ γ exactly when H(γ) has an imaginary-axis eigenvalue, and bisection on γ finds the norm to any tolerance without a frequency grid. This is the Boyd–Balakrishnan / Bruinsma–Steinbuch idea used in control toolboxes (16.30 Topic 24, "Bounded Gain", and 16.323 Lecture 15, "Computation", present the same test). For the lesson's chosen servo design both methods give Ms = 1.18243359 at 71.2 rad/s; on random systems they agree to 10⁻⁶ (the test), and for a resonance ω_n²/(s² + 2ζω_ns + ω_n²) both reproduce the closed form 1/(2ζ√(1 − ζ²)) to 10⁻⁷.
 
 ### 2.3 The disk margin from Ms
 
@@ -224,6 +224,4 @@ Submit: the completed `main.py` with passing tests; the derivations of (1), (3)�
 
 ## References
 
-- `@mit-ocw-16-323-principles-of-optimal-control` (supplementary-free): the robustness lectures (sensitivity functions, unstructured uncertainty, the small-gain theorem) in its lecture notes.
-- `@scipy-userguide` (supplementary-free): `scipy.signal.freqs`, the oracle of the realisation test.
-- The Hamiltonian bisection, the disk-margin geometry, the destabilising all-pass construction and the servo study are written here as original instruction.
+The sources, with the exact topics and lectures to read, are in the **References** row at the top of this lesson: 16.30 Topic 24 and 16.323 Lecture 15 for S, T and the H∞ norm by Hamiltonian bisection; 16.323 Lecture 13 and 16.06 Lectures 9 and 23 as background; SciPy for the test oracle. The disk margin, the small-gain derivation with its destabilising all-pass, and the Bode sensitivity integral are original instruction (Partial GAP in `references/phase-09.md`).

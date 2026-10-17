@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `nonlinear.png`, the derivations of the Lyapunov integral solution, of both describing functions and of the feedback-linearising law, the three experiment tables, and a half-page note stating which tool you would use to certify the test stand and the servo, with the conservatism or error of each. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the Lyapunov and describing-function results are derived; all public tests pass; the gap between the estimated and simulated regions of attraction and the describing-function error are quantified and explained; the note separates what is proven from what is predicted. |
-| **References** | See part 2 and the list at the end of the lesson. |
+| **References** | `@mit-ocw-16-30-feedback-control-systems` Topic 22 "Analysis of nonlinear systems" (https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/resources/mit16_30f10_lec22/): Lyapunov Stability Analysis; Lyapunov Stability Theorem; Example 1: Pendulum; Example 2: Linear System; Example 4: Local Region; Example 5: Saturation; Invariance Principle (required-free): V > 0 with V̇ < 0, the Lyapunov equation AᵀP + PA = −Q, and a sublevel set of V as a region-of-attraction estimate (§2.1–2.2). Topic 21 "Systems with nonlinear functions" (.../mit16_30f10_lec21/): Describing Function Analysis; Saturation Nonlinearity; Odd Nonlinearities with Memory; Limit Cycle Analysis; DF Analysis Example; Limit Cycle Stability (required-free): N(A) of saturation and of a relay with hysteresis, and limit cycles where G(jω) = −1/N(A) (§2.3). Topic 5 "Introduction to state-space models": Linearization; Stability of LTI Systems (supplementary-free review): Lyapunov's indirect method. `@mit-ocw-6-243j-dynamics-of-nonlinear-systems` Lectures 5 "Lyapunov Functions and Storage Functions", 7 "Finding Lyapunov Functions", 8 "Local Behavior at Equilibria", 13 "Feedback Linearization" (https://ocw.mit.edu/courses/6-243j-dynamics-of-nonlinear-systems-fall-2003/resources/lec13_6243_2003/) (supplementary-free; graduate and proof-oriented, beyond this lesson's depth). `@scipy-userguide` API reference "Linear algebra (scipy.linalg)": Matrix Equation Solvers (`solve_continuous_lyapunov`) (supplementary-free): the test oracle; `scipy.integrate.solve_ivp` is the simulator. Partial GAP (original instruction): the feedback linearisation of the inverted pendulum at this phase's level (§2.4) is written here; the 6.243J lecture on it is graduate level and its PDF was not checked. |
 | **Extensions** | ★ Replace the quadratic Lyapunov function by xᵀPx + κ(1 − cos θ) and search κ for a larger proven region. ★ Add the third harmonic to the relay describing function analysis and estimate how much of the 4 % amplitude error it explains. ★ Add a dead zone (gear backlash) to the servo and predict its limit cycle with the dead-zone describing function. |
 | **Time** | unmeasured |
 
@@ -33,7 +33,7 @@ Success criteria, written first: the Lyapunov solver agrees with SciPy to 10⁻�
 
 A **Lyapunov function** for an equilibrium x = 0 of ẋ = f(x) is a function V(x) that is positive except at 0 and decreases along every trajectory, V̇ = ∇V·f < 0 for x ≠ 0. If one exists on a region, trajectories there can only go "downhill" in V and must end at 0. No solution of the ODE is needed: that is the point.
 
-For a linear system ẋ = Ax, try V = xᵀPx with P symmetric. Then V̇ = xᵀ(AᵀP + PA)x, and asking for V̇ = −xᵀQx with a chosen Q > 0 gives the **Lyapunov equation**
+For a linear system ẋ = Ax, try V = xᵀPx with P symmetric. Then V̇ = xᵀ(AᵀP + PA)x, and asking for V̇ = −xᵀQx with a chosen Q > 0 gives the **Lyapunov equation** (16.30 Topic 22, "Example 2: Linear System")
 
 **AᵀP + PA + Q = 0.**   (1)
 
@@ -45,7 +45,7 @@ For a nonlinear system with Jacobian A = ∂f/∂x at 0 (Lyapunov's indirect met
 
 ### 2.2 The region of attraction
 
-The real loop is u = sat(−Kx, 6 N·m) and sin θ: nonlinear twice. Along its trajectories V̇(x) = 2xᵀPf(x) is negative near 0 and becomes positive somewhere further out. Let c* be the largest level such that V̇ < 0 at every x ≠ 0 with V(x) < c*. Then the ellipse {V < c*} is **positively invariant** (a trajectory cannot cross a level set of V outward while V decreases) and every trajectory starting in it converges to 0: it is a proven inner estimate of the **region of attraction**.
+The real loop is u = sat(−Kx, 6 N·m) and sin θ: nonlinear twice. Along its trajectories V̇(x) = 2xᵀPf(x) is negative near 0 and becomes positive somewhere further out. Let c* be the largest level such that V̇ < 0 at every x ≠ 0 with V(x) < c*. Then the ellipse {V < c*} is **positively invariant** (a trajectory cannot cross a level set of V outward while V decreases) and every trajectory starting in it converges to 0: it is a proven inner estimate of the **region of attraction** (16.30 Topic 22, "Example 4: Local Region" and "Example 5: Saturation", make the same argument).
 
 `roa_estimate` finds c* by scanning: in coordinates where V = r² (x = rP^{−1/2}(cos φ, sin φ)), march outward along 360 directions and record the first radius at which V̇ ≥ 0; c* is the square of the smallest. For the stand, **c* = 0.0689**: the ellipse reaches ±25.8° in θ and ±23.6° when starting at rest. A hundred random starts inside it (seed 19) all converge. Simulation from rest recovers up to **37.71°**, which is the physical limit arcsin(6/9.81) = 37.7°: beyond it gravity's torque exceeds the motor's at rest. The guarantee is valid and conservative: it proves 23.6° of the 37.7° that are actually achievable. A quadratic V is an ellipse, and the true region is not an ellipse.
 
@@ -55,7 +55,7 @@ Put a static nonlinearity y = φ(e) in a loop with a linear plant G, e = −Gy. 
 
 N(A) = (b₁ + ja₁)/A,   (2)
 
-the "gain" of the nonlinearity for a sinusoid of amplitude A. If the plant filters the higher harmonics (|G(3jω)| ≪ |G(jω)|), the loop closes on the fundamental alone, and a self-sustained oscillation requires **G(jω)N(A) = −1** (harmonic balance): G(jω) = −1/N(A).
+the "gain" of the nonlinearity for a sinusoid of amplitude A (16.30 Topic 21, "Describing Function Analysis"). If the plant filters the higher harmonics (|G(3jω)| ≪ |G(jω)|), the loop closes on the fundamental alone, and a self-sustained oscillation requires **G(jω)N(A) = −1** (harmonic balance): G(jω) = −1/N(A).
 
 - **Saturation** of slope k and linear range δ (output k·clip(e, −δ, δ)): N = k for A ≤ δ, and for A > δ (Problem 2b)
 
@@ -208,7 +208,4 @@ Submit: the completed `main.py` with passing tests; the derivations of the Lyapu
 
 ## References
 
-- `@mit-ocw-18-03-differential-equations` (supplementary-free): the lectures on nonlinear autonomous systems, linearisation at critical points and phase portraits, background for 2.1–2.2.
-- `@mit-ocw-6-003-signals-and-systems` (supplementary-free): the Fourier-series lectures, background for the first-harmonic approximation of 2.3.
-- `@scipy-userguide` (supplementary-free): `scipy.linalg.solve_continuous_lyapunov` and `scipy.integrate.solve_ivp`, the oracle and the simulator.
-- Lyapunov region-of-attraction estimates, describing functions and feedback linearisation for these examples are written here as original instruction.
+The sources, with the exact topics and sections to read, are in the **References** row at the top of this lesson: 16.30 Topic 22 for Lyapunov functions, the Lyapunov equation and regions of attraction; 16.30 Topic 21 for describing functions and limit cycles; 6.243J as graduate-level further reading; SciPy for the oracle and the simulator. Feedback linearisation at this level is original instruction (Partial GAP in `references/phase-09.md`).

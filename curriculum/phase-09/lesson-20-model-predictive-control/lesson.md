@@ -15,7 +15,7 @@
 | **Safety** | None beyond normal computer use. |
 | **Evidence** | Completed `main.py`, passing tests, `mpc_altitude.png`, the derivations of the condensed cost and of the MPC–LQR equivalence, the horizon table, and a half-page note choosing a horizon and terminal cost for the autopilot with its constraint record, climb time and worst-case QP iterations. |
 | **Assessment** | `assessments/phase-09/grading-rubric.md`; competencies 1–4. Pass: the condensed QP and the equivalence with the Riccati recursion are derived; all public tests pass; the constraint record of the closed loop is shown; the note explains the loss of feasibility at short horizons and states what a flight implementation would add. |
-| **References** | See part 2 and the list at the end of the lesson. |
+| **References** | `@mit-ocw-16-323-principles-of-optimal-control` Lecture 16 "Model predictive control" (PDF heading "Model Predictive Control") (https://ocw.mit.edu/courses/16-323-principles-of-optimal-control-spring-2008/resources/lec16/) (required-free; graduate): stacking the predictions over a horizon into a standard QP, the full-state assumption, stability with constraints, and a helicopter example (§2.2, §2.4, §2.6). Lecture 3 "Dynamic programming: principle of optimality, dynamic programming, discrete LQR" (.../lec3/) (required-free): the backward Riccati recursion that the unconstrained MPC must match (§2.3). `@rawlings-mayne-diehl-mpc-2nd-edition` (https://sites.engineering.ucsb.edu/~jbraw/mpc/) (supplementary-free; free PDF from the authors but all rights reserved: link only, nothing copied or adapted): Ch. 1 "Getting Started with Model Predictive Control", 1.3 Introductory MPC Regulator (1.3.1–1.3.6, the linear quadratic problem, its dynamic-programming solution and the infinite-horizon LQ problem); Ch. 2 "Model Predictive Control—Regulation", 2.2 Model Predictive Control, 2.4 Stability, 2.6 Is a Terminal Constraint Set Xf Necessary?; Ch. 8 "Numerical Optimal Control", 8.7 Newton-Type Optimization with Inequalities, 8.8 Structure in Discrete Time Optimal Control: the receding horizon, terminal cost and terminal set at graduate depth. `@ocw-18-335j` Week 11 "Lecture 29: Lagrange Dual Problems" (supplementary-free): the Lagrangian, KKT conditions and duality behind the active-set QP (as used in `P03.15`). `@scipy-userguide` API reference "Linear algebra (scipy.linalg)": Matrix Equation Solvers (`solve_discrete_are`) (supplementary-free): the oracle of the DARE tests. Partial GAP (original instruction): no verified free source at this level walks through a from-scratch active-set QP solver for the constrained problem; the Goldfarb–Idnani dual active-set solver (§2.5) and the altitude-hold MPC example are written here. |
 | **Extensions** | ★ Soften the climb-rate constraint with a slack variable and a large linear and quadratic penalty, and show that the updraft of Problem 5 no longer makes the QP infeasible. ★ Warm-start the active-set solver with the previous solution shifted by one step and measure the reduction in iterations. ★ Compute the maximal output-admissible set for the LQR terminal law and use it as a terminal constraint; check recursive feasibility at N = 3. |
 | **Time** | unmeasured |
 
@@ -55,7 +55,7 @@ becomes, with Q̄ = blkdiag(Q, …, Q, P) and R̄ = blkdiag(R, …, R),
 
 **J = ½UᵀHU + x₀ᵀFᵀU + x₀ᵀYx₀,  H = 2(SuᵀQ̄Su + R̄),  F = 2SuᵀQ̄Sx.**   (4)
 
-H is positive definite whenever R > 0 (R̄ alone already is). Without constraints, ∇J = HU + Fx₀ = 0 gives U* = −H⁻¹Fx₀, and the controller applies the first block: **u₀ = −K_mpc x₀, K_mpc = (H⁻¹F)_{first m rows}**. The unconstrained MPC is a linear state feedback.
+H is positive definite whenever R > 0 (R̄ alone already is). Without constraints, ∇J = HU + Fx₀ = 0 gives U* = −H⁻¹Fx₀, and the controller applies the first block: **u₀ = −K_mpc x₀, K_mpc = (H⁻¹F)_{first m rows}**. The unconstrained MPC is a linear state feedback. (16.323 Lecture 16 stacks the predictions into the same standard QP.)
 
 ### 2.3 Why the unconstrained MPC is LQR
 
@@ -63,7 +63,7 @@ The same minimisation can be done backwards in time by dynamic programming. The 
 
 K_k = (R + BᵀP_{k+1}B)⁻¹BᵀP_{k+1}A,  P_k = Q + AᵀP_{k+1}(A − BK_k).   (5)
 
-This is the **backward Riccati recursion** (the discrete counterpart of `P09.16`). Since dynamic programming and the batch least-squares (4) minimise the same convex function, their first moves agree: **K_mpc = K₀**. The test checks it for N = 1, 3, 10 and 40 to 10⁻⁹.
+This is the **backward Riccati recursion** (the discrete counterpart of `P09.16`; 16.323 Lecture 3 derives it by dynamic programming). Since dynamic programming and the batch least-squares (4) minimise the same convex function, their first moves agree: **K_mpc = K₀**. The test checks it for N = 1, 3, 10 and 40 to 10⁻⁹.
 
 If the terminal weight P is the fixed point of (5), the **DARE** P = Q + AᵀPA − AᵀPB(R + BᵀPB)⁻¹BᵀPA, then every P_k equals P and every K_k equals the infinite-horizon LQR gain K_∞, so **K_mpc = K_∞ for every horizon N**, even N = 1. The terminal cost is the exact cost of continuing with LQR after the horizon, so the finite horizon loses nothing. `dare` solves it by iterating (5) from P = Q to convergence; it matches `scipy.linalg.solve_discrete_are` to 10⁻⁸. For the altitude model, K_∞ = [0.0673, 2.1851, 0.9248, 0.3195] with closed-loop eigenvalue magnitudes 0.746 (twice) and 0.891 (twice); with P = Q instead, N = 5 gives a much weaker gain [0.0026, 0.5221, 0.1985, 0.1848] and N = 20 approaches K_∞ ([0.0558, 1.9418, 0.8355, 0.3049]).
 
@@ -98,7 +98,7 @@ Why a dual method rather than projected gradient? Projected gradient handles box
 Applying u₀ and re-solving from the measured x₁ turns the open-loop plan into feedback. Two properties that LQR has for free are not automatic:
 
 - **Recursive feasibility.** The QP at the next step may have no solution. With hard limits, a short horizon can let the state reach a point from which the climb can no longer be stopped within the elevator-rate limit (part 4: N = 3, 4 and 5 fail 0.7–0.8 s into the climb).
-- **Stability.** With P from the DARE and a horizon long enough that the constraints are inactive at its end, the closed loop inherits LQR's stability; a rigorous guarantee also needs a terminal constraint set (Extension 3).
+- **Stability.** With P from the DARE and a horizon long enough that the constraints are inactive at its end, the closed loop inherits LQR's stability; a rigorous guarantee also needs a terminal constraint set (Extension 3; Rawlings, Mayne and Diehl §2.4 and §2.6).
 
 ### 2.7 Where the model stops being valid
 
@@ -228,7 +228,4 @@ Submit: the completed `main.py` with passing tests; the derivations of (2), (4),
 
 ## References
 
-- `@mit-ocw-16-323-principles-of-optimal-control` (required-free): the discrete-time LQR and the dynamic-programming derivation of the Riccati recursion in its lecture notes.
-- `@ocw-18-335j` (supplementary-free): Week 11 "Lecture 29: Lagrange Dual Problems", the Lagrangian, KKT conditions and duality behind the active-set QP (as used in `P03.15`).
-- `@scipy-userguide` (supplementary-free): `scipy.linalg.solve_discrete_are`, the oracle of the DARE tests.
-- The condensed MPC formulation, the Goldfarb–Idnani dual active-set method and the altitude-hold study are written here as original instruction.
+The sources, with the exact lectures and sections to read, are in the **References** row at the top of this lesson: 16.323 Lectures 16 and 3 for the condensed QP and the Riccati recursion; Rawlings, Mayne and Diehl Chapters 1, 2 and 8 as graduate-level further reading (link only); 18.335J Lecture 29 for the KKT conditions; SciPy for the DARE oracle. The dual active-set QP solver and the altitude-hold study are original instruction (Partial GAP in `references/phase-09.md`).
