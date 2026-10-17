@@ -65,6 +65,7 @@ sources:
   - 02-01
   - 02-07
   - 02-08
+  - 06-01
 - id: openstax-calculus-volume-3
   title: Calculus Volume 3
   creator: Gilbert Strang and Edwin "Jed" Herman; OpenStax, Rice University
@@ -87,6 +88,7 @@ sources:
   - 02-04
   - B1-05
   - B1-06
+  - 06-01
 - id: openstax-introductory-statistics-2e
   title: Introductory Statistics 2e
   creator: Barbara Illowsky and Susan Dean (De Anza College); OpenStax, Rice University
@@ -101,6 +103,7 @@ sources:
   - 02-16
   - 02-17
   - 02-18
+  - 06-19
 - id: mit-ocw-18-06-linear-algebra
   title: 18.06 Linear Algebra
   creator: Prof. Gilbert Strang; MIT OpenCourseWare
@@ -121,6 +124,11 @@ sources:
   - 02-09
   - 02-10
   - 02-18
+  - 06-04
+  - 06-07
+  - 06-08
+  - 06-09
+  - 06-14
 - id: mit-ocw-18-03-differential-equations
   title: 18.03 Differential Equations
   creator: Prof. Arthur Mattuck and Prof. Haynes Miller; MIT OpenCourseWare
@@ -143,6 +151,14 @@ sources:
   - 02-10
   - 02-11
   - B1-07
+  - 06-11
+  - 06-12
+  - 06-13
+  - 06-14
+  - 06-15
+  - 06-16
+  - 06-17
+  - 06-19
 - id: openstax-university-physics-vol1
   title: University Physics Volume 1
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -165,6 +181,18 @@ sources:
   - 05-01
   - 05-02
   - 05-06
+  - 06-01
+  - 06-02
+  - 06-03
+  - 06-04
+  - 06-05
+  - 06-06
+  - 06-09
+  - 06-10
+  - 06-12
+  - 06-13
+  - 06-18
+  - 06-19
 - id: openstax-university-physics-vol2
   title: University Physics Volume 2
   creator: OpenStax (Rice University); senior contributing authors Samuel J. Ling, Jeff Sanny, William Moebs
@@ -299,6 +327,10 @@ sources:
   - 03-13
   - 03-15
   - 03-17
+  - 06-05
+  - 06-09
+  - 06-15
+  - 06-18
 - id: ocw-2-086
   title: 2.086 Numerical Computation for Mechanical Engineers (Fall 2014)
   creator: Nicolas G. Hadjiconstantinou, Anthony T. Patera, MIT OpenCourseWare
@@ -323,6 +355,8 @@ sources:
   - 03-08
   - 03-11
   - 03-13
+  - 06-12
+  - 06-15
 - id: ocw-2-092
   title: 2.092 Finite Element Analysis of Solids and Fluids I (Fall 2009), Lecture Notes
   creator: Klaus-Jürgen Bathe, MIT OpenCourseWare
@@ -392,6 +426,7 @@ sources:
   lessons:
   - 00-14
   - 00-15
+  - 06-19
 - id: nist-tn-1297
   title: 'NIST Technical Note 1297: Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results'
   creator: Barry N. Taylor, Chris E. Kuyatt, NIST
@@ -438,6 +473,17 @@ sources:
   - 03-10
   - 03-14
   - 03-15
+  - 06-02
+  - 06-03
+  - 06-05
+  - 06-09
+  - 06-11
+  - 06-13
+  - 06-14
+  - 06-15
+  - 06-16
+  - 06-18
+  - 06-19
 - id: matplotlib-userguide
   title: Using Matplotlib
   creator: The Matplotlib development team
@@ -460,6 +506,7 @@ sources:
   caveat: ''
   lessons:
   - 00-09
+  - 06-11
 - id: pytest-getstarted
   title: Get Started — pytest documentation
   creator: holger krekel and pytest-dev team
@@ -562,6 +609,8 @@ sources:
   caveat: Lecture titles are identical on the Lecture Videos and Lecture Notes pages; video resource slugs follow lecture-<n>-<slug>.
   lessons:
   - 02-10
+  - 06-16
+  - 06-19
 - id: mit-ocw-18-303-linear-pdes
   title: '18.303 Linear Partial Differential Equations: Analysis and Numerics'
   creator: Prof. Steven G. Johnson; MIT OpenCourseWare
@@ -608,6 +657,7 @@ sources:
     material; the rest is optimal control.
   lessons:
   - 02-13
+  - 06-11
 - id: mit-ocw-8-033-relativity
   title: 8.033 Relativity
   creator: Prof. Max Tegmark; MIT OpenCourseWare
@@ -622,6 +672,7 @@ sources:
   lessons:
   - 02-13
   - 04-13
+  - 06-11
 - id: mit-ocw-3-11-mechanics-of-materials
   title: 3.11 Mechanics of Materials
   creator: Prof. David Roylance; MIT OpenCourseWare
@@ -650,6 +701,7 @@ sources:
   - 05-15
   - 05-16
   - 05-18
+  - 06-15
 - id: mit-ocw-8-07-electromagnetism-ii
   title: 8.07 Electromagnetism II
   creator: Prof. Alan Guth and Prof. Min Chen; MIT OpenCourseWare
@@ -673,6 +725,8 @@ sources:
     only the lecture-notes PDFs are. The lecture-notes page lists lectures out of numeric order.
   lessons:
   - 02-19
+  - 06-16
+  - 06-17
 - id: mit-ocw-18-05-introduction-to-probability-and-statistics
   title: 18.05 Introduction to Probability and Statistics
   creator: Dr. Jeremy Orloff and Dr. Jennifer French Kamrin; MIT OpenCourseWare
@@ -699,6 +753,8 @@ sources:
   lessons:
   - 03-07
   - 03-18
+  - 06-12
+  - 06-13
 - id: langtangen-fd-computing-exponential-decay
   title: Finite Difference Computing with Exponential Decay Models
   creator: Hans Petter Langtangen (Simula Research Laboratory); Springer Open (Lecture Notes in Computational Science and Engineering 110)
@@ -822,6 +878,9 @@ sources:
   - 04-11
   - 04-12
   - 04-14
+  - 06-07
+  - 06-08
+  - 06-10
 - id: ashby-relativity-in-gps
   title: Relativity in the Global Positioning System
   creator: Neil Ashby (University of Colorado, Boulder); Living Reviews in Relativity
@@ -911,6 +970,8 @@ sources:
   - 05-08
   - 05-09
   - 05-18
+  - 06-06
+  - 06-09
 - id: tudelft-alderliesten-aerospace-structures-materials
   title: Introduction to Aerospace Structures and Materials
   creator: René C. Alderliesten, Faculty of Aerospace Engineering, Delft University of Technology; TU Delft OPEN Books
