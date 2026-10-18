@@ -11,3 +11,4 @@ build/
 # learner outputs that should not be committed by accident
 curriculum/**/outputs/
 projects/**/data/raw/
+node_modules/
