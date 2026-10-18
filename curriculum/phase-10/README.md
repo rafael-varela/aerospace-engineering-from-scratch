@@ -90,7 +90,7 @@ Phases 00–05 and, in the roadmap's order, 06–09. In particular:
 - `P04.04` (rotation) for balance axes;
 - `P05.12` (beam deflection) where a wing bends.
 
-The roadmap also names Phase 08 (fluid mechanics) lessons as prerequisites: `P08.03` (control-volume momentum), `P08.05` (dimensional analysis), `P08.08` (potential flow), `P08.11` (integral boundary layers and Thwaites' method), `P08.12` (transition), `P08.14` (turbulent boundary layers) and `P08.19` (the flow and pressure home lab, whose manometer method lesson 23 uses). **Phase 08 is not written yet.** Its lessons are therefore referred to by id only, with no link. Each Phase 10 lesson carries a short, self-contained recap (a few lines, with the formula used) of any Phase 08 result it needs, so the phase works before Phase 08 exists.
+The roadmap also names Phase 08 (fluid mechanics) lessons as prerequisites: `P08.03` (control-volume momentum), `P08.05` (dimensional analysis), `P08.08` (potential flow), `P08.11` (integral boundary layers and Thwaites' method), `P08.12` (transition), `P08.14` (turbulent boundary layers) and `P08.19` (the flow and pressure home lab, whose manometer method lesson 23 uses). Phase 10 was written before Phase 08, so its lessons refer to those prerequisites by id and carry a short, self-contained recap (a few lines, with the formula used) of any Phase 08 result they need; the full treatment is in [Phase 08](../phase-08/README.md).
 
 Skill checks before starting: you can resolve a force into components along two rotated axes; integrate a polynomial and a Fourier cosine coefficient by hand; solve a small linear system; differentiate a complex function and evaluate a line integral round a circle; state the momentum balance for a control volume; and fit a straight line with the standard error of its slope.
 
@@ -158,9 +158,9 @@ The exam has not been piloted, so no time limit is suggested; choose one in adva
 
 **References:** [references/phase-10.md](../../references/phase-10.md). Every required reading is free. The core is:
 
-- the MIT OpenCourseWare aerodynamics and fluids notes (`@mit-ocw-16-100-aerodynamics`, `@mit-ocw-16-unified-fluids`);
+- the MIT OpenCourseWare aerodynamics and fluids notes (`@mit-ocw-16-100-aerodynamics`, `@mit-ocw-16-01-unified-engineering-fluids`);
 - Leishman's *Introduction to Aerospace Flight Vehicles* (`@leishman-intro-aerospace-flight-vehicles`, CC BY-NC-ND, linked by chapter title and never adapted);
-- the NASA Glenn *Beginner's Guide to Aeronautics* (`@nasa-grc-beginners-guide-aeronautics`);
+- the NASA Glenn *Beginner's Guide to Aeronautics* (`@nasa-glenn-beginners-guide-aeronautics`);
 - NACA and NASA reports, among them the airfoil summary (`@ntrs-naca-tr-824-summary-of-airfoil-data`), Ladson's NACA 0012 data (`@ntrs-nasa-tm-4074-ladson-naca0012`), the panel-method primer (`@ntrs-nasa-tp-2995-panel-methods`), the trailing-edge high-lift summary (`@ntrs-naca-tr-938-trailing-edge-high-lift`), the stall-types note (`@ntrs-naca-tn-2502-airfoil-stall-types`), the Eppler 387 low-Re data (`@ntrs-nasa-tm-4062-eppler-387-low-re`), Stepniewski's rotary-wing aerodynamics (`@ntrs-nasa-cr-3082-rotary-wing-aerodynamics`), and the finite-wing reports (`@ntrs-naca-tn-1669-untapered-wings-aspect-ratio-sweep`, `@ntrs-naca-tn-1671-swept-wings-taper-ratio`, `@ntrs-naca-tn-1422-sivells-three-wings`).
 
 The free tools' documentation (`@drela-xfoil`, `@drela-avl`, `@openvsp-docs`) and the MIT viscous-flow notes (`@mit-ocw-16-13-aerodynamics-viscous-fluids`) are supplementary. Paid textbooks appear only as optional further reading in the reference map, with what each adds. The curriculum links to every source and writes its own explanations.

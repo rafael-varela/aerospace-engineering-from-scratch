@@ -38,7 +38,7 @@ The curriculum links to these sources and writes its own explanations and code; 
 
 ## 10-01 Forces, Moments & Coefficients
 
-Sources: `@mit-ocw-16-unified-fluids`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`, `@mit-ocw-16-100-aerodynamics`
+Sources: `@mit-ocw-16-01-unified-engineering-fluids`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`, `@mit-ocw-16-100-aerodynamics`
 
 - 16.01 Fluids Lecture 3 "Aerodynamic Forces and Moments" (notes: 2-D Aerodynamic Forces and Moments; Center of Pressure; Nondimensional Coefficients)
   - https://ocw.mit.edu/courses/16-01-unified-engineering-i-ii-iii-iv-fall-2005-spring-2006/resources/f03_fall/ (loaded; PDF loaded)
@@ -56,7 +56,7 @@ Sources: `@mit-ocw-16-unified-fluids`, `@leishman-intro-aerospace-flight-vehicle
 
 ## 10-02 Airfoil Geometry
 
-Sources: `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@ntrs-naca-tr-460-78-related-airfoils`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`
+Sources: `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@ntrs-naca-tr-460-78-related-airfoils`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`
 
 - NACA TR-824 *Summary of Airfoil Data*, "Description of Airfoils": Method of Combining Mean Lines and Thickness Distributions; NACA Four-Digit Series Airfoils (Numbering system; Thickness distributions; Mean lines); NACA Five-Digit Series Airfoils (Numbering system; Thickness distributions; Mean lines); NACA 6-Series Airfoils. Supplementary Data I "Basic Thickness Forms", II "Data for Mean Lines" (NACA mean lines 210–250 tabulated), III "Airfoil Ordinates"
   - https://ntrs.nasa.gov/citations/19930090976 (PDF loaded)
@@ -70,7 +70,7 @@ Sources: `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@ntrs-naca-tr-460-78-rela
 
 ## 10-03 Kutta Condition & Circulation
 
-Sources: `@mit-ocw-16-100-aerodynamics`, `@mit-ocw-16-unified-fluids`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`, `@ntrs-naca-tr-452-arbitrary-wing-sections`
+Sources: `@mit-ocw-16-100-aerodynamics`, `@mit-ocw-16-01-unified-engineering-fluids`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`, `@ntrs-naca-tr-452-arbitrary-wing-sections`
 
 - 16.100 Lecture 13 "Kutta Condition"; Lecture 14 "Kutta Condition Solution"; study material "Lift Generation and Streamline Curvature"
   - https://ocw.mit.edu/courses/16-100-aerodynamics-fall-2005/resources/16100lectre13_cg/ (loaded; PDF loaded); .../16100lectre14_cg/ (pattern); .../4liftgen/ (loaded; PDF loaded)
@@ -86,7 +86,7 @@ Sources: `@mit-ocw-16-100-aerodynamics`, `@mit-ocw-16-unified-fluids`, `@leishma
 
 ## 10-04 Thin Airfoil Theory
 
-Sources: `@mit-ocw-16-unified-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tr-824-summary-of-airfoil-data`
+Sources: `@mit-ocw-16-01-unified-engineering-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tr-824-summary-of-airfoil-data`
 
 - 16.01 Fluids (spring) Lecture 2 "Airfoil Vortex Sheet Models, Thin Airfoil Analysis Problem" (notes: Surface Vortex Sheet Model; Single Vortex Sheet Model; Flow tangency imposition; Symmetric airfoil case); Lecture 3 "Thin Airfoil Analysis Problem (cont.)"; Lecture 4 "Thin Airfoil Theory Application: Analysis Example"
   - .../16-01-unified-engineering-i-ii-iii-iv-fall-2005-spring-2006/resources/f02_sp/ (loaded; PDF loaded); .../f03_sp/ (pattern); .../f04_sp/ (loaded; PDF loaded)
@@ -98,7 +98,7 @@ Sources: `@mit-ocw-16-unified-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishma
 
 ## 10-05 Vortex Panel Method
 
-Sources: `@mit-ocw-16-unified-fluids`, `@ntrs-nasa-tp-2995-panel-methods`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tr-452-arbitrary-wing-sections`, `@drela-xfoil`
+Sources: `@mit-ocw-16-01-unified-engineering-fluids`, `@ntrs-nasa-tp-2995-panel-methods`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tr-452-arbitrary-wing-sections`, `@drela-xfoil`
 
 - 16.01 Fluids (fall) Lecture 17 "Flowfield Prediction" (notes: Flowfield prediction; Source Sheets); Lecture 18 "Lift Prediction, Vortex Sheets" (notes: Prediction of Lift; Vortex Sheets)
   - .../16-01-unified-engineering-i-ii-iii-iv-fall-2005-spring-2006/resources/f17_fall/ (loaded; PDF loaded); .../f18_fall/ (loaded; PDF loaded)
@@ -133,7 +133,7 @@ Sources: `@mit-ocw-16-13-aerodynamics-viscous-fluids` (supplementary), `@mit-ocw
 
 ## 10-07 Airfoil Design & Selection
 
-Sources: `@drela-xfoil`, `@leishman-intro-aerospace-flight-vehicles`, `@mit-ocw-16-unified-fluids`, `@ntrs-naca-tr-824-summary-of-airfoil-data`
+Sources: `@drela-xfoil`, `@leishman-intro-aerospace-flight-vehicles`, `@mit-ocw-16-01-unified-engineering-fluids`, `@ntrs-naca-tr-824-summary-of-airfoil-data`
 
 - XFOIL User Primer: "Inverse Formulation"; "Full-Inverse Design Routine (MDES)" (Creation of seed surface speed distribution; Modification of surface speed distributions; Generation of new geometry); "Mixed-Inverse Design Routine (QDES)"; "Geometry Design Routine"
   - https://web.mit.edu/drela/Public/web/xfoil/xfoil_doc.txt (loaded)
@@ -146,7 +146,7 @@ Sources: `@drela-xfoil`, `@leishman-intro-aerospace-flight-vehicles`, `@mit-ocw-
 
 ## 10-08 High-Lift Devices
 
-Sources: `@ntrs-naca-tr-938-trailing-edge-high-lift`, `@ntrs-nasa-cr-4746-high-lift-systems` (supplementary), `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`
+Sources: `@ntrs-naca-tr-938-trailing-edge-high-lift`, `@ntrs-nasa-cr-4746-high-lift-systems` (supplementary), `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`
 
 - Cahill, NACA TR-938 *Summary of Section Data on Trailing-Edge High-Lift Devices*: Flap Theory; Discussion of Experimental Results: Plain Flaps (Flap Loads and Moments; Summary of Plain-Flap Data); Split Flaps (Summary of Split-Flap Data); Single Slotted Flaps; External-Airfoil Flaps and Venetian-Blind Flaps
   - https://ntrs.nasa.gov/citations/19930092003 (PDF loaded)
@@ -161,7 +161,7 @@ Sources: `@ntrs-naca-tr-938-trailing-edge-high-lift`, `@ntrs-nasa-cr-4746-high-l
 
 ## 10-09 Finite Wings & Induced Drag
 
-Sources: `@mit-ocw-16-unified-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`, `@ntrs-naca-tr-116-prandtl-modern-hydrodynamics`
+Sources: `@mit-ocw-16-01-unified-engineering-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`, `@ntrs-naca-tr-116-prandtl-modern-hydrodynamics`
 
 - 16.01 Fluids (spring) Lecture 5 "Introduction to 3D Wings, 2D and 3D Coefficients"; Lecture 6 "3D Vortex Filaments, Lifting Line Theory" (notes: General 3-D vortex; Wing vortex model; Downwash distribution)
   - .../16-01-unified-engineering-i-ii-iii-iv-fall-2005-spring-2006/resources/f05_sp/ (loaded; PDF loaded); .../f06_sp/ (loaded; PDF loaded)
@@ -177,7 +177,7 @@ Sources: `@mit-ocw-16-unified-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishma
 
 ## 10-10 Prandtl Lifting Line
 
-Sources: `@mit-ocw-16-unified-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tr-116-prandtl-modern-hydrodynamics`, `@ntrs-naca-tr-921-span-loading`, `@ntrs-naca-tn-1422-sivells-three-wings`
+Sources: `@mit-ocw-16-01-unified-engineering-fluids`, `@mit-ocw-16-100-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tr-116-prandtl-modern-hydrodynamics`, `@ntrs-naca-tr-921-span-loading`, `@ntrs-naca-tn-1422-sivells-three-wings`
 
 - 16.01 Fluids (spring) Lecture 6 "3D Vortex Filaments, Lifting Line Theory"; Lecture 7 "Elliptical Lift Distribution"; Lecture 9 "General Wings" (notes: General circulation distribution and downwash; Load distributions on typical planforms; Lift slope reduction)
   - .../f07_sp/ (loaded; PDF loaded); .../f09_sp/ (loaded; PDF loaded)
@@ -205,7 +205,7 @@ Sources: `@ntrs-nasa-tn-d-6142-vortex-lattice-program`, `@ntrs-nasa-sp-405-vorte
 
 ## 10-12 Wing Planform Effects
 
-Sources: `@ntrs-naca-tr-921-span-loading`, `@mit-ocw-16-unified-fluids`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tn-1669-untapered-wings-aspect-ratio-sweep`, `@ntrs-naca-tn-1671-swept-wings-taper-ratio`, `@ntrs-naca-tn-1422-sivells-three-wings`
+Sources: `@ntrs-naca-tr-921-span-loading`, `@mit-ocw-16-01-unified-engineering-fluids`, `@leishman-intro-aerospace-flight-vehicles`, `@ntrs-naca-tn-1669-untapered-wings-aspect-ratio-sweep`, `@ntrs-naca-tn-1671-swept-wings-taper-ratio`, `@ntrs-naca-tn-1422-sivells-three-wings`
 
 - NACA TR-921: Effect of Plan-Form Variation on the Basic Loading; Effect of Plan-Form Variation on the Additional Loading
 - 16.01 Fluids (spring) Lecture 8 "Wing Geometry, Wing Design Problem"; Lecture 9 "General Wings"
@@ -220,7 +220,7 @@ Sources: `@ntrs-naca-tr-921-span-loading`, `@mit-ocw-16-unified-fluids`, `@leish
 
 ## 10-13 Drag Build-Up
 
-Sources: `@ntrs-nasa-tm-4074-ladson-naca0012`, `@openvsp-docs` (supplementary), `@mit-ocw-16-unified-fluids`, `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`, `@mit-ocw-16-100-aerodynamics`
+Sources: `@ntrs-nasa-tm-4074-ladson-naca0012`, `@openvsp-docs` (supplementary), `@mit-ocw-16-01-unified-engineering-fluids`, `@ntrs-naca-tr-824-summary-of-airfoil-data`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`, `@mit-ocw-16-100-aerodynamics`
 
 - Ladson, NASA TM-4074: Introduction; Wake Survey Rake; Instrumentation; Tests and Procedures; Presentation of Results; Conclusions (free- and fixed-transition section drag vs. Re at M = 0.15; transcribed in `curriculum/phase-10/data/ladson_naca0012_M015.csv`)
   - https://ntrs.nasa.gov/citations/19880019495 (loaded; PDF loaded)
@@ -267,7 +267,7 @@ Sources: `@ntrs-naca-tn-2502-airfoil-stall-types`, `@leishman-intro-aerospace-fl
 
 ## 10-16 Fuselage & Body Aerodynamics
 
-Sources: `@ntrs-naca-tr-184-munk-airship-hulls`, `@ntrs-naca-tr-1048-slender-inclined-bodies`, `@drela-avl`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`, `@ntrs-naca-tr-116-prandtl-modern-hydrodynamics`
+Sources: `@ntrs-naca-tr-184-munk-airship-hulls`, `@ntrs-naca-tr-1048-slender-inclined-bodies`, `@drela-avl`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`, `@ntrs-naca-tr-116-prandtl-modern-hydrodynamics`
 
 - Munk, NACA TR-184 *The Aerodynamic Forces on Airship Hulls*: I. General Properties of Aerodynamic Flows; II. The Aerodynamic Forces on Airship Hulls; III. Some Practical Conclusions
   - https://ntrs.nasa.gov/citations/19930091249 (PDF loaded)
@@ -284,7 +284,7 @@ Sources: `@ntrs-naca-tr-184-munk-airship-hulls`, `@ntrs-naca-tr-1048-slender-inc
 
 ## 10-17 Propeller & Rotor Theory
 
-Sources: `@ntrs-nasa-cr-3082-rotary-wing-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-grc-beginners-guide-aeronautics`, `@ntrs-naca-tr-640-full-scale-propellers` (supplementary), `@openvsp-docs` (supplementary)
+Sources: `@ntrs-nasa-cr-3082-rotary-wing-aerodynamics`, `@leishman-intro-aerospace-flight-vehicles`, `@nasa-glenn-beginners-guide-aeronautics`, `@ntrs-naca-tr-640-full-scale-propellers` (supplementary), `@openvsp-docs` (supplementary)
 
 - Stepniewski, NASA CR-3082 *Rotary-Wing Aerodynamics* Vol. I:
   - Chapter II "Momentum Theory": 3. Actuator Disc; 3.1 Induced Velocity and Thrust in Axial Translation; 3.3 Ideal Power in Climb and Hovering
@@ -375,7 +375,7 @@ Sources: `@ntrs-naca-tn-1669-untapered-wings-aspect-ratio-sweep`, `@ntrs-naca-tn
 
 ## 10-23 Home Lab: Airfoil Bench Rig
 
-Sources: `@nasa-grc-beginners-guide-aeronautics`, `@leishman-intro-aerospace-flight-vehicles`, `@mit-ocw-16-100-aerodynamics`, `@ntrs-nasa-tm-4062-eppler-387-low-re`, `@uiuc-selig-summary-low-speed-airfoil-data` (supplementary, link only), `@ntrs-nasa-tm-4074-ladson-naca0012`, `@ntrs-naca-tr-824-summary-of-airfoil-data`
+Sources: `@nasa-glenn-beginners-guide-aeronautics`, `@leishman-intro-aerospace-flight-vehicles`, `@mit-ocw-16-100-aerodynamics`, `@ntrs-nasa-tm-4062-eppler-387-low-re`, `@uiuc-selig-summary-low-speed-airfoil-data` (supplementary, link only), `@ntrs-nasa-tm-4074-ladson-naca0012`, `@ntrs-naca-tr-824-summary-of-airfoil-data`
 
 - NASA Glenn "Build Your Own Wind Tunnel" (a classroom tunnel built for under $100 around a computer fan motor; "Little Smokey" flow-visualization tunnel). Wind-tunnel pages: "Wind Tunnel Parts"; "Open Return Wind Tunnel"; "Wind Tunnel Testing"; "Force Balance"; "External Force Balance"; "Model Mounts"; "Reynolds Number"
   - https://www.grc.nasa.gov/www/k-12/WindTunnel/build.html (loaded); https://www.grc.nasa.gov/www/k-12/airplane/tunpart.html (loaded); .../tunoret.html (loaded); .../tuntest.html (loaded); .../reynolds.html (loaded)

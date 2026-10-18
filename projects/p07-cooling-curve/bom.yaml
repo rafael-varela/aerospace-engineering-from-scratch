@@ -1,0 +1,155 @@
+# Bill of materials for project p07-cooling-curve (lesson P07.15 Home Lab: Cooling Curve)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
+# Hard limits from safety.md: tap-hot water no hotter than 60 C, checked with the thermometer; no boiling water, kettle,
+# stove, oven, flame, heat gun, hot plate, microwave or soldering iron; the hot bar handled with tongs; battery or USB
+# power only; no glass containers; water kept away from the electronics.
+project: p07-cooling-curve
+title: Cooling curve of a small aluminium bar in still air, against lumped and distributed models
+lessons: [P07.15]
+lab_level: 1
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p00-calibration, p00-first-experiment, p04-electronics-bench]
+
+tiers:
+  minimum_cost:
+    description: One aluminium bar, tap-hot water in a plastic or metal mug, tongs, and a kitchen probe thermometer read by hand every 15 s against a phone timer. Enough to measure tau to a few per cent and test the convection correlation.
+    items:
+      - id: bar
+        qty: 1
+        spec: Aluminium round bar, 25 mm (1 inch) diameter, cut 50 mm long (6061 or 6063); cut ends deburred. Any compact aluminium block of 30-150 g will do if you recompute the prediction for its shape
+        search_term: "aluminum round bar 1 inch 6061 short length"
+        price_range: [4, 12]
+        required: true
+        reusable_id: specimens.al-round-bar
+        substitutes: ["a short aluminium flat bar offcut (lesson P05.18's strip cut to 50 mm; recompute V and A)", "a large steel washer (AISI 1010-like; use the steel properties and an illustrative emittance, untested)"]
+        safety_notes: Deburr the cut ends with a file. Never heat the bar by any means other than tap-hot water no hotter than 60 C.
+      - id: tongs
+        qty: 1
+        spec: Kitchen tongs with a good grip on a 25 mm bar, long enough to keep fingers out of the water
+        search_term: "kitchen tongs 9 inch"
+        price_range: [0, 6]
+        required: true
+        reusable_id: tools.tongs
+        safety_notes: The warm bar is moved only with tongs.
+      - id: water-container
+        qty: 1
+        spec: A plastic or metal (not glass, not ceramic) mug or jug of about 0.5 L, stable on a tray
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.plastic-mug
+        safety_notes: No glass containers.
+      - id: probe-thermometer
+        qty: 1
+        spec: Digital kitchen probe thermometer with 0.1 C resolution, battery powered; also used to check the water is at or below 60 C
+        search_term: "digital kitchen probe thermometer 0.1 resolution"
+        price_range: [0, 12]
+        required: true
+        reusable_id: instruments.thermometer
+        substitutes: ["the thermometer from p04-electronics-bench (thermometer-and-water item)"]
+        safety_notes: Battery powered only; keep its display end dry.
+      - id: towel-and-tray
+        qty: 1
+        spec: A towel to dry the bar and a tray to hold the mug at the far end of the table from any electronics
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.towel
+        substitutes: ["the landing pad towel from p00-first-experiment"]
+      - id: sling-and-stand
+        qty: 1
+        spec: Thin cotton string (two loops to hold the bar horizontally), and a pencil or ruler laid across two stacks of books, about 20 cm above the table
+        search_term: null
+        price_range: [0, 1]
+        required: true
+        reusable_id: misc.string
+        substitutes: ["the string from p05-cantilever or p04-pendulum"]
+      - id: tape
+        qty: 1
+        spec: A roll of masking tape (or, better, aluminium foil tape) to hold the probe tip against the underside of the bar
+        search_term: "aluminum foil tape"
+        price_range: [0, 6]
+        required: true
+        reusable_id: misc.tape
+      - id: timer
+        qty: 1
+        spec: Phone stopwatch or timer, with a 15 s repeating beep if available
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+      - id: notebook
+        qty: 1
+        spec: Paper or digital lab notebook, append-only, for the dated prediction and the raw readings
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: tools.notebook
+        substitutes: ["the notebook from p00-calibration"]
+  recommended:
+    description: Logging with the p04 microcontroller and its 10 kohm NTC thermistor (a reading every second, no hand-reading errors), a second thermometer for the room air, and a caliper and scale for the bar's dimensions and mass.
+    items:
+      - id: microcontroller-thermistor
+        qty: 1
+        spec: The p04-electronics-bench microcontroller board, breadboard and 10 kohm NTC thermistor in its calibrated divider, USB-powered from a laptop or a USB power bank
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: electronics.mcu
+        substitutes: ["buy the thermistor and board as listed in p04-electronics-bench/bom.yaml"]
+        safety_notes: USB or battery power only. The board and laptop stay at the dry end of the table; the thermistor reaches the bar on its leads.
+      - id: room-thermometer
+        qty: 1
+        spec: A second thermometer (0.1-0.5 C resolution) for the room air, placed 1 m from the bar at the same height, out of draughts and sunlight
+        search_term: "digital room thermometer 0.1"
+        price_range: [5, 12]
+        required: false
+        reusable_id: instruments.thermometer-room
+      - id: caliper
+        qty: 1
+        spec: Digital caliper, 150 mm, 0.01-0.02 mm, for D and L
+        search_term: "digital caliper 150mm"
+        price_range: [0, 25]
+        required: false
+        reusable_id: instruments.caliper
+        substitutes: ["the caliper from p00-calibration"]
+      - id: kitchen-scale
+        qty: 1
+        spec: Kitchen scale, 1 g or 0.1 g resolution, to weigh the bar (a check on its density and alloy)
+        search_term: "digital kitchen scale 1g"
+        price_range: [0, 15]
+        required: false
+        reusable_id: instruments.scale-1g
+        substitutes: ["the scale from p00-calibration"]
+  enhanced:
+    description: A second, identical bar wrapped in black tape for a radiation comparison, a draught shield, and a better temperature reference.
+    items:
+      - id: second-bar-and-black-tape
+        qty: 1
+        spec: A second bar identical to the first, wrapped in one layer of matte black PVC electrical tape (emittance about 0.9, typical, illustrative and untested)
+        search_term: "black electrical tape matte"
+        price_range: [5, 15]
+        required: false
+        reusable_id: specimens.al-round-bar-2
+      - id: draught-shield
+        qty: 1
+        spec: A large cardboard box, open at the bottom and with a few holes at the top, set over the stand without touching the bar
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: misc.cardboard-box
+      - id: reference-thermometer
+        qty: 1
+        spec: Digital probe thermometer with a stated accuracy of +-0.2 C or better over 0-60 C, to calibrate the others
+        search_term: "digital probe thermometer 0.1 resolution calibrated"
+        price_range: [0, 25]
+        required: false
+        reusable_id: instruments.thermometer-precise
+        substitutes: ["the reference thermometer from p04-electronics-bench enhanced tier"]
+
+tools_required: [small file for deburring, scissors, pen]
+consumables: [masking or foil tape, black electrical tape (enhanced)]
+not_included: [kettle, stove, hot plate, heat gun, microwave, soldering iron, mains-powered heaters or circuits, glass containers]
+incremental_cost_if_reusing: {minimum_cost: [4, 30], recommended: [5, 40], enhanced: [5, 40]}

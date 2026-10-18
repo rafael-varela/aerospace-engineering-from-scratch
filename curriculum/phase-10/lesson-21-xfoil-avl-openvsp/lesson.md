@@ -65,7 +65,7 @@ Over a stated linear range, fit cl = m α + c by least squares (`P02.18`): **cl_
 
 ### 2.4 What to expect from the own codes
 
-An inviscid panel method gives a NACA 0012 lift slope about 2π(1 + 0.77 t/c) ≈ 6.87 per radian, 0.120 per degree. A real section has less, because the boundary layer's displacement thickness, thicker on the suction side, acts like a loss of camber and circulation. One-way coupling computes the boundary layer from the inviscid velocity but never feeds it back, so it cannot capture that loss: expect the own code's cl_α to be 10–15 % high. The drag estimate depends on where transition happens; recap of the two correlations it uses (`P08.11`, `P08.12`, written here because Phase 08 is not yet available):
+An inviscid panel method gives a NACA 0012 lift slope about 2π(1 + 0.77 t/c) ≈ 6.87 per radian, 0.120 per degree. A real section has less, because the boundary layer's displacement thickness, thicker on the suction side, acts like a loss of camber and circulation. One-way coupling computes the boundary layer from the inviscid velocity but never feeds it back, so it cannot capture that loss: expect the own code's cl_α to be 10–15 % high. The drag estimate depends on where transition happens; recap of the two correlations it uses (`P08.11`, `P08.12`):
 
 - **Thwaites** (laminar): θ² = (0.45ν/Ue⁶)∫₀ˢ Ue⁵ ds, λ = (θ²/ν) dUe/ds, laminar separation at λ ≈ −0.09.
 - **Michel** (transition): Re_θ > 1.174(1 + 22 400/Re_x) Re_x^0.46.
