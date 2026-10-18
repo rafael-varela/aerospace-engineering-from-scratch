@@ -201,7 +201,7 @@ Raw data format: CSV tables `h_s, err_cyl_mps2, err_cart_mps2` (1) and `h_s, rms
 
 The engineering answer: **from noise-free samples the aircraft's speed is 200.25 m/s, its normal acceleration 20.0 m/s² (2.04 g) and its turn radius 2005 m, recovered to better than 0.3 % with a 1 s step. With 1 mrad of azimuth noise at 10 km, a three-point estimate cannot do better than about 1.1 m/s² RMS (5 %), at a step near 6 s.** The noise, not the coordinates, limits the answer.
 
-What to improve: use all the samples in a window (a least-squares fit) instead of three; model the aircraft's motion and filter (a Kalman filter, Phase 08 guidance and navigation); and track in Cartesian coordinates near the radar's axis. What not to improve: the truncation error, which is already a thousand times smaller than the noise error at the useful steps.
+What to improve: use all the samples in a window (a least-squares fit) instead of three; model the aircraft's motion and filter (a Kalman filter, `P18.03`, in Phase 18: Estimation, Navigation, Guidance & Autonomy); and track in Cartesian coordinates near the radar's axis. What not to improve: the truncation error, which is already a thousand times smaller than the noise error at the useful steps.
 
 ## 6. Defend your work
 

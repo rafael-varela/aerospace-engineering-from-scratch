@@ -173,6 +173,8 @@ def main(out_dir: str | Path = ".") -> None:
         print(f"  R = {R:6.0f} m: n bottom {float(loop_load_factor(V, R)):.3f}, top (same V) {float(loop_load_factor(V, R, np.pi)):.3f}")
     print(f"  at n = {N_LIMIT:.0f}: seat force {float(apparent_weight(M_PILOT, N_LIMIT)) / 1e3:.2f} kN, "
           f"lift {float(apparent_weight(M_AIRCRAFT, N_LIMIT)) / 1e3:.1f} kN, each wing {float(apparent_weight(M_AIRCRAFT, N_LIMIT)) / 2e3:.1f} kN")
+    print(f"  at n = 7 (the recovery below): seat force {float(apparent_weight(M_PILOT, 7.0)) / 1e3:.2f} kN, "
+          f"lift {float(apparent_weight(M_AIRCRAFT, 7.0)) / 1e3:.1f} kN")
     phi, Rt, om = level_turn(V, N_LIMIT)
     print(f"  level turn at the same n: bank {np.degrees(phi):.2f} deg, radius {Rt:.1f} m, rate {np.degrees(om):.2f} deg/s")
 

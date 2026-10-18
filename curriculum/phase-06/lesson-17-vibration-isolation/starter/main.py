@@ -245,6 +245,8 @@ def main(out_dir: str | Path = ".") -> None:
         print(f"  zeta {z:4.2f}: peak {Tp:6.2f} at r = {rp:.4f}; T(10) viscous {float(transmissibility(10, z)):.4f}; "
               f"hysteretic eta = 2 zeta: {float(transmissibility_hysteretic(10, 2 * z)):.4f}")
     print(f"  zeta giving a peak of {TPEAK_MAX}: {zeta_for_peak(TPEAK_MAX):.4f}")
+    print(f"  highest fn with T({F_HF:.0f} Hz) <= {THF_MAX}: "
+          + ", ".join(f"zeta {z:.1f}: {fn_for_attenuation(F_HF, THF_MAX, z):.1f} Hz" for z in (0.0, 0.1, 0.2)))
 
     fns = np.arange(40.0, 201.0, 5.0)
     zetas = np.round(np.arange(0.05, 0.3001, 0.025), 3)
