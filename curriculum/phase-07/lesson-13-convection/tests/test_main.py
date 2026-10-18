@@ -123,6 +123,14 @@ def test_pipe_correlations_and_their_range():
     # Filonenko's friction factor near Blasius' 0.316 Re^-1/4 at Re = 1e4 (within 6 %)
     assert impl.filonenko_f(1e4) == pytest.approx(0.316 * 1e4 ** -0.25, rel=0.06)
     assert np.all(np.diff(impl.gnielinski_nu(np.logspace(3.5, 6, 20), 3.0)) > 0)
+    # the correlations written out (Filonenko f, Gnielinski 7.41, Dittus-Boelter) pin every coefficient
+    for Re_, Pr_ in ((1e4, 0.71), (1e5, 7.0)):
+        f = (1.82 * np.log10(Re_) - 1.64) ** -2
+        assert impl.filonenko_f(Re_) == pytest.approx(f, rel=1e-12)
+        nu_g = (f / 8) * (Re_ - 1000) * Pr_ / (1 + 12.7 * np.sqrt(f / 8) * (Pr_ ** (2 / 3) - 1))
+        assert impl.gnielinski_nu(Re_, Pr_) == pytest.approx(nu_g, rel=1e-10)
+        assert impl.dittus_boelter_nu(Re_, Pr_) == pytest.approx(0.023 * Re_ ** 0.8 * Pr_ ** 0.4, rel=1e-12)
+        assert impl.dittus_boelter_nu(Re_, Pr_, heating=False) == pytest.approx(0.023 * Re_ ** 0.8 * Pr_ ** 0.3, rel=1e-12)
 
 
 # ---------------------------------------------------------------- natural convection

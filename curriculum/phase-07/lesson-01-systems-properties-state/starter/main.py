@@ -272,7 +272,7 @@ def main(out_dir: str | Path = ".") -> None:
         print(f"  {sp:>4}: {dcp:+.2e} {dh:+.2e} {ds:+.2e}")
     print("\nequipartition limits: cp/R of He at 500 K = "
           f"{cp_molar('He', 500.0)/R_U:.4f} (5/2); N2 at 300 K = {cp_molar('N2', 300.0)/R_U:.4f} (7/2); "
-          f"N2 at 3000 K = {cp_molar('N2', 3000.0)/R_U:.4f} (9/2 with vibration fully excited)")
+          f"N2 at 3000 K = {cp_molar('N2', 3000.0)/R_U:.4f} (below 9/2: vibration, theta_v = 3390 K, not yet fully excited)")
 
     print("\nair cp: NASA mixture against Lienhard Table A.6 (J/(kg K))")
     cp_n = air_cp(LIENHARD_AIR_T)

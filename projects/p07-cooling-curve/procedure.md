@@ -26,7 +26,7 @@ Enhanced tier. Wrap the second bar in one layer of black tape and hang it in a s
 ## 2. Calibrate
 
 1. **Thermometers against each other.** Put the probe (or thermistor in a small zip bag) and the room thermometer side by side for 10 minutes and record both every minute: the mean difference is an offset to correct, the scatter is your Type A reading uncertainty (if below the resolution divided by √12, use that).
-2. **Probe response time.** Move the probe from room air into a mug of lukewarm tap water (about 35 °C) and read every 2 s: the time to reach 63 % of the step is a rough τ_p in water; taped to the bar it will be different, and the lagged fit measures it.
+2. **Probe response time (kitchen probe only).** Move the kitchen probe from room air into a mug of lukewarm tap water (about 35 °C) and read every 2 s. The thermistor never goes in the water: it and its leads stay dry, and its lag is left to the lagged fit. For the kitchen probe, the time to reach 63 % of the step is a rough τ_p in water; taped to the bar it will be different, and the lagged fit measures it.
 3. Record everything in `data/calibration.csv`.
 
 ## 3. Measure
