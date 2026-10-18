@@ -52,7 +52,7 @@ The trainer (chord 1.2 m, 55 m/s) flies through a vertical "1 − cos" gust of p
 
 (a) Compute the peak section lift increment by quasi-steady theory and with Küssner's function (`gust_response`). Report the ratio.
 (b) Repeat for H = 12.5 chords. Why does the unsteady reduction shrink as the gust gets longer?
-(c) The trainer's wing loading is 750 × 9.81/12.0 N/m². Using the finite-wing lift slope 4.69 per radian (from `P10.20`'s lattice) in place of 2π, estimate the peak load-factor increment Δn for your gust, with and without the section's unsteady reduction. What else (that this lesson leaves out) reduces Δn further in a real aircraft?
+(c) The trainer's wing loading is 750 × 9.81/12.0 N/m². Using the finite-wing lift slope 4.63 per radian (from `P10.20`'s lattice, extrapolated to convergence) in place of 2π, estimate the peak load-factor increment Δn for your gust, with and without the section's unsteady reduction. What else (that this lesson leaves out) reduces Δn further in a real aircraft?
 
 Answer form: two lift increments and a ratio; a ratio and a sentence; two Δn values and a sentence.
 

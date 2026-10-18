@@ -1,7 +1,7 @@
 """Public tests for P10.22 Aerodynamic Validation Project. They assert properties of each layer of a
-V&V study, not one magic number. Code verification: a symmetric wing's span load is symmetric, the
-half-wing with its symmetry image equals the full wing, lift is linear in sin(alpha), a very long
-unswept wing tends to 2 pi, and the lattice converges monotonically at a positive observed order.
+V&V study, not one magic number. Code verification: a symmetric wing's span load is symmetric (and
+the residual function detects an asymmetric one), the half-wing with its symmetry image equals the
+full wing, lift is linear in sin(alpha), a very long unswept wing tends to 2 pi, and the lattice converges monotonically at a positive observed order.
 Solution verification: the three-grid observed order, Richardson extrapolation and GCI formulas
 recover a manufactured solution exactly. Input and validation: the section slope read from Ladson's
 published NACA 0012 data is physically sensible; the section correction behaves as derived; the
@@ -22,9 +22,34 @@ COARSE = ((1, 4), (2, 8), (4, 16))      # keeps the tests fast; main() uses fine
 
 # ---------------------------------------------------------------- code verification
 
+def _full_wing_gamma(AR, taper, sweep, nc=3, ns=8):
+    lat = impl.trapezoidal_lattice(AR, taper, sweep, nc, ns, half=False)     # given helpers only
+    return impl.solve_vlm(lat, np.radians(4.0)).reshape(2 * ns, nc)        # spanwise strips, port to starboard
+
+
 def test_symmetric_wing_has_a_symmetric_span_load():
-    assert impl.symmetry_residual(2.61, 0.25, 45.0) < 1e-12
-    assert impl.symmetry_residual(5.16, 1.0, 0.0) < 1e-12
+    for args in ((2.61, 0.25, 45.0), (5.16, 1.0, 0.0)):
+        g = _full_wing_gamma(*args)
+        assert np.max(np.abs(g - g[::-1])) / np.max(np.abs(g)) < 1e-12   # independent of symmetry_residual
+        assert impl.symmetry_residual(*args) < 1e-12
+
+
+def test_symmetry_residual_detects_an_asymmetric_load(monkeypatch):
+    solve = impl.solve_vlm
+    seen = {}
+
+    def lopsided(lat, alpha):                       # perturb one port-tip panel by 1 % of the peak
+        g = solve(lat, alpha).copy()
+        g[0] += 0.01 * np.max(np.abs(g))
+        seen["g"] = g
+        return g
+
+    monkeypatch.setattr(impl, "solve_vlm", lopsided)
+    r = impl.symmetry_residual(2.61, 0.25, 45.0)
+    g = seen["g"].reshape(16, 3)
+    expected = np.max(np.abs(g - g[::-1])) / np.max(np.abs(g))
+    assert expected > 0.009
+    assert r == pytest.approx(expected, rel=0.05)
 
 
 def test_half_wing_with_image_equals_full_wing():
@@ -92,6 +117,13 @@ def test_section_correction_lowers_the_slope_less_than_proportionally():
     c1 = impl.vlm_cla(5.16, 1.0, 0.0, 2, 8, kappa=1.0)
     c9 = impl.vlm_cla(5.16, 1.0, 0.0, 2, 8, kappa=0.9)
     assert 0.9 * c1 < c9 < c1          # a finite wing is less sensitive to its section slope than a 2-D one
+    # eq. (3), written out with the given helpers: kappa times the 2 pi slope of the kappa-scaled planform
+    lat = impl.trapezoidal_lattice(5.16, 1.0, 0.0, 2, 8, chord_scale=0.9)
+    a = np.radians(1.0)
+    assert c9 == pytest.approx(0.9 * impl.lift_coefficient(lat, impl.solve_vlm(lat, a)) / np.sin(a), rel=1e-10)
+    # for a rectangular unswept wing the kappa-scaled planform is the wing of aspect ratio AR / kappa
+    lat2 = impl.trapezoidal_lattice(5.16 / 0.9, 1.0, 0.0, 2, 8)
+    assert c9 == pytest.approx(0.9 * impl.lift_coefficient(lat2, impl.solve_vlm(lat2, a)) / np.sin(a), rel=1e-10)
 
 
 def test_validation_uncertainty_combination():
@@ -115,7 +147,9 @@ def test_validation_against_the_twelve_planforms():
     tab = impl.validation_table(a0 / (2 * np.pi), abs(a6 - a0) / (2 * np.pi), grids=COARSE)
     assert len(tab) == 15
     m = impl.validation_metrics(tab)
-    assert m["mean_abs_rel"] < 0.08 and m["fraction_within"] >= 0.6
+    # the coarse grids give mean |E/D| 4.1 %, bias +0.7 %, 12 of 15 within (main()'s finer grids: 4.3 %, +0.2 %, 80 %)
+    assert m["mean_abs_rel"] < 0.045 and abs(m["mean_rel"]) < 0.015 and m["fraction_within"] >= 11 / 15 - 1e-9
+    assert 0.15 < m["max_abs_rel"] < 0.19
     worst = max(tab, key=lambda t: abs(t["rel_err"]))
     assert worst["AR"] == pytest.approx(1.34) and worst["sweep"] == 0.0 and worst["rel_err"] > 0
     assert all(t["u_val"] > 0 for t in tab)

@@ -282,7 +282,8 @@ def predict_bench(alpha_deg, V: float, rho: float = RHO_ROOM, mu: float = MU_ROO
 
 def _synthetic_truth_CL(alpha_true_deg):
     """Generator assumption (not a measured fact): a low-Re, end-plated model with slope 0.060 /deg,
-    a soft stall to CL_max ~ 0.6 near 9-10 deg and a gentle fall beyond 11 deg."""
+    a soft stall to CL_max ~ 0.54 near 12 deg (the smoothing parameter CLmax = 0.62 is never reached)
+    and a gentle fall beyond that."""
     a = np.asarray(alpha_true_deg, float)
     lin = 0.060 * a
     CLmax = 0.62
@@ -504,6 +505,13 @@ def main(out_dir: str | Path = ".") -> None:
         print(f"   {row['alpha_set']:5.1f}   {row['CL']:6.3f} +/- {row['u_CL']:.3f}   {row['CD']:.4f} +/- {row['u_CD']:.4f}   {row['eps']:.4f}")
     print(f"  slope {r['slope_per_deg']:.4f} +/- {r['u_slope']:.4f} (fit) +/- {r['u_slope_total']:.4f} (with q) /deg (-4..4 deg); zero-lift at alpha_set = {r['flow_angle_deg']:+.2f} +/- {r['u_flow_angle_deg']:.2f} deg"
           f" (flow angularity); CL_max = {r['CL_max']:.3f} +/- {r['u_CL_max']:.3f} at {r['alpha_CL_max']:.0f} deg")
+    k_incl = np.sin(np.radians(10.0)) / np.sin(np.radians(10.15))   # README: incline 10.15 deg recorded as 10.0
+    print(f"  vs the generator's stated slope 0.060: {(0.060 - r['slope_per_deg'])/r['u_slope_total']:.1f} u (with q),"
+          f" {(0.060 - r['slope_per_deg'])/r['u_slope']:.1f} u (fit only); with the incline corrected to 10.15 deg"
+          f" (q x {1/k_incl:.4f}) the slope becomes {r['slope_per_deg']*k_incl:.4f} /deg")
+    a_fit = np.arange(-4.0, 4.1, 2.0)
+    print(f"  the generator's own CL curve over the fitted angles (true alpha = alpha_set + 0.6) has slope"
+          f" {np.polyfit(a_fit, _synthetic_truth_CL(a_fit + 0.6), 1)[0]:.4f} /deg")
     lo, hi = np.radians(finite_span_slope(2 * np.pi, 4.0)), np.radians(finite_span_slope(2 * np.pi, 6.0))
     mid, u_mid = 0.5 * (lo + hi), (hi - lo) / np.sqrt(12)
     print(f"  slope vs predicted finite-span band {lo:.4f}-{hi:.4f}: ratio to mid {r['slope_per_deg']/mid:.3f},"

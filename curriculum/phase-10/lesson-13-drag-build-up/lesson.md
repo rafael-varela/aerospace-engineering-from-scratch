@@ -137,7 +137,7 @@ Run `python -m pytest curriculum/phase-10/lesson-13-drag-build-up`. The tests ch
 | 1.19 × 10⁷ | 0.00634 | 0.00732 | +15.4 % | 0.128 |
 | 1.89 × 10⁷ | 0.00655 | 0.00681 | +3.9 % | 0.032 |
 
-The measured drag barely changes with Re (0.0062–0.0066) while the turbulent estimate falls by 31 %. The explanation is transition: inverting the estimate, the laminar run that matches the data shrinks from 46 % of the chord at 2 × 10⁶ to 3 % at 1.89 × 10⁷, i.e. transition at Re_x ≈ 0.6–1.6 × 10⁶. Lower friction from a shorter laminar run would lower the drag; the forward movement of transition raises it; the two nearly cancel. The rms discrepancy of the fully turbulent estimate is 31.6 %.
+The measured drag barely changes with Re (0.0062–0.0066) while the turbulent estimate falls by 31 %. The explanation is transition: inverting the estimate, the laminar run that matches the data shrinks from 46 % of the chord at 2 × 10⁶ to 3 % at 1.89 × 10⁷, i.e. transition at Re_x ≈ 0.6–1.6 × 10⁶. The fall of the skin-friction coefficients with Re would lower the drag; the shorter laminar run (transition moving forward) raises it; the two nearly cancel. The rms discrepancy of the fully turbulent estimate is 31.6 %.
 
 2. **Wraparound grit strip.** cd near α = 0:
 

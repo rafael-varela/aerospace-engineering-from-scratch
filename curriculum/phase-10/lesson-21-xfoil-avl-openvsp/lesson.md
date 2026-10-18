@@ -114,7 +114,7 @@ Drag at 5.97 × 10⁶, angle by angle (own code with Michel transition):
 | own cd | 0.00690 | 0.00642 | 0.00627 | 0.00647 | 0.00689 | 0.00768 | 0.00935 |
 | own x_tr (upper) | 0.632 | 0.461 | 0.294 | 0.164 | 0.082 | 0.044 | 0.018 |
 
-The lift slope is too steep by the missing displacement effect (§2.4), more at the lower Reynolds number where the boundary layer is thicker: exactly the trend expected. The zero-lift angle, which a symmetric section fixes by geometry, agrees within 0.05°. The drag is within 1–10 % at 5.97 × 10⁶ up to 4°; above 6° the predicted transition runs to the leading edge while the published drag falls (the report flags the 6.20° point as lower than at 4.18°, a laminar-bucket and transition effect of the free-transition model). At 2 × 10⁶ the estimate is 15–25 % high, because Michel's criterion trips the flow too early there. With transition forced at 0.05c the own code gives cd_min = 0.00821 against 0.00895 for the wraparound grit strip at 6.00 × 10⁶ (−8.3 %): the grit adds roughness drag a trip model does not.
+The lift slope is too steep by the missing displacement effect (§2.4), more at the lower Reynolds number where the boundary layer is thicker: exactly the trend expected. The zero-lift angle, which a symmetric section fixes by geometry, agrees within 0.05°. The drag is within 1–10 % at 5.97 × 10⁶ up to 4°; above 6° the predicted transition runs to the leading edge while the published drag falls (the report prints the drag at 6.20° lower than at 4.18°; the data README's transcription notes flag that point as laminar-bucket and transition behaviour, which the free-transition model does not capture). At 2 × 10⁶ the estimate is 15–25 % high, because Michel's criterion trips the flow too early there. With transition forced at 0.05c the own code gives cd_min = 0.00821 against 0.00895 for the wraparound grit strip at 6.00 × 10⁶ (−8.3 %): the grit adds roughness drag a trip model does not.
 
 ## 4. Experiment at home, or investigate real data
 
@@ -135,6 +135,7 @@ The lift slope is too steep by the missing displacement effect (§2.4), more at 
 NACA 0012
 PPAR
 N 160
+
 
 OPER
 VISC 6e6

@@ -25,7 +25,7 @@ tiers:
         price_range: [0, 30]
         required: true
         reusable_id: equipment.guarded-fan
-        substitutes: ["any household desk fan meeting the 50 W and two-grille rules; a computer case fan only inside a fully enclosed, guarded duct (enhanced tier)"]
+        substitutes: ["any household desk fan meeting the 50 W and two-grille rules (never a computer case fan, in a duct or not)"]
         safety_notes: Never a fan with a missing, bent or loose grille, never one rated above 50 W, never a propeller, drone motor or unguarded blade. Unplug before touching the model, the straightener or anything near the fan.
       - id: drinking-straws
         qty: 300

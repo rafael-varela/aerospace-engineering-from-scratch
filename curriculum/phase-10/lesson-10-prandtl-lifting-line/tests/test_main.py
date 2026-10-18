@@ -4,8 +4,9 @@ is linear in alpha and zero at the zero-lift angle; a symmetric wing has no even
 symmetric load that vanishes at the tips; CL and CDi from the coefficients equal the span integrals
 of the load and of load times induced angle; collocation converges at the expected observed order
 (4 for the rectangular wing, 2 when the chord or twist has a kink at the root); the induced-drag
-factor has its minimum at a moderate taper; CL_alpha tends to a0 as AR grows; twist superposes;
-an anti-symmetric twist rolls the wing the right way without changing CL.
+factor has its minimum at a moderate taper, and the rectangular trainer's delta matches a solve
+written in the test; CL_alpha tends to a0 as AR grows; twist superposes; an anti-symmetric twist rolls
+the wing the right way without changing CL, with Cl equal to the span integral of the rolling moment.
 
 Run `pytest <lesson dir>` against your starter/main.py, or `AEFS_IMPL=solution pytest <lesson dir>`
 against the reference solution.
@@ -98,6 +99,23 @@ def test_induced_drag_factor_has_a_minimum_at_moderate_taper():
     assert dr[0] < dr[1] < dr[2]
 
 
+def test_rectangular_wing_delta_value():
+    # independent symmetric Glauert solve written here: odd n, theta_k = k pi / (2 N), AR = B / C = 8.33, a0 = 2 pi
+    N, AR = 30, B / C
+    n = 2 * np.arange(N) + 1
+    th = np.arange(1, N + 1) * np.pi / (2 * N)
+    mu = 2 * np.pi * C / (4 * B)
+    M = np.sin(np.outer(th, n)) * (mu * n[None, :] + np.sin(th)[:, None])
+    A = np.linalg.solve(M, mu * 0.1 * np.sin(th))
+    delta = np.sum(n[1:] * (A[1:] / A[0]) ** 2)
+    assert delta == pytest.approx(0.0707, abs=5e-5)                           # the lesson's trainer, e = 0.934
+    w = impl.rectangular_wing(B, C)
+    r = impl.wing_coefficients(w, impl.solve_monoplane(w, 0.1, 60))
+    assert r["delta"] == pytest.approx(delta, rel=1e-4)
+    assert r["e"] == pytest.approx(1 / (1 + delta), rel=1e-5)
+    assert r["CL"] == pytest.approx(np.pi * AR * A[0], rel=1e-6)
+
+
 def test_lift_slope_limits_and_tau_definition():
     a0 = 2 * np.pi
     mid = impl.lift_slope_and_tau(impl.rectangular_wing(B, B / 200.0), 60)
@@ -135,6 +153,16 @@ def test_antisymmetric_twist_rolls_without_changing_lift():
     s1 = impl.solve_monoplane(ail, 0.05, 40, symmetric=False)
     assert impl.wing_coefficients(ail, s1)["CL"] == pytest.approx(impl.wing_coefficients(flat, s0)["CL"], rel=1e-10)
     assert impl.rolling_moment_coefficient(ail, s1) < 0                         # more lift on the right: right wing up
+    # closed-form prefactor: Cl = -(1/(q S b)) int L'(y) y dy = -2/(V S b) int Gamma y dy, with
+    # Gamma = 2 b V sum A_n sin(n theta) built here from the coefficients (V = 1, midpoint rule in theta)
+    K = 4000
+    th = (np.arange(K) + 0.5) * np.pi / K
+    y = -0.5 * B * np.cos(th)
+    dy = 0.5 * B * np.sin(th) * np.pi / K
+    gam = 2 * B * np.sin(np.outer(th, s1["n"])) @ s1["A"]
+    Cl_int = -2 / (ail.area() * B) * np.sum(gam * y * dy)
+    assert impl.rolling_moment_coefficient(ail, s1) == pytest.approx(Cl_int, rel=1e-8)
+    assert Cl_int == pytest.approx(np.pi * (B / C) / 4 * s1["A"][s1["n"] == 2][0], rel=1e-8)
     assert impl.rolling_moment_coefficient(flat, s0) == pytest.approx(0.0, abs=1e-14)
     s2 = impl.solve_monoplane(impl.rectangular_wing(B, C, twist=lambda y: np.radians(4.0) * np.sign(y) * (np.abs(y) > 3.0)), 0.05, 40, symmetric=False)
     assert impl.rolling_moment_coefficient(ail, s2) == pytest.approx(2 * impl.rolling_moment_coefficient(ail, s1), rel=1e-10)
