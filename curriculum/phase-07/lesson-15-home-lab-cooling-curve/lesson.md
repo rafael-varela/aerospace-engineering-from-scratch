@@ -144,17 +144,8 @@ Two independent checks of the theory, before any data. The short-cylinder series
 
 The setup, seen from the side:
 
-```
-   pencil or ruler across two stacks of books (stand)
-   ══════════════════════════════════════════════
-            │  │   cotton string sling (two loops)
-            │  │
-          ┌─┴──┴──────┐  aluminium bar, 25.4 mm x 50 mm, horizontal
-          └─────■─────┘  ■ probe tip or thermistor under foil tape
-                │
-                └── lead to the thermometer / microcontroller (dry end of the table)
-   room thermometer 1 m away at the same height, out of any draught
-```
+![Side view of the cooling-curve set-up: a pencil or ruler rests across two stacks of books; two cotton string loops hang from it and hold the aluminium bar (25.4 mm × 50 mm) horizontal. A probe tip or thermistor is taped under the bar with foil tape, and its lead runs to the thermometer or microcontroller at the dry end of the table. A room thermometer stands 1 m away at the same height.](figures/cooling-bar-setup.svg)
+*Figure 1. The cooling-curve set-up, seen from the side. The bar hangs in still air touching only the string, and the room thermometer reads the air it cools into.*
 
 **Prediction first (in `data/prediction.md`, dated).** Measure D and L with a caliper (or a ruler, with its larger uncertainty), weigh the bar (a check on ρ: 68.4 g expected), record the room temperature, and compute h_conv, h_rad, τ ± u(τ) with the budget term by term, the Biot number, and the τ you expect in each third of the run (part 2.5). Say whether the lumped model will hold. Date the file and do not edit it afterwards.
 

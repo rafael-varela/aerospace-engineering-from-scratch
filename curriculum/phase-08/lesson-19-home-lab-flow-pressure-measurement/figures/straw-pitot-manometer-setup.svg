@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 372" width="720" height="372" role="img" aria-labelledby="title">
+  <title id="title">Experiment 2 on a separate dry table: a hair dryer on cool blows a jet at the open end of a straw pitot, which is connected to one leg of a water U-tube manometer taped to a board, upright or tilted, with a ruler between the legs. The other leg is open to the room, and the water stands Δh higher in it. A towel lies under the board.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <rect class="ground" x="0.0" y="330.0" width="720.0" height="12.0"/>
+  <line class="line" x1="0.0" y1="330.0" x2="720.0" y2="330.0"/>
+  <path class="body" d="M40,90 L130,90 L160,106 L160,134 L130,150 L40,150 Z"/>
+  <path class="body" d="M70,150 L62,230 L92,230 L102,150"/>
+  <text x="96.0" y="117.0" class="note" text-anchor="middle">hair dryer</text>
+  <text x="96.0" y="134.0" class="note" text-anchor="middle">on cool</text>
+  <line class="flow" x1="168.0" y1="112.0" x2="236.0" y2="112.0" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="168.0" y1="120.0" x2="236.0" y2="120.0" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="168.0" y1="128.0" x2="236.0" y2="128.0" marker-end="url(#ah-blue)"/>
+  <text x="190.0" y="100.0" class="t-blue" text-anchor="middle">jet</text>
+  <rect class="body" x="246.0" y="116.0" width="140.0" height="8.0" rx="1"/>
+  <text x="248.0" y="146.0">straw pitot, open end</text>
+  <text x="248.0" y="162.0" class="note">faces the jet</text>
+  <rect class="body" x="430.0" y="40.0" width="270.0" height="266.0" rx="2"/>
+  <text x="565.0" y="30.0" text-anchor="middle">board, upright or tilted</text>
+  <path class="line" style="stroke-width:10;stroke-linecap:butt" d="M386,120 L480,120 Q500,120 500,140 L500,280 Q500,300 520,300 L570,300 Q590,300 590,280 L590,70"/>
+  <path class="line" style="stroke:var(--fill);stroke-width:6;stroke-linecap:butt" d="M386,120 L480,120 Q500,120 500,140 L500,280 Q500,300 520,300 L570,300 Q590,300 590,280 L590,70.5"/>
+  <path class="flow" style="stroke-width:6;stroke-linecap:butt" d="M500,210 L500,280 Q500,300 520,300 L570,300 Q590,300 590,280 L590,150"/>
+  <text x="602.0" y="84.0">open leg</text>
+  <text x="602.0" y="100.0" class="note">(room pressure)</text>
+  <line class="thin" x1="590.0" y1="64.0" x2="590.0" y2="44.0" marker-end="url(#ah-ink2)"/>
+  <rect class="body-2" x="537.0" y="70.0" width="16.0" height="200.0"/>
+  <line class="thin" x1="537.0" y1="70.0" x2="549.0" y2="70.0"/>
+  <line class="thin" x1="537.0" y1="80.0" x2="545.0" y2="80.0"/>
+  <line class="thin" x1="537.0" y1="90.0" x2="545.0" y2="90.0"/>
+  <line class="thin" x1="537.0" y1="100.0" x2="545.0" y2="100.0"/>
+  <line class="thin" x1="537.0" y1="110.0" x2="545.0" y2="110.0"/>
+  <line class="thin" x1="537.0" y1="120.0" x2="549.0" y2="120.0"/>
+  <line class="thin" x1="537.0" y1="130.0" x2="545.0" y2="130.0"/>
+  <line class="thin" x1="537.0" y1="140.0" x2="545.0" y2="140.0"/>
+  <line class="thin" x1="537.0" y1="150.0" x2="545.0" y2="150.0"/>
+  <line class="thin" x1="537.0" y1="160.0" x2="545.0" y2="160.0"/>
+  <line class="thin" x1="537.0" y1="170.0" x2="549.0" y2="170.0"/>
+  <line class="thin" x1="537.0" y1="180.0" x2="545.0" y2="180.0"/>
+  <line class="thin" x1="537.0" y1="190.0" x2="545.0" y2="190.0"/>
+  <line class="thin" x1="537.0" y1="200.0" x2="545.0" y2="200.0"/>
+  <line class="thin" x1="537.0" y1="210.0" x2="545.0" y2="210.0"/>
+  <line class="thin" x1="537.0" y1="220.0" x2="549.0" y2="220.0"/>
+  <line class="thin" x1="537.0" y1="230.0" x2="545.0" y2="230.0"/>
+  <line class="thin" x1="537.0" y1="240.0" x2="545.0" y2="240.0"/>
+  <line class="thin" x1="537.0" y1="250.0" x2="545.0" y2="250.0"/>
+  <line class="thin" x1="537.0" y1="260.0" x2="545.0" y2="260.0"/>
+  <line class="thin" x1="537.0" y1="270.0" x2="549.0" y2="270.0"/>
+  <text x="545.0" y="62.0" class="note" text-anchor="middle">ruler</text>
+  <line class="thin dash" x1="598.0" y1="210.0" x2="632.0" y2="210.0"/>
+  <line class="thin dash" x1="598.0" y1="150.0" x2="632.0" y2="150.0"/>
+  <line class="thin" x1="624.0" y1="208.0" x2="624.0" y2="152.0" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <text x="632.0" y="186.0" class="sym">Δh</text>
+  <text x="486.0" y="282.0" class="t-blue" text-anchor="end">water</text>
+  <rect class="body-2" x="420.0" y="306.0" width="290.0" height="24.0"/>
+  <text x="565.0" y="364.0" class="note" text-anchor="middle">towel under the board</text>
+  <text x="20.0" y="364.0" class="note">separate dry table</text>
+</svg>

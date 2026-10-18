@@ -73,14 +73,8 @@ The first term is **Couette flow** (a linear profile dragged by the wall) and th
 
 The two stresses differ by **τ(h) − τ(0) = −Gh**, and this is a control-volume check (`P08.03`): a slab of fluid of length dx feels a net pressure force Gh dx forward, and the walls hold it back with τ(0)dx on its lower face and −τ(h)dx on its upper face. The test `test_wall_shear_closes_the_momentum_balance` checks it to round-off. The force per unit area the fluid exerts on the lower wall is +τ(0) in x and on the upper wall −τ(h).
 
-```
-   y = h  ═══════════════════════  wall moving at U  →
-          ─────────→                Couette: linear
-          ──────────────→           Poiseuille: parabola
-          ─────────→                (sum: equation 4)
-   y = 0  ═══════════════════════  wall at rest
-          p high  ─────────────→  p low      G = −dp/dx > 0
-```
+![Velocity profiles between parallel plates a distance h apart. Couette flow, driven by the upper wall moving at U over the lower wall at rest, is linear in y; plane Poiseuille flow, driven by the pressure falling from high to low along x (G = −dp/dx > 0), is a parabola that vanishes at both walls; their sum is the profile of equation (4).](figures/couette-poiseuille.svg)
+*Figure 1. Couette–Poiseuille flow. The equation is linear, so the wall-driven linear profile and the pressure-driven parabola simply add to give equation (4).*
 
 **The actuator.** The clearance is an annulus of mean circumference πD and height h = 10 µm, with h/R = 8 × 10⁻⁴: unrolled, it is a plane slot of width πD. With G = Δp/L = 20.7 MPa/12 mm = 1.725 × 10⁹ Pa/m and the piston at rest, (5) gives Q = πD Gh³/(12μ) = **9.544 × 10⁻⁷ m³/s = 0.0573 L/min**. With the piston moving at 0.1 m/s in the direction of the leak, the Couette part adds πD Uh/2 = 3.93 × 10⁻⁸ m³/s, for **0.0596 L/min**. The mean gap speed is 1.27 m/s and the gap Reynolds number ρ V h/μ = **0.90**: the flow is laminar by a factor of a thousand.
 

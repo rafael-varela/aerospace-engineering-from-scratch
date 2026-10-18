@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" width="720" height="330" role="img" aria-labelledby="title">
+  <title id="title">Free-body diagram of a falling package of mass m, frontal area A and drag coefficient C_D: drag D = k v² acts upward, opposing the motion, and weight m g acts downward; the speed v is positive downward, the direction taken as positive.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <rect class="body" x="258" y="141" width="84" height="68" rx="6"/>
+  <text x="300" y="182" class="sym" text-anchor="middle">m</text>
+  <line class="force" x1="300" y1="139" x2="300" y2="55" marker-end="url(#ah-orange)"/>
+  <text x="314" y="71" class="t-orange"><tspan class="sym">D</tspan> = <tspan class="sym">k v</tspan>²</text>
+  <text x="314" y="89" class="note">drag, opposes the motion</text>
+  <line class="force" x1="300" y1="211" x2="300" y2="295" marker-end="url(#ah-orange)"/>
+  <text x="314" y="283" class="t-orange"><tspan class="sym">m g</tspan></text>
+  <text x="314" y="301" class="note">weight</text>
+  <line class="axis" x1="190" y1="135" x2="190" y2="235" marker-end="url(#ah-blue)"/>
+  <text x="178" y="205" class="t-blue" text-anchor="end"><tspan class="sym">v</tspan> &gt; 0</text>
+  <text x="178" y="225" class="note" text-anchor="end">falling</text>
+  <line class="thin" x1="90" y1="70" x2="90" y2="150" marker-end="url(#ah-ink2)"/>
+  <text x="80" y="92" class="head" text-anchor="end">+</text>
+  <text x="80" y="112" class="note" text-anchor="end">downward</text>
+  <text x="80" y="129" class="note" text-anchor="end">positive</text>
+  <text x="440" y="169" class="head">package:</text>
+  <text x="440" y="191">mass <tspan class="sym">m</tspan>, frontal area <tspan class="sym">A</tspan>,</text>
+  <text x="440" y="213">drag coefficient <tspan class="sym">C</tspan><tspan dy="4" font-size="12.5px" font-style="normal">D</tspan><tspan dy="-4">​</tspan></text>
+</svg>

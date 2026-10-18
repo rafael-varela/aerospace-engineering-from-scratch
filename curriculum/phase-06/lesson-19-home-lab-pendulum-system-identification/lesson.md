@@ -170,18 +170,8 @@ The exact correction agrees with the period of a `solve_ivp` integration at 30°
 
 The setup, seen from the camera:
 
-```
-        rigid support (the p04-pendulum stick or door-frame clamp)
-   ─────────────┬───────────────
-                │ ← pivot: string pinched in a clip
-     protractor │          or grid taped flat behind the pivot, in the swing plane
-     ╲  │  ╱    │
-                │  L = pivot to CENTRE of the bob (or phone)
-                │
-              .-●-.   ← contrast marker on the bob   (recommended: phone in a padded pouch as the bob,
-   ←— arc ——————:—————— arc —→                        gyroscope logged; enhanced: IMU taped to the bob)
-     (keep the arc + 0.5 m clear)        phone on a stand, 1.5–2 m back, square to the swing plane
-```
+![The pendulum rig as seen from the camera: a string pinched in a clip at the pivot on a rigid support hangs a bob with a contrast marker; L is the length from the pivot to the centre of the bob; a protractor or grid is taped behind the pivot in the swing plane; the swing arc plus 0.5 m is kept clear.](figures/pendulum-rig.svg)
+*Figure 1. The pendulum as the camera sees it. L is measured to the centre of the bob, and the swing plane is square to the camera so that the angle reads true against the protractor.*
 
 **Prediction first (in `data/prediction.md`, dated).** Measure L three times. Compute f₀ ± u with `predict_frequency`, the frequency at your release amplitude and at half of it, and whether the difference is detectable from about 60 crossings (between 20° and 10° it is 0.57 %, about 80 times the 7 × 10⁻⁵ relative uncertainty of the crossing frequency). Weigh the bob, measure its diameter, and compute b₂ and ζ_eq at the release amplitude; write ζ as a range of a factor of three. Predict the amplitude after 120 s. Freeze the file.
 

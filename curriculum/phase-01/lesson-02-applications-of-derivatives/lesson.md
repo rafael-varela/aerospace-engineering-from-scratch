@@ -33,16 +33,8 @@ Success criteria, written down first: the best-glide lift coefficient found by N
 
 In a steady glide the aircraft moves at constant speed V along a straight path inclined at the **glide angle** γ below the horizontal. Three forces act: weight W down, lift L perpendicular to the path, drag D along the path, backwards.
 
-```
-                     L
-                     ▲
-                     │        path, angle γ below horizontal
-            D ◄──────●──────────────────────────────▶ (direction of motion, down-slope)
-                     │╲
-                     │ ╲ γ
-                     ▼  ╲
-                     W   ╲
-```
+![Free-body diagram of a glider in a steady glide along a straight path inclined at the glide angle γ below the horizontal: weight W acts straight down, lift L perpendicular to the path, and drag D along the path opposite the direction of motion.](figures/glide-forces.svg)
+*Figure 1. Forces in a steady glide (γ drawn at 16° for clarity). Lift is perpendicular to the path and drag along it, so balancing them against the weight gives L = W cos γ and D = W sin γ.*
 
 **Assumption 1 (steady):** no acceleration, so the forces balance along and across the path:
 

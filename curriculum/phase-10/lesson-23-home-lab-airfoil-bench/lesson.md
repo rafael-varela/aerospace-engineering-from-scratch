@@ -120,16 +120,8 @@ The panel code converges at second order (`P10.05`); its cl at 4° agrees with t
 
 The setup, seen from the side:
 
-```
-   guarded fan      straw honeycomb   settling    model (foam NACA 0012, end plates)
-   (≤ 50 W,        ┌───────────────┬─────────┐       ╭───╮  ← pitot-static tube beside it
-   grilles both     │|||||||||||||||│         │  →   ╰─┬─╯     to the inclined manometer
-   sides)           │|||||||||||||||│         │        │ sting (pin at c/4, protractor)
-     ║█║  →→→→→→    │|||||||||||||||│         │        │
-     ║█║            └───────────────┴─────────┘   pivot ●───┐  bell-crank: l_D above,
-   ══╩═╩══ table ═══════════════════════════════════   ▲    └── l_s → [drag scale 0.01 g]
-                                                  [lift scale 0.1 g under the base]
-```
+![Side view of the bench. A guarded fan (at most 50 W, grilles on both sides) on a stand blows through a straw honeycomb and a settling length into an open jet. The foam NACA 0012 model with end plates is pinned at the quarter chord on a vertical sting, its angle set on a protractor; a pitot-static tube beside it is piped to an inclined manometer on a tray. The sting is the vertical arm of a bell-crank: drag D at height l_D above the pivot presses the horizontal arm of length l_s onto a 0.01 g drag scale with force R D, and the whole balance base stands on a 0.1 g lift scale.](figures/airfoil-bench-setup.svg)
+*Figure 1. The rig. Lift unloads the lift scale under the whole balance (2); drag reaches the drag scale through the bell-crank with ratio R = l_D/l_s (3). Not to scale.*
 
 **Prediction first (in `data/prediction.md`, dated).** Measure the model (chord, span, thickness) and the jet; record the room air; predict V (from one no-model reading or the fan's datasheet) and q, the manometer reading, Re; and for each planned angle the CL and CD bands and the scale changes (`predict_bench`), marking the resolution-limited points. Write one sentence on what you expect relative to inviscid theory and Ladson's data, and why. Date the file and do not edit it afterwards.
 

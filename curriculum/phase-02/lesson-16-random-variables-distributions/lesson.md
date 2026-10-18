@@ -105,15 +105,8 @@ Cov = [[220 500, 54 000], [54 000, 30 025]] m²,   σ_x = 469.6 m, σ_y = 173.3 
 
 The correlation is there because the wind pushes both down-range and cross-range: a landing that is long is also likely to be right of track.
 
-```
-      cross-range y
-          ▲          ╱ major axis, 14.8° from down-range
-          │     ╱ ╱ ╱
-          │  ╱  ╱  ╱   ← 1σ ellipse: semi-axes 485 m and 126 m
-  ────────┼──────────────▶ down-range x
-       ╱  │  ╱
-    ╱  ╱  │
-```
+![The 1σ landing-dispersion ellipse in down-range x and cross-range y. Its semi-axes are 485 m and 126 m and its major axis is tilted 14.8° from the down-range axis toward positive cross-range.](figures/dispersion-ellipse.svg)
+*Figure 1. The 1σ dispersion ellipse. The tilt comes from the wind, which pushes a landing both down-range and cross-range; the ellipse holds only 39.35 % of landings.*
 
 The curves of constant density of a two-dimensional Gaussian are the ellipses **y**ᵀ Cov⁻¹ **y** = k² (the left side is the squared **Mahalanobis distance**). Write Cov = V Λ Vᵀ with V the eigenvectors and Λ = diag(λ₁, λ₂) (P01.16). In the rotated coordinates **u** = Vᵀ**y** the components are independent with variances λ₁ and λ₂, so the ellipse has semi-axes k√λ₂ ≥ k√λ₁ along the eigenvectors. For a 2×2 symmetric matrix the eigenvalues are m ± r with m = (a + d)/2, r = √(((a − d)/2)² + b²); here λ = 15 781 and 234 744 m², semi-axes 126 and 485 m at k = 1, major axis tilted atan2(v_y, v_x) = 14.8° from down-range (`eig2x2_symmetric`, `dispersion_ellipse`).
 

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" width="720" height="430" role="img" aria-labelledby="title">
+  <title id="title">Two-bay truss 4 m long and 1.5 m tall with bottom nodes 0, 1, 2 at x = 0, 2, 4 m and top nodes 3, 4, 5. Members: bottom chord 0-1 and 1-2, top chord 3-4 and 4-5, verticals 0-3, 1-4 and 2-5, diagonals 0-4 and 1-5. A pin at node 0 gives reactions R0x and R0y, a roller at node 2 gives R2y, and a 15 kN load acts downward at node 1.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <line class="line" x1="150" y1="250" x2="370" y2="250" style="stroke-width:3"/>
+  <line class="line" x1="370" y1="250" x2="590" y2="250" style="stroke-width:3"/>
+  <line class="line" x1="150" y1="85" x2="370" y2="85" style="stroke-width:3"/>
+  <line class="line" x1="370" y1="85" x2="590" y2="85" style="stroke-width:3"/>
+  <line class="line" x1="150" y1="250" x2="150" y2="85" style="stroke-width:3"/>
+  <line class="line" x1="370" y1="250" x2="370" y2="85" style="stroke-width:3"/>
+  <line class="line" x1="590" y1="250" x2="590" y2="85" style="stroke-width:3"/>
+  <line class="line" x1="150" y1="250" x2="370" y2="85" style="stroke-width:3"/>
+  <line class="line" x1="370" y1="250" x2="590" y2="85" style="stroke-width:3"/>
+  <path class="body" d="M150,256 L134,280 L166,280 Z"/>
+  <rect class="ground" x="124" y="280" width="52" height="10"/>
+  <line class="line" x1="124" y1="280" x2="176" y2="280"/>
+  <path class="body" d="M590,256 L575,274 L605,274 Z"/>
+  <circle class="body" cx="582" cy="279" r="5"/>
+  <circle class="body" cx="598" cy="279" r="5"/>
+  <rect class="ground" x="564" y="284" width="52" height="10"/>
+  <line class="line" x1="564" y1="284" x2="616" y2="284"/>
+  <circle class="body" cx="150" cy="250" r="11" style="stroke-width:1.5"/>
+  <text x="150" y="255" class="note" text-anchor="middle" style="fill:var(--ink)">0</text>
+  <circle class="body" cx="370" cy="250" r="11" style="stroke-width:1.5"/>
+  <text x="370" y="255" class="note" text-anchor="middle" style="fill:var(--ink)">1</text>
+  <circle class="body" cx="590" cy="250" r="11" style="stroke-width:1.5"/>
+  <text x="590" y="255" class="note" text-anchor="middle" style="fill:var(--ink)">2</text>
+  <circle class="body" cx="150" cy="85" r="11" style="stroke-width:1.5"/>
+  <text x="150" y="90" class="note" text-anchor="middle" style="fill:var(--ink)">3</text>
+  <circle class="body" cx="370" cy="85" r="11" style="stroke-width:1.5"/>
+  <text x="370" y="90" class="note" text-anchor="middle" style="fill:var(--ink)">4</text>
+  <circle class="body" cx="590" cy="85" r="11" style="stroke-width:1.5"/>
+  <text x="590" y="90" class="note" text-anchor="middle" style="fill:var(--ink)">5</text>
+  <line class="force" x1="370" y1="264" x2="370" y2="330" marker-end="url(#ah-orange)"/>
+  <text x="380" y="326" class="t-orange">15 kN</text>
+  <line class="force" x1="68" y1="250" x2="134" y2="250" marker-end="url(#ah-orange)"/>
+  <text x="66" y="240" class="t-orange"><tspan class="sym">R</tspan><tspan dy="4" font-size="12.5px" font-style="normal">0x</tspan><tspan dy="-4">​</tspan></text>
+  <line class="force" x1="112" y1="326" x2="112" y2="268" marker-end="url(#ah-orange)"/>
+  <text x="104" y="320" class="t-orange" text-anchor="end"><tspan class="sym">R</tspan><tspan dy="4" font-size="12.5px" font-style="normal">0y</tspan><tspan dy="-4">​</tspan></text>
+  <line class="force" x1="628" y1="326" x2="628" y2="268" marker-end="url(#ah-orange)"/>
+  <text x="636" y="320" class="t-orange"><tspan class="sym">R</tspan><tspan dy="4" font-size="12.5px" font-style="normal">2y</tspan><tspan dy="-4">​</tspan></text>
+  <line class="thin" x1="150" y1="69" x2="150" y2="41"/>
+  <line class="thin" x1="370" y1="69" x2="370" y2="41"/>
+  <line class="thin" x1="590" y1="69" x2="590" y2="41"/>
+  <line class="thin" x1="152" y1="49" x2="368" y2="49" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <line class="thin" x1="372" y1="49" x2="588" y2="49" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <text x="260" y="41" class="note" text-anchor="middle">2 m</text>
+  <text x="480" y="41" class="note" text-anchor="middle">2 m</text>
+  <text x="150" y="23" class="note" text-anchor="middle"><tspan class="sym">x</tspan> = 0</text>
+  <text x="370" y="23" class="note" text-anchor="middle">2</text>
+  <text x="590" y="23" class="note" text-anchor="middle">4 m</text>
+  <line class="thin" x1="606" y1="250" x2="638" y2="250"/>
+  <line class="thin" x1="606" y1="85" x2="638" y2="85"/>
+  <line class="thin" x1="630" y1="248" x2="630" y2="87" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <text x="638" y="172.5" class="note">1.5 m</text>
+  <text x="40" y="372" class="head">members</text>
+  <text x="40" y="392" class="note">0-1, 1-2   bottom chord</text>
+  <text x="40" y="412" class="note">3-4, 4-5   top chord</text>
+  <text x="240" y="392" class="note">0-3, 1-4, 2-5   verticals</text>
+  <text x="240" y="412" class="note">0-4, 1-5   diagonals</text>
+  <text x="440" y="372" class="head">supports</text>
+  <text x="440" y="392" class="note">pin at 0 (<tspan class="sym">R</tspan><tspan dy="4" font-size="12.5px" font-style="normal">0x</tspan><tspan dy="-4">, </tspan><tspan class="sym">R</tspan><tspan dy="4" font-size="12.5px" font-style="normal">0y</tspan><tspan dy="-4">)</tspan></text>
+  <text x="440" y="412" class="note">roller at 2 (<tspan class="sym">R</tspan><tspan dy="4" font-size="12.5px" font-style="normal">2y</tspan><tspan dy="-4">)</tspan></text>
+  <text x="600" y="372" class="head">load</text>
+  <text x="600" y="392" class="note">15 kN down</text>
+  <text x="600" y="412" class="note">at node 1</text>
+</svg>

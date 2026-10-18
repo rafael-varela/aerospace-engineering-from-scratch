@@ -13,27 +13,13 @@ Choose one apparatus and write down which:
 
 Option A:
 
-```
- AA pack (<= 6.0 V measured) + ──[PTC 0.5 A]──┬──────────── servo red (V+)
-                                              = 220 uF (+ to V+)
- AA pack − ───────────────────────────────────┴──┬───────── servo brown/black (GND)
- board GND ──────────────────────────────────────┘          (common ground)
- board PWM pin ──────────────────────────────────────────── servo signal (orange/yellow)
- board ADC pin ──[divider if needed, see below]──────────── servo feedback wire (wiper, 4th lead)
- board input pin ──[button]── GND                            (stop button, internal pull-up)
- board USB ── computer (logging)                             pointer arm (card, <= 5 g) on the horn
-```
+![Wiring for Option A. The AA pack (at most 6.0 V measured) feeds the servo red lead (V+) through a 0.5 A PTC fuse, with a 220 µF capacitor from V+ to ground, plus to V+. The pack minus, the servo brown or black lead and the board GND share a common ground. The board PWM pin drives the servo signal lead (orange or yellow); the servo feedback wiper (4th lead) goes to the board ADC pin through a divider if needed; a stop button connects an input pin with internal pull-up to GND; the board USB goes to a computer for logging. A card pointer arm of at most 5 g sits on the horn.](figures/wiring-option-a.svg)
+*Figure 1. Option A wiring. The fuse is the first thing in the pack's + lead and every ground is common; check the feedback-wire voltage (check (a) below) before connecting it to the ADC pin.*
 
 Option B:
 
-```
- AA pack (<= 6.0 V) + ──[PTC 0.5 A]──┬── driver VM          driver OUT1/OUT2 ── motor (two leads)
-                                     = 220 uF               driver IN1, IN2 ── two board PWM pins
- AA pack − ──────────────────────────┴── driver GND ──┬──── board GND (common ground)
- board 3.3 V ── driver logic V (if the module needs it)│     driver EN/SLEEP ── board output pin
- board 3.3 V ── pot end A,  pot end B ── GND ──────────┘     pot wiper ── board ADC pin
- board input pin ──[button]── GND                            pot shaft ── silicone tube ── motor shaft
-```
+![Wiring for Option B. The AA pack (at most 6.0 V) feeds the driver VM pin through a 0.5 A PTC fuse, with a 220 µF capacitor to ground. The pack minus, the driver GND and the board GND share a common ground. The board 3.3 V supplies the driver logic V if the module needs it and one end (A) of the potentiometer, whose other end (B) goes to ground and whose wiper goes to the board ADC pin. Two board PWM pins drive driver IN1 and IN2, a board output pin drives EN/SLEEP, OUT1 and OUT2 drive the two motor leads, and a stop button connects an input pin to GND. The pot shaft is coupled to the motor shaft by a silicone tube.](figures/wiring-option-b.svg)
+*Figure 2. Option B wiring. The motor pack powers only the driver's VM; the potentiometer runs from the board's own 3.3 V, so its wiper cannot exceed the ADC's range.*
 
 Mount the servo or motor (and the potentiometer) on the block so nothing can move except the output and the pointer. Tape the printed protractor behind the pointer. Check every node with continuity and look for a path from the pack's + to ground. Measure the pack: it must read ≤ 6.0 V. Write the pack voltage in `data/calibration.csv`.
 

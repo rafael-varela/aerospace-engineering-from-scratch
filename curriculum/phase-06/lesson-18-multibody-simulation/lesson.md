@@ -33,17 +33,8 @@ This lesson builds a two-body model of a drop test and writes its equations two 
 
 The model has two bodies and a ground:
 
-```
-            ║ guide (x1 = 0, th1 = 0)
-        ┌───╨───┐  body 1: airframe / drop carriage, mass M, at height y1; lift L = W acts on it
-        │   ●   │  attachment point = body 1's reference point
-        └───┬───┘
-            ╲  strut axis e, raked beta from vertical      gas + orifice + stop: force F along e
-             ╲ ← sliding joint: body 2 moves along e only
-              ╲     stroke s (s > 0 compresses)
-               ◎  body 2: piston, axle, wheel; mass m; axle at (x2, y2)
-        ═══════════════  ground: tyre force F_t vertical, compression only; no friction
-```
+![Two-body drop-test model of a landing gear: body 1, the airframe or drop carriage of mass M, slides in a vertical guide and carries lift L = W; the strut, raked at angle β from the vertical along axis e, joins it to body 2 (piston, axle and wheel, mass m) through a sliding joint, with strut force F along e and stroke s; the tyre force F_t acts vertically at the axle from the frictionless ground.](figures/drop-test-two-body-gear.svg)
+*Figure 1. The two bodies, the two joints (the vertical guide and the sliding joint along e) and the force elements. The rake β is drawn larger than the lesson's 8° so that it can be seen.*
 
 - **Body 1**, the airframe or drop carriage, mass M = 1500 kg. In a drop rig it is guided vertically and cannot pitch.
 - **Body 2**, the "unsprung mass": the piston, axle, brake and wheel, m = 40 kg. A sliding (prismatic) joint lets it move only along the strut axis, which is raked β = 8° from the vertical.

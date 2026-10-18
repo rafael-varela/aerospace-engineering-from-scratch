@@ -61,14 +61,8 @@ The airfoil-plane velocity is the circle-plane velocity divided by the map's der
 
 **u − iv = (dw/dζ)/(dz/dζ).**   (5)
 
-```
-   ζ-plane: circle through ζ = b                 z-plane: airfoil, TE at z = nb
-          ___                                            _______
-        /     \   ● μ (centre)                      ___/        ‾‾‾‾‾‾‾‾‾‾‾---___
-       |   ●   |                    z = f(ζ)       (                            ___>  TE
-        \_____/  ● ζ = b   ─────────────────→       ‾‾‾---___________________---‾
-      ζ = −b inside                                 
-```
+![Left: the ζ-plane, with a circle of radius a centred at μ, left of and above the origin, passing through ζ = b and enclosing ζ = −b; the radius to ζ = b lies at angle β below the horizontal. Right: its image under the Karman–Trefftz map z = f(ζ), a cambered airfoil whose trailing edge, of angle τ, is the image of ζ = b at z = nb.](figures/karman-trefftz-map.svg)
+*Figure 1. The map (3) carries the circle to the airfoil and the critical point ζ = b to the trailing edge z = nb. Moving μ left thickens the section, moving it up cambers it. Computed from (3) for b = 1, μ = −0.10 + 0.14i, τ = 10°.*
 
 ### 2.4 The Kutta condition
 

@@ -42,15 +42,8 @@ Aerospace uses the passive reading, because what changes in flight is the orient
 
 Take a frame *a* with unit vectors (x_a, y_a, z_a) and build frame *b* by turning it through angle ψ about the shared z axis, right-hand rule (thumb along +z, fingers curl from x towards y).
 
-```
-          y_a
-           ▲    y_b
-           │   ↗
-           │  ╱  ψ           x_b · x_a = cos ψ    x_b · y_a = sin ψ
-           │ ╱               y_b · x_a = −sin ψ   y_b · y_a = cos ψ
-           │╱_)ψ     x_b     z_b = z_a
-           ●────────────▶ x_a
-```
+![Frame a with axes x_a and y_a, and frame b obtained by turning it through angle ψ about the shared z axis, which points out of the page; x_b is ψ counter-clockwise from x_a and y_b is ψ counter-clockwise from y_a.](figures/rotation-about-z.svg)
+*Figure 1. Frame b is frame a turned by ψ about z. The dot products of the new axes with the old ones are the entries of R₃(ψ), row by row.*
 
 A fixed vector **v** has components v_a = (v₁, v₂, v₃) in frame *a*. Its first component in frame *b* is the projection v · x_b. Writing x_b = cos ψ x_a + sin ψ y_a gives v · x_b = v₁ cos ψ + v₂ sin ψ. Doing the same for y_b = −sin ψ x_a + cos ψ y_a and z_b = z_a:
 

@@ -33,17 +33,8 @@ The tables in this lesson are the NIST Chemistry WebBook values (Standard Refere
 
 A **pure substance** has one chemical composition throughout (it may be in more than one phase). Heat water at constant pressure from cold: it is a **compressed (subcooled) liquid** while its temperature is below the saturation temperature for that pressure; at T_sat(p) it begins to boil and becomes a **saturated mixture** of liquid and vapour at constant temperature; when the last liquid evaporates it is **saturated vapour**; heated further it is **superheated vapour**. On a T–v diagram the saturated-liquid states (v_f) and the saturated-vapour states (v_g) form a dome that closes at the **critical point** (373.95 °C, 22 064 kPa for water; 132.25 °C, 11 339 kPa for ammonia), above which there is no distinction between liquid and vapour.
 
-```
- T                       critical point
- |                          ___*___
- |   compressed           /    |    \          superheated
- |   liquid              /     |     \         vapour
- |                      / saturated   \
- |                     /   mixture     \
- |                    /  (x = 0 ... 1)  \
- |                 v_f                  v_g
- +----------------------------------------------- v (log scale)
-```
+![T–v diagram with v on a log scale: the saturated-liquid line v_f and the saturated-vapour line v_g form a dome that closes at the critical point. Compressed liquid lies to the left of the dome, saturated mixture inside it and superheated vapour to the right; an isobar crosses the dome horizontally at T_sat(p).](figures/t-v-saturation-dome.svg)
+*Figure 1. Phases of a pure substance on a T–v diagram. Inside the dome p and T are tied together by saturation, so an isobar is flat there; v_f and v_g meet at the critical point, above which liquid and vapour cannot be told apart.*
 
 Inside the dome **p and T are not independent**: at saturation, fixing T fixes p = p_sat(T). That is the state postulate of `P07.01` at work: (T, p) does not fix a two-phase state; (T, v), (T, h) or (p, x) does.
 

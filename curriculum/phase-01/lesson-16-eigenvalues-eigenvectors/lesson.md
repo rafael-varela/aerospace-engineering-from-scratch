@@ -42,15 +42,8 @@ Units: kg m². The matrix is **symmetric** by construction. Its diagonal entries
 
 The tensor depends on the reference point. For a shift **d** from the centre of mass, the **parallel-axis theorem** gives I_O = I_cm + M[(**d**·**d**) I₃ − **dd**ᵀ]; the test checks it and that the diagonal is smallest about the centre of mass. The reference point for attitude dynamics is the centre of mass, and that is the default in the code.
 
-```
-                 z (body)
-                 ▲          ○ antenna tip (4 kg)      Bus corners: 4 x 22 kg at (±0.30, ±0.20, ±0.15) m
-                 │        ╱                           Arrays:      2 x 7 kg at (0, ±1.60, 0.10) m
-   array ○───────┼───────○ array                      Antenna tip: 4 kg at (0.90, 0.25, -0.55) m
-         (y -)   │  ■ tank (16 kg)       (y +)         Tank:        16 kg at (-0.20, 0.10, 0.28) m
-                 │
-                 ●──────────▶ x (body, along the antenna)
-```
+![Point-mass model of a small satellite in body axes, x along the antenna, y along the solar-array axis and z completing the triad: four 22 kg masses at alternate corners of the bus box (±0.30, ±0.20, ±0.15) m, two 7 kg arrays at (0, ±1.60, 0.10) m, a 4 kg antenna tip at (0.90, 0.25, −0.55) m and a 16 kg tank at (−0.20, 0.10, 0.28) m.](figures/satellite-point-masses.svg)
+*Figure 1. The satellite’s point-mass model. The antenna tip and the tank sit off every symmetry plane, so the products of inertia are not zero and the principal axes are tilted from the body axes.*
 
 ### 2.2 The moment about any axis is a quadratic form
 

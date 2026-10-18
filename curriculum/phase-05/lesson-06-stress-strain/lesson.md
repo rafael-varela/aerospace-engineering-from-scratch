@@ -43,21 +43,8 @@ in N/mm² = MPa. If the gauge length L₀ grows by ΔL, the **engineering strain
 
 (dimensionless). A 2024-T3 strap 25 mm × 3 mm carrying 20 kN has σ = 266.7 MPa; with the typical E = 73.1 GPa its strain is 3.648 × 10⁻³, so a 200 mm length stretches 0.730 mm, and the 25 mm width shrinks by ν ε b = 30.1 μm. The stress is 0.773 of the typical yield strength: a working stress, not a failure.
 
-```
-  stress
-   ^             ultimate (Ftu) o
-   |                   ___..--''   ''--.._        necking
-   |           ..--''                     ''-.
-   |  yield .-'                                x  fracture
-   |      .'| 0.2 % offset line
-   |     /  |/
-   |    /   /
-   |   /   /    slope E on both lines
-   |  /   /
-   | /   /
-   |/___/__________________________________________> strain
-   0  0.002                     eps_u           eps_f
-```
+![Engineering stress against strain for an aluminium alloy coupon: a straight elastic line of slope E from the origin, a gradual knee where the 0.2 % offset line (also of slope E, starting at strain 0.002) cuts the curve at the yield strength Fty, a maximum at the ultimate strength Ftu at strain ε_u, then a falling necking branch to fracture at ε_f.](figures/engineering-stress-strain.svg)
+*Figure 1. The offset yield is read where a line of slope E, started at 0.002 strain, meets the curve; the peak marks the end of uniform elongation and the start of necking. The strain axis is not to scale: the elastic part is stretched so that it can be seen.*
 
 ### 2.2 True stress and strain
 

@@ -35,15 +35,8 @@ Newton's second law for a particle is **ΣF = m a**: the vector sum of all force
 
 For a ball in flight there are two forces. The weight **W = m g**, downward, exerted by the Earth. The drag **F_D = ½ ρ C_D A v²**, exerted by the air, directed against the velocity, with ρ the air density, A = πd²/4 the frontal area and C_D a dimensionless coefficient (6.4). Nothing else: no "force of motion", no force from the hand after release. Units: ρ [kg/m³] × A [m²] × v² [m²/s²] = kg·m/s² = N.
 
-```
-          z
-          ^              F_D = ½ ρ C_D A v²   (opposite to v)
-          |                   ↖
-          |                    ●  ball, mass m
-          |                    | 
-          |                    v  W = m g
-          +----------------------> x
-```
+![Free-body diagram of a ball of mass m in flight, with x horizontal and z up. The velocity v is along the trajectory; the drag F_D = ½ ρ C_D A v² acts opposite to v, and the weight W = m g acts straight down. No other force acts.](figures/ball-free-body.svg)
+*Figure 1. Only two forces act on the ball after release: the weight, exerted by the Earth, and the drag, exerted by the air and always opposite to the velocity.*
 
 Divide by m and write the acceleration in components with **k = ρC_D A/(2m)** (units 1/m):
 
@@ -200,14 +193,8 @@ Run `python -m pytest curriculum/phase-04/lesson-01-kinematics-newtons-laws`. Th
 
 The setup for the drops is that of `P00.15`, with the ping-pong ball and the bean bag released by the same method (two fingers opened from below) at the same five heights, 0.6 to 1.8 m, at least eight drops each. The toss lane:
 
-```
-   release                            landing zone (mat, 1 m long)
-   ○ → v0 ≈ 6 m/s, 45°                     ▓▓▓▓▓▓▓▓
-   |                                       |
-   |<------------- 3.5 m lane ------------>|      phone on a stand 1.5 m to the side,
-   |                                       |      lens at 0.5 m height, whole lane in frame
-   ═══════════════════════════════════════════  floor, tape marks every 0.5 m
-```
+![Side and plan views of the toss lane. The ball is released from 0.5 m height at about 6 m/s and 45° and lands on a 1 m mat at the far end of a 3.5 m lane, over a floor taped every 0.5 m. In plan, a phone on a stand 1.5 m to the side of the lane, lens at 0.5 m height, keeps the whole lane in frame.](figures/toss-lane.svg)
+*Figure 2. The toss lane. The dashed path is the drag model's prediction for the ping-pong ball at 6 m/s and 45°; the phone stands to the side so the whole lane and its 0.5 m tape marks are in frame. The plan view is drawn at half the scale of the side view.*
 
 Procedure in outline (details in `procedure.md`):
 

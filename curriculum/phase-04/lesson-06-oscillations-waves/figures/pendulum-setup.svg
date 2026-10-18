@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 410" width="720" height="410" role="img" aria-labelledby="title">
+  <title id="title">The pendulum setup seen from the camera. A string is clamped at a pivot on a rigid support, with a printed protractor behind the pivot. The length L runs from the pivot to the centre of the bob, displaced by θ from the vertical. The swing arc, plus 0.5 m, is kept clear, and the phone stands 1.5–2 m in front of the swing plane with its lens level with the bob.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <rect class="ground" x="130.0" y="30.0" width="340.0" height="22.0" rx="0"/>
+  <line class="line" x1="130.0" y1="52.0" x2="470.0" y2="52.0"/>
+  <text x="130.0" y="22.0" class="note">rigid support (door-frame clamp, or a weighted stick on a table)</text>
+  <path class="body-2" d="M210,70 A90,90 0 0 0 390,70 Z"/>
+  <line class="thin" x1="390.0" y1="70.0" x2="380.0" y2="70.0"/>
+  <line class="thin" x1="388.6" y1="85.6" x2="383.7" y2="84.8"/>
+  <line class="thin" x1="384.6" y1="100.8" x2="379.9" y2="99.1"/>
+  <line class="thin" x1="377.9" y1="115.0" x2="369.3" y2="110.0"/>
+  <line class="thin" x1="368.9" y1="127.9" x2="365.1" y2="124.6"/>
+  <line class="thin" x1="357.9" y1="138.9" x2="354.6" y2="135.1"/>
+  <line class="thin" x1="345.0" y1="147.9" x2="340.0" y2="139.3"/>
+  <line class="thin" x1="330.8" y1="154.6" x2="329.1" y2="149.9"/>
+  <line class="thin" x1="315.6" y1="158.6" x2="314.8" y2="153.7"/>
+  <line class="thin" x1="300.0" y1="160.0" x2="300.0" y2="150.0"/>
+  <line class="thin" x1="284.4" y1="158.6" x2="285.2" y2="153.7"/>
+  <line class="thin" x1="269.2" y1="154.6" x2="270.9" y2="149.9"/>
+  <line class="thin" x1="255.0" y1="147.9" x2="260.0" y2="139.3"/>
+  <line class="thin" x1="242.1" y1="138.9" x2="245.4" y2="135.1"/>
+  <line class="thin" x1="231.1" y1="127.9" x2="234.9" y2="124.6"/>
+  <line class="thin" x1="222.1" y1="115.0" x2="230.7" y2="110.0"/>
+  <line class="thin" x1="215.4" y1="100.8" x2="220.1" y2="99.1"/>
+  <line class="thin" x1="211.4" y1="85.6" x2="216.3" y2="84.8"/>
+  <line class="thin" x1="210.0" y1="70.0" x2="220.0" y2="70.0"/>
+  <rect class="body" x="288.0" y="52.0" width="24.0" height="18.0" rx="2"/>
+  <line class="thin dash" x1="300.0" y1="70.0" x2="300.0" y2="306.0"/>
+  <circle class="body" style="stroke-dasharray:4 3" cx="300.0" cy="320.0" r="14"/>
+  <line class="line" x1="300.0" y1="70.0" x2="396.0" y2="285.6"/>
+  <circle class="body" cx="401.7" cy="298.4" r="14"/>
+  <circle class="dot" cx="401.7" cy="298.4" r="2.5"/>
+  <path class="thin" d="M300,220 A150,150 0 0 0 361.0,207.0" marker-end="url(#ah-ink2)"/>
+  <text x="329.2" y="236.7" class="sym">θ</text>
+  <line class="thin" x1="323.8" y1="59.4" x2="425.4" y2="287.8" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <line class="thin" x1="407.2" y1="295.9" x2="430.9" y2="285.4"/>
+  <text x="388.6" y="173.6" class="sym">L</text>
+  <text x="388.6" y="191.6" class="note">pivot to the</text>
+  <text x="388.6" y="207.6" class="note">centre of the bob</text>
+  <path class="flow" d="M175.0,286.5 A250,250 0 0 0 425.0,286.5" marker-end="url(#ah-blue)" marker-start="url(#ah-blue)"/>
+  <text x="167.0" y="290.5" class="t-blue" text-anchor="end">arc</text>
+  <path class="thin dash" d="M92.6,300.4 A310,310 0 0 0 507.4,300.4"/>
+  <text x="300.0" y="402.0" class="note" text-anchor="middle">keep the arc + 0.5 m clear</text>
+  <line class="thin" x1="314.0" y1="76.0" x2="482.0" y2="96.0"/>
+  <text x="490.0" y="100.0">pivot: string clamped,</text>
+  <text x="490.0" y="117.0" class="note">not tied loosely round a rod</text>
+  <line class="thin" x1="367.5" y1="125.8" x2="482.0" y2="138.0"/>
+  <text x="490.0" y="142.0">printed protractor taped</text>
+  <text x="490.0" y="159.0" class="note">behind the pivot, in view</text>
+  <text x="500.0" y="352.0">phone on a stand, 1.5–2 m</text>
+  <text x="500.0" y="369.0" class="note">in front of this plane,</text>
+  <text x="500.0" y="386.0" class="note">lens level with the bob</text>
+</svg>

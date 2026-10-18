@@ -188,18 +188,8 @@ At 700 g the finite-difference solution with n = 200 agrees with the cubic to 0.
 
 The setup, seen from the side:
 
-```
-   C-clamp (checked before each load)
-      ║        x →                                       ruler held vertical
-   ═══╬══════════════════════════════════════════╗      beside the strip, read
-   ███████  strip, flat side up                   ║ ← end    from a phone photo
-   ███████ ─────────────────────────────┬─────────┘          at the strip's height
-   ███████   table                      │ a = 290 mm from the clamp edge
-   ███████                              │ string loop in a filed notch
-   ███████                             [bag]  coins / water, weighed
-   ███████                              ⇣
-   ███████                         box or cushion below; no feet underneath
-```
+![Side view of the home cantilever rig: a strip lies flat side up on a table, held by a C-clamp near the table edge; x runs along the strip from the clamp edge; a bag of coins or water hangs on a string loop in a filed notch at a = 290 mm from the clamp edge, over a box or cushion with no feet underneath; a ruler stands vertically beside the strip end and is read from a phone photo at the strip’s height.](figures/cantilever-rig.svg)
+*Figure 1. The cantilever rig from the side. Deflection is read at the strip's end against a vertical ruler; the load hangs at a = 290 mm from the clamp edge, over a box or cushion, never over feet.*
 
 **Prediction first (in `data/prediction.md`, dated).** Measure b at three points, h at five points along the strip with a caliper (or the best you have), the clamp edge position and a. Compute I ± u_I, the safe load for your strip, and the predicted δ ± u at 100, 200, …, up to your top load at the load point, with the uncertainty budget term by term (which term dominates?). Predict the compliance and the deflection at the mark positions you will read along the strip at your top-but-one load. Then compute, with `fit_profile` on noise-free predicted data, the uncertainty of θ₀ your reading method will give, and state whether a 1 mrad clamp rotation will be detectable. Date the file and do not edit it afterwards.
 

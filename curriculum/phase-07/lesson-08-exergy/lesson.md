@@ -82,12 +82,8 @@ Different dead-state choices move the fuel exergy by a few percent, and with it 
 
 ### 2.5 The engine
 
-```
-  0 ambient     2           3            4              5            9
-  (T0, p0, V0) -> inlet -> compressor -> combustor -> turbine -> nozzle -> jet (T9, p0, V9)
-                                ^            ^ fuel       |
-                                +------- shaft -----------+
-```
+![Turbojet core for the exergy audit: ambient air at station 0 (T₀, p₀, V₀) passes the inlet to 2, the compressor to 3, the combustor (where fuel is added) to 4, the turbine to 5 and the nozzle to the jet at 9 (T₉, p₀, V₉). A shaft connects the turbine to the compressor.](figures/turbojet-stations.svg)
+*Figure 1. Stations of the turbojet core used in the exergy audit. The shaft returns the turbine's work to the compressor, so the product that leaves the core is the jet's kinetic-energy gain.*
 
 Per kilogram of air (NASA mixtures throughout; the product mixture follows from the fuel flow):
 

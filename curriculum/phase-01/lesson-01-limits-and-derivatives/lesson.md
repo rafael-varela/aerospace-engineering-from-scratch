@@ -48,16 +48,8 @@ The limit laws (§2.3) say limits respect sums, products and quotients (quotient
 
 f is **continuous at a** when lim_{x→a} f(x) exists and equals f(a): no jump, no hole, no blow-up. Most physical models are continuous by construction, but *piecewise* models are continuous only if someone made them so. The ISA from `P00.03` is the example. In the troposphere T(h) = 288.15 − 0.0065 h; from 11 km the temperature is held at 216.65 K. The two pieces meet: 288.15 − 0.0065 × 11000 = 216.65. T is continuous at 11 km. But its *slope* jumps from −0.0065 K/m to 0: the graph has a corner, a **kink**.
 
-```
-   T [K]
- 288 ┤╲
-     │ ╲   slope −0.0065 K/m
-     │  ╲
-     │   ╲
- 217 ┤    ╲_____________  slope 0
-     └────┴──────┴──────▶ h
-          11 km   20 km
-```
+![ISA temperature T in kelvin against altitude h in kilometres: a straight line falling from 288.15 K at sea level with slope −0.0065 K/m, meeting a horizontal line at 216.65 K at 11 km and staying constant to 20 km, with a corner at 11 km.](figures/isa-temperature-kink.svg)
+*Figure 1. ISA temperature up to 20 km. The two pieces meet at 11 km, so T is continuous there, but the slope jumps from −0.0065 K/m to 0: a kink, where T′ does not exist.*
 
 Continuity buys you the **intermediate value theorem** (§2.4): a continuous function that is 0.7780 at α = 8° and 1.0293 at α = 12° takes the value 1.0 somewhere in between. That is how you know the angle for a required C_L *exists* before you ask Newton's method (P01.02) to find it; for the lesson's model it is 11.44°.
 

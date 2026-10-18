@@ -33,13 +33,8 @@ The engineering question is: which exact version of the code and data produced t
 
 Git tracks a file through three places:
 
-```
-   working tree            staging area (index)            repository (.git)
-   the files you edit  --add-->  what the next commit  --commit-->  permanent history
-                                  will contain                       of snapshots
-        ▲                                                                 │
-        └────────────────────────── checkout / switch ────────────────────┘
-```
+![Three boxes left to right: working tree (the files you edit), staging area or index (what the next commit will contain), and repository (permanent history of snapshots). git add moves changes from the working tree to the staging area, git commit moves the staging area into the repository, and git checkout or git switch brings a snapshot back into the working tree.](figures/git-three-trees.svg)
+*Figure 1. Git’s three trees. Editing changes only the working tree; git add copies a file into the staging area, git commit turns the staging area into a permanent snapshot, and checkout or switch goes back the other way.*
 
 Editing a file changes the **working tree** only. `git add <file>` copies its current content into the **staging area**, a list of exactly what the next commit will contain. `git commit` turns the staging area into a permanent snapshot in the **repository**. The staging area is what beginners find strange and what makes Git useful: you can edit five files, stage two, and commit a change that makes sense on its own, leaving the other three for a later commit. A commit should be one coherent change with one sentence describing it.
 

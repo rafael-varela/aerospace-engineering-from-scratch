@@ -33,16 +33,8 @@ Success criteria, written first: the three closed forms agree with SymPy exactly
 
 ### 2.1 The beam model and the lesson's wing
 
-```
-            y = 0 (roll axis)                   y = s (tip)
-    ──────────┼───────────────────────────────────┤
-              │  chord c(y)   ┌──────────────┐    │   mass per unit span  λ(y) = σ c(y)
-              │   ▲           │   dm = σ c dy│    │   I_xx = 2 ∫₀ˢ y² σ c(y) dy  (both wings)
-              │   │  c_r      │              │ c_t│
-              │   ▼           └──────────────┘    │
-    ──────────┼───────────────────────────────────┤
-                              ◄── dy ──►  at distance y
-```
+![Planform of a linearly tapered wing, symmetric about the roll axis at y = 0, with root chord c_r and tip chord c_t at y = s. A thin spanwise strip of width dy at distance y from the roll axis has chord c(y) and mass dm = σ c dy.](figures/tapered-wing-strip.svg)
+*Figure 1. The beam model of the lesson’s wing. Each strip dm = σ c dy is treated as sitting at its distance y from the roll axis, so it adds y² dm to I_xx.*
 
 **Assumption 1 (slender beam):** the chordwise spread of mass is ignored; the whole strip dm = σ c dy is at distance y. **Assumption 2 (constant σ):** the wing's structure weighs the same per square metre everywhere. The lesson's wing: span b = 11 m (s = 5.5 m), root chord c_r = 1.6 m, taper ratio τ = c_t/c_r = 0.6, σ = 12 kg/m². Planform area 14.08 m², wing mass 169 kg: realistic for a 1000 kg light aircraft. Units of I_xx: (kg/m²)(m)(m²)(m) = kg m². Good.
 

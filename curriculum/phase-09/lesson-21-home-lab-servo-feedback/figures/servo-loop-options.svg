@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-labelledby="title">
+  <title id="title">Two block diagrams. Option A: the reference r minus the pot-wiper reading of θ gives the error e; a PI controller on the board sets the servo command c; the servo with its own loop, modelled as K e^(−Ls)/(τs + 1), gives the angle θ. Option B: the error drives a P controller with dead-zone compensation that sets the duty u, which passes through a dead zone and the motor lag K/(τs + 1) to the speed ω, then an integrator 1/s to the angle θ, read back by a pot.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <text x="20.0" y="30.0" class="head">Option A: feedback servo, outer PI loop</text>
+  <text x="20.0" y="49.0" class="note">board writes a pulse width c; the servo’s wiper reports θ</text>
+  <text x="36.0" y="101.0" class="sym" text-anchor="middle">r</text>
+  <line class="line" x1="48.0" y1="95.0" x2="117.0" y2="95.0" marker-end="url(#ah-ink)"/>
+  <circle class="line" cx="128.0" cy="95.0" r="11.0"/>
+  <line class="thin" x1="120.2" y1="87.2" x2="135.8" y2="102.8"/>
+  <line class="thin" x1="120.2" y1="102.8" x2="135.8" y2="87.2"/>
+  <text x="108.0" y="83.0" text-anchor="middle">+</text>
+  <text x="142.0" y="122.0">−</text>
+  <line class="line" x1="139.0" y1="95.0" x2="205.0" y2="95.0" marker-end="url(#ah-ink)"/>
+  <text x="172.0" y="86.0" class="sym" text-anchor="middle">e</text>
+  <rect class="body" x="205.0" y="73.0" width="100.0" height="44.0" rx="4"/>
+  <text x="255.0" y="100.0" class="head" text-anchor="middle">PI</text>
+  <text x="255.0" y="135.0" class="note" text-anchor="middle">outer loop (board)</text>
+  <line class="line" x1="305.0" y1="95.0" x2="380.0" y2="95.0" marker-end="url(#ah-ink)"/>
+  <text x="342.5" y="86.0" class="sym" text-anchor="middle">c</text>
+  <text x="342.0" y="117.0" class="note" text-anchor="middle">command</text>
+  <rect class="body" x="380.0" y="57.0" width="210.0" height="76.0" rx="4"/>
+  <text x="485.0" y="80.0" class="note" text-anchor="middle">servo: motor, gearbox, pot,</text>
+  <text x="485.0" y="97.0" class="note" text-anchor="middle">its own analog loop</text>
+  <text x="485" y="123" class="sym" text-anchor="middle">K e<tspan dy="-8" font-size="13">−Ls</tspan><tspan dy="8">/(τs + 1)</tspan></text>
+  <line class="line" x1="590.0" y1="95.0" x2="690.0" y2="95.0" marker-end="url(#ah-ink)"/>
+  <text x="655.0" y="86.0" class="sym" text-anchor="middle">θ</text>
+  <circle class="dot" cx="640" cy="95" r="3.5"/>
+  <path class="line" d="M640.0,95.0 L640.0,175.0 L420.0,175.0" marker-end="url(#ah-ink)"/>
+  <rect class="body-2" x="320.0" y="158.0" width="100.0" height="34.0" rx="4"/>
+  <text x="370.0" y="180.0" text-anchor="middle">pot wiper</text>
+  <text x="370.0" y="208.0" class="note" text-anchor="middle">ADC reading of θ</text>
+  <path class="line" d="M320.0,175.0 L128.0,175.0 L128.0,108.0" marker-end="url(#ah-ink)"/>
+  <line class="thin dash" x1="20.0" y1="240.0" x2="700.0" y2="240.0"/>
+  <text x="20.0" y="270.0" class="head">Option B: gear motor, driver and pot, outer P loop</text>
+  <text x="20.0" y="289.0" class="note">board writes a signed duty u; the pot on the output shaft reports θ</text>
+  <text x="30.0" y="341.0" class="sym" text-anchor="middle">r</text>
+  <line class="line" x1="40.0" y1="335.0" x2="79.0" y2="335.0" marker-end="url(#ah-ink)"/>
+  <circle class="line" cx="90.0" cy="335.0" r="11.0"/>
+  <line class="thin" x1="82.2" y1="327.2" x2="97.8" y2="342.8"/>
+  <line class="thin" x1="82.2" y1="342.8" x2="97.8" y2="327.2"/>
+  <text x="70.0" y="323.0" text-anchor="middle">+</text>
+  <text x="104.0" y="362.0">−</text>
+  <line class="line" x1="101.0" y1="335.0" x2="128.0" y2="335.0" marker-end="url(#ah-ink)"/>
+  <text x="114.0" y="326.0" class="sym" text-anchor="middle">e</text>
+  <rect class="body" x="128.0" y="308.0" width="134.0" height="54.0" rx="4"/>
+  <text x="195.0" y="330.5" class="head" text-anchor="middle">P</text>
+  <text x="195.0" y="349.5" class="note" text-anchor="middle">+ dead-zone comp.</text>
+  <line class="line" x1="262.0" y1="335.0" x2="290.0" y2="335.0" marker-end="url(#ah-ink)"/>
+  <text x="276.0" y="326.0" class="sym" text-anchor="middle">u</text>
+  <rect class="body" x="290.0" y="305.0" width="80.0" height="60.0" rx="4"/>
+  <line class="thin" x1="300.0" y1="335.0" x2="360.0" y2="335.0"/>
+  <line class="thin" x1="330.0" y1="313.0" x2="330.0" y2="357.0"/>
+  <path class="line" d="M302.0,353.0 L321.0,335.0 L339.0,335.0 L358.0,317.0"/>
+  <text x="330" y="383" class="note" text-anchor="middle">dead zone ±u<tspan dy="4" font-size="12.5">dz</tspan></text>
+  <line class="line" x1="370.0" y1="335.0" x2="410.0" y2="335.0" marker-end="url(#ah-ink)"/>
+  <rect class="body" x="410.0" y="308.0" width="110.0" height="54.0" rx="4"/>
+  <text x="465.0" y="340.0" class="sym" text-anchor="middle">K/(τs + 1)</text>
+  <text x="465.0" y="383.0" class="note" text-anchor="middle">motor and driver</text>
+  <line class="line" x1="520.0" y1="335.0" x2="565.0" y2="335.0" marker-end="url(#ah-ink)"/>
+  <text x="542.0" y="326.0" class="sym" text-anchor="middle">ω</text>
+  <rect class="body" x="565.0" y="308.0" width="60.0" height="54.0" rx="4"/>
+  <text x="595.0" y="340.0" class="sym" text-anchor="middle">1/s</text>
+  <line class="line" x1="625.0" y1="335.0" x2="700.0" y2="335.0" marker-end="url(#ah-ink)"/>
+  <text x="680.0" y="326.0" class="sym" text-anchor="middle">θ</text>
+  <circle class="dot" cx="660" cy="335" r="3.5"/>
+  <path class="line" d="M660.0,335.0 L660.0,420.0 L410.0,420.0" marker-end="url(#ah-ink)"/>
+  <rect class="body-2" x="310.0" y="403.0" width="100.0" height="34.0" rx="4"/>
+  <text x="360.0" y="425.0" text-anchor="middle">pot</text>
+  <text x="360.0" y="453.0" class="note" text-anchor="middle">10 kΩ, on the output shaft</text>
+  <path class="line" d="M310.0,420.0 L90.0,420.0 L90.0,348.0" marker-end="url(#ah-ink)"/>
+</svg>

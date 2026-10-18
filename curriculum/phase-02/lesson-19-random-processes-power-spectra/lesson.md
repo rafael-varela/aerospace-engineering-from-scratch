@@ -73,15 +73,8 @@ The autocorrelations are the inverse transforms. With a = V/L,
 
 Check the second by transforming forward: the transform of e^{−a|τ|} is 2a/(a² + ω²) and that of |τ|e^{−a|τ|} is 2(a² − ω²)/(a² + ω²)², so S_w = σ_w²[2a/(a² + ω²) − a(a² − ω²)/(a² + ω²)²] = σ_w² a(a² + 3ω²)/(a² + ω²)², and S_w/π is (5). The vertical correlation crosses zero at τ = 2L/V = 10 s and has a shallow negative lobe after it: a vertical gust is, on average, followed by a weaker gust the other way, which is what a divergence-free velocity field must do. The **integral time scale** ∫₀^∞ R dτ/σ² is L/V = 5 s for u and L/(2V) = 2.5 s for w; the test checks both.
 
-```
-   R_w(τ)/σ²                               Φ_w(ω)  (log-log)
-   1 ┤╲                                    ──────╮
-     │ ╲                                          ╲   slope −2
-     │  ╲                                          ╲
-   0 ┼────╲────────────────── τ                     ╲
-     │     ╲____------                               ╲
-     │      2L/V  (negative lobe)              b=V/L  ω
-```
+![Two sketches of the Dryden vertical gust. Left: the normalised autocorrelation R_w(τ)/σ² starts at 1, crosses zero at τ = 2L/V and has a shallow negative lobe after it. Right: on log–log axes the spectrum Φ_w(ω) is flat at σ_w² L/(πV) at low frequency and falls with slope −2 above the break frequency b = V/L.](figures/dryden-correlation-spectrum.svg)
+*Figure 1. The vertical gust forgets itself after about 2L/V, and its spectrum is flat up to the break frequency b = V/L and falls as ω⁻² above it. The negative lobe of R_w is drawn five times deeper than it is (its minimum is −0.025 at τ = 3L/V).*
 
 ### 2.4 Where the model stops being valid
 

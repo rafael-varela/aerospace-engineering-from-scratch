@@ -31,14 +31,8 @@ The numbers are the illustrative core of `P07.06` (sea-level air, π = 12, turbi
 
 ### 2.1 Stations and components
 
-```
-          intercooler (q_ic out)               recuperator (q_rec, inside the cycle)
-    1  +-----+  2   +---+  3  +-----+  4     +-----------+  5   +------+  6  +-----+  7
- air ->| LPC |----->| IC|---->| HPC |------->| cold side |----->|  CC  |---->|  T  |---+
-       +-----+      +---+     +-----+        |           |      +------+     +-----+   |
-                                          8 <| hot side  |<--------------------------+
-                                exhaust (q_ex out)  +-----------+
-```
+![Station layout of the intercooled, recuperated cycle: air enters the LP compressor at 1, leaves at 2, is cooled in the intercooler (q_ic out) to 3, compressed in the HP compressor to 4, heated on the recuperator cold side to 5, heated in the combustor to the turbine inlet 6, expanded to 7, and returned through the recuperator hot side to the exhaust at 8 (q_ex out). The recuperator heat q_rec passes from the hot side to the cold side inside the cycle.](figures/intercooled-recuperated-stations.svg)
+*Figure 1. Stations 1 to 8 of the intercooled, recuperated cycle. Heat leaves the cycle in the intercooler and with the exhaust; the recuperator heat q_rec only moves from the hot side (7 → 8) to the cold side (4 → 5).*
 
 Station 1 is the LP compressor inlet; 2 the LP exit; 3 the intercooler exit; 4 the HP exit; 5 the recuperator's cold-side exit (combustor inlet); 6 the turbine inlet; 7 the turbine exit; 8 the exhaust. Without an intercooler the LP compressor does the whole pressure ratio and 3 = 4 = 2; without a recuperator 5 = 4 and 8 = 7. The **overall pressure ratio** is π = p₄/p₁. Each duct loses a fraction of its inlet pressure: p₃ = p₂(1 − Δ_ic), p₅ = p₄(1 − Δ_rc), p₆ = p₅(1 − Δ_cc). The turbine expands to whatever pressure lets the exhaust leave at p₁ after the hot side and the exhaust duct: p₇ = p₁/[(1 − Δ_rh)(1 − Δ_ex)]. So the turbine's expansion ratio p₆/p₇ is smaller than the compressor's π by the product of all the losses: at π = 12 with every loss present it is 10.73 instead of 12. That is how pressure losses cost work.
 

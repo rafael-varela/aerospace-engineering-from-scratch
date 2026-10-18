@@ -31,16 +31,10 @@ Success criteria, written down before we start: the code reproduces the ISA defi
 
 ### 2.1 The hydrostatic equation
 
-Consider a thin horizontal slab of still air with area A, thickness dh and density ρ at height h (ASCII sketch below). Pressure p pushes up on its bottom face; pressure p + dp pushes down on its top face; gravity pulls down on its mass ρ A dh.
+Consider a thin horizontal slab of still air with area A, thickness dh and density ρ at height h (Figure 1). Pressure p pushes up on its bottom face; pressure p + dp pushes down on its top face; gravity pulls down on its mass ρ A dh.
 
-```
-            p + dp   (pushes down on top face)
-        ┌─────────────────────┐   ▲
-        │   slab, density ρ   │   │ dh
-        └─────────────────────┘   ▼
-            p        (pushes up on bottom face)
-                 weight = ρ g A dh
-```
+![A thin horizontal slab of air of area A, thickness dh and density ρ. Pressure p + dp pushes down on its top face, pressure p pushes up on its bottom face, and its weight ρ g A dh acts downward; height h increases upward.](figures/hydrostatic-slab.svg)
+*Figure 1. Forces on a still slab of air. The bottom face is pushed up harder than the top face is pushed down, and that difference, −dp A, is what holds up the weight ρ g A dh.*
 
 **Assumption 1 (hydrostatic equilibrium):** the slab does not accelerate vertically. Then the forces balance:
 

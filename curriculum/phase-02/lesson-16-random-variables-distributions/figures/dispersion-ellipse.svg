@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-labelledby="title">
+  <title id="title">The 1σ landing-dispersion ellipse in down-range x and cross-range y. Its semi-axes are 485 m and 126 m and its major axis is tilted 14.8° from the down-range axis toward positive cross-range.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <line class="axis" x1="40.0" y1="200.0" x2="660.0" y2="200.0" marker-end="url(#ah-blue)"/>
+  <text x="660.0" y="222.0" class="t-blue" text-anchor="end">down-range x</text>
+  <line class="axis" x1="340.0" y1="330.0" x2="340.0" y2="40.0" marker-end="url(#ah-blue)"/>
+  <text x="350.0" y="50.0" class="t-blue">cross-range y</text>
+  <ellipse class="body-2" cx="340" cy="200" rx="271.6" ry="70.6" transform="rotate(-14.8 340 200)" style="fill-opacity:0.6"/>
+  <line class="thin dash" x1="77.4" y1="269.4" x2="602.6" y2="130.6"/>
+  <line class="thin dash" x1="322.0" y1="131.8" x2="358.0" y2="268.2"/>
+  <line class="thin" x1="602.6" y1="128.6" x2="610.6" y2="96.6"/>
+  <text x="610.6" y="72.6" text-anchor="middle">major axis</text>
+  <text x="610.6" y="89.6" class="note" text-anchor="middle">semi-axis 485 m</text>
+  <line class="thin" x1="322.0" y1="131.8" x2="292.0" y2="81.8"/>
+  <text x="288.0" y="75.8" class="note" text-anchor="end">minor semi-axis 126 m</text>
+  <path class="thin" d="M510,200 A170,170 0 0 0 504.4,156.6"/>
+  <text x="516.0" y="186.0">14.8°</text>
+  <text x="430.0" y="300.0" class="head">1σ ellipse (k = 1): contains 39.35 %</text>
+  <text x="430.0" y="318.0" class="note">σ_x = 469.6 m, σ_y = 173.3 m, ρ = 0.664</text>
+  <circle class="dot" cx="340.0" cy="200.0" r="3.5"/>
+</svg>

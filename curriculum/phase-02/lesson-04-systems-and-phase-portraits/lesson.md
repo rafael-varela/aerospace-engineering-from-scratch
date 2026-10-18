@@ -65,17 +65,8 @@ The factor t is the same one that appeared in the critically damped oscillator (
 
 Collect the cases (Lecture 27, notes 35). For an **isolated** fixed point (Δ ≠ 0):
 
-```
-                 Δ
-                 ▲          τ² = 4Δ  (parabola)
-   stable        │        unstable
-   spirals   ╲   │   ╱    spirals             center on the Δ axis (τ = 0, Δ > 0)
-              ╲  │  ╱
-   stable      ╲ │ ╱      unstable            degenerate nodes / stars ON the parabola
-   nodes        ╲│╱       nodes
-  ───────────────┼─────────────────▶ τ
-            saddles (Δ < 0)                   non-isolated fixed points ON the τ axis (Δ = 0)
-```
+![The trace–determinant plane with trace τ horizontal and determinant Δ vertical. Below the τ axis (Δ < 0) are saddles. Above it the parabola τ² = 4Δ separates spirals (inside, above) from nodes (outside, below); the left half (τ < 0) is stable and the right half unstable. Centers lie on the positive Δ axis, degenerate nodes and stars on the parabola, and non-isolated fixed points on the τ axis.](figures/trace-determinant-plane.svg)
+*Figure 1. The trace–determinant plane. The determinant decides saddle or not, the sign of the trace decides stable or not, and the parabola τ² = 4Δ separates spirals from nodes.*
 
 - **Δ < 0: saddle.** Two real eigenvalues of opposite sign. Trajectories approach along the stable eigenvector, leave along the unstable one, and every other trajectory ends up parallel to the unstable direction. Always unstable.
 - **Δ > 0, τ² > 4Δ: node.** Two real eigenvalues of the same sign: stable if τ < 0, unstable if τ > 0. Trajectories are tangent to the *slow* eigenvector (smaller |λ|) at the origin.

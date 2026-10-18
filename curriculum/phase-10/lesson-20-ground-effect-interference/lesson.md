@@ -37,11 +37,8 @@ w = Γ(y − y₀)/(2πr²),  v = −Γ(z − z₀)/(2πr²),  r² = (y − y₀
 
 Put one vortex at height h and another of strength −Γ at −h. On the plane z = 0 both have the same r and the same y − y₀, so their w cancel exactly; their v add, which is allowed, because the ground only forbids flow *through* it. In three dimensions the same holds element by element for Biot–Savart: reflect every point of a filament in the plane and reverse its circulation, and on the plane the image's velocity is the mirror image of the original's, with the opposite vertical component (the proof with the reflection matrix is in the worked solutions, Problem 2). So the ground is modelled by a mirror-image lattice at z → −z with Γ → −Γ. The lesson's 16.100 reading (Lecture 33, "Ground Effect Using Single Vortex Model") builds exactly this for one horseshoe; Wieselsberger did it with Prandtl's wing theory in 1922 (`@ntrs-naca-tm-77-wieselsberger-ground`).
 
-```
-            wing at height h:   ●━━━━━━━━━━━━━━━━━━━━━━━●     (Γ, trailing legs to +x)
-   ground z = 0  ═════════════════════════════════════════════   w = 0 here
-            image at −h:        ○━━━━━━━━━━━━━━━━━━━━━━━○     (−Γ)
-```
+![Front view, looking upstream, of a wing at height h above the ground plane z = 0, its trailing vortices of circulation Γ seen end-on at the tips, and its mirror image at −h with circulation −Γ and the opposite sense of rotation. At a point on the ground the velocities induced by a tip vortex and its image have equal and opposite vertical parts, so their sum lies along the ground.](figures/ground-image-vortices.svg)
+*Figure 1. The image system. Reflecting the lattice in z = 0 and reversing Γ cancels the normal velocity everywhere on the plane, so the ground needs no boundary condition of its own.*
 
 ### 2.2 One horseshoe, in closed form
 

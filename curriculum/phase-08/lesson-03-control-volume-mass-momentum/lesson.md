@@ -51,17 +51,8 @@ Here u_n is the normal velocity relative to the face (positive out) and u_x is t
 
 Work in the engine's frame: air approaches at V₀ along +x (the aircraft flies towards −x). Draw a cylinder of cross-section A_box around the engine, far enough upstream that the air is undisturbed, and with its exit plane at the nozzle exit.
 
-```
-            side face: n_x = 0, carries ṁ_side with u_x = V₀
-      ┌─────────────────────────────────────────────┐
-  →   │                                             │ →  ambient, V₀, p_a   (area A_box − A_e)
-  → V₀│        ┌──────────── engine ─────────┐      │
-  → p_a   ───► │  intake  compressor  burner  nozzle├════► jet: V_e, p_e, ρ_e  (area A_e)
-  →   │        └─────────────┬───────────────┘      │ →
-  →   │                      │ pylon (cut): force F │ →
-      └──────────────────────┴──────────────────────┘
-      inlet face: n_x = −1, A_box       fuel line: n_x = 0, fṁ_a in with u_x = 0
-```
+![A control-volume box of cross-section A_box around a turbojet in the engine frame. Air at V₀ and p_a enters through the inlet face (n_x = −1); the side face (n_x = 0) carries ṁ_side with u_x = V₀; the exit plane at the nozzle exit carries the jet (V_e, p_e, ρ_e, area A_e) and ambient flow over area A_box − A_e. The cut pylon carries force F and the fuel line brings in f ṁ_a with no x-velocity.](figures/turbojet-control-volume.svg)
+*Figure 1. Control volume around a turbojet, in the engine frame. The side face carries mass although its normal has no x-component; leave it out and the mass balance fails and the thrust depends on the box size.*
 
 **Mass** (2), face by face: inlet −ρ₀V₀A_box; jet ṁ_e = (1 + f)ṁ_a; outer exit ρ₀V₀(A_box − A_e); fuel −fṁ_a. The side face must carry the rest:
 

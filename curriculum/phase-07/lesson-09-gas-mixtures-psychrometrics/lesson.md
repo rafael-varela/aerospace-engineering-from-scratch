@@ -121,13 +121,8 @@ The condensing water gives up its latent heat, so cooling humid air costs far mo
 
 ### 2.6 The cabin and its ECS
 
-```
- outside 11 km          engine bleed         pack (cools)          mixing manifold                cabin 22 C, 75.3 kPa
- 216.65 K, 22.6 kPa --> 200 C (illustr.) --> T_pack, w_out  -----> T_supply, w_supply --------> T_cabin, w_cabin ----> outflow valve
- w_out ~ 5e-5                                    m_fresh            ^      m_supply = m_f + m_r     + Q_sens, + m_water     m_fresh overboard
-                                                                    |                                         |
-                                                                    +-------- recirculation m_r <-------------+
-```
+![Cabin air system: outside air at 11 km (216.65 K, 22.6 kPa, ω_out about 5 × 10⁻⁵) is taken as engine bleed at about 200 °C, cooled in the pack, and the fresh flow ṁ_f joins the recirculated flow ṁ_r in the mixing manifold. The supply ṁ_s = ṁ_f + ṁ_r enters the cabin (22 °C, 75.3 kPa), which adds Q_sens and water ṁ_w; ṁ_f leaves overboard through the outflow valve. A dashed control volume encloses the manifold and cabin.](figures/cabin-ecs.svg)
+*Figure 1. The cabin environmental control system. The recirculation loop lies inside the dashed control volume, so it drops out of the water balance (7): only the fresh flow carries the occupants' water overboard.*
 
 Draw the control volume around the cabin **and** the manifold. Fresh air enters (ṁ_f, ω_out), the occupants add ṁ_w of water, and cabin air leaves through the outflow valve (ṁ_f, ω_cabin); the recirculation loop is inside the boundary and cancels. The water balance is
 

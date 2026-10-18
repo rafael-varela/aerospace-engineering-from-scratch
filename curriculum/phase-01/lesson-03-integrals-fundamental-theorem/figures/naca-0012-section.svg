@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320" role="img" aria-labelledby="title">
+  <title id="title">The NACA 0012 section plotted as y/c against x/c from 0 to 1, symmetric about the chord line, with its maximum thickness t = 0.12 c at x = 0.30 c, so the surfaces reach y/c = ±0.06 there.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <path class="body" d="M90,150 L90.1,147 L90.4,144 L90.9,141.1 L91.5,138.2 L92.4,135.3 L93.4,132.4 L94.7,129.7 L96.1,126.9 L97.7,124.2 L99.5,121.5 L101.5,118.9 L103.7,116.3 L106.1,113.8 L108.6,111.4 L111.3,108.9 L114.2,106.6 L117.3,104.3 L120.5,102.1 L123.9,99.9 L127.5,97.8 L131.3,95.8 L135.2,93.8 L139.2,91.9 L143.5,90.1 L147.9,88.4 L152.4,86.8 L157.1,85.2 L161.9,83.7 L166.9,82.3 L172,81 L177.3,79.8 L182.6,78.6 L188.2,77.6 L193.8,76.6 L199.5,75.7 L205.4,75 L211.4,74.3 L217.5,73.7 L223.7,73.2 L230,72.8 L236.4,72.4 L242.9,72.2 L249.5,72 L256.1,72 L262.8,72 L269.7,72.1 L276.5,72.3 L283.5,72.6 L290.5,72.9 L297.5,73.3 L304.6,73.8 L311.8,74.4 L319,75 L326.2,75.7 L333.5,76.5 L340.7,77.3 L348,78.2 L355.3,79.1 L362.7,80.1 L370,81.2 L377.3,82.3 L384.7,83.4 L392,84.6 L399.3,85.8 L406.5,87.1 L413.8,88.4 L421,89.7 L428.2,91.1 L435.4,92.5 L442.5,93.9 L449.5,95.3 L456.5,96.8 L463.5,98.3 L470.3,99.8 L477.2,101.3 L483.9,102.8 L490.5,104.3 L497.1,105.8 L503.6,107.4 L510,108.9 L516.3,110.4 L522.5,112 L528.6,113.5 L534.6,115 L540.5,116.5 L546.2,118 L551.8,119.5 L557.4,121 L562.7,122.4 L568,123.9 L573.1,125.3 L578.1,126.7 L582.9,128 L587.6,129.3 L592.1,130.6 L596.5,131.9 L600.8,133.1 L604.8,134.3 L608.7,135.5 L612.5,136.6 L616.1,137.7 L619.5,138.7 L622.7,139.7 L625.8,140.7 L628.7,141.6 L631.4,142.4 L633.9,143.2 L636.3,144 L638.5,144.7 L640.5,145.3 L642.3,145.9 L643.9,146.4 L645.3,146.8 L646.6,147.2 L647.6,147.6 L648.5,147.9 L649.1,148.1 L649.6,148.2 L649.9,148.3 L650,148.4 L650.0,151.6 L649.9,151.7 L649.6,151.8 L649.1,151.9 L648.5,152.1 L647.6,152.4 L646.6,152.8 L645.3,153.2 L643.9,153.6 L642.3,154.1 L640.5,154.7 L638.5,155.3 L636.3,156.0 L633.9,156.8 L631.4,157.6 L628.7,158.4 L625.8,159.3 L622.7,160.3 L619.5,161.3 L616.1,162.3 L612.5,163.4 L608.7,164.5 L604.8,165.7 L600.8,166.9 L596.5,168.1 L592.1,169.4 L587.6,170.7 L582.9,172.0 L578.1,173.3 L573.1,174.7 L568.0,176.1 L562.7,177.6 L557.4,179.0 L551.8,180.5 L546.2,182.0 L540.5,183.5 L534.6,185.0 L528.6,186.5 L522.5,188.0 L516.3,189.6 L510.0,191.1 L503.6,192.6 L497.1,194.2 L490.5,195.7 L483.9,197.2 L477.2,198.7 L470.3,200.2 L463.5,201.7 L456.5,203.2 L449.5,204.7 L442.5,206.1 L435.4,207.5 L428.2,208.9 L421.0,210.3 L413.8,211.6 L406.5,212.9 L399.3,214.2 L392.0,215.4 L384.7,216.6 L377.3,217.7 L370.0,218.8 L362.7,219.9 L355.3,220.9 L348.0,221.8 L340.7,222.7 L333.5,223.5 L326.2,224.3 L319.0,225.0 L311.8,225.6 L304.6,226.2 L297.5,226.7 L290.5,227.1 L283.5,227.4 L276.5,227.7 L269.7,227.9 L262.8,228.0 L256.1,228.0 L249.5,228.0 L242.9,227.8 L236.4,227.6 L230.0,227.2 L223.7,226.8 L217.5,226.3 L211.4,225.7 L205.4,225.0 L199.5,224.3 L193.8,223.4 L188.2,222.4 L182.6,221.4 L177.3,220.2 L172.0,219.0 L166.9,217.7 L161.9,216.3 L157.1,214.8 L152.4,213.2 L147.9,211.6 L143.5,209.9 L139.2,208.1 L135.2,206.2 L131.3,204.2 L127.5,202.2 L123.9,200.1 L120.5,197.9 L117.3,195.7 L114.2,193.4 L111.3,191.1 L108.6,188.6 L106.1,186.2 L103.7,183.7 L101.5,181.1 L99.5,178.5 L97.7,175.8 L96.1,173.1 L94.7,170.3 L93.4,167.6 L92.4,164.7 L91.5,161.8 L90.9,158.9 L90.4,156.0 L90.1,153.0 L90.0,150.0 Z"/>
+  <line class="axis" x1="70" y1="150" x2="690" y2="150" marker-end="url(#ah-blue)"/>
+  <text x="690" y="140" class="t-blue" text-anchor="end"><tspan class="sym">x</tspan>/<tspan class="sym">c</tspan></text>
+  <line class="axis" x1="90" y1="260" x2="90" y2="30" marker-end="url(#ah-blue)"/>
+  <text x="100" y="42" class="t-blue"><tspan class="sym">y</tspan>/<tspan class="sym">c</tspan></text>
+  <line class="thin" x1="84" y1="72" x2="90" y2="72"/>
+  <text x="80" y="76" class="note" text-anchor="end">0.06</text>
+  <line class="thin" x1="84" y1="228" x2="90" y2="228"/>
+  <text x="80" y="232" class="note" text-anchor="end">−0.06</text>
+  <line class="thin" x1="90" y1="250" x2="90" y2="256"/>
+  <text x="90" y="274" class="note" text-anchor="middle">0</text>
+  <line class="thin" x1="258" y1="250" x2="258" y2="256"/>
+  <text x="258" y="274" class="note" text-anchor="middle">0.3</text>
+  <line class="thin" x1="370" y1="250" x2="370" y2="256"/>
+  <text x="370" y="274" class="note" text-anchor="middle">0.5</text>
+  <line class="thin" x1="510" y1="250" x2="510" y2="256"/>
+  <text x="510" y="274" class="note" text-anchor="middle">0.75</text>
+  <line class="thin" x1="650" y1="250" x2="650" y2="256"/>
+  <text x="650" y="274" class="note" text-anchor="middle">1</text>
+  <line class="thin" x1="90" y1="250" x2="650" y2="250"/>
+  <line class="thin" x1="258" y1="74" x2="258" y2="226" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <line class="thin dash" x1="258" y1="228" x2="258" y2="250"/>
+  <text x="268" y="60">max thickness <tspan class="sym">t</tspan> = 0.12 <tspan class="sym">c</tspan> at <tspan class="sym">x</tspan> = 0.30 <tspan class="sym">c</tspan></text>
+  <text x="650" y="306" class="note" text-anchor="end">NACA 0012; vertical scale exaggerated 2.3×</text>
+</svg>

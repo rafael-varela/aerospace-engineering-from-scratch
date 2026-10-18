@@ -207,20 +207,8 @@ There is no established library for this job, so the comparison is against a hum
 
 A safety box is easier to write with the floor plan in front of you. Sketch yours; the drop test's looks like this from above:
 
-```
-   ┌──────────────────────────────────────────────┐
-   │  wall with height marks                      │
-   │     ●  release point (ball drops here)       │
-   │   ╭────╮                                     │
-   │  (  mat )  ← 1 m exclusion circle: nobody    │
-   │   ╰────╯     inside it while a ball is held  │
-   │                                              │
-   │             ▣ phone on stand, 1.5 m away     │
-   │                                              │
-   │  ✕ experimenter stands here, outside circle  │
-   │  door closed ──────────────────────────────  │
-   └──────────────────────────────────────────────┘
-```
+![Plan view of the drop-test room: a wall with height marks along one side; the release point just in front of it, above a mat; a dashed 1 m exclusion circle around the mat that nobody enters while a ball is held; the phone on a stand 1.5 m from the impact point; the experimenter standing outside the circle; and a closed door.](figures/drop-test-floor-plan.svg)
+*Figure 1. The drop test’s floor plan. Each physical control in the safety box (the mat, the exclusion circle, the phone’s distance, the closed door) appears in the drawing.*
 
 Every control in the box should be visible in this picture (the mat, the circle, the distance to the phone, the closed door) or be something a person wears or does (glasses, the "clear" call). If a control cannot be drawn or acted, it is probably a wish, not a control.
 

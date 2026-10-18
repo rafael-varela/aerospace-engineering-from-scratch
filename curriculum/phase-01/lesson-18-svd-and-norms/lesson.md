@@ -89,10 +89,8 @@ In floating point the data error is at least the rounding of the entries, ε_mac
 
 ### 2.5 The stiffness matrix of a bar and its exact condition number
 
-```
-   clamp ║──k₁──●──k₂──●──k₃──●── … ──k_n──●──▶ f_n
-         ║      u₁     u₂     u₃          u_n
-```
+![A bar modelled as n springs in series: a clamp at the left, springs k1, k2, k3 up to kn joining nodes with displacements u1, u2, u3 up to un, and a load fn applied at the last node.](figures/clamped-spring-chain.svg)
+*Figure 1. The bar as n springs in series from a clamp. Element i joins nodes i − 1 and i, and the load f_n acts at the last node.*
 
 Element i joins nodes i − 1 and i with stiffness k_i = EA_i/L_i (N/m: Pa × m² / m). Equilibrium of node i (free body: the two springs pulling on it and the applied load f_i) gives k_i(u_i − u_{i−1}) − k_{i+1}(u_{i+1} − u_i) = f_i, with u₀ = 0 at the clamp and no k_{n+1} beyond the last node. In matrix form K**u** = **f** with K tridiagonal: K_ii = k_i + k_{i+1}, K_{i,i+1} = −k_{i+1}. K is symmetric and, with the clamp, positive definite. Two sanity checks the tests use: a rigid shift **u** = (1, 1, …, 1) loads only the clamp, K**1** = (k₁, 0, …, 0); and a tip load F gives tip displacement F Σ 1/k_i (springs in series), which for the uniform bar is FL/(EA) = 1000 × 1/(70 × 10⁹ × 10⁻⁴) = 0.1429 mm.
 

@@ -40,14 +40,8 @@ Put x along the beam from its left end. Take **forces positive up**, **distribut
 
 With these choices M(x) is the sum of the moments, about the cut, of the forces on the left part taken clockwise positive, minus any counterclockwise couples on the left part. Sign conventions differ between books (Baker & Haynes 8.2 takes downward loads positive); any convention works if it is stated and kept.
 
-```
-      w(x) (up +)                         V on the left part's cut face is
-   ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑                        the sum of the upward forces to the left
-  ┌────────────────┐┊┌─────────
-  │   left part    │┊│  right part           M(x) > 0: sagging   ‿
-  └────────────────┘┊└─────────              M(x) < 0: hogging   ⁀
-  ↑ R_A             x
-```
+![A beam cut at distance x from its left end into a left part and a right part. The left part carries an upward distributed load w(x) and the reaction R_A at its end; on its cut face the shear V acts downward and the moment M counterclockwise, and on the right part's face V acts upward and M clockwise. Below, a positive moment bends a beam concave up (sagging) and a negative one concave down (hogging).](figures/shear-moment-sign-convention.svg)
+*Figure 1. The sign convention of this lesson. V and M act in opposite senses on the two faces of the same cut (Newton's third law); a positive M is the one that makes the beam sag.*
 
 ### 2.2 Reactions and determinacy
 

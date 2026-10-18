@@ -15,7 +15,7 @@ import * as T from "./templates.mjs";
 
 const siteDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const repoDir = path.resolve(siteDir, "..");
-const outDir = path.join(siteDir, "dist");
+const outDir = process.env.SITE_OUT ? path.resolve(process.env.SITE_OUT) : path.join(siteDir, "dist");
 const curriculumDir = path.join(repoDir, "curriculum");
 
 if (!fs.existsSync(curriculumDir)) {
@@ -85,6 +85,7 @@ for (const phaseDir of ls("curriculum").filter((d) => /^phase-\d\d$/.test(d))) {
 
 // ---- link resolution shared by every page ----
 const mediaCopies = new Map();
+const missingImages = new Set();
 const site = {
   repoDir,
   lessonById: (id) => lessonsById.get(id),
@@ -96,6 +97,7 @@ const site = {
     m = /^curriculum\/(phase-\d\d)(?:\/README\.md)?$/.exec(t);
     if (m && phases.some((p) => p.dir === m[1])) return `/curriculum/${m[1]}/${h}`;
     if (/^curriculum(\/README\.md)?$/.test(t)) return `/curriculum/${h}`;
+    if (/\.(png|jpe?g|gif|svg|webp)$/i.test(t) && !exists(t)) missingImages.add(t);
     if (/\.(png|jpe?g|gif|svg|webp)$/i.test(t) && exists(t)) {
       mediaCopies.set(t, `/media/${t}`);
       return `/media/${t}`;
@@ -254,4 +256,8 @@ for (const [srcPath, url] of mediaCopies) copy(path.join(repoDir, srcPath), path
 
 const count = phases.reduce((n, p) => n + p.lessons.length, 0);
 for (const w of warnings) console.warn(`warning: ${w}`);
+if (missingImages.size) {
+  for (const m of missingImages) console.error(`error: image not found: ${m}`);
+  process.exit(1);
+}
 console.log(`Built ${phases.length} phases and ${count} lesson pages into ${path.relative(repoDir, outDir)}/`);

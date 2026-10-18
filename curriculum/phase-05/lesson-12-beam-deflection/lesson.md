@@ -49,13 +49,8 @@ The **boundary conditions** come from what each support prevents:
 | pinned (simple support) | w = 0, M = EI w″ = 0 | no deflection, free to rotate |
 | free | M = EI w″ = 0, V = (EI w″)′ = 0 | nothing applies a moment or a force |
 
-```
-  clamped ─ free (cantilever)        pinned ─ pinned                  clamped ─ pinned (propped)
-  ▌                                   △                       △        ▌                        △
-  ▌═════════════╗  ↑ w               ═══════════════════════          ▌════════════════════════
-  ▌   q ↑↑↑↑↑↑↑  ╚═══ tip            w = 0, M = 0 at both ends         w = w′ = 0      w = 0, M = 0
-  w = w′ = 0      M = V = 0
-```
+![Three beams and their boundary conditions: a cantilever clamped at the left (w = w′ = 0) and free at the tip (M = V = 0) under an upward load q, deflecting upward by w; a pinned–pinned beam with w = 0 and M = 0 at both ends; and a propped beam clamped at the left (w = w′ = 0) and pinned at the right (w = 0, M = 0).](figures/beam-boundary-conditions.svg)
+*Figure 1. Each support prescribes two of w, w′, M and V: a clamp fixes deflection and slope, a pin fixes deflection and leaves the moment zero, and a free end carries neither moment nor shear.*
 
 ### 2.2 Integrating by hand: the cantilever
 

@@ -33,16 +33,8 @@ Success criteria, written down first: the hand Jacobian agrees with central diff
 
 ### 2.1 From the compound pendulum to the simple one
 
-```
-          ▲ pivot (knife edge)
-          │╲
-          │ ╲  d = 0.35 m
-          │  ╲
-          │ θ ╲
-          │    ● centre of mass (m = 4.2 kg, I_cg = 0.21 kg m²)
-          ▼
-         m g
-```
+![A rigid body hanging from a knife-edge pivot, swung through angle θ from the vertical. Its centre of mass, of mass m = 4.2 kg and I_cg = 0.21 kg m², is a distance d = 0.35 m from the pivot; the weight m g acts straight down at the centre of mass with lever arm d sin θ about the pivot.](figures/compound-pendulum.svg)
+*Figure 1. The swing test as a compound pendulum. The weight acts at the centre of mass with lever arm d sin θ, so its moment about the pivot is −m g d sin θ. θ is drawn larger than a test swing.*
 
 **Assumption 1 (rigid body, planar swing, frictionless pivot).** The moment of gravity about the pivot is −m g d sin θ, so Newton's second law for rotation gives I_pivot θ̈ = −m g d sin θ − c θ̇, with c a viscous damping coefficient [N m s]. Divide by I_pivot:
 

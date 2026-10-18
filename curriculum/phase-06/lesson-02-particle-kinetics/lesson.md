@@ -33,14 +33,8 @@ Success criteria, written first: the closed-form altitude loss and time match `s
 
 Treat the aircraft as a particle of mass m moving in a vertical plane at speed V, with flight-path angle γ (positive climbing). Four forces act: the weight W = mg down; the lift L perpendicular to the velocity, in the plane; the thrust T and the drag D along the velocity (assume the thrust line is close to the flight path).
 
-```
-                 L (across the path)
-                 ↑
-                 │      T →  (along the path)
-   ← D ──────────●────────────→ V, at angle γ above horizontal
-                 │
-                 ↓ W = m g (vertical, at angle γ from the path normal)
-```
+![Free-body diagram of the aircraft as a particle of mass m on a flight path climbing at angle γ above the horizontal: the velocity V, thrust T and drag D lie along the path, the lift L is perpendicular to it, and the weight W = m g is vertical, at angle γ from the path normal.](figures/path-coordinates-fbd.svg)
+*Figure 1. Path coordinates: T and D act along the velocity, L across it, and only the weight has components on both axes, −W sin γ along the path and −W cos γ across it, as in (1).*
 
 Use path coordinates (`P06.01`): e_t along the velocity and e_n perpendicular to it, toward the centre of curvature of a pull-up. The acceleration is a = V̇ e_t + V γ̇ e_n, because the velocity direction turns at γ̇ and V γ̇ = V²/ρ is the normal acceleration (16.07 L6, "Equations of Motion in Intrinsic Coordinates"). The weight has components −W sin γ along e_t and −W cos γ along e_n. Newton's second law along each axis:
 

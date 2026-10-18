@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-labelledby="title">
+  <title id="title">Focus–directrix construction: the focus F (Earth’s centre) at the origin, the directrix the vertical line x = −d, and a point P = (r, θ) at distance r from F at polar angle θ; the horizontal distance from P to the directrix is d + r cos θ.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <line class="axis" x1="40" y1="250" x2="690" y2="250" marker-end="url(#ah-blue)"/>
+  <text x="690" y="240" class="sym t-blue" text-anchor="end">x</text>
+  <line class="line" x1="130" y1="30" x2="130" y2="310"/>
+  <text x="120" y="46" text-anchor="end">directrix</text>
+  <text x="120" y="66" text-anchor="end"><tspan class="sym">x</tspan> = −<tspan class="sym">d</tspan></text>
+  <line class="force" x1="300" y1="250" x2="453.9" y2="79.1"/>
+  <text x="365" y="162.5" class="sym t-orange" text-anchor="end">r</text>
+  <circle class="dot-o" cx="453.9" cy="79.1" r="5"/>
+  <text x="465.9" y="71.1"><tspan class="sym">P</tspan> = (<tspan class="sym">r</tspan>, <tspan class="sym">θ</tspan>)</text>
+  <line class="thin dash" x1="453.9" y1="79.1" x2="453.9" y2="250"/>
+  <path class="thin" d="M352,250 A52,52 0 0 0 334.8,211.4"/>
+  <text x="360" y="232" class="sym">θ</text>
+  <circle class="dot" cx="300" cy="250" r="5.5"/>
+  <text x="292" y="272" class="sym" text-anchor="end">F</text>
+  <line class="thin" x1="132" y1="65.1" x2="451.9" y2="65.1" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <line class="thin" x1="453.9" y1="75.1" x2="453.9" y2="55.1"/>
+  <text x="292" y="57.1" text-anchor="middle">distance to directrix = <tspan class="sym">d</tspan> + <tspan class="sym">r</tspan> cos <tspan class="sym">θ</tspan></text>
+  <line class="thin" x1="132" y1="286" x2="298" y2="286" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <text x="215" y="280" class="sym" text-anchor="middle">d</text>
+  <line class="thin" x1="302" y1="286" x2="451.9" y2="286" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <text x="377" y="280" text-anchor="middle"><tspan class="sym">r</tspan> cos <tspan class="sym">θ</tspan></text>
+  <line class="thin" x1="300" y1="256" x2="300" y2="296"/>
+  <line class="thin" x1="453.9" y1="256" x2="453.9" y2="296"/>
+  <text x="300" y="322" class="note" text-anchor="middle">F = focus = Earth’s centre, at the origin</text>
+</svg>

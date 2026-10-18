@@ -37,17 +37,8 @@ y_t(x) = 5 t c [0.2969 √(x/c) − 0.1260 (x/c) − 0.3516 (x/c)² + 0.2843 (x/
 
 where t is the maximum thickness as a fraction of chord (0.12 for a NACA 0012). The factor 5t makes the maximum of 2y_t equal to t c, at x = 0.30 c. The coefficients sum to 0.0021, so the trailing edge is not quite closed: 2y_t(c) = 0.0021 × 5 t c = 0.00252 c for t = 0.12. Replacing −0.1015 by −0.1036 closes it; the code offers both.
 
-```
-  y/c
- 0.06 ┤      _______
-      │    /         \______
-      │   /                 \_______
- 0    ┼──┼────────┼────────┼────────┼──▶ x/c       NACA 0012: thickness t = 0.12 c at x = 0.30 c
-      │   \                 /‾‾‾‾‾‾‾
-      │    \_________/‾‾‾‾‾‾
--0.06 ┤
-      0        0.3      0.5      0.75     1
-```
+![The NACA 0012 section plotted as y/c against x/c from 0 to 1, symmetric about the chord line, with its maximum thickness t = 0.12 c at x = 0.30 c, so the surfaces reach y/c = ±0.06 there.](figures/naca-0012-section.svg)
+*Figure 1. The NACA 0012 section from equation (1), vertical scale exaggerated. The thickness is largest, 0.12 c, at x = 0.30 c; the area between the surfaces is the integral of 2 y_t.*
 
 **Assumption 1 (solid section).** Area and centroid are computed for the full region between the upper and lower surfaces. For a cambered section (camber line y_c(x), maximum camber m at position p), **Assumption 2 (vertical thickness):** upper surface y_c + y_t, lower y_c − y_t. The NACA definition adds the thickness perpendicular to the camber line; the difference in the area is of order (y_t · dy_c/dx)² and is below 0.1 % for 2 % camber, but it is an assumption and it is stated.
 

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 415" width="720" height="415" role="img" aria-labelledby="title">
+  <title id="title">Velocity triangle of a blade element at radius r, seen from the blade tip, with the flight direction up and the blade moving left. The tangential component Ωr − u_t and the axial component V + u_a add to the relative velocity W, which meets the plane of rotation at the inflow angle φ. The chord line is at the blade pitch β to the plane of rotation, so the angle of attack is α = β − φ. Lift dL is perpendicular to W and drag dD lies along it.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <line class="thin dash" x1="40.0" y1="215.0" x2="690.0" y2="215.0"/>
+  <text x="690.0" y="207.0" class="note" text-anchor="end">plane of rotation</text>
+  <line class="thin dash" x1="168.2" y1="97.4" x2="540.3" y2="367.8"/>
+  <text x="162.2" y="91.4" class="note" text-anchor="middle">chord line</text>
+  <path class="body" d="M565.0,215.0 L564.8,215.0 L564.4,214.8 L563.6,214.6 L562.4,214.2 L561.0,213.8 L559.2,213.3 L557.2,212.7 L554.8,212.0 L552.2,211.3 L549.3,210.5 L546.0,209.6 L542.6,208.7 L538.8,207.7 L534.8,206.7 L530.6,205.7 L526.1,204.7 L521.4,203.7 L516.6,202.6 L511.5,201.6 L506.2,200.6 L500.8,199.6 L495.3,198.7 L489.6,197.8 L483.8,196.9 L477.9,196.1 L471.9,195.4 L465.9,194.7 L459.8,194.1 L453.6,193.6 L447.5,193.2 L441.4,192.8 L435.2,192.6 L429.1,192.4 L423.1,192.3 L417.1,192.4 L411.2,192.5 L405.4,192.7 L399.7,193.1 L394.2,193.5 L388.8,194.0 L383.5,194.6 L378.4,195.3 L373.6,196.1 L368.9,196.9 L364.4,197.8 L360.2,198.8 L356.2,199.8 L352.4,200.9 L349.0,202.1 L345.7,203.2 L342.8,204.4 L340.2,205.6 L337.8,206.8 L335.8,208.0 L334.0,209.2 L332.6,210.4 L331.4,211.6 L330.6,212.8 L330.2,213.9 L330.0,215.0 L330.2,216.1 L330.6,217.0 L331.4,217.9 L332.6,218.8 L334.0,219.5 L335.8,220.2 L337.8,220.8 L340.2,221.3 L342.8,221.7 L345.7,222.1 L349.0,222.4 L352.4,222.6 L356.2,222.7 L360.2,222.8 L364.4,222.8 L368.9,222.7 L373.6,222.6 L378.4,222.4 L383.5,222.2 L388.8,221.9 L394.2,221.6 L399.7,221.3 L405.4,220.9 L411.2,220.5 L417.1,220.1 L423.1,219.7 L429.1,219.3 L435.2,218.8 L441.4,218.4 L447.5,218.0 L453.6,217.6 L459.8,217.3 L465.9,216.9 L471.9,216.6 L477.9,216.3 L483.8,216.1 L489.6,215.8 L495.3,215.6 L500.8,215.4 L506.2,215.3 L511.5,215.2 L516.6,215.1 L521.4,215.0 L526.1,214.9 L530.6,214.9 L534.8,214.8 L538.8,214.8 L542.6,214.8 L546.0,214.8 L549.3,214.8 L552.2,214.9 L554.8,214.9 L557.2,214.9 L559.2,214.9 L561.0,214.9 L562.4,215.0 L563.6,215.0 L564.4,215.0 L564.8,215.0 L565.0,215.0 Z" transform="rotate(36.00 330 215)"/>
+  <line class="axis" x1="135.3" y1="136.3" x2="328.0" y2="136.3" marker-end="url(#ah-blue)"/>
+  <line class="axis" x1="330.0" y1="136.3" x2="330.0" y2="206.0" marker-end="url(#ah-blue)"/>
+  <line class="axis" x1="135.3" y1="136.3" x2="323.5" style="stroke-width:2.5" y2="212.4" marker-end="url(#ah-blue)"/>
+  <text x="277.6" y="126.3" text-anchor="middle" class="sym t-blue">Ωr − u<tspan dy="4" font-size="13">t</tspan></text>
+  <text x="340.0" y="177.7" class="sym t-blue">V + u<tspan dy="4" font-size="13">a</tspan></text>
+  <text x="272.6" y="209.7" class="sym t-blue">W</text>
+  <path class="thin" d="M 199.3,136.3 A 64,64 0 0 1 194.6,160.3"/>
+  <text x="205.3" y="154.3" class="sym">φ</text>
+  <path class="thin" d="M 180.0,215.0 A 150,150 0 0 1 208.6,126.8"/>
+  <text x="171.7" y="177.2" class="sym" text-anchor="middle">β</text>
+  <path class="thin" d="M 241.9,179.4 A 95,95 0 0 1 253.1,159.2"/>
+  <text x="260.9" y="182.7" class="sym" text-anchor="middle">α</text>
+  <line class="force" x1="377.5" y1="249.5" x2="422.5" y2="138.3" marker-end="url(#ah-orange)"/>
+  <text x="430.5" y="142.3" class="sym t-orange">dL</text>
+  <text x="430.5" y="158.3" class="note t-orange">⟂ W</text>
+  <line class="force" x1="377.5" y1="249.5" x2="444.3" y2="276.5" marker-end="url(#ah-orange)"/>
+  <text x="452.3" y="268.5" class="sym t-orange">dD</text>
+  <circle class="dot" cx="377.5" cy="249.5" r="3.5"/>
+  <line class="line" x1="650.0" y1="150.0" x2="650.0" y2="70.0" marker-end="url(#ah-ink)"/>
+  <text x="642.0" y="64.0" class="note" text-anchor="end">axis: flight</text>
+  <text x="642.0" y="80.0" class="note" text-anchor="end">direction, thrust</text>
+  <line class="line" x1="150.0" y1="330.0" x2="70.0" y2="330.0" marker-end="url(#ah-ink)"/>
+  <text x="160.0" y="335.0" class="note">blade moves at Ωr</text>
+  <text x="40.0" y="382.0" class="note">W: velocity of the air relative to the blade section; β: blade pitch, β = α + φ.</text>
+  <text x="40.0" y="400.0" class="note">Drawn with φ = 22° and β = 36°, so α = 14°.</text>
+  <text x="40.0" y="30.0" class="head">Blade section at radius r, seen from the blade tip</text>
+</svg>

@@ -33,16 +33,8 @@ Success criterion: an exact expression for $v(t)$ and $x(t)$ that satisfies the 
 
 Take **downward as positive** and let $v$ be the speed (so $v \ge 0$ while falling). Two forces act: weight $mg$ downward, and aerodynamic drag $D = \tfrac12\rho C_D A v^2$ opposing the motion, i.e. upward.
 
-```
-            ▲  D = k v²   (drag, opposes the motion)
-            │
-         ┌──┴──┐
-         │  m  │   package: mass m, frontal area A, drag coefficient C_D
-         └──┬──┘
-            │
-            ▼  m g       (weight)
-            ▼  v > 0     (downward positive; the body is falling)
-```
+![Free-body diagram of a falling package of mass m, frontal area A and drag coefficient C_D: drag D = k v² acts upward, opposing the motion, and weight m g acts downward; the speed v is positive downward, the direction taken as positive.](figures/falling-package-fbd.svg)
+*Figure 1. Forces on the falling package, with downward taken as positive. Drag points up and grows as v², so it eventually balances the constant weight.*
 
 Define the **drag constant**
 

@@ -33,15 +33,8 @@ This lesson derives the stress from the geometry of bending, applies it to the s
 
 Cut the wing at a span station y (measured from the root) and keep the outboard piece. Its free-body diagram has the lift w(η) on η from y to the tip s, and on the cut face a shear force V and a bending moment M from the inboard wing. Vertical equilibrium gives V(y) = ∫ᵧˢ w dη, the lift outboard of the cut; moment equilibrium about the cut gives M(y) = ∫ᵧˢ w(η)(η − y) dη. Differentiating, dV/dy = −w and dM/dy = −V.
 
-```
-            lift w(η) on the outboard piece
-         ↑   ↑   ↑   ↑   ↑   ↑   ↑  ↑ ↑
-  M ↻ ┌──────────────────────────────────┐ tip, y = s
-      │                                  │
-  V ↓ └──────────────────────────────────┘
-      cut at y            η →
-  (forces the inboard wing exerts on the outboard piece)
-```
+![The piece of wing outboard of a cut at span station y, out to the tip at y = s, with the lift w(η) acting upward along it and falling to zero at the tip; on the cut face the inboard wing exerts a downward shear force V and a clockwise bending moment M.](figures/outboard-wing-fbd.svg)
+*Figure 1. Free-body diagram of the outboard wing. The lift outboard of the cut must be held by a downward V and a clockwise M from the inboard wing; that M is positive (sagging) in this lesson's convention.*
 
 (V here is the lift outboard of the cut, positive up; `P05.09`'s V is the upward force to the left of the cut, which is −V, so its relation dM/dx = V is the same statement.) **M is positive when it compresses the top of the beam (sagging), and lift on a cantilever wing gives positive M.** That is equilibrium, the first of the three ingredients of the phase. Compatibility and the constitutive law come next.
 
@@ -53,16 +46,9 @@ Take a short slice of beam of length dx and assume, with Bernoulli, that **plane
 
 with κ = 1/ρ the curvature. The strain is linear in y: fibres above the neutral axis shorten, fibres below stretch.
 
-```
-   section (I-spar)        strain ε = −κy        stress σ = −Eκy
-   ┌───────────┐  y = +c       ←── shortens        ◄═══ compression (top cap)
-   └────┬┬─────┘
-        ││
-  ──────││──────  y = 0  neutral axis: no strain, no stress
-        ││
-   ┌────┴┴─────┐
-   └───────────┘  y = −c       ──→ stretches        ═══► tension (bottom cap)
-```
+![An I-spar cross-section with y measured up from the neutral axis, from y = +c at the top to y = −c at the bottom, beside the strain ε = −κy and the stress σ = −Eκy across the depth: both are linear in y, zero on the neutral axis, compressive (shortening) at the top cap and tensile (stretching) at the bottom cap under a sagging moment.](figures/bending-strain-stress.svg)
+*Figure 2. Strain and stress vary linearly across the depth and vanish on the neutral axis. Under a sagging moment the top cap is in compression and the bottom cap in tension, and the caps, farthest from the axis, carry the largest stress.*
+
  Nothing about the material has been used yet; (1) is pure geometry.
 
 ### 2.3 Stress and the two resultant conditions (constitutive law and equilibrium)

@@ -42,17 +42,8 @@ A **truss** has only two-force members. A **frame** or **machine** has at least 
 
 The elevator linkage, in side view (x aft, y up), has three multi-force members, each on a fixed pivot: the **stick** (pivot S₀, grip 0.55 m above it, pushrod pin 0.08 m below it), the **bellcrank** (pivot C₀ at x = 1.20 m, arm 1 of 0.08 m pointing down, arm 2 of 0.10 m pointing aft), and the **elevator** (hinge E₀ at (1.38, 0.60) m, horn of 0.08 m pointing forward). Two pushrods, 1.20 m and 0.60 m long, are two-force members. At neutral (stick vertical, φ = 0) the first pushrod is horizontal and the second vertical, each perpendicular to the arms it joins.
 
-```
-   grip
-    |
-    |                                        E0 o==== elevator (chord aft)
-    |                                    H o---'
-    o S0 (stick pivot)                     |  horn 0.08 m
-    |                                      |  pushrod 2 (0.60 m)
-    o Ps ------------ pushrod 1 ------ o B1|
-                                      |    |
-                               C0 o---+----o B2   bellcrank: arm 1 down, arm 2 aft
-```
+![Elevator control linkage in side view at neutral, x aft and y up: the stick pivots at S0 with the grip 0.55 m above and the pushrod pin Ps 0.08 m below; pushrod 1, 1.20 m long and horizontal, joins Ps to arm 1 of a bellcrank pivoted at C0 (x = 1.20 m); arm 2 points aft and pushrod 2, 0.60 m long and vertical, rises to the horn pin H, 0.08 m forward of the elevator hinge E0 at (1.38, 0.60) m.](figures/elevator-linkage.svg)
+*Figure 1. At neutral each pushrod is perpendicular to the arms it joins, which is what makes the small-angle gearing (1) a product of arm ratios. The stick and the bellcrank have equal 0.08 m arms; the horn (0.08 m) is shorter than arm 2 (0.10 m).*
 
 ### 2.2 Kinematics by loop closure
 

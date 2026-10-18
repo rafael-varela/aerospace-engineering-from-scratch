@@ -33,13 +33,8 @@ This lesson derives the shear stress from equilibrium, extends it to thin-walled
 
 Take a slice of beam between stations z and z + dz, where the bending moments are M and M + dM, with dM/dz = −V in the convention of `P05.10` (V the shear carried by the section, the lift outboard of it for the wing). Now cut the slice again horizontally at height y₁ and keep the part above the cut, of area A′. On its two end faces act the bending stresses σ = −My/I and −(M + dM)y/I. They do not balance:
 
-```
-         stations z               z + dz
-           ┌───────────────────────────┐ ← top of section
-  σ(z) ──► │      part above y₁        │ ◄── σ(z + dz)        net push ∝ dM · Q / I
-           └═══════════════════════════┘ ← cut at y₁: shear τ on the cut face (width t)
-                 τ t dz  ──►
-```
+![A slice of beam between stations z and z + dz, cut again at height y1; the part above the cut has bending stresses σ(z) pushing on its left face and slightly larger stresses σ(z + dz) on its right face, both growing linearly with height above the neutral axis, and a shear force τ t dz along the cut face.](figures/shear-from-bending-gradient.svg)
+*Figure 1. Why there is shear: the bending stresses on the two end faces of the part above the cut differ because M changes along the beam, and the only force that can balance the difference is the shear on the horizontal cut face.*
 
 The net axial force on the part is ∫_{A′} (dM y/I) dA = dM Q/I, where **Q = ∫_{A′} y dA** is the first moment of the area beyond the cut about the neutral axis. The only other axial force on the part is the shear stress τ on the horizontal cut face, of width t and length dz. Equilibrium along z gives τ t dz = |dM| Q/I, and with |dM/dz| = V,
 
@@ -106,15 +101,8 @@ Every shear-flow distribution has a resultant force and a moment. The resultant 
 
 **e = b² h² t_f / (4I) = 3b² t_f / (6b t_f + h t_w),**   (6)
 
-```
-        e        web       flange tip
-   S ●←───→│══════════════════►┐     top flange: force F away from the web
-     ↑      │                         (flow linear: zero at the tip, largest at the web)
-   shear    │  web: force S_y up
-   centre   │  (parabolic flow)
-            │◄══════════════════┘     bottom flange: force F toward the web
-                                       F h (couple) = S_y e
-```
+![Channel section with its web on the left and flanges pointing right, carrying a vertical shear S_y. The shear flow runs in from the bottom flange tip, up the web and out to the top flange tip, linear in the flanges and parabolic in the web; it gives a force F away from the web in the top flange, F toward the web in the bottom flange and S_y up in the web. The applied S_y acts at the shear centre, a distance e on the other side of the web.](figures/channel-shear-centre.svg)
+*Figure 2. The shear flow of a channel under S_y. The two flange forces form a couple F h, so the resultant of the flow does not pass through the web but at a distance e behind it: the shear centre lies outside the section.*
 
 
 using I = t_w h³/12 + 2bt_f(h/2)². For a 100 × 40 × 2 mm channel, **e = 14.118 mm** behind the web, while the centroid is 8.889 mm in front of it. A load through the centroid is 23.01 mm from the shear centre and twists the channel with 23.01 N·mm per newton of load.

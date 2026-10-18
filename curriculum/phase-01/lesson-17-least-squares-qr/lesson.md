@@ -39,18 +39,8 @@ The data are simulated: the module generates them from a known polar (C_D0 = 0.0
 
 The projection of **b** onto the line through **a** is the point p = x**a** that is closest to **b**. Closest means the error **e** = **b** − x**a** is perpendicular to **a**: **a**ᵀ(**b** − x**a**) = 0, so x = **a**ᵀ**b**/**a**ᵀ**a** and **p** = **a**(**a**ᵀ**b**)/(**a**ᵀ**a**) (`@mit-ocw-18-06-linear-algebra` Lecture 15). Example: **b** = (1, 2, 2) onto **a** = (1, 1, 0): x = 3/2, **p** = (1.5, 1.5, 0), **e** = (−0.5, 0.5, 2), and **e**·**a** = 0. ✓
 
-```
-            b
-            ●
-            │╲
-            │  ╲  e = b − p   (the error: perpendicular to the plane)
-            │    ╲
-   ─────────┼──────●──────────────   column space of A
-           ╱  p = A x̂    ╱            (a plane through the origin when A has 2 columns)
-          ╱   a₁ ──▶    ╱
-         ╱  a₂ ╱       ╱
-        ───────────────
-```
+![A vector b above a plane, the column space of A spanned by the columns a1 and a2; its projection p = A x̂ lies in the plane, and the error e = b − p is perpendicular to the plane.](figures/projection-onto-column-space.svg)
+*Figure 1. Least squares as projection. The closest point p = A x̂ in the column space is the one whose error e = b − p is perpendicular to the plane.*
 
 Now let A be an m×n matrix with independent columns (m > n). Its column space is an n-dimensional subspace of ℝᵐ. The projection of **b** onto it is **p** = A**x̂** for some coefficient vector **x̂**, and "closest" again means the error is perpendicular to the subspace, that is, to *every* column of A:
 

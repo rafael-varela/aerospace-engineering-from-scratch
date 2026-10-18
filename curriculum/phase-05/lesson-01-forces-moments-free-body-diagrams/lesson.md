@@ -101,20 +101,8 @@ Numerically, (7) is a pair of integrals of sampled data: the trapezoidal rule is
 
 Side view, x forward and y up, with the tyre contact point C at the origin:
 
-```
-                 E (0.60, 1.10)  airframe pin of the drag brace
-                /
-  A (0, 1.20)  /      A: trunnion pin, reacts Ax and Ay (no moment)
-     o        /
-     |       /  brace: two-force member, force T along B -> E
-     |      /
-     o B (0, 0.70)
-     |
-     |  leg
-     |
-     o C (0, 0)  tyre contact: ground force (-D, V)
-  ---------------- runway
-```
+![Main landing-gear leg in side view with x forward and y up: the leg runs from the tyre contact C at (0, 0) through the brace pin B at (0, 0.70) to the trunnion pin A at (0, 1.20) m, and a drag brace runs from B to the airframe pin E at (0.60, 1.10) m. The free-body diagram of the leg shows the ground force V up and D aft at C, the trunnion reactions A_x and A_y at A, and the brace force T along B to E, with the moment arm d from A to the brace line.](figures/gear-leg-fbd.svg)
+*Figure 1. The leg is cut free at three places, and each cut becomes a force: two unknowns at the trunnion pin A, one along the two-force brace at B, and the known ground load at C. V passes through A, so a moment balance about A involves only D and T.*
 
 Cut the leg free from the runway, the trunnion and the brace. Each cut becomes a force:
 

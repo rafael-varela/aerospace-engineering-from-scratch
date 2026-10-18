@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" role="img" aria-labelledby="title">
+  <title id="title">Two velocity fields side by side. Left, a point vortex with positive circulation Γ: arrows go counter-clockwise around the centre with tangential speed v_θ = Γ/(2πr). Right, a point source with positive strength q: arrows point radially away from the centre with radial speed v_r = q/(2πr).</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <path class="flow" d="M221.4,180.0 A46,46 0 0 0 221.4,140.0" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M218.0,134.1 A46,46 0 0 0 183.4,114.1" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M176.6,114.1 A46,46 0 0 0 142.0,134.1" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M138.6,140.0 A46,46 0 0 0 138.6,180.0" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M142.0,185.9 A46,46 0 0 0 176.6,205.9" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M183.4,205.9 A46,46 0 0 0 218.0,185.9" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M271.0,146.3 A92,92 0 0 0 265.6,126.4" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M251.9,102.6 A92,92 0 0 0 237.4,88.1" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M213.6,74.4 A92,92 0 0 0 193.7,69.0" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M166.3,69.0 A92,92 0 0 0 146.4,74.4" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M122.6,88.1 A92,92 0 0 0 108.1,102.6" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M94.4,126.4 A92,92 0 0 0 89.0,146.3" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M89.0,173.7 A92,92 0 0 0 94.4,193.6" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M108.1,217.4 A92,92 0 0 0 122.6,231.9" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M146.4,245.6 A92,92 0 0 0 166.3,251.0" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M193.7,251.0 A92,92 0 0 0 213.6,245.6" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M237.4,231.9 A92,92 0 0 0 251.9,217.4" marker-end="url(#ah-blue)"/>
+  <path class="flow" d="M265.6,193.6 A92,92 0 0 0 271.0,173.7" marker-end="url(#ah-blue)"/>
+  <circle class="dot" cx="180" cy="160" r="4"/>
+  <line class="flow" x1="565.3" y1="160" x2="606.7" y2="160" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="552.7" y1="138" x2="573.3" y2="102.3" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="527.3" y1="138" x2="506.7" y2="102.3" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="514.7" y1="160" x2="473.3" y2="160" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="527.3" y1="182" x2="506.7" y2="217.7" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="552.7" y1="182" x2="573.3" y2="217.7" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="618.9" y1="138.9" x2="638.8" y2="133.5" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="597.8" y1="102.2" x2="612.4" y2="87.6" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="561.1" y1="81.1" x2="566.5" y2="61.2" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="518.9" y1="81.1" x2="513.5" y2="61.2" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="482.2" y1="102.2" x2="467.6" y2="87.6" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="461.1" y1="138.9" x2="441.2" y2="133.5" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="461.1" y1="181.1" x2="441.2" y2="186.5" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="482.2" y1="217.8" x2="467.6" y2="232.4" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="518.9" y1="238.9" x2="513.5" y2="258.8" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="561.1" y1="238.9" x2="566.5" y2="258.8" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="597.8" y1="217.8" x2="612.4" y2="232.4" marker-end="url(#ah-blue)"/>
+  <line class="flow" x1="618.9" y1="181.1" x2="638.8" y2="186.5" marker-end="url(#ah-blue)"/>
+  <circle class="dot" cx="540" cy="160" r="4"/>
+  <text x="180" y="30" class="head" text-anchor="middle">vortex (<tspan class="sym">Γ</tspan> &gt; 0)</text>
+  <text x="540" y="30" class="head" text-anchor="middle">source (<tspan class="sym">q</tspan> &gt; 0)</text>
+  <text x="180" y="296" text-anchor="middle"><tspan class="sym">v</tspan><tspan dy="4" font-size="12.5px" font-style="normal">θ</tspan><tspan dy="-4"> = </tspan><tspan class="sym">Γ</tspan>/(2π<tspan class="sym">r</tspan>)</text>
+  <text x="540" y="296" text-anchor="middle"><tspan class="sym">v</tspan><tspan dy="4" font-size="12.5px" font-style="normal">r</tspan><tspan dy="-4"> = </tspan><tspan class="sym">q</tspan>/(2π<tspan class="sym">r</tspan>)</text>
+  <text x="180" y="318" class="note" text-anchor="middle">arrows circulate counter-clockwise</text>
+  <text x="540" y="318" class="note" text-anchor="middle">arrows point away from the centre</text>
+  <text x="360" y="344" class="note" text-anchor="middle">arrow length ∝ 1/<tspan class="sym">r</tspan>: the speed halves when the distance doubles</text>
+</svg>

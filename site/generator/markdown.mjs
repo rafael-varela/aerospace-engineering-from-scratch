@@ -117,6 +117,16 @@ marked.use({
       const t = title ? ` title="${esc(title)}"` : "";
       return `<a href="${esc(url)}"${t}${ext ? ' rel="noopener"' : ""}>${this.parser.parseInline(tokens)}</a>`;
     },
+    // An image alone in a paragraph is a figure; an italic "Figure N. …" line right after it is
+    // its caption (the convention of P00.10 and docs/FIGURES.md).
+    paragraph({ tokens }) {
+      const parts = tokens.filter((t) => !(t.type === "text" && !t.text.trim()) && t.type !== "br");
+      if (parts[0]?.type !== "image" || parts.length > 2) return false;
+      const cap = parts[1];
+      if (cap && !(cap.type === "em" && /^Figure\s/.test(cap.text))) return false;
+      const img = this.parser.parseInline([parts[0]]);
+      return `<figure>${img}${cap ? `<figcaption>${this.parser.parseInline(cap.tokens)}</figcaption>` : ""}</figure>\n`;
+    },
     image({ href, title, text }) {
       const url = resolveHref(href);
       const t = title ? ` title="${esc(title)}"` : "";
