@@ -10,7 +10,7 @@ Worked for **s = 15**. Every number below is produced by `solution.py` (the func
 
 **(c)** `tf_hinf_norm`: G₁ 1.5000000 (bisection) and 1.5 (sweep); G₂ 2.0655911 by both; the sweep locates the peak at 4.6771 rad/s.
 
-**(d)** Not quite. Ms = 2 guarantees *at least* +6.02 dB upward and −3.52 dB downward gain margin, together with at least 29.0° of phase margin, all simultaneously. The actual gain margin may be larger (for the lesson's servo designs it is infinite on the nominal model).
+**(d)** Not quite. Ms = 2 guarantees *at least* +6.02 dB upward and −3.52 dB downward gain margin, and separately at least 29.0° of phase margin. The two hold one at a time: a combined gain-and-phase change is covered only inside the disk |1 − e^{jφ}/k| < 1/Ms = 0.5 (k = 1.9 with φ = 28° is inside both separate bounds but gives 0.590, so it is not covered). The actual gain margin may be larger (for the lesson's servo designs it is infinite on the nominal model).
 
 **Common mistakes.** Taking the peak of the resonance at ω_n (the peak of |G| is below ω_n); quoting only the upward gain margin.
 

@@ -63,6 +63,23 @@ def test_convection_correlation_behaviour():
     assert impl.h_rad_linear(0.1, 310.0, TINF) * 15.85 == pytest.approx(0.1 * impl.SIGMA * (310.0 ** 4 - TINF ** 4), rel=1e-12)
 
 
+def test_convection_correlation_coefficients():
+    # the correlations written out here, with film properties interpolated from Table A.6 (nu, k, alpha
+    # are columns 1-3 in 1e-5 m^2/s, W/m K, 1e-5 m^2/s; Pr column 4), pin every coefficient
+    Ts = TINF + 14.0
+    Tf = 0.5 * (Ts + TINF)
+    a6 = np.asarray(impl.AIR_A6)
+    nu, k, alpha, Pr = (float(np.interp(Tf, a6[:, 0], a6[:, j])) for j in (1, 2, 3, 4))
+    Ra = 9.80665 * (1 / Tf) * 14.0 * D ** 3 / (nu * 1e-5 * alpha * 1e-5)
+    Nu_side = 0.36 + 0.518 * Ra ** 0.25 / (1 + (0.559 / Pr) ** (9 / 16)) ** (4 / 9)    # Churchill-Chu cylinder
+    Nu_end = 0.68 + 0.670 * Ra ** 0.25 / (1 + (0.492 / Pr) ** (9 / 16)) ** (4 / 9)     # Churchill-Chu plate
+    A_side, A_end = np.pi * D * L, np.pi * D ** 2 / 2
+    r = impl.h_conv_bar(Ts, TINF, D, L)
+    assert r["h_side"] == pytest.approx(Nu_side * k / D, rel=1e-3)
+    assert r["h_end"] == pytest.approx(Nu_end * k / D, rel=1e-3)
+    assert r["h"] == pytest.approx((Nu_side * A_side + Nu_end * A_end) * k / D / (A_side + A_end), rel=1e-3)
+
+
 def test_prediction_is_lumped_and_responds_to_emittance():
     p = impl.predict_tau(14.0, TINF)
     g, C = _bar()

@@ -162,10 +162,10 @@ Lienhard's book (§5.7) solves 2D steady problems by flux plots and shape factor
 | material | finite wall (s) | semi-infinite (s) | lumped (s) | √(αt) (mm) | Bi |
 |---|---|---|---|---|---|
 | copper | 4.341 | 5.654 | 5.87 | 22.42 | 0.188 |
-| Inconel X-750 | 0.182 | 0.180 | 6.42 | 0.75 | 6.47 |
-| stainless 304 | 0.184 | 0.182 | 5.46 | 0.89 | 5.44 |
+| Inconel X-750 | 0.180 | 0.180 | 6.42 | 0.75 | 6.47 |
+| stainless 304 | 0.182 | 0.182 | 5.46 | 0.89 | 5.44 |
 
-Copper thickness 5, 10, 20, 25, 40, 60 mm: 1.116, 2.112, 3.729, 4.341, 5.393, 5.646 s. Predict which estimate fails for which wall. *Finding:* thin walls behave as lumps, thick walls as semi-infinite bodies, and a 25 mm copper wall is neither: past about 40 mm, extra copper buys little time, because heat never reaches it in time. Every run's stored energy equals its heat in to 10⁻⁵ J/m² or better.
+Copper thickness 5, 10, 20, 25, 40, 60 mm: 1.116, 2.112, 3.729, 4.341, 5.393, 5.646 s. Predict which estimate fails for which wall. The Inconel and stainless walls are heated through under 1 mm, so they run on n = 1601 nodes with Δt = 0.1 ms (copper: n = 101, Δt = 10 ms); on the copper grid their times come out about 1 % long, above the semi-infinite value, which no adiabatic-backed wall can exceed. *Finding:* thin walls behave as lumps, thick walls as semi-infinite bodies, and a 25 mm copper wall is neither: past about 40 mm, extra copper buys little time, because heat never reaches it in time. Every run's stored energy equals its heat in to 10⁻⁵ J/m² or better.
 
 Raw data format: CSV tables `n, err_fourier, err_smooth, err_fin` (1); `Fo, max_T_after_400_steps` (2); `n, T_hot_C, Q_out_W, imbalance_W` and `t_frame_mm, kt_W_per_K, T_hot_C` (3); `material, thickness_mm, t_fd_s, t_semi_inf_s, t_lumped_s` (4); plus `conduction.png`.
 

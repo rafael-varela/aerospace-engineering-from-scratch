@@ -28,7 +28,7 @@ Answer form: a number, a five-row table, a peak with its frequency, a paragraph.
 
 ## 4. (Numerical, uses your code: how long must a sine test wait?)
 
-Use the closed pitch-attitude loop of `P09.03`, θ/θ_c = 720(s + 1.5)(s + 100)/(s⁵ + 123.2s⁴ + 2400s³ + 16 240s² + 115 880s + 108 000), at ω = 1 + s/10 rad/s.
+Use the closed pitch-attitude loop of `P09.03`, θ/θ_c = 720(s + 1.5)(s + 100)/(s⁵ + 123.2s⁴ + 2400s³ + 16 240s² + 115 880s + 108 000), at ω = 2.5 rad/s.
 
 (a) Compute the exact |G| (dB) and ∠G. (b) Run `sine_test` with settle = 0, 1, 3 and 10 s and three fitted periods, and tabulate the gain and phase errors. (c) Explain the trend from the pole locations. (d) How long would you wait at each frequency of a 0.1–10 rad/s sweep to keep the phase error below 0.01°, and how long does the whole sweep take with 20 frequencies?
 

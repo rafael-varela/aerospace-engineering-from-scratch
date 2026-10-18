@@ -194,6 +194,12 @@ def test_ecs_cruise_balances_close_and_states_are_physical():
     assert e["T_pack"] < e["T_supply"] < 295.15                                       # supply between pack and cabin
     assert e["T_dew_cabin"] < e["T_pack"]                                             # no condensation in the ducts
     assert e["Q_pack"] > 0.0
+    # overall control volume, bleed port to outflow valve (pack, manifold and cabin together): the pack
+    # removes the bleed enthalpy above the exhausted cabin air plus the cabin's sensible and vapour loads
+    m_f, m_w, Tc = 186 * 0.25 / 60, 186 * 0.060 / 3600, 295.15
+    q_overall = (m_f * (impl.moist_air_enthalpy(473.15, 5.0e-5) - impl.moist_air_enthalpy(Tc, e["w_cabin"]))
+                 + 15.0e3 + m_w * impl.vapour_enthalpy(Tc))
+    assert e["Q_pack"] == pytest.approx(q_overall, rel=1e-9)
 
 
 def test_ecs_limits_recirculation_and_moisture():

@@ -4,7 +4,7 @@ The route to each answer, without the final numbers. Pair with `hints.md`; `work
 
 ## 1. Peaks and margins
 
-(a) Evaluate (Ms/(Ms + 1), Ms/(Ms − 1)) and 2 arcsin(1/(2Ms)). (b) |3/(jω + 2)| is largest at ω = 0. For the resonance, set d|G|²/dω = 0: ω_peak = ω_n√(1 − 2ζ²), peak 1/(2ζ√(1 − ζ²)). (c) `tf_hinf_norm(num, den, "bisection")` and `"sweep"`. (d) The bound is a lower bound on both the upward and the downward gain margin, held simultaneously with the phase bound; convert both ends of the gain range to dB.
+(a) Evaluate (Ms/(Ms + 1), Ms/(Ms − 1)) and 2 arcsin(1/(2Ms)). (b) |3/(jω + 2)| is largest at ω = 0. For the resonance, set d|G|²/dω = 0: ω_peak = ω_n√(1 − 2ζ²), peak 1/(2ζ√(1 − ζ²)). (c) `tf_hinf_norm(num, den, "bisection")` and `"sweep"`. (d) The bound is a lower bound on both the upward and the downward gain margin, and a separate lower bound on the phase margin (the two hold one at a time; a combined change is covered only inside the disk |1 − e^{jφ}/k| < 1/Ms); convert both ends of the gain range to dB.
 
 ## 2. Derivations
 

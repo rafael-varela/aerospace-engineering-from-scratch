@@ -325,7 +325,7 @@ def main(out_dir: str | Path = ".") -> None:
     wr, Mr = resonance(zeta, wn)
     wb = bandwidth(G)
     print(f"elevator servo closed loop 14.31/(0.05 s^2 + s + 14.31): zeta = {zeta:.4f}, wn = {wn:.3f} rad/s")
-    print(f"  resonance: omega_r = {wr:.3f} rad/s, M_r = {Mr:.4f} ({20 * np.log10(Mr):.3f} dB);"
+    print(f"  resonance: omega_r = {wr:.3f} rad/s = {wr / (2 * np.pi):.2f} Hz, M_r = {Mr:.4f} ({20 * np.log10(Mr):.3f} dB);"
           f" -3 dB bandwidth {wb:.3f} rad/s = {wb / (2 * np.pi):.3f} Hz")
     print("  f [Hz]   |G| exact [dB]  phase exact [deg]   SIMULATED sine test: |G| [dB], phase [deg]")
     for f in (0.5, 1.0, 2.0, 4.0, 8.0):
@@ -357,6 +357,19 @@ def main(out_dir: str | Path = ".") -> None:
     ma, pa = asymptotic_mag_db(L, ww), asymptotic_phase_deg(L, ww)
     print(f"  straight line vs exact over 0.1-1000 rad/s: max magnitude error {np.max(np.abs(ma - me)):.2f} dB,"
           f" max phase error {np.max(np.abs(pa - pe)):.1f} deg")
+
+    num_l, den_l = tf(*L)
+    Gcl = (num_l, np.polyadd(den_l, num_l))          # closed pitch loop L/(1 + L) (Problem 4)
+    H25 = freq_response(Gcl, np.array([2.5]))
+    m25, p25 = mag_db(H25)[0], float(np.angle(H25[0], deg=True))
+    print(f"\nclosed pitch loop at 2.5 rad/s: exact {m25:+.4f} dB, {p25:+.3f} deg;"
+          f" slowest pole {-np.min(np.abs(np.roots(Gcl[1]).real)):.3f} 1/s")
+    for st in (0.0, 1.0, 3.0, 10.0):
+        g_s, ph_s = sine_test(Gcl, 2.5, settle=st, n_periods=3)
+        print(f"  SIMULATED sine test, settle {st:4.1f} s, 3 periods: gain error {20 * np.log10(g_s) - m25:+.2e} dB,"
+              f" phase error {ph_s - p25:+.2e} deg")
+    w_sweep = np.logspace(-1, 1, 20)
+    print(f"  sweep 0.1-10 rad/s, 20 points, 3 s settle + 3 periods each: {np.sum(3.0 + 3 * 2 * np.pi / w_sweep):.0f} s")
 
     fig, axes = plt.subplots(2, 2, figsize=(11, 6.5), sharex="col")
     w1 = np.logspace(0, 3, 600)

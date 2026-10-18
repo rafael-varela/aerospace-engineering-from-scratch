@@ -62,7 +62,7 @@ Each solution states: assumptions, units, the derivation, the result, at least o
 | servo 20°, PI | 0.4012 / 0 / 0.715 | 0.2790 / 0 / 0.499 | 0.2664 / 0.69 / 0.514 |
 | servo 45°, PI | 0.4012 / 0 / 0.715 | 0.2791 / 0.04 / 0.501 | 0.2669 / 0.27 / 0.462 |
 
-(c) Over seeds 15–24: synthetic 15° overshoot **20.78 ± 0.33 %**, sampled-model prediction **21.98 ± 0.41 %**. The mean difference, 1.2 points, is about 3.6 run-to-run standard deviations: **significant**, so a systematic effect is missing from the model. It is the bench's asymmetric dead zone (0.10 forward, 0.11 back): running the bench alone with a symmetric 0.10 moves its overshoot from 20.9 ± 0.5 % to 21.8 ± 0.4 %, onto the model.
+(c) Over seeds 15–24: synthetic 15° overshoot **20.78 ± 0.33 %**, sampled-model prediction **21.98 ± 0.41 %**. The mean difference, 1.2 points, is about 3.6 run-to-run standard deviations: **significant**, so a systematic effect is missing from the model. It is the bench's asymmetric dead zone (0.10 forward, 0.11 back): regenerating the same seeds with the same noise but a symmetric 0.10 dead zone moves the bench's overshoot from 20.78 ± 0.33 % to 21.89 ± 0.43 %, onto the model (`main()` prints these statistics).
 
 (d) All of the above is SYNTHETIC.
 

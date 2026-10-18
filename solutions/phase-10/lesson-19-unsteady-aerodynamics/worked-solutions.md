@@ -60,7 +60,7 @@ So **C(k) = ik Φ(ik)**: Theodorsen's function is the frequency response of the 
 
 (b) H = 12.5 chords: ratio **0.903**. A longer gust ramps up over more chords, so the lift has time to build (Küssner's function reaches 90 % in 12.4 semi-chords, about 6 chords); the peak arrives when the response is nearly complete.
 
-(c) W/S = 750 × 9.81/12 = 613.1 N/m². Δn = ρ V CL_α w₀/(2 W/S) = 1.225 × 55 × 4.685 × 5/(2 × 613.1) = **1.29** quasi-steady, **1.08** with the 0.840 reduction. Real aircraft also gain relief from the aircraft rising (plunging) in the gust, which reduces the effective gust angle, and from the wing's own unsteady three-dimensional lift build-up (Jones TR-681); gust-load formulas combine these into an alleviation factor that depends on the aircraft's mass ratio.
+(c) W/S = 750 × 9.81/12 = 613.1 N/m². Δn = ρ V CL_α w₀/(2 W/S) = 1.225 × 55 × 4.63 × 5/(2 × 613.1) = **1.27** quasi-steady, **1.07** with the 0.840 reduction. Real aircraft also gain relief from the aircraft rising (plunging) in the gust, which reduces the effective gust angle, and from the wing's own unsteady three-dimensional lift build-up (Jones TR-681); gust-load formulas combine these into an alleviation factor that depends on the aircraft's mass ratio.
 
 **Common mistakes.** Using 2π for the wing (a section value); measuring H in semi-chords where the problem gave chords.
 

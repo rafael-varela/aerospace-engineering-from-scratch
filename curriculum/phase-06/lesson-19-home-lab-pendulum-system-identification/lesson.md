@@ -187,7 +187,7 @@ The setup, seen from the camera:
 
 **Procedure in outline** (full version in `procedure.md`). Calibrate the time base against a stopwatch, L to the bob's centre, the angle-reading scatter on a still frame (video) or the bias at rest (gyro). Release from rest at 20° and record at least 120 s untouched; three such runs; then one run at 40° and one at 10°, which separate the damping mechanisms and show the amplitude effect. Save every record raw.
 
-**Raw data format** (`data/raw/YYYY-MM-DD_<tier>_run<k>.csv`, one file per run, never edited):
+**Raw data format** (`data/raw/YYYY-MM-DD_<tier>_run<k>.csv`, one file per run, never edited). The two example rows below are SYNTHETIC: they are the first rows of `SYNTHETIC_seed619_swing.csv`, not a measurement:
 
 ```
 t_s,theta_deg

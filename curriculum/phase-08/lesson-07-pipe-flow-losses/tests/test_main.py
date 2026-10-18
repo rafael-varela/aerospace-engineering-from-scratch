@@ -67,6 +67,22 @@ def test_newton_converges_quadratically_from_a_poor_start():
     assert err[-1] < 1e-6 and hist.size - 1 <= 10
 
 
+def test_newton_iterates_after_the_first_lie_left_of_the_root_and_increase():
+    # g(x) = x + 2 log10(a + b x) is increasing and concave, so each tangent zero has g <= 0:
+    # from the first step on, the iterates sit at or left of the root and climb to it
+    for Re, e, x0 in [(2e5, 1e-4, None), (2e5, 1e-4, 1.0), (2e5, 1e-4, 50.0), (1e7, 0.0, 30.0),
+                      (4e3, 0.05, 20.0)]:
+        f, hist = impl.friction_colebrook(Re, e, x0=x0)
+        a, b = e / 3.7, 2.51 / Re
+        x_star = 1 / np.sqrt(f)
+        assert abs(x_star + 2 * np.log10(a + b * x_star)) < 1e-12
+        later = hist[1:]
+        assert np.all(later <= x_star + 1e-12 * x_star)
+        assert np.all(np.diff(later) >= -1e-12 * x_star)
+        if x0 is not None and x0 > x_star:
+            assert later[0] < x_star                     # thrown to the left by the first step
+
+
 def test_haaland_agrees_with_colebrook_to_its_published_accuracy():
     worst = max(abs(impl.friction_haaland(Re, e) / impl.friction_colebrook(Re, e)[0] - 1)
                 for Re in RES for e in RELS)

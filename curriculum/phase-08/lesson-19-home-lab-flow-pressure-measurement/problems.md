@@ -37,7 +37,7 @@ Answer form: a table; two E_n values; a number and a sentence; a table, an E_n a
 ## 4. (Unfamiliar scenario: a wind-tunnel contraction and an aeroplane's pitot)
 
 (a) A small open-circuit wind tunnel has a contraction of area ratio CR = 4 + s/5 between its settling chamber and its test section. A water manometer tilted at 15° connects a wall tap in the settling chamber to a wall tap in the test section and reads L = 40 + s mm along the tube. The room is at 101.0 kPa and 21 °C. Derive V_ts = √(2Δp/(ρ_a(1 − 1/CR²))) and compute the test-section speed with its uncertainty (u_L = 0.6 mm, u_θ = 0.5°, ρ_a to 1 %). How wrong would you be if you ignored the settling-chamber velocity?
-(b) The light aeroplane's pitot-static system at 60 m/s TAS and 3000 m (ISA) is connected to a water U-tube for a ground check. What Δh would it read in flight? Why is a water U-tube a good ground-test instrument for the airspeed indicator but not something you would fly?
+(b) The light aeroplane's pitot-static system at 60 m/s TAS and 3000 m (ISA) is connected to a water U-tube for a ground check. What Δh would it read in flight? Why is a water U-tube a good ground-test instrument for the airspeed indicator but not something you would fly? (This is a paper exercise: testing a real aircraft's pitot-static system is done only by certified maintenance personnel with approved test equipment; do not connect anything to an aircraft's ports yourself.)
 
 Answer form: a derivation, a speed ± u and a percentage; a height and two sentences.
 

@@ -518,8 +518,11 @@ def main(out_dir: str | Path = ".") -> None:
     # 6. the heat-sink chamber wall
     h, Tgas, Tlim = 3000.0, 3000.0, 800.0
     print(f"\nheat-sink chamber wall, gas h = {h:.0f} W/m^2K at {Tgas:.0f} K, initial 300 K, hot-face limit {Tlim:.0f} K (illustrative):")
-    for mat, thick, dt in (("copper", 0.025, 0.01), ("Inconel X-750", 0.025, 1e-3), ("stainless 304", 0.025, 1e-3)):
-        t_fd, res = time_to_surface_limit(mat, thick, h, Tgas, 300.0, Tlim, dt=dt)
+    # the low-conductivity walls are heated through under 1 mm, so they need a much finer grid than copper:
+    # at n = 101 (0.25 mm cells) their times come out about 1 % long, above the semi-infinite bound
+    for mat, thick, n, dt in (("copper", 0.025, 101, 0.01), ("Inconel X-750", 0.025, 1601, 1e-4),
+                              ("stainless 304", 0.025, 1601, 1e-4)):
+        t_fd, res = time_to_surface_limit(mat, thick, h, Tgas, 300.0, Tlim, n=n, dt=dt)
         t_si = semi_infinite_time_to_limit(mat, h, Tgas, 300.0, Tlim)
         m = MATERIALS[mat]
         t_lump = m["rho"] * m["cp"] * thick / h * np.log((Tgas - 300.0) / (Tgas - Tlim))

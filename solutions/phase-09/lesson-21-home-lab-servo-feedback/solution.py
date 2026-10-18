@@ -888,6 +888,10 @@ def main(out_dir: str | Path = ".") -> dict:
     print(f"  redesign on the sampled model for {MOTOR_OVERSHOOT_TARGET:.0f} % overshoot: Kp {m['kp_sampled']:.5f} "
           f"-> firmware Kp {MOTOR_KP_REDESIGN} (run 3)")
     _print_runs(m["runs"], "duty", MOTOR_DUTY_LIMIT, "")
+    print("  uncompensated dead-zone band (dz - compensation)/Kp, SYNTHETIC bench truth "
+          f"(dz {MOTOR_TRUE['dz_pos']:.2f} forward, {MOTOR_TRUE['dz_neg']:.2f} back): " + "; ".join(
+              f"Kp {kp}: {(MOTOR_TRUE['dz_pos'] - MOTOR_DZ_COMP) / kp:.2f} deg forward, "
+              f"{(MOTOR_TRUE['dz_neg'] - MOTOR_DZ_COMP) / kp:.2f} deg back" for kp in (MOTOR_KP, MOTOR_KP_REDESIGN)))
     print("OPTION A: HOBBY SERVO, command -> wiper angle, model K e^{-Ls}/(tau s + 1)")
     for f in s["fits"]:
         g, p, se = f["loglin"], f["ls"]["p"], f["ls"]["se"]
@@ -900,6 +904,30 @@ def main(out_dir: str | Path = ".") -> dict:
     print(f"  closed-loop poles {np.round(s['runs'][0]['pred']['poles'], 3)}, "
           f"zero {-SERVO_KI / SERVO_KP:.3f}")
     _print_runs(s["runs"], "command", SERVO_CMD_LIMIT, " deg")
+
+    # Section 5, "Is the remaining difference real?": ten seeds, each identified afresh (SYNTHETIC)
+    import tempfile
+    seeds = range(15, 25)
+    os_bench, os_model, os_sym = [], [], []
+    with tempfile.TemporaryDirectory() as tmp:
+        for sd in seeds:
+            write_synthetic_csvs(tmp, sd)
+            run0 = analyse_dataset(tmp)["motor"]["runs"][0]
+            os_bench.append(run0["meas"]["overshoot_pct"])
+            os_model.append(run0["sim_metrics"]["overshoot_pct"])
+    dz_neg = MOTOR_TRUE["dz_neg"]
+    try:
+        MOTOR_TRUE["dz_neg"] = MOTOR_TRUE["dz_pos"]          # the falsification test: a symmetric dead zone
+        for sd in seeds:
+            rec = make_synthetic_dataset(sd)["motor_closed"][0]
+            os_sym.append(step_metrics(rec["t"], rec["theta"], ref=MOTOR_CLOSED_RUNS[0][0])["overshoot_pct"])
+    finally:
+        MOTOR_TRUE["dz_neg"] = dz_neg
+    ms = lambda v: f"{np.mean(v):.2f} +- {np.std(v, ddof=1):.2f} %"  # noqa: E731
+    print(f"SEEDS 15-24 (SYNTHETIC), Option B {MOTOR_CLOSED_RUNS[0][0]:.0f} deg step, Kp {MOTOR_KP}: bench overshoot "
+          f"{ms(os_bench)}, sampled-model prediction {ms(os_model)}, mean difference "
+          f"{np.mean(np.subtract(os_model, os_bench)):+.2f} points; same bench and noise with a symmetric dead zone "
+          f"{MOTOR_TRUE['dz_pos']:.2f}: {ms(os_sym)}")
 
     fig, ax = plt.subplots(2, 2, figsize=(13, 8))
     for f, run in zip(m["fits"], read_runs_csv(out_dir / SYNTHETIC_FILES[0])):

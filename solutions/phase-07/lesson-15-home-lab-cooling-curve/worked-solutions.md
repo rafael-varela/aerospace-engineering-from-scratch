@@ -76,7 +76,7 @@ The statistical uncertainties are far too small, because χ²/dof ≫ 1: the mod
 
 (b) Aluminium in air: uniform to 3 × 10⁻⁴. Aluminium in water: about 2 % spread, still lumped to a few per cent. Steel in air: lumped. Steel in water: Bi = 0.18, the centre is 40 % above the lumped value and the corner 22 % below: not lumped.
 
-(c) The warm-up is the water-bath row. An aluminium bar reaches the water temperature within a few τ ≈ 25 s; a steel one needs longer and has a cooler core for the first minutes. Leave either in the water for 5 minutes (more than ten water-bath time constants) so that it starts the cooling run uniform.
+(c) The warm-up is the water-bath row. An aluminium bar reaches the water temperature within a few τ ≈ 25 s; a steel one needs longer and has a cooler core for the first minutes. Leave either in the water for 5 minutes (300 s: 12 water-bath time constants for aluminium, 9.3 for steel) so that it starts the cooling run uniform.
 
 ## 6. Why is the measured τ 20 % short?
 

@@ -187,7 +187,7 @@ Raw data format: CSV tables `k,F,G,abs_C,phase_deg,dC_jones` (1); `k,abs_td,abs_
 
 Every difference is explained. The engineering answer: **at 5 Hz the trainer's wing section produces 71 % of the quasi-steady lift amplitude per unit pitch, leading the pitch by 18° (10 ms), because the wake reduces and delays the circulatory lift (|C| = 0.669, −15.0°) while the pitch-rate terms lead; after a sudden change of angle of attack, 90 % of the lift arrives after 7.6 m (139 ms).**
 
-What to improve: the wing is finite (AR 8.33), so the trailing vortices reduce the steady lift slope to about 4.7 per radian (`P10.20`) and add lag; the next step is a strip-theory or finite-wing indicial function (TR-681). What not to improve for this question: Jones's 2 % fit error, which is smaller than the finite-span effect.
+What to improve: the wing is finite (AR 8.33), so the trailing vortices reduce the steady lift slope to about 4.63 per radian (`P10.20`'s lattice, extrapolated to convergence) and add lag; the next step is a strip-theory or finite-wing indicial function (TR-681). What not to improve for this question: Jones's 2 % fit error, which is smaller than the finite-span effect.
 
 ## 6. Defend your work
 

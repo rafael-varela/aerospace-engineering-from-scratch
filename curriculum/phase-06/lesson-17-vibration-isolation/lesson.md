@@ -86,7 +86,7 @@ At resonance T_h = √(1 + η²)/η (2.69 for η = 0.4, close to the viscous 2.7
 
 ### 2.5 The corner frequency for a required attenuation
 
-Often the requirement is a transmissibility T* at some frequency f*: "no more than 0.06 at 500 Hz and above". Solve T(r, ζ) = T* for r > √2 (T falls monotonically there), and fₙ = f*/r is the highest natural frequency that meets it. Undamped, T = 1/(r² − 1) gives r = √(1 + 1/T*): for T* = 0.05 that is r = 4.58 and fₙ ≤ 109 Hz at 500 Hz. With ζ = 0.1 the code gives fₙ ≤ 90.0 Hz; with ζ = 0.2, fₙ ≤ 59.2 Hz. Damping costs corner frequency.
+Often the requirement is a transmissibility T* at some frequency f*: "no more than 0.06 at 500 Hz and above". Solve T(r, ζ) = T* for r > √2 (T falls monotonically there), and fₙ = f*/r is the highest natural frequency that meets it. Undamped, T = 1/(r² − 1) gives r = √(1 + 1/T*): for T* = 0.06 that is r = 4.20 and fₙ ≤ 119.0 Hz at 500 Hz. With ζ = 0.1 the code gives fₙ ≤ 101.2 Hz; with ζ = 0.2, fₙ ≤ 69.6 Hz. Damping costs corner frequency.
 
 ### 2.6 The random response, from P06.16
 

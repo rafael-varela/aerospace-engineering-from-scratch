@@ -187,12 +187,16 @@ def main(out_dir: str | Path = ".") -> None:
 
     # continuous convolution: convergence
     print("\n(e^-t u) * (e^-3t u) on [0, 8] s by Riemann sum: max error against (e^-t - e^-3t)/2")
+    errs = []
     for dt in (0.1, 0.05, 0.025, 0.0125):
         t = np.arange(0.0, 8.0, dt)
         exact = exp_conv_exp(t, 1.0, 3.0)
         er = np.max(np.abs(convolve_continuous(np.exp(-t), np.exp(-3 * t), dt, "rect") - exact))
         et = np.max(np.abs(convolve_continuous(np.exp(-t), np.exp(-3 * t), dt, "trap") - exact))
+        errs.append((er, et))
         print(f"  dt = {dt:7.4f}: rectangle {er:.3e}, trapezoid {et:.3e}")
+    print(f"  observed order (last halving): rectangle {np.log2(errs[-2][0] / errs[-1][0]):.2f},"
+          f" trapezoid {np.log2(errs[-2][1] / errs[-1][1]):.2f}")
 
     # RC front end of a gyro
     R, C = 1.6e3, 1.0e-6
@@ -213,6 +217,9 @@ def main(out_dir: str | Path = ".") -> None:
     gain_1200 = 1 / np.sqrt(1 + (2 * np.pi * 1200 * tau) ** 2)
     print(f"  SYNTHETIC gyro record: 1200 Hz line + noise amplitude ~ {vib(wg):.2f} deg/s before, {vib(wf):.2f} deg/s after the RC"
           f" (|H(1200 Hz)| = {gain_1200:.3f}); mean rate after the step {np.mean(wf[late]):.3f} deg/s")
+    wf_r = convolve_continuous(wg, first_order_impulse_response(tg, 1.0, tau), dt, "rect")
+    print(f"  same record with the rectangle rule: mean rate after the step {np.mean(wf_r[late]):.3f} deg/s"
+          f" (DC-gain bias {100 * (np.mean(wf_r[late]) / np.mean(wf[late]) - 1):.1f} %)")
 
     # first-order elevator servo
     K, tau_s = 1.0, 0.05

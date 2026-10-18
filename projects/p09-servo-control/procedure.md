@@ -19,7 +19,7 @@ Option A:
  AA pack − ───────────────────────────────────┴──┬───────── servo brown/black (GND)
  board GND ──────────────────────────────────────┘          (common ground)
  board PWM pin ──────────────────────────────────────────── servo signal (orange/yellow)
- board ADC pin ──────────────────────────────────────────── servo feedback wire (wiper, 4th lead)
+ board ADC pin ──[divider if needed, see below]──────────── servo feedback wire (wiper, 4th lead)
  board input pin ──[button]── GND                            (stop button, internal pull-up)
  board USB ── computer (logging)                             pointer arm (card, <= 5 g) on the horn
 ```
@@ -39,7 +39,17 @@ Mount the servo or motor (and the potentiometer) on the block so nothing can mov
 
 ## 2. Program the board and run the four tests
 
-Copy the firmware listing at the end of this file to the board (MicroPython path; the Arduino-style path is described after the listing). Set `OPTION`, the pin numbers for your board, and leave `KP = KI = DZ_COMP = 0`. Then, with the pointer clear and fingers away, and logging every result in `data/safety_tests.md` with the date:
+Copy the firmware listing at the end of this file to the board (MicroPython path; the Arduino-style path is described after the listing). Set `OPTION`, the pin numbers for your board, and leave `KP = KI = DZ_COMP = 0`. First the two one-time checks below (the wiper check is Option A only); then, with the pointer clear and fingers away, and logging every result in `data/safety_tests.md` with the date:
+
+**Check (a), Option A: wiper voltage before it reaches the ADC.** The servo's internal potentiometer may be fed from the motor pack (up to 6 V), so its wiper can exceed the board's supply, which p04's rule "no analog pin above the board's supply voltage" forbids. Leave the feedback wire **unconnected** from the board at first. Pack on, `arm()`, and command the servo to −60° and then +60° (`test_stop(u=-60, seconds=1)`, `test_stop(u=60, seconds=1)`); at each, measure the feedback wire against GND with the multimeter, then pack off. If either reading is above the board's supply (3.3 V on most boards), connect the wire through a divider: two equal p04 resistors (10 kΩ from the wiper to the ADC pin, 10 kΩ from the ADC pin to GND), which halves 6 V to 3.0 V; then measure the ADC-pin voltage at both ends again and confirm it stays below the board supply before connecting. Record both readings and whether the divider is fitted in `data/safety_tests.md`. The two-point calibration of step 3 absorbs the divider's factor. (Option B needs no check: its potentiometer is fed from the board's own 3.3 V.)
+
+**Check (b): stall current (once, before the four tests; required if the listing does not state a stall current ≤ 500 mA at your supply).** The stall is **commanded against a fixed stop, never made by holding the shaft or horn by hand**, and lasts **≤ 1 s**. Pack off: remove the pointer arm; tape or clamp a rigid stop (a wooden block) to the base so the horn (A) or the shaft coupling (B) butts against it; put the multimeter, on a DC current range rated for at least 1 A (usually the 10 A input), in series in the pack's + lead after the fuse.
+- Option A: place the stop about 20° from centre, then pack on, `arm()`, `test_stop(u=40, seconds=1)` (the servo drives into the stop for at most 1 s), read the meter, pack off.
+- Option B: disconnect the motor leads from the driver and connect them straight to the pack (through the fuse and the meter); switch the pack on for **at most 1 s**, read the meter, switch it off. Reconnect the driver afterwards.
+
+One reading only; do not repeat it to "get a better number". Record it in `data/safety_tests.md`. **If it is above 500 mA, or the fuse trips, reject the motor or servo**: it is not permitted in this project (see `safety.md`). Remove the stop and refit the pointer arm before going on.
+
+The four tests:
 
 1. **Stop test.** `arm()`, then `test_stop()`: the output runs at a small open-loop duty (B: 0.3) or command (A: 10°); press the button. The printed applied value must be 0 from the next sample and the pointer must stop. Re-arm only with `arm()`.
 2. **Limit test.** Motor pack **off**: `test_limit()` asks for a duty of 1.0 (A: 90°) and prints what `output()` actually applied: it must be 0.6 (A: 60°). Then pack on, the same with `test_limit(apply=True)` for 0.2 s: the pointer moves, the log shows 0.6.

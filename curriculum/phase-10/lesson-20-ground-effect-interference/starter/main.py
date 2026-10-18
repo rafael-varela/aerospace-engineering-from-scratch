@@ -270,6 +270,13 @@ def main(out_dir: str | Path = ".", quick: bool = False) -> None:
     print(f"  at {V_app} m/s, CL = {CL_app:.3f}: induced drag {Di_free:.0f} N in free air, {K*Di_free:.0f} N at h = {H_FLARE} m;"
           f" angle of attack for that CL {np.degrees(CL_app/CLa_free):.2f} deg -> {np.degrees(CL_app/(g['CL']/alpha)):.2f} deg")
     print(f"  span efficiency e: free {free['e']:.4f}, effective in ground effect {g['CL']**2/(np.pi*free['AR']*g['CDi']):.4f}")
+    if not quick:   # the 4 x 40 absolutes are not converged: Richardson on CL from ns = 20, 40, 80, CDi at ns = 80
+        p_cl = float(observed_order(np.abs(np.diff(res[:, 0])))[-1])
+        CL_R = res[2, 0] + (res[2, 0] - res[1, 0]) / (2 ** p_cl - 1)
+        e_R = CL_R ** 2 / (np.pi * free["AR"] * res[2, 1])
+        Di_R = 0.5 * rho * V_app ** 2 * SPAN * CHORD * CL_app ** 2 / (np.pi * free["AR"] * e_R)
+        print(f"  Richardson-extrapolated free air (p = {p_cl:.2f}): CL_alpha = {CL_R/alpha:.3f} /rad, e = {e_R:.3f};"
+              f" induced drag {Di_R:.0f} N in free air, {Ks[-1]*Di_R:.0f} N at h = {H_FLARE} m (K ratio at ns = 80)")
 
     # WIG craft: AR 3 wing, chord 4 m, span 12 m, at 1 m
     wig_free = wing_in_ground_effect(12.0, 4.0, None, alpha, ns=30, nc=6)

@@ -332,6 +332,8 @@ def main(out_dir: str | Path = ".") -> None:
     for i, out in enumerate(["cl", "cd", "cm"]):
         share = contrib[i] / contrib[i].sum() * 100
         print(f"  variance budget {out}: " + ", ".join(f"{n} {s:.1f} %" for n, s in zip(names, share)))
+    print(f"  alpha uncertainty that equalises the alpha and A shares of u(cd) at 4 deg: "
+          f"{NOISE['alpha_deg'] * np.sqrt(contrib[1][1] / contrib[1][3]):.3f} deg")
     cl_true, cd_true, cm_true = true_section(np.array([4.0]))
     print(f"  true values (synthetic generator): cl {cl_true[0]:.4f}, cd {cd_true[0]:.5f}, cm {cm_true[0]:.4f}")
     dcd = f(x0 + np.array([0, 0, 0, 0.1, 0]))[1] - y0[1]

@@ -51,7 +51,7 @@ tiers:
         reusable_id: instruments.dmm
       - id: feedback-servo
         qty: 1
-        spec: Micro hobby servo (9 g class, 4.8-6 V) with an analog feedback wire (the internal potentiometer's wiper brought out on a fourth lead); stated or measured stall current <= 500 mA at the supply you use
+        spec: Micro hobby servo (9 g class, 4.8-6 V) with an analog feedback wire (the internal potentiometer's wiper brought out on a fourth lead); stated or measured stall current <= 500 mA at the supply you use (procedure step 2, check (b) - commanded against a fixed stop, never by hand, <= 1 s; reject above 500 mA); measure the feedback wire's voltage before connecting it to the ADC and use a divider if it exceeds the board supply (procedure step 2, check (a))
         search_term: "analog feedback micro servo"
         price_range: [8, 16]
         required: true
@@ -112,13 +112,13 @@ tiers:
     items:
       - id: gear-motor
         qty: 1
-        spec: Micro metal gear motor (N20 class), 3-6 V, output 100-300 rpm at 6 V, stated stall current <= 500 mA at 6 V (check with the multimeter for one second if the listing does not say)
+        spec: Micro metal gear motor (N20 class), 3-6 V, output 100-300 rpm at 6 V, stated stall current <= 500 mA at 6 V (if the listing does not say, measure it as in procedure step 2, check (b) - commanded against a fixed stop, never by hand, <= 1 s; reject above 500 mA)
         search_term: "N20 micro gear motor 6V 150rpm"
         price_range: [3, 8]
         required: false
         reusable_id: actuators.gear-motor-n20
         substitutes: ["any small brushed gear motor with stall current <= 500 mA at <= 6 V and an output under about 300 rpm", "the yellow plastic 'TT' gear motor only if its stall current is measured <= 500 mA at your supply (many are higher)"]
-        safety_notes: Output speed under about 300 rpm; nothing on the shaft but the pointer; the stall check is a one-second measurement, never a sustained stall.
+        safety_notes: Output speed under about 300 rpm; nothing on the shaft but the pointer; the stall check (procedure step 2, check (b)) is a single measurement of at most one second against a fixed stop, never by hand and never a sustained stall; reject the motor above 500 mA.
       - id: motor-driver
         qty: 1
         spec: Low-voltage dual H-bridge motor-driver module accepting a 2.7-6 V motor supply and 3.3 V logic, with an enable or sleep pin; driven by two PWM pins

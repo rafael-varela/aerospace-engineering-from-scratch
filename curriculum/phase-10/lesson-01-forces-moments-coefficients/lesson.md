@@ -188,7 +188,7 @@ Raw data format: `data/SYNTHETIC_seed042_balance.csv` with columns `run, alpha_d
 
 The reduction recovers the truth within its stated uncertainty, and the uncertainty is right: Monte Carlo agrees with first order to about 1 %, and the seed study agrees with the fit covariance. The engineering answer: **c_l = 0.635 ± 0.007, c_d = 0.0069 ± 0.0014 and c_m,c/4 = −0.048 ± 0.001 at α = 4°; the aerodynamic centre is at 0.2481c ± 0.0001c; the section gives the trainer's cruise c_l of 0.331 at α = 1.06°** (a 2-D number; the finite wing needs more angle, `P10.09`–`P10.10`).
 
-What to improve: c_d is the weak coefficient, 20 % uncertain at k = 2, two thirds of it from the angle. An inclinometer on the model good to 0.02° would equalise the α and A shares (Problem 5); beyond that, only a better axial channel or a wake survey helps. What not to improve: q, which already contributes under 1 % to c_d.
+What to improve: c_d is the weak coefficient, 20 % uncertain at k = 2, two thirds of it from the angle. An inclinometer on the model good to about 0.034° would equalise the α and A shares at 4° (0.020° at 8°, where α weighs more; Problem 5); beyond that, only a better axial channel or a wake survey helps. What not to improve: q, which already contributes under 1 % to c_d.
 
 ## 6. Defend your work
 

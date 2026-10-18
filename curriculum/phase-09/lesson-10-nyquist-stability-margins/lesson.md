@@ -104,7 +104,7 @@ The curve starts at L(0) = −3K/20 on the negative real axis. Once that point l
 
 ### 2.6 Where the margins stop
 
-A gain margin and a phase margin are two points on the curve. A curve can pass both tests and still come close to −1 somewhere else, which a simultaneous small change of gain and phase would exploit. The servo at K = 20 has GM = 6 and PM = 43°, yet its closest approach to −1 is 1/M_s with peak sensitivity M_s = 1.77 (Problem 4). Margins assume a single loop and linear behaviour; an actuator rate limit acts like an extra, amplitude-dependent delay and can erode them in large manoeuvres. And the margins are computed on the model: the 0.01 s filter lag is as uncertain as any number in it, and doubling it halves the critical gain (Problem 6).
+A gain margin and a phase margin are two points on the curve. A curve can pass both tests and still come close to −1 somewhere else, which a simultaneous small change of gain and phase would exploit. The servo at K = 20 has GM = 6 and PM = 43°, yet its closest approach to −1 is 1/M_s with peak sensitivity M_s = 1.77 (Problem 4). Margins assume a single loop and linear behaviour; an actuator rate limit acts like an extra, amplitude-dependent delay and can erode them in large manoeuvres. And the margins are computed on the model: the 0.01 s filter lag is as uncertain as any number in it, and doubling it cuts the critical gain from 120 to 70 s⁻¹, roughly in half (Problem 6).
 
 ## 3. Build the computational model
 

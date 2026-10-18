@@ -4,7 +4,7 @@ Each solution states: assumptions, units, the derivation, the result, at least o
 
 ## 1. Your own bottle, predicted (s = 15: D = 95 mm, d = 4.25 mm)
 
-(a) π × 0.095²/4 × (0.180 + 0.030) = **1.49 L**: **yes**, within the 2 L limit (with a little to spare for the manometer's 20 mL; refilling for repeat runs reuses the same water from a clean basin or counts towards the total).
+(a) π × 0.095²/4 × (0.180 + 0.030) = **1.49 L**: **yes**, within the 2 L limit (with a little to spare for the manometer's 20 mL; the repeat runs reuse the same water, caught in a clean basin and poured back; fresh water for each run would take about 4.5 L and break the limit).
 
 (b) **T = 92.9 ± 6.4 s (6.9 %)**. Budget: C_d 4.57 s, hole 4.37 s, bottle 0.98 s, level readings 0.22 s and 0.53 s. C_d and the hole dominate almost equally; the hole term is 2 × 0.1/4.25 = 4.7 %.
 
@@ -55,7 +55,7 @@ Calibration check, dryer high: upright Δh = 9.10 ± 0.42 mm (mean of two, each 
 
 (a) Continuity: V_sc = V_ts/CR. Bernoulli between the wall taps (same streamline region, no losses in a good contraction): p_sc − p_ts = ½ρ_a(V_ts² − V_sc²) = ½ρ_aV_ts²(1 − 1/CR²), so **V_ts = √(2Δp/(ρ_a(1 − 1/CR²)))**. Δh = 55 sin 15° = 14.24 mm, Δp = (998.2 − 1.196) × 9.81 × 0.01424 = 139.2 Pa, ρ_a = 1.196 kg/m³: **V_ts = 15.42 ± 0.28 m/s** (1.8 %; the factor 1 − 1/CR² is exact and adds no uncertainty). Ignoring the settling-chamber velocity gives 15.26 m/s, **1.0 % low**: small at CR = 7, 3.3 % at CR = 4.
 
-(b) ISA 3000 m: ρ = 0.9091 kg/m³; Δp = ½ × 0.9091 × 60² = 1636 Pa; **Δh = 167 mm** of water. On the ground a water U-tube is a primary standard for exactly that pressure: apply a known Δh to the pitot and static ports with a hand-pumped (gently, by the manufacturer's test set, not by mouth) or syringe-driven source and read the airspeed indicator against V = √(2Δp/ρ₀) (an indicated airspeed is calibrated with ρ₀ = 1.225 kg/m³, `P08.04`). In flight it is useless: it responds slowly, it spills under acceleration and attitude changes, and 167 mm of water column is a large instrument.
+(b) ISA 3000 m: ρ = 0.9091 kg/m³; Δp = ½ × 0.9091 × 60² = 1636 Pa; **Δh = 167 mm** of water. On the ground a water U-tube is a primary standard for exactly that pressure: apply a known Δh to the pitot and static ports with a hand-pumped (gently, by the manufacturer's test set, not by mouth) or syringe-driven source and read the airspeed indicator against V = √(2Δp/ρ₀) (an indicated airspeed is calibrated with ρ₀ = 1.225 kg/m³, `P08.04`). In flight it is useless: it responds slowly, it spills under acceleration and attitude changes, and 167 mm of water column is a large instrument. On a real aircraft this check is carried out only by certified maintenance personnel with approved pitot-static test equipment, never as a home experiment.
 
 **Common mistakes.** Using the room's density in the aeroplane case; forgetting sin θ.
 

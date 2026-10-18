@@ -188,7 +188,7 @@ lab pendulum released at th1 = th2 =  90.0 deg: finite-time Lyapunov exponent 0.
 lab pendulum released at th1 = th2 = 120.0 deg: finite-time Lyapunov exponent 1.396 1/s
 ```
 
-and writes `double_pendulum.png`: the path of the lab pendulum's lower mass after a 120° release; the separation of two releases 10⁻⁸ rad apart on a log scale (a straight rise, then saturation at the size of the motion); and the slung load's two angles in a 10° mode-1 swing.
+and writes `double_pendulum.png`: the path of the lab pendulum's lower mass after a 120° release; the separation of two releases 10⁻⁸ rad apart on a log scale (a straight rise, then saturation at the size of the motion); and the slung load's two angles in a 10° mode-1 swing. The simulated frequency printed here comes from the 60 s record (about 7.5 periods); experiment 1 uses 20 periods and gets 0.78505 rad/s at 10°. The FFT peak of a short record is coarser, and the two windows differ in the fourth significant figure.
 
 ### Verify
 
@@ -236,7 +236,7 @@ Raw data format: CSV tables `amplitude_deg, omega_radps, shift_pct, estimate_pct
 | same | `sympy.physics.mechanics` | Lagrange (5) | 1.8 × 10⁻¹⁴ relative | round-off |
 | mode frequencies (rad/s) | (10): 0.78667, 7.99635 | `eigh`: 0.78667, 7.99635 | < 10⁻¹⁰ | — |
 | hook mode (rad/s) | lateral-stiffness estimate 7.881 | 7.996 | 1.4 % | load treated as fixed |
-| 10° swing frequency (rad/s) | 0.78667 (1 − a²/16) = 0.78517 | 0.78505 (20 periods) | 0.015 % | estimate treats mode 1 as a rigid pendulum |
+| 10° swing frequency (rad/s) | 0.78667 (1 − a²/16) = 0.78517 | 0.78505 (20 periods, experiment 1) | 0.015 % | estimate treats mode 1 as a rigid pendulum |
 | energy, 10° swing, 60 s | constant (8) | drift 2.3 × 10⁻¹³ of the swing energy | — | solver tolerance |
 | energy, 120° chaotic release, 20 s | constant (8) | 1.3 × 10⁻⁷ J at rtol 10⁻¹⁰ | 10⁻⁸ relative | solver tolerance |
 

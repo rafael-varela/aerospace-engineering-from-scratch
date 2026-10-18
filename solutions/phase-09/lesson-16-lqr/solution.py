@@ -416,6 +416,51 @@ def main(out_dir: str | Path = ".") -> None:
     print("weight sweep R = rho R_Bryson: rho, slowest pole, 2% settling [s], peak torque [N m], PM [deg], wc [rad/s]")
     for row in rows:
         print(f"   {row['rho']:5.1f} {row['slowest']:8.4f} {row['settle']:7.1f} {row['peak_torque']:.4f} {row['pm']:6.1f} {row['wc']:.4f}")
+    K4, _, lam4 = lqr(A, B, Q, 1e-4 * R)
+    print(f"   rho = 1e-4: slowest pole {lam4.real.max():.6f} rad/s (limit -omega_max/theta_max = {-om_max / th_max:.1f})")
+    print(f"20 deg torque-limited peak momentum change is {100 * J * np.abs(xs[:, 1]).max() / lim['momentum']:.0f} % of capacity")
+
+    print("inertia: J [kg m^2], k1 [N m/rad], k2 [N m s/rad], closed-loop poles [rad/s], 2% settling of 5 deg [s]")
+    for Ji in (5.0, 10.0, 20.0, 40.0):
+        Ai, Bi = satellite_model(Ji)
+        Ki, _, lami = lqr(Ai, Bi, Q, R)
+        ti, xi, _ = simulate(Ai, Bi, Ki, x0, 400.0, 0.05)
+        oi = np.where(np.abs(xi[:, 0]) > 0.02 * x0[0])[0]
+        print(f"   {Ji:5.1f} {Ki[0, 0]:.4f} {Ki[0, 1]:.4f} {np.round(np.sort_complex(lami), 4)} {ti[oi[-1] + 1]:.1f}")
+
+    # method comparison against SciPy's QZ solver (the oracle; imported here only)
+    from scipy.linalg import solve_continuous_are
+    rng = np.random.default_rng(16)
+    print("method comparison, seed 16, 20 random single-input systems per n, R = 1 (diffs relative to SciPy):")
+    for n in (2, 4, 6, 8):
+        d_h, r_h, d_n, its, n_ok_beta, k0 = [], [], [], [], 0, []
+        fail = {"start": 0, "iterate": 0}
+        for _ in range(20):
+            An, Bn, Cn = rng.standard_normal((n, n)), rng.standard_normal((n, 1)), rng.standard_normal((n, n))
+            Qn, Rn = Cn @ Cn.T + 0.1 * np.eye(n), np.eye(1)
+            Ps = solve_continuous_are(An, Bn, Qn, Rn)
+            scale = np.abs(Ps).max()
+            Ph = care_hamiltonian(An, Bn, Qn, Rn)
+            d_h.append(np.abs(Ph - Ps).max() / scale)
+            r_h.append(are_residual(An, Bn, Qn, Rn, Ph))
+            k0.append(np.abs(bass_stabilizing_gain(An, Bn)).max())
+            try:
+                Pk, it = care_newton_kleinman(An, Bn, Qn, Rn)
+                d_n.append(np.abs(Pk - Ps).max() / scale)
+                its.append(it)
+            except ValueError as err:
+                fail["start" if "K0" in str(err) else "iterate"] += 1
+            try:
+                K0 = bass_stabilizing_gain(An, Bn, 0.5 + max(np.linalg.eigvals(An).real.max(), 0.0))
+                Pb, _ = care_newton_kleinman(An, Bn, Qn, Rn, K0=K0)
+                n_ok_beta += int(np.abs(Pb - Ps).max() / scale < 1e-8)
+            except ValueError:
+                pass
+        nk = (f"median {np.median(its):.0f} / max {max(its)} iterations, max diff {max(d_n):.1e}" if its else "no successes")
+        print(f"   n = {n}: Hamiltonian max diff {max(d_h):.1e}, max residual {max(r_h):.1e}; Newton (Bass beta = 1 + |A|_1)"
+              f" {nk}, failures {fail['start']} non-stabilising start + {fail['iterate']} non-stabilising iterate;"
+              f" largest Bass gain entry {min(k0):.0e} to {max(k0):.0e};"
+              f" Bass beta = 0.5 + max Re lambda(A): {n_ok_beta}/20 within 1e-8")
 
     fig, axes = plt.subplots(1, 3, figsize=(13, 4))
     axes[0].plot(t, np.degrees(x[:, 0]), label="5 deg, linear")
