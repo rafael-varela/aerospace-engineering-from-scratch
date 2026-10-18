@@ -54,7 +54,7 @@ To be cross-checked against the current ABET criteria and the Stanford, Caltech 
 | 07 | Thermodynamics ✅ | 15 | 38 |
 | 08 | Fluid Mechanics ✅ | 19 | 48 |
 | 09 | Signals, Systems & Control ✅ | 21 | 53 |
-| 10 | Aerodynamics | 23 | 64 |
+| 10 | Aerodynamics ✅ | 23 | 64 |
 | 11 | Compressible Flow, Hypersonics & CFD | 18 | 50 |
 | 12 | Aerospace Materials, Manufacturing & Drawings | 16 | 35 |
 | 13 | Aerospace Structures | 21 | 59 |
@@ -335,7 +335,7 @@ A short diagnostic test at the start of Phase 00 decides whether a learner needs
 | 20 | Model Predictive Control ★ | Linear MPC from scratch | P03.15 |
 | 21 | Home Lab: Servo Feedback Control | Close the loop on a servo or small motor; measure transient response 🔬 | P04.15 |
 
-## Phase 10: Aerodynamics ⬚ (~60 h)
+## Phase 10: Aerodynamics ✅ (~60 h)
 
 | # | Lesson | Build it | Needs |
 |---|---|---|---|

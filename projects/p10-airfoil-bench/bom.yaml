@@ -1,0 +1,245 @@
+# Bill of materials for project p10-airfoil-bench (lesson P10.23 Home Lab: Airfoil Lift & Drag on a Bench Rig)
+# Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
+# Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
+# Hard limits from safety.md: the fan is guarded on both sides (front and back grilles intact, finger-proof),
+# rated at most 50 W, and stands on a stable surface where it cannot tip or walk; no propellers, drones or
+# unguarded blades, ever; no cutting tools near the running fan; hot-wire foam cutting only with adult
+# supervision and ventilation, otherwise a craft knife with the fan unplugged; unplug the fan before adjusting
+# the model or reaching near the fan.
+project: p10-airfoil-bench
+title: Lift and drag of a foam airfoil section on a guarded-fan bench rig
+lessons: [P10.23]
+lab_level: 2
+currency: USD
+price_checked: 2026-10-17
+reuse_from: [p00-calibration, p00-first-experiment, p04-drag-drop, p04-electronics-bench, p05-cantilever]
+
+tiers:
+  minimum_cost:
+    description: A guarded desk or box fan, a straw honeycomb, a foam NACA 0012 section with card end plates, a kitchen scale for lift, a pivot arm on the same scale for drag (one quantity at a time), a protractor template, and airspeed from a cheap vane anemometer or the fan's datasheet bracketed by a manometer. Enough to measure CL to about 10 % at the larger angles and to show the Reynolds-number gap; CD only to about 30-50 % with a 1 g scale.
+    items:
+      - id: guarded-fan
+        qty: 1
+        spec: Desk fan (or small box fan), 250-350 mm, rated at most 50 W (read the label; many 20-inch box fans draw more, so check), with intact front AND back grilles whose gaps a finger cannot pass, a flat stable base, and at least one low speed setting. Oscillation switched off (or a fan without oscillation)
+        search_term: "12 inch desk fan 3 speed"
+        price_range: [0, 30]
+        required: true
+        reusable_id: equipment.guarded-fan
+        substitutes: ["any household desk fan meeting the 50 W and two-grille rules; a computer case fan only inside a fully enclosed, guarded duct (enhanced tier)"]
+        safety_notes: Never a fan with a missing, bent or loose grille, never one rated above 50 W, never a propeller, drone motor or unguarded blade. Unplug before touching the model, the straightener or anything near the fan.
+      - id: drinking-straws
+        qty: 300
+        spec: Plain plastic or paper drinking straws, 6-8 mm diameter, cut to 60-80 mm, packed tightly in a frame to make the flow straightener (honeycomb); length about 10 straw diameters
+        search_term: "drinking straws 200 pack"
+        price_range: [2, 8]
+        required: true
+        reusable_id: consumables.straws
+        substitutes: ["corrugated card cut across the flutes and stacked", "a cardboard egg-crate grid (coarser; less effective)"]
+        safety_notes: Cut straws with scissors away from the fan; tape the pack so no straw can be blown out.
+      - id: straightener-frame
+        qty: 1
+        spec: Cardboard box or foam board opened into a square duct the size of the fan face, 200-300 mm long, holding the straw pack at the fan end and giving a short settling length after it; taped to the fan's frame, never to the grille openings
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.cardboard
+        substitutes: ["foam board offcuts"]
+        safety_notes: The duct must not block the fan's motor cooling vents at the back or sides.
+      - id: foam-board
+        qty: 1
+        spec: Extruded polystyrene (XPS) or expanded polystyrene (EPS) insulation board, 15-25 mm thick, enough for a 100 mm chord x 200 mm span NACA 0012 section (12 mm thick) plus spares
+        search_term: "XPS foam board 3/4 inch"
+        price_range: [3, 12]
+        required: true
+        reusable_id: specimens.foam-board
+        substitutes: ["folded card section (a cambered plate; recompute the predictions for camber)", "balsa sheet"]
+        safety_notes: Shape with a sanding block or a craft knife with the fan unplugged. Hot-wire cutting only with adult supervision and ventilation (polystyrene fumes).
+      - id: airfoil-template
+        qty: 2
+        spec: Printed NACA 0012 profile at 100 mm chord (generate it with the P10.02 code), glued to thin card or plywood as end templates for sanding, with the chord line and quarter chord marked
+        search_term: null
+        price_range: [0, 1]
+        required: true
+        reusable_id: misc.card
+      - id: end-plates
+        qty: 2
+        spec: Stiff card or thin plastic sheet, about 150 x 120 mm, glued to each end of the model, to keep the flow near two-dimensional
+        search_term: null
+        price_range: [0, 2]
+        required: true
+        reusable_id: misc.card
+      - id: sting
+        qty: 1
+        spec: Thin rod (bamboo skewer pair, 4-6 mm wooden dowel or a straightened steel wire) fixed into the model at the quarter chord, with a pin through the model so the angle can be set and locked, mounted on a heavy base
+        search_term: "wooden dowel 6mm"
+        price_range: [0, 3]
+        required: true
+        reusable_id: misc.dowel
+        safety_notes: Sharp skewer ends cut off or capped.
+      - id: kitchen-scale
+        qty: 1
+        spec: Kitchen scale, 1 g resolution, used under the model's base for lift (the reading falls when the model lifts); tare function
+        search_term: "digital kitchen scale 1g"
+        price_range: [0, 15]
+        required: true
+        reusable_id: instruments.scale-1g
+        substitutes: ["the scale from p00-calibration or p05-cantilever"]
+      - id: pivot-arm
+        qty: 1
+        spec: A bell-crank for drag - a stiff L-shaped arm (wooden ruler or foam-board strips) pivoting on a nail or pencil, with the model's sting on the vertical arm (drag point 100-150 mm above the pivot) and the horizontal arm (50-75 mm) resting on the scale through a small pad. Calibrated with known horizontal loads (procedure.md)
+        search_term: null
+        price_range: [0, 2]
+        required: true
+        reusable_id: misc.ruler-arm
+        substitutes: ["a calibrated rubber band or light spring read against a ruler (spring balance; P10.23 drag_from_spring)"]
+      - id: calibration-masses
+        qty: 1
+        spec: Small known masses from 0.5 to 20 g for the pivot calibration and the scale check - coins of known official mass, paper clips weighed in bulk
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: references.coins
+        substitutes: ["the coins from p00-calibration"]
+      - id: pulley
+        qty: 1
+        spec: A smooth round pencil or a small sewing-thread spool on a nail, over which a thread turns a hanging mass into a horizontal force at the model's drag point
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: misc.pencil
+      - id: protractor
+        qty: 1
+        spec: Protractor or printed angle template (1 degree marks) fixed to the stand beside the model, with a pointer along the chord line
+        search_term: "180 degree protractor"
+        price_range: [0, 3]
+        required: true
+        reusable_id: tools.protractor
+      - id: vane-anemometer
+        qty: 1
+        spec: Handheld vane anemometer, 0.4-30 m/s range, accuracy about +/-(3 % + 0.1 m/s) (check its datasheet and record the stated value)
+        search_term: "handheld vane anemometer"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.anemometer
+        substitutes: ["the inclined manometer of the recommended tier (P08.19 method)"]
+      - id: ruler-and-calipers
+        qty: 1
+        spec: 300 mm ruler for the model and arm lengths; calipers if you have them for the chord and thickness
+        search_term: null
+        price_range: [0, 3]
+        required: true
+        reusable_id: tools.ruler
+        substitutes: ["the ruler from p00-calibration; the caliper from p05-cantilever"]
+      - id: thermometer-barometer
+        qty: 1
+        spec: Room temperature and today's station pressure (a phone barometer, a weather station or the nearest airport report corrected to your elevation) to compute the air density
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+        substitutes: ["the thermometer from p04-electronics-bench", "the barometer source used in p04-drag-drop"]
+      - id: phone-camera
+        qty: 1
+        spec: Phone camera for photographs of every reading and of the angle template
+        search_term: null
+        price_range: [0, 0]
+        required: true
+        reusable_id: instruments.phone
+      - id: safety-glasses
+        qty: 1
+        spec: Safety glasses, impact-rated (EN 166 or ANSI Z87.1 marked)
+        search_term: "safety glasses Z87.1"
+        price_range: [2, 8]
+        required: true
+        reusable_id: safety.glasses
+        substitutes: ["the glasses from p05-cantilever"]
+        safety_notes: Worn whenever the fan runs (a loose straw or a model part can be blown out of the jet).
+  recommended:
+    description: A 0.1 g scale for lift and a 0.01 g jewellery scale for drag, and an inclined water manometer on a pitot-static tube. Brings CL to about 5 % and CD to about 10 % at 4 m/s, measures the airspeed independently, and lets the tares (sting drag, flow angle) be resolved. This is the tier the lesson's SYNTHETIC dataset imitates.
+    items:
+      - id: pocket-scale
+        qty: 1
+        spec: Pocket scale, 0.1 g resolution, 500 g capacity, for the lift balance
+        search_term: "digital pocket scale 0.1g 500g"
+        price_range: [8, 20]
+        required: false
+        reusable_id: instruments.scale-0.1g
+        substitutes: ["the pocket scale from p00-calibration or p04-drag-drop"]
+      - id: jewellery-scale
+        qty: 1
+        spec: Jewellery or milligram scale, 0.01 g resolution, 20-50 g capacity, for the drag pivot (preload of the arm plus a few grams of drag)
+        search_term: "jewelry scale 0.01g 50g"
+        price_range: [10, 25]
+        required: false
+        reusable_id: instruments.scale-0.01g
+      - id: pitot-static-tube
+        qty: 1
+        spec: Pitot-static probe, 4-8 mm diameter (a hobby-airspeed pitot tube, or two concentric brass tubes with side holes for the static pressure, made as in the P08.19 home lab)
+        search_term: "pitot static tube RC airspeed"
+        price_range: [5, 20]
+        required: false
+        reusable_id: instruments.pitot
+      - id: inclined-manometer
+        qty: 1
+        spec: Clear PVC tube 4-6 mm bore, about 1 m, half filled with water coloured with a drop of food colouring, taped to a straight board inclined at 8-12 degrees (measure the incline as rise over run with the ruler); reading scale along the tube with 0.5 mm or 1 mm marks
+        search_term: "clear vinyl tubing 1/4 inch"
+        price_range: [3, 10]
+        required: false
+        reusable_id: instruments.manometer
+        substitutes: ["the manometer from the P08.19 flow-and-pressure home lab when it exists"]
+        safety_notes: Water near a mains-powered fan - keep the manometer below and away from the fan and its cable, with a tray under it.
+      - id: phone-stand
+        qty: 1
+        spec: Holds the phone square to the manometer scale and the scales' displays between photographs
+        search_term: "phone tripod"
+        price_range: [0, 10]
+        required: false
+        reusable_id: tools.phone-stand
+        substitutes: ["the stand from p00-first-experiment or p04-drag-drop"]
+      - id: speed-controller
+        qty: 1
+        spec: Use the fan's own speed switch only. Do not add dimmers or modify the fan's wiring
+        search_term: null
+        price_range: [0, 0]
+        required: false
+        reusable_id: null
+        safety_notes: Never open the fan or modify its mains wiring.
+  enhanced:
+    description: An electronic lift balance (load cell) logged by a microcontroller, a digital differential-pressure sensor for q, and a fully enclosed duct. Gives time series of lift, so the fan's unsteadiness is measured instead of estimated, and averages that resolve CD to a few per cent.
+    items:
+      - id: load-cell-kit
+        qty: 1
+        spec: 100 g or 500 g strain-gauge load cell with an HX711 amplifier board, mounted under the model base in place of the kitchen scale; calibrated with the coin masses
+        search_term: "100g load cell HX711"
+        price_range: [5, 15]
+        required: false
+        reusable_id: electronics.load-cell
+        substitutes: ["the load-cell kit from p00-calibration"]
+      - id: microcontroller
+        qty: 1
+        spec: Any 3.3 V board with USB serial (RP2040- or ESP32-class) logging the load cell and pressure sensor at 10-80 Hz, powered from the computer's USB port
+        search_term: null
+        price_range: [0, 10]
+        required: false
+        reusable_id: electronics.mcu
+        substitutes: ["the microcontroller from p04-electronics-bench or p00-first-experiment"]
+        safety_notes: Low voltage only; keep the USB cable clear of the fan intake.
+      - id: differential-pressure-sensor
+        qty: 1
+        spec: Low-range digital differential pressure sensor, +/-125 Pa or +/-500 Pa full scale (I2C), connected to the pitot-static tube
+        search_term: "differential pressure sensor 125 Pa I2C"
+        price_range: [15, 40]
+        required: false
+        reusable_id: electronics.dp-sensor
+      - id: enclosed-duct
+        qty: 1
+        spec: A longer foam-board duct (500-700 mm) enclosing the fan face and the straw honeycomb, with the model in the open jet just past its exit, and a wire-mesh guard (fine hardware cloth) over both duct ends in addition to the fan's own grilles
+        search_term: "hardware cloth 1/4 inch"
+        price_range: [5, 15]
+        required: false
+        reusable_id: equipment.duct
+        safety_notes: The fan's own grilles stay on; the mesh is an addition, never a replacement.
+
+tools_required: [scissors, craft knife (fan unplugged), sanding block, masking tape, hot-melt or PVA glue, pencil]
+consumables: [straws, tape, glue, sandpaper]
+incremental_cost_if_reusing: {minimum_cost: [5, 40], recommended: [20, 70], enhanced: [25, 80]}
