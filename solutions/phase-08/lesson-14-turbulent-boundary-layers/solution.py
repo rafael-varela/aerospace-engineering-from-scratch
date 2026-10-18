@@ -80,8 +80,9 @@ def spalding_yplus(uplus: np.ndarray, kappa: float = KAPPA, B: float = B_LOG) ->
 
 def spalding_uplus(yplus: np.ndarray, kappa: float = KAPPA, B: float = B_LOG, tol: float = 1e-12) -> np.ndarray:
     """Invert Spalding's law for u+(y+) by Newton's method (vectorised), starting from the smaller of
-    y+ and the log law (a guess that is below the root, from which Newton converges monotonically
-    because y+(u+) is convex). Stops when every |step| < tol (u+ units). y+ = 0 gives u+ = 0."""
+    y+ and the log law. y+(u+) is increasing and convex, so after the first step every iterate is at
+    or above the root and Newton converges monotonically from above (the guess is already above the
+    root in the sublayer and buffer layer). Stops when every |step| < tol (u+ units). y+ = 0 gives u+ = 0."""
     yp = np.asarray(yplus, dtype=float)
     u = np.minimum(yp, np.where(yp > 0, np.log(np.maximum(yp, 1e-300)) / kappa + B, 0.0))
     u = np.maximum(u, 0.0)

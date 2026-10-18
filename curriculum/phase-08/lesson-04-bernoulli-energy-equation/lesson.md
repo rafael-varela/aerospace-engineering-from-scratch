@@ -94,7 +94,11 @@ with a discharge coefficient C_d ≤ 1 for real losses (Leishman, "Applications 
 
 ### 2.6 The energy equation with losses and work
 
-Bernoulli is a mechanical energy balance with nothing lost. For steady flow between two sections of a pipe or duct, the first law for an open system (`P07.01`) per unit weight of fluid, with no heat transfer, is
+Bernoulli is a mechanical energy balance with nothing lost. For steady flow with one inlet (1) and one outlet (2), the first law for an open system (`P07.01`: energy in = energy out, with no storage in steady flow) reads
+
+Q̇ − Ẇ_shaft = ṁ[(u₂ + p₂/ρ + V₂²/2 + gz₂) − (u₁ + p₁/ρ + V₁²/2 + gz₁)],
+
+where Q̇ is the heat added, Ẇ_shaft the shaft work done by the fluid, u the internal energy per unit mass and p/ρ the flow work. Dividing by ṁg, writing the shaft work as turbine minus pump heads, and collecting the internal-energy rise less the heat added, (u₂ − u₁ − Q̇/ṁ)/g = h_L ≥ 0, gives the incompressible energy equation per unit weight of fluid:
 
 **p₁/(ρg) + α₁V₁²/(2g) + z₁ + h_pump = p₂/(ρg) + α₂V₂²/(2g) + z₂ + h_turbine + h_L**   (8)
 

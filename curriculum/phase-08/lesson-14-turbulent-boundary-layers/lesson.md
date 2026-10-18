@@ -49,7 +49,7 @@ Far from the wall, the outer layer does not care about ν: the velocity *defect*
 
 **y⁺ = u⁺ + e^(−κB)[e^(κu⁺) − 1 − κu⁺ − (κu⁺)²/2 − (κu⁺)³/6],**   (3)
 
-which tends to (1) as u⁺ → 0 and to (2) as u⁺ grows. To get u⁺(y⁺), invert it by Newton's method (`P03.02`): (3) is convex in u⁺, so Newton from below converges monotonically. Above the log layer, **Coles's wake** adds (2Π/κ)sin²(πy/(2δ)) to the profile, with Π ≈ 0.55 for a flat plate at high Reynolds number.
+which tends to (1) as u⁺ → 0 and to (2) as u⁺ grows. To get u⁺(y⁺), invert it by Newton's method (`P03.02`): (3) is increasing and convex in u⁺, so each tangent lies below the curve and its zero lands at or above the root: after the first step the iterates decrease monotonically to the root, so Newton converges from above. The start min(y⁺, log law) is already above the root in the sublayer and buffer layer, where Spalding's u⁺ lies below both. Above the log layer, **Coles's wake** adds (2Π/κ)sin²(πy/(2δ)) to the profile, with Π ≈ 0.55 for a flat plate at high Reynolds number.
 
 ### 2.3 The Clauser fit
 

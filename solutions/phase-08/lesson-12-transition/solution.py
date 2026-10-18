@@ -229,6 +229,9 @@ def main(out_dir: str | Path = ".") -> None:
           f"Re_x = {fp['Re_x_tr']:.4g}")
     print(f"  wing at 3000 m, {U} m/s (nu = {nu:.4e}): instability at x = {fp['x0'] * 1e3:.1f} mm, transition at "
           f"x = {fp['x_tr']:.3f} m = {fp['x_tr'] / chord * 100:.0f} % of the {chord} m chord")
+    Rx_os = (520.0 / (BLASIUS["theta"] * BLASIUS["H"])) ** 2   # Orr-Sommerfeld for Blasius: Re_delta*,c ~ 520
+    print(f"  (the chart's onset; the Orr-Sommerfeld critical point of the Blasius profile, Re_delta* = 520, "
+          f"is at Re_x = {Rx_os:.3g}, x = {Rx_os * nu / U * 1e3:.1f} mm)")
     print("  sensitivity to N_crit (Mack: Tu -> N_crit):")
     for Tu in (0.0007, 0.001, 0.003, 0.01, 0.02):
         Nc = mack_ncrit(Tu)

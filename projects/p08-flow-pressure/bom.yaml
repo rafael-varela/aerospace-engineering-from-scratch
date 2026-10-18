@@ -1,7 +1,8 @@
 # Bill of materials for project p08-flow-pressure (lesson P08.19 Home Lab: Flow & Pressure Measurement)
 # Prices are estimated ranges in USD on the price_checked date, not quotes; they vary by region and time.
 # Tier keys follow the repository convention (minimum_cost / recommended / enhanced).
-# Hard limits from safety.md: water at room temperature, no more than 2 L in total; fans guarded (finger-proof
+# Hard limits from safety.md: water at room temperature, no more than 2 L drawn in the whole session (repeat runs
+# reuse the same water, caught in a clean basin); fans guarded (finger-proof
 # grille) and drawing at most 30 W; a hair dryer on its COOL setting only, kept away from water; no compressed gas,
 # no pressurised containers (never squeeze or pressurise a bottle); no mains appliance near spilled water.
 project: p08-flow-pressure
@@ -24,16 +25,16 @@ tiers:
         required: true
         reusable_id: specimens.pet-bottle
         substitutes: ["any straight-walled clear plastic container of 1-2 L (never glass)"]
-        safety_notes: Total water in the whole session no more than 2 L. Never squeeze, cap tightly while draining, or pressurise the bottle; the flow must be driven by gravity alone.
+        safety_notes: Total water drawn in the whole session no more than 2 L; the repeat runs reuse the same water, caught in a clean basin and poured back with the jug. Never squeeze, cap tightly while draining, or pressurise the bottle; the flow must be driven by gravity alone.
       - id: hole-maker
         qty: 1
-        spec: A 4 mm hole in the bottle wall, 20-40 mm above the base, made with a hand drill bit twisted by hand or a heated nail held in pliers (adult only); deburr with fine sandpaper so the edge is clean and square
+        spec: A 4 mm hole in the bottle wall, 20-40 mm above the base, made with a hand drill bit twisted by hand (no heat; do not melt the hole with a hot nail or soldering iron); deburr with fine sandpaper so the edge is clean and square
         search_term: "4mm drill bit"
         price_range: [0, 3]
         required: true
         reusable_id: tools.drill-bit-4mm
         substitutes: ["a leather punch or paper punch of about 4 mm"]
-        safety_notes: Make the hole before filling, on a cutting board, cutting away from the hand that holds the bottle. A heated nail only with an adult, pliers, and ventilation; let it cool on a non-flammable surface.
+        safety_notes: Make the hole before filling, on a cutting board, cutting away from the hand that holds the bottle. No heated nail, flame or hob, because melting PET gives off fumes.
       - id: hole-gauge
         qty: 1
         spec: Something of known diameter to gauge the hole (the shank of the 4 mm drill bit, or the inside jaws of the p00 caliper); the hole diameter enters squared, so it is the measurement that matters most
@@ -59,14 +60,14 @@ tiers:
         substitutes: ["the ruler from p00-calibration", "a printed mm scale checked against a ruler and taped on"]
       - id: basin
         qty: 1
-        spec: Sink, bathtub or a plastic basin of at least 3 L on the floor to catch the jet and everything that drains
+        spec: A clean plastic basin of at least 3 L, standing in the sink, the bathtub or on the floor, to catch the jet and everything that drains, so the same water can be poured back for the repeat runs
         search_term: null
         price_range: [0, 0]
         required: true
         reusable_id: misc.basin
       - id: measuring-jug
         qty: 1
-        spec: Kitchen measuring jug, to fill the bottle and to keep count of the water used (no more than 2 L in total)
+        spec: Kitchen measuring jug, to fill the bottle, to pour the caught water back for the repeat runs, and to keep count of the water drawn (no more than 2 L in total)
         search_term: null
         price_range: [0, 0]
         required: true

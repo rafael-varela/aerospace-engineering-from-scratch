@@ -20,7 +20,7 @@ Answer form: a number and a regime; two friction factors, a percentage and a cou
 ## 2. (Derivation: the laminar friction factor, Newton for Colebrook, and the D⁻⁵ law)
 
 (a) From the Hagen–Poiseuille profile of `P08.06`, show that the Darcy–Weisbach form dp = f(L/D)ρV²/2 with f = 64/Re is exactly the Hagen–Poiseuille law dp = 128μLQ/(πD⁴).
-(b) Write the Colebrook equation as g(x) = x + 2 log₁₀(a + bx) = 0 with x = 1/√f. Derive the Newton iteration, and show that g is increasing and concave for x > 0. Explain why that makes Newton's method converge from any positive start after the first step. Derive the fixed-point iteration x_{k+1} = −2 log₁₀(a + bx_k) and its linear convergence rate.
+(b) Write the Colebrook equation as g(x) = x + 2 log₁₀(a + bx) = 0 with x = 1/√f. Derive the Newton iteration, and show that g is increasing and concave for x > 0. Explain why, after the first step, every Newton iterate lies at or to the left of the root and the iterates increase monotonically to it, so that Newton converges from any start between 0 and the root. What can go wrong from a start far to the right of the root? Derive the fixed-point iteration x_{k+1} = −2 log₁₀(a + bx_k) and its linear convergence rate.
 (c) At fixed mass flow, show that the friction drop scales as D⁻⁵ when f is constant (fully rough) and as D^{−4.75} when f follows Blasius's 0.3164 Re^{−1/4}. Check both exponents with your `segment_loss`.
 
 Answer form: three derivations; two exponents from your code.

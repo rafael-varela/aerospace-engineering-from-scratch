@@ -84,7 +84,10 @@ def friction_colebrook(Re: float, rel_rough: float, x0: float | None = None, tol
         g'(x) = 1 + 2 b / ((a + b x) ln 10),
 
     starting from Haaland (or from ``x0``), until the step is below tol * x. g is increasing and
-    concave in x, so Newton converges from any x > 0. Returns (f, iterates of x including x0)."""
+    concave in x, so after the first step every iterate lies at or left of the root and the iterates
+    increase monotonically to it: Newton converges from any 0 < x0 <= root. A start far to the right
+    can be thrown out of the domain a + b x > 0 by the first step, and then the iteration fails with
+    RuntimeError. Returns (f, iterates of x including x0)."""
     a, b = rel_rough / 3.7, 2.51 / Re
     x = 1.0 / np.sqrt(friction_haaland(Re, rel_rough)) if x0 is None else float(x0)
     hist = [x]
