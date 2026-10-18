@@ -23,7 +23,7 @@
 
 A servo that positions an elevator, a fin or a thrust-vector gimbal is usually designed on a model with two parameters: a motor gain and a mechanical time constant, G₀(s) = K_m/(s(τ_ms + 1)), identified from a step test. The lead compensator of `P09.12` gives that model a comfortable phase margin. Then the servo is built, and the real actuator has more: a gear train and linkage that act as a spring (a lightly damped mode), amplifier dynamics, a sampling and computation delay. None of these appears in G₀, and all of them matter near and above the crossover frequency. A design pushed to a high crossover for speed can be stable on the model and oscillate on the bench.
 
-Two engineering habits address this. The classical one is margins: keep 6 dB of gain margin and 45° of phase margin and hope the unmodelled effects are smaller. The modern one, introduced here, makes the hope quantitative. First, a single number, the **sensitivity peak Ms**, guarantees a gain *and* a phase margin simultaneously. Second, the model error is bounded by a frequency-dependent weight W, and the **small-gain test** ‖WT‖∞ < 1 then *guarantees* stability for every plant within that bound. Third, a theorem (the Bode sensitivity integral) tells you what no controller can do, so you stop trying.
+Two engineering habits address this. The classical one is margins: keep 6 dB of gain margin and 45° of phase margin and hope the unmodelled effects are smaller. The modern one, introduced here, makes the hope quantitative. First, a single number, the **sensitivity peak Ms**, guarantees both a gain margin and a phase margin (each on its own, and any combined gain-and-phase change inside one disk). Second, the model error is bounded by a frequency-dependent weight W, and the **small-gain test** ‖WT‖∞ < 1 then *guarantees* stability for every plant within that bound. Third, a theorem (the Bode sensitivity integral) tells you what no controller can do, so you stop trying.
 
 Success criteria, written first: the H∞ norm by sweep and by Hamiltonian bisection agree to 10⁻⁶; every measured margin satisfies the bound its Ms implies; the weight covers the true actuator's relative error at every frequency; the designs that pass the small-gain test are stable on the true actuator, and for a design that fails, an explicit perturbation of size below 1 destabilises the loop; the Bode integral is reproduced to 10⁻⁴.
 
@@ -68,7 +68,7 @@ At the gain crossover, |L| = 1 and L lies outside the disk; the unit circle meet
 
 **PM ≥ 2 arcsin(1/(2Ms)).**   (5)
 
-These bounds hold *together*: a loop with Ms = 2 tolerates a gain between 2/3 and 2 (−3.5 dB to +6.0 dB) and 29.0° of phase, even if both are lost at once. That is why Ms between 1.2 and 2 is a common robustness specification. LQR's guarantee (`P09.16`) is the special case Ms ≤ 1 at the plant input: (½, ∞) and 60°.
+These bounds hold *one at a time*: a loop with Ms = 2 tolerates a pure gain change between 2/3 and 2 (−3.5 dB to +6.0 dB), or a pure phase loss of 29.0°. A combined change, a gain k and a phase lag φ applied together (L → kL e^{−jφ}), is covered only while it stays inside the disk |1 − e^{jφ}/k| < 1/Ms; k = 1.9 with φ = 28° lies inside both one-at-a-time bounds but gives |1 − e^{jφ}/k| = 0.590 > 0.5, so stability is no longer guaranteed there. That is why Ms between 1.2 and 2 is a common robustness specification. LQR's guarantee (`P09.16`) is the special case Ms ≤ 1 at the plant input: (½, ∞) and 60°.
 
 ### 2.4 Multiplicative uncertainty and the small-gain test
 

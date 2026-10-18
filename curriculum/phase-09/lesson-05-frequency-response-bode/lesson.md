@@ -149,7 +149,7 @@ Run `python -m pytest curriculum/phase-09/lesson-05-frequency-response-bode`. Th
 1. **Servo sine sweep (SIMULATED).** Predict |G| and ∠G of the servo at 0.5, 1, 2, 4 and 8 Hz from (3) and the Bode plot; then run `sine_test` at each and tabulate. Predict the frequency of the resonant peak, the −3 dB bandwidth and the phase lag at 1 Hz as a time delay.
 2. **The gyro RC filter.** For one and two buffered stages with τ = 1.6 ms, predict the magnitude and phase at 10 Hz (inside the pitch loop's band), at the 99.5 Hz corner and at the 1200 Hz vibration line, exactly and from the straight lines. Check one stage at 1200 Hz with a SIMULATED sine test.
 3. **Pitch loop.** From the Bode form of L(s) of `P09.03` list the corners and K_B; predict where the straight-line magnitude crosses 0 dB; then compute the exact crossover and its phase, and the largest straight-line errors in magnitude and phase from 0.1 to 1000 rad/s.
-4. **How long to wait.** For the closed pitch loop (slowest pole −1.068 s⁻¹) at ω = 1 + s/10 rad/s, run `sine_test` with settle = 0, 1, 3 and 10 s and three fitted periods; record the gain and phase errors. Predict how the error falls with the settling time.
+4. **How long to wait.** For the closed pitch loop (slowest pole −1.068 s⁻¹) at ω = 2.5 rad/s, run `sine_test` with settle = 0, 1, 3 and 10 s and three fitted periods; record the gain and phase errors. Predict how the error falls with the settling time.
 
 Raw data format: CSV tables `f_Hz, mag_exact_dB, phase_exact_deg, mag_sim_dB, phase_sim_deg` with SIMULATED in the header (1); `stages, f_Hz, mag_dB, phase_deg, mag_straight_dB` (2); `corner_rad_s, kind` and `w_c, phase_at_w_c, max_mag_err_dB, max_phase_err_deg` (3); `settle_s, gain_err_dB, phase_err_deg` (4).
 
