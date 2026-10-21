@@ -44,15 +44,8 @@ time [s],altitude [ft],airspeed [kt],pitch [deg]
 
 Everything this lesson is about is already visible: comment lines, units in brackets, a time step that is 0.477 s, then 0.477 s, then 0.498 s, then 0.579 s, two empty cells at $t = 3.011$ s, a `nan` at 4.544 s, and an altitude of −0.5 ft (noise on a sensor that reads zero at the start). The pipeline we build is:
 
-```
-  CSV text ──parse_header──> names + units
-     │
-     ├──parse rows──> float64 columns, NaN for gaps ──convert_to_si──> m, m/s, deg
-     │                                                      │
-     │                                   check: time has no NaN, strictly increasing
-     │                                                      │
-     └──────────────────────────────────> fill_missing ──> resample_uniform ──> summarize / HDF5 / plot
-```
+![Flow diagram of the flight-log pipeline: CSV text goes through parse_header to names and units, and through parse rows to float64 columns with NaN for gaps; convert_to_si turns these into SI columns in m, m/s and deg; a check that time has no NaN and is strictly increasing follows; then fill_missing and resample_uniform lead to summarize, HDF5 or plot.](figures/data-pipeline.svg)
+*Figure 1. The flight-log pipeline. The time check sits between unit conversion and gap filling, because filling and resampling both assume a clean, strictly increasing time base.*
 
 Each arrow is one function in `starter/main.py`, and each has its own tests.
 

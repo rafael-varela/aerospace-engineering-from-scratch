@@ -41,13 +41,8 @@ C_T = T/(ρ n² D⁴),  C_Q = Q/(ρ n² D⁵),  C_P = P/(ρ n³ D⁵) = 2π C_Q,
 
 Replace the propeller by a thin disk of area A that raises the pressure of the air passing through it without changing its speed across the disk. Far ahead, the air moves at V relative to the disk; at the disk it moves at V + v (v is the **induced velocity**); far behind, in the contracted **slipstream**, it moves at V + w.
 
-```
- V  ─────►      ─────►  V + v   ─────►   V + w
- ─────────────────╫──────────────────────────────   slipstream boundary
- ─────►      ─────╫──►               ────►         (contracts behind the disk)
- ─────────────────╫──────────────────────────────
-              disk area A, pressure jump Δp
-```
+![An actuator disk of area A, with a pressure jump Δp, inside a stream tube. Far ahead the air moves at V, at the disk at V + v and far behind, in the contracted slipstream, at V + w. Below, the axial speed along the tube rises smoothly from V through V + v at the disk to V + w far behind.](figures/actuator-disk.svg)
+*Figure 1. The actuator disk. The speed is continuous through the disk and the pressure is not; the slipstream contracts because the air keeps accelerating behind the disk, and w = 2v (equation (2)). Drawn for heavy loading, v = V/2, so the contraction is visible.*
 
 *Mass:* ṁ = ρA(V + v). *Momentum:* T = ṁ w. *Energy:* the power absorbed equals the rise of kinetic-energy flux, P = ½ṁ((V + w)² − V²) = ½ṁ w(2V + w). *Work at the disk:* the disk pushes with force T on air passing through it at V + v, so it does work at the rate P = T(V + v). Equating the two expressions for P with T = ṁ w gives
 
@@ -75,14 +70,8 @@ Light loading (C_T/J² small) gives η_i → 1; heavy loading gives η_i → 0.
 
 Cut the disk into annuli of radius r and width dr. At radius r the blade section sees the axial velocity V + u_a and the tangential velocity Ωr − u_t, where u_a is the axial induced velocity and u_t the **swirl**, the rotation the blade leaves in the air (it turns with the blade, so the blade sees less tangential speed). The **inflow angle** φ and the angle of attack α follow from the velocity triangle:
 
-```
-                 ▲ V + u_a
-                 │     ╱ W (relative velocity)
-                 │   ╱
-                 │ ╱  φ
-   ──────────────┼────────────────►  Ωr − u_t
-        blade pitch β = α + φ (chord line)
-```
+![Velocity triangle of a blade element at radius r, seen from the blade tip, with the flight direction up and the blade moving left. The tangential component Ωr − u_t and the axial component V + u_a add to the relative velocity W, which meets the plane of rotation at the inflow angle φ. The chord line is at the blade pitch β to the plane of rotation, so the angle of attack is α = β − φ. Lift dL is perpendicular to W and drag dD lies along it.](figures/blade-element-velocity-triangle.svg)
+*Figure 2. The velocity triangle of (6). Resolving dL and dD along the axis and the plane of rotation gives (7): lift contributes cos φ to thrust and sin φ to torque. Angles are drawn larger than on a cruising propeller.*
 
 tan φ = (V + u_a)/(Ωr − u_t),  α = β − φ,  W² = (V + u_a)² + (Ωr − u_t)².   (6)
 

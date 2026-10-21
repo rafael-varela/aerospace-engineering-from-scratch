@@ -67,20 +67,8 @@ $$ C_L^* = \sqrt{C_{D0}/k} = \sqrt{\pi e\,AR\,C_{D0}}, \qquad \left(\frac{T}{W}\
 
 Check the limits of equation (3): $C_L \to 0$ (flying very fast) makes $T/W \to \infty$ because of the $C_{D0}/C_L$ term, the parasite drag of a fast aircraft; $C_L \to \infty$ (flying very slowly) makes $T/W \to \infty$ through $kC_L$, the induced drag of a slow one. There must be a minimum between, and equation (4) says where. For $C_{D0} = 0.02$, $e = 0.8$, $AR = 9$: $k = 0.0442$, $C_L^* = 0.67$, $(T/W)_{\min} = 0.060$, $(L/D)_{\max} = 16.8$. These are the right size for an airliner, which is itself a check on the assumed polar. Notice that $C_L^*$ does not depend on weight or altitude at all; weight and altitude set the *speed* at which that $C_L$ occurs.
 
-```
- T/W
- 0.12 |*                                        *
-      | *                                     *
- 0.10 |  *            parasite drag          *
-      |   *           C_D0/C_L  dominates   *      induced drag
- 0.08 |    *                              *        k C_L dominates
-      |      *                         *
- 0.06 |         * * * * * * * * * * *   <- (T/W)min = 2 sqrt(C_D0 k) at C_L* (flat near the minimum)
-      |
- 0.04 +-------------------------------------------------->  C_L
-      0       0.3      0.67 = C_L*     1.0      1.5
-         fast  <----                        ---->  slow
-```
+![Curve of thrust-to-weight ratio T/W against lift coefficient C_L for C_D0 = 0.02 and k = 0.0442. T/W rises steeply at low C_L (fast flight, parasite drag C_D0/C_L dominates) and rises again at high C_L (slow flight, induced drag k C_L dominates), with a flat minimum (T/W)min = 2√(C_D0 k) = 0.060 at C_L* = 0.67.](figures/thrust-to-weight-vs-cl.svg)
+*Figure 1. Equation (3) for C_D0 = 0.02, k = 0.0442. Parasite drag dominates at low C_L (fast), induced drag at high C_L (slow), and the curve is flat near its minimum of 0.060 at C_L\* = 0.67.*
 
 The curve is flat near its minimum, which is why an airliner can cruise 10 % faster than the minimum-drag speed (lower $C_L$) for a few percent more thrust, and why a $C_L$ far from $C_L^*$ in either direction is a warning sign.
 

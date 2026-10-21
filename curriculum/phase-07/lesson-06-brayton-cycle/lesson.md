@@ -31,14 +31,8 @@ The working example is an illustrative core: sea-level air, pressure ratio 12, t
 
 ### 2.1 The air-standard cycle
 
-```
-        fuel (heat q_in)
-             |
-    1  +-----v-----+  3
- air ->| C |  CC  | T |-> exhaust 4 (heat q_out to the atmosphere closes the loop)
-       +---+------+---+
-        2   shaft w_c -> w_t
-```
+![Air enters the compressor C at station 1 and leaves at 2 into the combustor CC, where the fuel adds heat q_in; it enters the turbine T at 3 and leaves as exhaust at 4, rejecting q_out to the atmosphere. A shaft carries turbine work w_t to the compressor, which absorbs w_c.](figures/brayton-components.svg)
+*Figure 1. The air-standard Brayton cycle as components and stations. The combustor is modelled as heat q_in added at constant pressure, and rejecting q_out to the atmosphere stands in for the exhaust and the fresh intake.*
 
 The **air-standard** idealisation (assumptions named here and used throughout): the working fluid is air at every station; the combustor is a heat exchanger that adds q_in at constant pressure; the exhaust and the fresh intake are replaced by a fourth process that rejects q_out at constant pressure and returns the air to state 1; the compressor and turbine are adiabatic and reversible (isentropic); kinetic energy changes are neglected. The four states:
 
@@ -100,19 +94,8 @@ for any ideal gas. The work rises while the turbine exit is hotter than the comp
 
 **In the T–s plane.** Every process is internally reversible, so δq = T ds on each leg, and ∮T ds = q_in − q_out = w_net. The isentropes are vertical lines and contribute nothing; **the net work is the area between the two isobars**. (`P07.05` showed that T ds is not heat in an irreversible process; the T–s area is the net work only for internally reversible cycles.)
 
-```
-   T                       3            p
-   ^             p2 isobar /             ^   2 ________________ 3
-   |                     /  |            |   |  p2 isobar       \
-   |                   /    |            |   |                   \  isentrope
-   |               2 /      |            |   |  isentrope          \   3-4
-   |                 |      |            |   |  1-2                  \
-   |                 |      4            |   1 \____________________   4
-   |                 |    / p1 isobar    |            p1 isobar
-   |                 1  /                |
-   +---------------------------> s       +------------------------------> v
-   ideal cycle: vertical isentropes      area enclosed, clockwise = w_net
-```
+![The ideal Brayton cycle in two planes. In the T–s plane the isentropes 1–2 and 3–4 are vertical and the p₂ and p₁ isobars rise with entropy and diverge; heat q_in is added along 2–3 and q_out rejected along 4–1. In the p–v plane the isobars are horizontal and the isentropes curve; in both planes the area enclosed, traversed clockwise, is w_net.](figures/brayton-t-s-p-v.svg)
+*Figure 2. The ideal cycle in the T–s and p–v planes, drawn to scale from the state table (π = 12, T₃ = 1400 K, constant cp). The isentropes are vertical in T–s; in both planes the area enclosed, traversed clockwise, is the net work.*
 
 The tests check both identities numerically: `cycle_path` lays the closed loop out as 4n + 1 points (the isentropes in geometric pressure steps with T from the isentrope; the isobars in equal temperature steps), and `enclosed_area(x, y)` sums ½(yₖ + yₖ₊₁)(xₖ₊₁ − xₖ) around the loop. This trapezoid contour integral is exact for straight segments and has an O(h²) error for curved ones (`P03.04`), so its error must fall by 4 each time n doubles.
 

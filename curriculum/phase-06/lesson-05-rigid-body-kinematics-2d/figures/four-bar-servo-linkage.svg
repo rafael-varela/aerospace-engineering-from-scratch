@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" width="720" height="370" role="img" aria-labelledby="title">
+  <title id="title">Four-bar servo linkage: the ground link r1 runs along +x from the servo shaft O2 to the hinge O4; the servo arm r2 goes from O2 to A at angle θ2, the pushrod r3 from A to B at angle θ3, and the horn r4 from O4 to B at angle θ4, all measured counterclockwise from +x.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <line class="thin dash" x1="170.0" y1="305.0" x2="638.0" y2="305.0"/>
+  <line class="line" style="stroke-width:4" x1="170.0" y1="305.0" x2="228.4" y2="160.4"/>
+  <line class="line" style="stroke-width:4" x1="228.4" y1="160.4" x2="626.3" y2="63.5"/>
+  <line class="line" style="stroke-width:4" x1="638.0" y1="305.0" x2="626.3" y2="63.5"/>
+  <path class="body" d="M170.0,305.0 L159.5,323.2 L180.5,323.2 Z"/>
+  <path class="ground" d="M151.8,323.2 L188.2,323.2 L188.2,331.2 L151.8,331.2 Z"/>
+  <line class="line" x1="151.8" y1="323.2" x2="188.2" y2="323.2"/>
+  <circle class="body" cx="170.0" cy="305.0" r="4.5"/>
+  <path class="body" d="M638.0,305.0 L627.5,323.2 L648.5,323.2 Z"/>
+  <path class="ground" d="M619.8,323.2 L656.2,323.2 L656.2,331.2 L619.8,331.2 Z"/>
+  <line class="line" x1="619.8" y1="323.2" x2="656.2" y2="323.2"/>
+  <circle class="body" cx="638.0" cy="305.0" r="4.5"/>
+  <circle class="body" cx="228.4" cy="160.4" r="4.5"/>
+  <circle class="body" cx="626.3" cy="63.5" r="4.5"/>
+  <line class="thin dash" x1="170.0" y1="305.0" x2="226.0" y2="305.0"/>
+  <path class="thin" d="M204.0,305.0 A34,34 0 0 0 182.7,273.5" marker-end="url(#ah-ink2)"/>
+  <text x="206.5" y="285.4" class="sym">θ₂</text>
+  <line class="thin dash" x1="228.4" y1="160.4" x2="345.4" y2="160.4"/>
+  <path class="thin" d="M323.4,160.4 A95,95 0 0 0 320.7,137.9" marker-end="url(#ah-ink2)"/>
+  <text x="346.7" y="154.9" class="sym">θ₃</text>
+  <line class="thin dash" x1="638.0" y1="305.0" x2="696.0" y2="305.0"/>
+  <path class="thin" d="M674.0,305.0 A36,36 0 0 0 636.3,269.0" marker-end="url(#ah-ink2)"/>
+  <text x="663.7" y="272.7" class="sym">θ₄</text>
+  <text x="158.0" y="311.0" class="sym" text-anchor="end">O₂</text>
+  <text x="662.0" y="335.0" class="sym">O₄</text>
+  <text x="218.4" y="152.4" class="sym" text-anchor="end">A</text>
+  <text x="636.3" y="55.5" class="sym">B</text>
+  <text x="404.0" y="349.0" text-anchor="middle">r₁ (ground, servo shaft to hinge)</text>
+  <text x="187.2" y="236.7" text-anchor="end">r₂ (servo arm)</text>
+  <text x="427.4" y="97.9" text-anchor="middle">r₃ (pushrod)</text>
+  <text x="648.2" y="176.2">r₄ (horn)</text>
+  <text x="30.0" y="30.0" class="note">Lesson servo linkage: r₁ = 120, r₂ = 20, r₃ = 120, r₄ = 25 mm (proportions exaggerated here)</text>
+  <text x="30.0" y="47.0" class="note">Angles counterclockwise from +x</text>
+</svg>

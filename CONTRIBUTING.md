@@ -14,6 +14,7 @@ Thank you for helping build a free aerospace engineering education. This file sa
 1. Pick a lesson marked ⬚ Planned in [ROADMAP.md](ROADMAP.md) and open an issue titled `Lesson Pxx.yy: <title>` so nobody duplicates it.
 2. Copy `curriculum/_template/lesson-template/` to `curriculum/phase-XX/lesson-YY-<slug>/` and `solutions/_template/` to `solutions/phase-XX/lesson-YY-<slug>/`.
 3. Follow [LESSON_TEMPLATE.md](LESSON_TEMPLATE.md) exactly: the metadata block, then the six parts in order.
+   Draw diagrams as SVG figures in the house style of [docs/FIGURES.md](docs/FIGURES.md), not as text art in code blocks.
 4. Your "Build" code lives in `starter/` with tests in `tests/`. Tests check residuals, conservation laws, limiting cases, and convergence, not just one expected number.
 5. Add every reference you cite to `references/sources.yaml` (or reuse an existing `id`) and to `references/phase-XX.md` with exact section numbers.
 6. Mark the lesson 🚧 in ROADMAP.md in your PR; a reviewer marks it ✅ after the review checklist below passes.

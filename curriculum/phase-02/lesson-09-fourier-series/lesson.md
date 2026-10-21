@@ -53,15 +53,8 @@ SymPy's `integrate` returns 4/π, 0, 4/(3π), … for n = 1, 2, 3, … and the t
 
 The pattern to remember: a **jump** gives coefficients that fall as 1/n; a **kink** (a jump in the derivative) gives 1/n²; each further derivative that is continuous buys another power of n. The decay rate of the coefficients is the smoothness of the signal, and it will decide the convergence rate in 2.4.
 
-```
-   square (jump)                 triangle (kink)
-    +A ┌────┐    ┌────          +A  /\        /\
-       │    │    │                 /  \      /  \
-    ───┼────┼────┼────  t        ─/────\────/────\─  t
-       │    │    │                       \  /
-    -A ┘    └────┘               -A       \/
-   b_n = 4A/(pi n), odd n        a_n = 8A/(pi^2 n^2), odd n
-```
+![Two waveforms of amplitude A over two periods T. Left: the odd square wave, +A on (0, T/2) and −A on (T/2, T), whose sine coefficients are b_n = 4A/(πn) for odd n. Right: the even triangle wave, +A at t = 0 and −A at t = T/2 with straight lines between, whose cosine coefficients are a_n = 8A/(π²n²) for odd n.](figures/square-triangle-waves.svg)
+*Figure 1. The jump in the square wave makes its coefficients fall as 1/n; the triangle wave is continuous but has a kink, and its coefficients fall as 1/n².*
 
 ### 2.3 Parseval's identity: power lives in the coefficients
 

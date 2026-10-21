@@ -48,14 +48,8 @@ At 288.15 K it gives 1.7894 × 10⁻⁵ Pa·s. For T ≫ S it tends to C₁√T,
 
 Take a thin horizontal slab of fluid at rest, of area A and thickness dh, with h measured upward.
 
-```
-            p + dp   (acts down on the top face)
-        ┌───────────────────┐  h + dh
-        │   weight ρ g A dh │
-        └───────────────────┘  h
-            p        (acts up on the bottom face)
-   side faces: pressure only, cancels horizontally (no shear at rest)
-```
+![A thin horizontal slab of fluid at rest, of area A, between heights h and h + dh: pressure p + dp pushes down on its top face, pressure p pushes up on its bottom face, and its weight ρ g A dh acts downward. Pressure on the side faces cancels horizontally.](figures/hydrostatic-slab.svg)
+*Figure 1. Free-body diagram of a fluid slab at rest. Only the pressures on the top and bottom faces and the weight act vertically, which gives dp/dh = −ρg.*
 
 Vertical equilibrium: pA − (p + dp)A − ρgA dh = 0, so
 

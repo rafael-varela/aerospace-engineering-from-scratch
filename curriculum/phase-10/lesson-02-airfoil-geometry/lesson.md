@@ -51,14 +51,8 @@ The thickness is laid off along the local normal to the camber line, not vertica
 
 **x_u = x − y_t sin θ,  y_u = y_c + y_t cos θ;  x_l = x + y_t sin θ,  y_l = y_c − y_t cos θ.**   (3)
 
-```
-            (x_u, y_u)  ●
-                         \   y_t along the normal
-                          \ θ
-   camber line  ───────────●(x, y_c)──────────
-                            \
-                             ● (x_l, y_l)
-```
+![A strongly cambered, thick 4-digit section with its camber line. At one station x a rib is drawn along the local normal to the camber line: the upper point (x_u, y_u) lies y_t along the normal above (x, y_c) and the lower point (x_l, y_l) the same distance below. The normal is tilted by θ from the vertical, the angle the camber-line tangent makes with the horizontal; hollow circles mark where a vertical construction would put the points.](figures/thickness-normal-to-camber.svg)
+*Figure 1. Thickness laid off perpendicular to the camber line, equation (3). The upper point moves forward and the lower point aft, by y_t sin θ each. Drawn for m = 0.10 and t = 0.30, far beyond the 2412, so that θ and the offsets are visible.*
 
 The upper and lower points of one "rib" are at different x. Near the nose of a cambered section, where θ is several degrees, the difference between this and the vertical construction is up to 0.0018c on the 2412 and 0.0066c on a 6412 (Problem 6): small, but exactly where the suction peak sits.
 

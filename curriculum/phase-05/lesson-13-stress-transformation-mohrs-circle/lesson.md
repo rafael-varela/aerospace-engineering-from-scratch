@@ -37,20 +37,8 @@ Take x and y in the plane of the skin, with x along the fuselage axis and y arou
 
 Cut the element by a plane whose outward normal n makes an angle θ with x, anticlockwise. The wedge left behind has three faces: the cut face of length dA (per unit thickness), the −x face of length dA cos θ and the −y face of length dA sin θ.
 
-```
-        y (hoop)
-        ^               n  (outward normal of the cut face AB, at θ from x)
-        |              /
-        B             /
-        |\           /
- σ_x <--| \      σ_x′ (along n) and τ_x′y′ (along AB) act on AB, length dA
-        |  \
- τ_xy ↓ |   \
-        O----A------> x (axial)
-
-   OB: the −x face, length dA cos θ, carrying σ_x (toward −x) and τ_xy (toward −y)
-   OA: the −y face, length dA sin θ, carrying σ_y (toward −y) and τ_xy (toward −x)
-```
+![A triangular wedge OAB of skin with x axial and y hoop. The cut face AB, of length dA, has outward normal n at angle θ from x and carries σ_{x′} along n and τ_{x′y′} along AB; the −x face OB, of length dA cos θ, carries σ_x toward −x and τ_{xy} toward −y; the −y face OA, of length dA sin θ, carries σ_y toward −y and τ_{xy} toward −x.](figures/stress-wedge.svg)
+*Figure 1. The wedge whose equilibrium gives the transformation equations (1). Each face carries a normal and a shear traction; the forces are the tractions times the face lengths dA, dA cos θ and dA sin θ.*
 
 The forces on the −x face are −σ_x dA cos θ along x and −τ_xy dA cos θ along y; on the −y face, −τ_xy dA sin θ along x and −σ_y dA sin θ along y. The cut face carries σ_x′ dA along n = (cos θ, sin θ) and τ_x′y′ dA along the face direction (−sin θ, cos θ). Summing forces along n and along the face, and using cos²θ = (1 + cos 2θ)/2, sin²θ = (1 − cos 2θ)/2, 2 sin θ cos θ = sin 2θ:
 
@@ -80,17 +68,8 @@ Every pair (σ, τ) on any plane through the point lies on one circle of centre 
 from x (the two-argument arctangent picks the σ₁ branch; the one-argument tan 2θ_p = 2τ_xy/(σ_x − σ_y) gives either principal direction).
 - The top and bottom of the circle are the **maximum in-plane shear** R, at 45° in the body from the principal directions, on planes that also carry the normal stress C.
 
-```
-         τ (x face plotted upward)
-         ^
-         |                 X (σx, τxy)
-         |            .  ´ |  ` .
-         |         .       |  2θp  .
-   ------+-------σ2--------C--------σ1-----> σ
-         |         .       |       .
-         |            .  _ | _  .
-         |   Y (σy, −τxy)
-```
+![Mohr's circle in the σ–τ plane with τ for the x face plotted upward: centre C on the σ axis, radius R; the x face is the point X (σx, τxy) and the y face the diametrically opposite point Y (σy, −τxy); the circle crosses the σ axis at the principal stresses σ2 and σ1, and the angle from CX to the σ1 point is 2θp.](figures/mohrs-circle.svg)
+*Figure 2. Mohr's circle with τ of the x face plotted upward. X and Y are diametrically opposite; the principal stresses are where the circle crosses the σ axis, and turning from X to σ₁ through 2θ_p on the circle corresponds to turning the plane by θ_p in the body.*
 
 **Worked example: the side panel.** σ_x = 37.5 MPa (axial), σ_y = 75 MPa (hoop), τ_xy = 30 MPa (illustrative, from fuselage shear and torsion). C = 56.25 MPa, R = √(18.75² + 30²) = 35.38 MPa. σ₁ = **91.63 MPa**, σ₂ = **20.87 MPa**, θ_p = ½ atan2(60, −37.5) = **61.00°** from the fuselage axis: the largest tension is closer to hoop than to axial, tipped by the shear. A fatigue crack from a rivet hole here would run at 61° − 90° = −29° to the axis. The maximum in-plane shear is **35.38 MPa** on planes at θ_s = θ_p − 45° = 16.00°, with 56.25 MPa normal stress on them. On a splice line whose normal is at 30°, (1) gives σ = 72.86 MPa and τ = 31.24 MPa; at 45°, 86.25 MPa and 18.75 MPa.
 

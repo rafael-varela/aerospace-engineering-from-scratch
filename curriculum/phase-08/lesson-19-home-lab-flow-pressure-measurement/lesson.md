@@ -144,18 +144,11 @@ The fit is checked by the tests against noise-free levels from (1) (C_d recovere
 
 The two set-ups:
 
-```
-  EXPERIMENT 1 (in the sink or basin)          EXPERIMENT 2 (separate dry table)
-                                                                       board, upright or tilted
-     ruler, zero at hole centre                      straw pitot            ┌──────────────┐
-     │ 200 ─ ─ ~~~~~ water surface                  ══════╗  ← jet ← ◄)) │ ║    ║ ruler │
-     │ 190    │       │                                   ║   dryer on    │ ║    ║       │
-     │  …     │ 90 mm │                                   ╚═══════════════╪═╝    ║       │
-     │  30    │       │                                                   │  ╚══╝ water  │
-     │   0 ───┤ o ────┼──►  jet (4 mm hole, tape pulled at t = 0)          │  open leg ↑  │
-     │        └───────┘     into the basin                                └──────────────┘
-                                                                   towel under the board
-```
+![Experiment 1 in the sink or basin: a 90 mm bottle filled to 200 mm above a 4 mm hole, with a ruler beside it whose zero is at the hole centre and whose marks run from 0 to 200 mm. When the tape is pulled at t = 0 a jet leaves the hole into the basin.](figures/draining-bottle-setup.svg)
+*Figure 1. Experiment 1, the draining bottle, in the sink or basin. The level is read against the ruler from the video, and √h of the readings falls on a straight line whose slope gives C_d.*
+
+![Experiment 2 on a separate dry table: a hair dryer on cool blows a jet at the open end of a straw pitot, which is connected to one leg of a water U-tube manometer taped to a board, upright or tilted, with a ruler between the legs. The other leg is open to the room, and the water stands Δh higher in it. A towel lies under the board.](figures/straw-pitot-manometer-setup.svg)
+*Figure 2. Experiment 2, the straw pitot and U-tube manometer, on a separate dry table. The straw senses the total pressure and the open leg the jet's static pressure, so Δh measures ½ρV²; tilting the board magnifies the reading by 1/sin θ.*
 
 **Prediction first (in `data/prediction.md`, dated).** Experiment 1: measure D (inside) and d with their uncertainties and instruments; compute k, the 200 → 30 mm draining time with `predict_drain_time` and its budget term by term, and the jet's Reynolds numbers. Experiment 2: the room's pressure and temperature and ρ_a; your reading uncertainty; `min_speed_for_uncertainty` upright and at your tilt; the fan's mean speed from its rating plate or box (a manufacturer's figure); the Δh you expect for each source; and a decision, written down, on which source needs the tilted tube. For the lesson's kit the prediction is the table in the metadata. Date the file and do not edit it afterwards.
 

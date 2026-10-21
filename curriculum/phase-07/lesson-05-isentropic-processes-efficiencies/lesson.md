@@ -63,17 +63,8 @@ A real adiabatic compressor generates entropy, through viscous friction in the b
 
 The ratio is upside down for the turbine because a turbine produces less work than the ideal, while a compressor needs more. Both are defined through **enthalpy**, not temperature: with variable cp the two differ, and the work is what the efficiency is meant to describe. To find the exit state from η_c: compute h₂ₛ from (2), set h₂ = h₁ + (h₂ₛ − h₁)/η_c, and invert h(T).
 
-```
-   h                                   2 (actual)
-   ^                                  /
-   |         p2 isobar  ............ 2s ......... 
-   |                    :          /|
-   |                    :  w_s   /  |  w = h2 - h1 > w_s = h2s - h1
-   |                    :      /    |
-   |   p1 isobar .......:.... 1     |
-   |                          |---->|  s2 - s1 = s_gen > 0
-   +---------------------------------------------> s
-```
+![h–s diagram of an adiabatic compressor between the p₁ and p₂ isobars: the isentropic exit 2s lies directly above inlet 1, and the actual exit 2 lies further along the p₂ isobar at higher enthalpy and entropy. The actual work w = h₂ − h₁ exceeds the isentropic work w_s = h₂ₛ − h₁, and the entropy rise s₂ − s₁ is s_gen.](figures/compressor-h-s.svg)
+*Figure 1. Compression on the h–s diagram, drawn with a low efficiency for clarity. Both exits lie on the same p₂ isobar; the irreversible exit 2 needs more work than 2s, and the entropy it generates is the horizontal distance s₂ − s₁.*
 
 ### 2.4 Entropy generation
 

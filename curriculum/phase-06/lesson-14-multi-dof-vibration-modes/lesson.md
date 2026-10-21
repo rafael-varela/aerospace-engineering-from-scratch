@@ -37,15 +37,8 @@ Number the masses from the interface up: the adapter ring m₁, the service modu
 
 K is symmetric (Maxwell reciprocity, `P05.12`) and positive definite because the chain is fixed at the interface: every non-zero x stretches some spring. Its inverse is the flexibility matrix; a unit force on the payload stretches every spring by 1/kᵢ, so the payload moves Σ1/kᵢ (a test).
 
-```
-     payload  m3 = 350 kg   ── x3
-        |  k3 = 2.5e8 N/m
-     service  m2 = 600 kg   ── x2
-        |  k2 = 4.0e8 N/m
-     adapter  m1 = 150 kg   ── x1
-        |  k1 = 6.0e8 N/m
-  ======= LV interface (prescribed motion y)
-```
+![Spacecraft stack modelled as three lumped masses on axial springs above the launch-vehicle interface, which has prescribed motion y: spring k1 = 6.0e8 N/m joins the interface to the adapter m1 = 150 kg, k2 = 4.0e8 N/m joins it to the service module m2 = 600 kg, and k3 = 2.5e8 N/m joins that to the payload m3 = 350 kg, with displacements x1, x2, x3.](figures/three-mass-stack.svg)
+*Figure 1. The three-degree-of-freedom model, numbered from the interface up. Each spring joins a mass to the one below it, which gives the tridiagonal stiffness matrix K of (1).*
 
 ### 2.2 The generalized eigenproblem
 

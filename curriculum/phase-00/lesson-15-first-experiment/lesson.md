@@ -168,18 +168,8 @@ Three independent cross-checks, each a few lines. (1) `P00.14`'s `propagate(lamb
 
 The setup, seen from the camera's side:
 
-```
-      wall / door frame                 phone on stand, 1.5 m back,
-      with height marks                 lens level with mid-fall
-   1.8 ─┤  ○  ← ball held from below         ┌───┐
-   1.5 ─┤  :     by two fingertips            │ ▣ │
-   1.2 ─┤  :                                  └─┬─┘
-   0.9 ─┤  :  h = bottom of ball to floor       │
-   0.6 ─┤  :                                    │
-        │  :                                    │
-   ═════╧══▓▓▓════════════════════════════════════  floor
-           mat        ( 1 m exclusion circle around the mat )
-```
+![Side view of the drop test: a wall or door frame with height marks at 0.6, 0.9, 1.2, 1.5 and 1.8 m; a ball held from below by two fingertips with its bottom at 1.8 m; the drop height h measured from the bottom of the ball to the floor; a mat on the floor with a 1 m exclusion circle around it; and a phone on a stand 1.5 m back with its lens level with mid-fall.](figures/drop-test-setup.svg)
+*Figure 1. The drop-test setup seen from the camera’s side. The height h is measured to the bottom of the ball, and the lens is level with the middle of the fall.*
 
 Raw data go in `data/raw/drops.csv`, one row per drop, exactly as read from the video and never edited:
 

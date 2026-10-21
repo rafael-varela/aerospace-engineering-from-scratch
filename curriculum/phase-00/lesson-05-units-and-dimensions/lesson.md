@@ -65,11 +65,8 @@ Each individual `Δv` was tiny, millimetres per second. But position error grows
 
 Here is the interface, schematically:
 
-```
-  Spacecraft team's      Small Forces file          Navigation team's
-  thruster model   ──►   "0.42"  (meant lbf·s)  ──►  trajectory model
-                                                      reads 0.42 N·s
-```
+![Three boxes in a row: the spacecraft team’s thruster model, computing in lbf·s, writes the number 0.42 into the Small Forces file, meaning lbf·s; the navigation team’s trajectory model reads the same 0.42 as N·s.](figures/mco-interface.svg)
+*Figure 1. The Mars Climate Orbiter interface, schematically. The number crossed the interface intact; the unit did not, so every impulse was read 4.448 times too small.*
 
 The file carried numbers. The *unit* lived in two places that disagreed: in the spacecraft team's code (which computed in lbf·s) and in the interface specification (which said N·s). Nobody compared them, and the data format gave no way to notice. The Board's contributing causes include that the interface specification was not followed and that navigation anomalies noticed during cruise were not escalated and resolved. The engineering lesson is structural: whenever a unit is implied rather than carried, you have an interface that can only be checked by a human reading two documents at once.
 

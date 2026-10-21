@@ -176,19 +176,8 @@ Three independent checks. Formula (2) against the circuit computed by `divider_o
 
 The bench layout (power off while building):
 
-```
- USB 5 V or 3.3 V rail ──┬───────────────┬──────────────────┬───────────── (+) rail
-                         │               │                  │
-                       [R_t]          [330 Ω]            [NTC 10k]  ← in a zip bag in the mug
-                         │               │                  │
-                         ├── meter V     ▼ LED              ├────── ADC pin (A)
-                         │               │                  │
-                       [R_b]             │               [R_f 10k]
-                         │               │                  │
- GND ────────────────────┴───────────────┴──────────────────┴───────────── (−) rail
-           divider            LED (ammeter in series            thermistor divider
-                              here for current)                 (powered from the ADC's reference)
-```
+![Schematic of the bench layout: three branches between the (+) rail (USB 5 V or 3.3 V) and the GND rail. Left, a divider R_t over R_b with a voltmeter across R_b. Middle, a 330 Ω resistor and an LED, with the ammeter inserted in series below the LED to measure current. Right, a thermistor divider: an NTC 10k thermistor in a zip bag in the mug over R_f 10k, with the midpoint going to ADC pin A.](figures/bench-layout.svg)
+*Figure 1. Three independent circuits share the two rails. Build with the power off; the ammeter (dashed) goes in series with the LED only when you measure its current.*
 
 Procedure in outline (full version in `procedure.md`):
 

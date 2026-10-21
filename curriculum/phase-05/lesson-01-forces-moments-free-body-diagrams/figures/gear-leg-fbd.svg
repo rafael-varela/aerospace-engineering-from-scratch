@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 485" width="720" height="485" role="img" aria-labelledby="title">
+  <title id="title">Main landing-gear leg in side view with x forward and y up: the leg runs from the tyre contact C at (0, 0) through the brace pin B at (0, 0.70) to the trunnion pin A at (0, 1.20) m, and a drag brace runs from B to the airframe pin E at (0.60, 1.10) m. The free-body diagram of the leg shows the ground force V up and D aft at C, the trunnion reactions A_x and A_y at A, and the brace force T along B to E, with the moment arm d from A to the brace line.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <text x="20.0" y="24.0" class="head">Geometry (side view, m)</text>
+  <rect class="ground" x="30.0" y="370.0" width="300.0" height="10.0"/>
+  <line class="line" x1="30.0" y1="370.0" x2="330.0" y2="370.0"/>
+  <text x="320.0" y="400.0" class="note" text-anchor="end">runway</text>
+  <rect class="ground" x="80.0" y="68.0" width="60.0" height="14.0"/>
+  <line class="line" x1="80.0" y1="82.0" x2="140.0" y2="82.0"/>
+  <line class="line" x1="110.0" y1="82.0" x2="110.0" y2="94.0"/>
+  <rect class="ground" x="218.0" y="91.0" width="60.0" height="14.0"/>
+  <line class="line" x1="218.0" y1="105.0" x2="278.0" y2="105.0"/>
+  <line class="line" x1="248.0" y1="105.0" x2="248.0" y2="117.0"/>
+  <line class="line" style="stroke-width:5" x1="110.0" y1="370.0" x2="110.0" y2="94.0"/>
+  <line class="line" x1="110.0" y1="209.0" x2="248.0" y2="117.0"/>
+  <circle class="body" cx="110.0" cy="94.0" r="4.5"/>
+  <circle class="body" cx="110.0" cy="209.0" r="4.5"/>
+  <circle class="body" cx="110.0" cy="370.0" r="4.5"/>
+  <circle class="body" cx="248.0" cy="117.0" r="4.5"/>
+  <text x="98.0" y="99.0" text-anchor="end">A (0, 1.20)</text>
+  <text x="98.0" y="117.0" class="note" text-anchor="end">trunnion pin</text>
+  <text x="260.0" y="122.0">E (0.60, 1.10)</text>
+  <text x="260.0" y="140.0" class="note">airframe pin</text>
+  <text x="260.0" y="156.0" class="note">of the drag</text>
+  <text x="260.0" y="172.0" class="note">brace</text>
+  <text x="98.0" y="214.0" text-anchor="end">B (0, 0.70)</text>
+  <text x="193.0" y="191.0">brace</text>
+  <text x="193.0" y="208.0" class="note">(two-force member)</text>
+  <text x="122.0" y="294.5">leg</text>
+  <text x="98.0" y="360.0" text-anchor="end">C (0, 0)</text>
+  <text x="122.0" y="360.0" class="note">tyre contact</text>
+  <line class="axis" x1="250.0" y1="300.0" x2="300.0" y2="300.0" marker-end="url(#ah-blue)"/>
+  <line class="axis" x1="250.0" y1="300.0" x2="250.0" y2="250.0" marker-end="url(#ah-blue)"/>
+  <text x="304.0" y="305.0" class="sym t-blue">x</text>
+  <text x="246.0" y="244.0" class="sym t-blue">y</text>
+  <text x="258.0" y="320.0" class="note">forward</text>
+  <line class="thin dash" x1="366.0" y1="30.0" x2="366.0" y2="450.0"/>
+  <text x="380.0" y="24.0" class="head">Free-body diagram of the leg</text>
+  <line class="thin dash" x1="520.0" y1="209.0" x2="638.7" y2="129.9"/>
+  <line class="thin" x1="520.0" y1="94.0" x2="573.1" y2="173.6"/>
+  <path class="thin" d="M566.4,178.1 L570.9,184.7 L577.5,180.3"/>
+  <text x="552.5" y="127.8" class="sym">d</text>
+  <line class="line" style="stroke-width:5" x1="520.0" y1="370.0" x2="520.0" y2="94.0"/>
+  <circle class="body" cx="520.0" cy="94.0" r="4.5"/>
+  <circle class="body" cx="520.0" cy="209.0" r="4.5"/>
+  <circle class="body" cx="520.0" cy="370.0" r="4.5"/>
+  <line class="thin" x1="460.0" y1="94.0" x2="460.0" y2="370.0" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <line class="thin" x1="512.0" y1="94.0" x2="454.0" y2="94.0"/>
+  <line class="thin" x1="512.0" y1="370.0" x2="454.0" y2="370.0"/>
+  <text x="452.0" y="232.0" class="sym" text-anchor="end">ℓ</text>
+  <text x="452.0" y="250.0" class="note" text-anchor="end">1.2 m</text>
+  <line class="force" x1="592.0" y1="370.0" x2="527.0" y2="370.0" marker-end="url(#ah-orange)"/>
+  <text x="600.0" y="376.0" class="sym t-orange">D</text>
+  <text x="614.0" y="376.0" class="note">(aft)</text>
+  <line class="force" x1="520.0" y1="428.0" x2="520.0" y2="377.0" marker-end="url(#ah-orange)"/>
+  <text x="530.0" y="420.0" class="sym t-orange">V</text>
+  <line class="force" x1="520.0" y1="94.0" x2="592.0" y2="94.0" marker-end="url(#ah-orange)"/>
+  <text x="600.0" y="100.0" class="sym t-orange">A<tspan dy="4" style="font-size:12.5px">x</tspan></text>
+  <line class="force" x1="520.0" y1="94.0" x2="520.0" y2="44.0" marker-end="url(#ah-orange)"/>
+  <text x="530.0" y="56.0" class="sym t-orange">A<tspan dy="4" style="font-size:12.5px">y</tspan></text>
+  <line class="force" x1="520.0" y1="209.0" x2="590.7" y2="161.8" marker-end="url(#ah-orange)"/>
+  <text x="596.7" y="179.8" class="sym t-orange">T</text>
+  <text x="610.7" y="179.8" class="note">(along B → E)</text>
+  <text x="508.0" y="99.0" class="sym" text-anchor="end">A</text>
+  <text x="508.0" y="214.0" class="sym" text-anchor="end">B</text>
+  <text x="508.0" y="360.0" class="sym" text-anchor="end">C</text>
+  <text x="380.0" y="455.0" class="note">A<tspan dy="4" style="font-size:12.5px">x</tspan><tspan dy="-4">, A</tspan><tspan dy="4" style="font-size:12.5px">y</tspan><tspan dy="-4"> drawn positive (+x, +y); T &gt; 0 is tension.</tspan></text>
+  <text x="380.0" y="473.0" class="note">V passes through A, so ΣM<tspan dy="4" style="font-size:12.5px">A</tspan><tspan dy="-4"> = −Dℓ + Td = 0.</tspan></text>
+</svg>

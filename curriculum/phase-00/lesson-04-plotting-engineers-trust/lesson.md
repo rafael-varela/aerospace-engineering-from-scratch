@@ -33,16 +33,8 @@ The fix is not taste; it is a *house style*, a small set of rules applied by cod
 
 Matplotlib has two layers. The convenience layer (`plt.plot`, `plt.xlabel`) acts on "the current figure", which is whichever one you touched last. The object layer gives you a `Figure` (the page) that holds one or more `Axes` (a plotting area with an x axis and a y axis), and each `Axes` holds the drawn `Line2D`, text, and legend objects. Engineers use the object layer, because a function that receives an `Axes` can draw into it without caring where it lives, and a test can ask the `Axes` what it contains.
 
-```
-Figure ──────────────────────────────────────────────┐
-│  Axes                                               │
-│   ┌ title ─────────────────────────────────────┐    │
-│   │ y label [unit]  ┆ Line2D (model, red)      │    │
-│   │                 ┆ ErrorbarContainer (grey) │    │
-│   │                 ┆ Legend                   │    │
-│   └──────────────── x label [unit] ────────────┘    │
-└─────────────────────────────────────────────────────┘
-```
+![A Matplotlib Figure (the page) containing one Axes: a plotting area with a title above it, a y label with its unit at the left, an x label with its unit below, a model Line2D drawn in red, measured points drawn as a grey ErrorbarContainer, and a Legend naming both.](figures/figure-anatomy.svg)
+*Figure 1. The object layer of a Matplotlib figure. A function that receives an Axes can draw into it, and a test can ask the Axes for its labels, lines and legend.*
 
 Everything a reader needs is on this diagram: the quantity and unit on each axis, a legend naming each series, and a visual distinction between a measured series and a modelled one.
 

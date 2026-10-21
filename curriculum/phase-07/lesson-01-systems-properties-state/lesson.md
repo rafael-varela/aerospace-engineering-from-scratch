@@ -37,15 +37,8 @@ Thermodynamics starts by drawing a line. Everything inside is the **system**; ev
 - An **open system** or **control volume** has mass crossing its boundary. A combustor, a compressor stage, a nozzle and a tank that is being vented are control volumes: you draw the box around the hardware and count what flows in and out.
 - An **isolated system** exchanges neither mass nor energy. The universe is one; so is "the tank plus everything it exchanges heat with", which lesson 04 uses to count entropy.
 
-```
-        closed system                         control volume (combustor)
-   +-------------------+                 fuel ──┐
-   |  gas, mass fixed  |  <- Q, W            ┌──▼──────────────┐
-   |  (tank, valve     |     cross the       │                 │
-   |   shut)           |     boundary   air ─►   burning gas    ├─► gas to turbine
-   +-------------------+                     │                 │    (mass crosses)
-                                             └─────────────────┘
-```
+![Left: a closed system, the gas in a tank with its valve shut, whose boundary heat Q and work W cross but mass does not. Right: a control volume drawn around a combustor, with air and fuel flowing in and hot gas flowing out to the turbine.](figures/closed-system-control-volume.svg)
+*Figure 1. The same boundary idea, two kinds of system. Only energy crosses a closed system's boundary; a control volume is fixed around the hardware and counts the mass that flows through it.*
 
 The choice is yours, and a good choice makes the problem easy. For the combustor question, the control volume is the combustor, and in steady flow the energy crossing its boundary as heat (from the fuel's chemistry, lesson 10) equals the enthalpy rise of the flow through it: q = h₂ − h₁. Lesson 02 derives that; here we only need h(T).
 

@@ -45,15 +45,10 @@ Dimensions: (m²/s)(m)/(m²) = m/s. Good. The speed falls as 1/r and becomes inf
 
 **v** = (q/2π) (x, y)/r², a radial speed v_r = q/(2πr).   (2)
 
-Here is the ASCII picture of the vortex and the source side by side; the arrows of the vortex go round, those of the source go out:
+Figure 1 shows the vortex and the source side by side; the arrows of the vortex go round, those of the source go out:
 
-```
-        vortex (Γ > 0)                     source (q > 0)
-          ↖   ↑   ↗                          ↖   ↑   ↗
-          ←   ·   →      v_θ = Γ/(2πr)       ←   ·   →      v_r = q/(2πr)
-          ↙   ↓   ↘                          ↙   ↓   ↘
-     (arrows circulate counter-clockwise)  (arrows point away from the centre)
-```
+![Two velocity fields side by side. Left, a point vortex with positive circulation Γ: arrows go counter-clockwise around the centre with tangential speed v_θ = Γ/(2πr). Right, a point source with positive strength q: arrows point radially away from the centre with radial speed v_r = q/(2πr).](figures/vortex-and-source.svg)
+*Figure 1. A point vortex and a point source. Both speeds fall as 1/r; the vortex’s velocity goes round the centre, the source’s goes straight out.*
 
 Both are **gradient fields** away from the origin: the source is ∇φ with φ = (q/2π) ln r, and the vortex is ∇φ with φ = Γθ/(2π), where θ = atan2(y, x) is the polar angle. Check the vortex: ∂θ/∂x = −y/r², ∂θ/∂y = x/r², so ∇(Γθ/2π) = (Γ/2π)(−y, x)/r², which is (1). The catch, and it is the whole point of §2.3, is that θ is not a single-valued function on a loop around the origin: go round once and θ has increased by 2π.
 

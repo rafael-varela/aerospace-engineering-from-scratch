@@ -31,15 +31,8 @@ Success criteria, written before we start: the hand-written solver agrees with `
 
 ### 2.1 From joints to a matrix
 
-```
-   3 ──────── 4 ──────── 5        y = 1.5 m        members: 0-1, 1-2 (bottom chord)
-   │  ╲       │  ╲       │                                  3-4, 4-5 (top chord)
-   │    ╲     │    ╲     │                                  0-3, 1-4, 2-5 (verticals)
-   │      ╲   │      ╲   │                                  0-4, 1-5 (diagonals)
-   0 ──────── 1 ──────── 2        y = 0           supports: pin at 0 (R0x, R0y), roller at 2 (R2y)
-   ▲△         │          ○        x = 0, 2, 4 m   load:     15 kN down at node 1
-            15 kN
-```
+![Two-bay truss 4 m long and 1.5 m tall with bottom nodes 0, 1, 2 at x = 0, 2, 4 m and top nodes 3, 4, 5. Members: bottom chord 0-1 and 1-2, top chord 3-4 and 4-5, verticals 0-3, 1-4 and 2-5, diagonals 0-4 and 1-5. A pin at node 0 gives reactions R0x and R0y, a roller at node 2 gives R2y, and a 15 kN load acts downward at node 1.](figures/two-bay-truss.svg)
+*Figure 1. The test-stand truss. Six joints give twelve equilibrium equations; nine member forces and three reactions are the twelve unknowns.*
 
 **Assumption 1 (pin-jointed truss):** every member is a two-force member, so the force it exerts on a joint is along the member. Let F_m be the force in member m, **tension positive**, and **e** the unit vector from node i to node k along the member. A member in tension pulls node i toward k: force +F_m **e** on node i and −F_m **e** on node k (Newton's third law). **Assumption 2 (loads at joints, small deflections):** external loads **P**_i act at joints and the geometry does not change under load.
 

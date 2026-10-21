@@ -31,14 +31,8 @@ Success criteria, written first: the four firmware safety tests logged before an
 
 ### 2.1 Two plants
 
-```
- Option A (feedback servo)              Option B (gear motor + driver + pot)
- command c ──► [servo's own loop] ──► θ  duty u ──► [dead zone] ──► K/(τs + 1) ──► ω ──► 1/s ──► θ
-               K e^{−Ls}/(τs + 1)
- outer loop:  r ──►(+)──► PI ──► c       outer loop:  r ──►(+)──► P (+ dead-zone comp.) ──► u
-                  ▲−                         ▲−
-                  └── pot wiper ◄── θ         └── pot ◄── θ
-```
+![Two block diagrams. Option A: the reference r minus the pot-wiper reading of θ gives the error e; a PI controller on the board sets the servo command c; the servo with its own loop, modelled as K e^(−Ls)/(τs + 1), gives the angle θ. Option B: the error drives a P controller with dead-zone compensation that sets the duty u, which passes through a dead zone and the motor lag K/(τs + 1) to the speed ω, then an integrator 1/s to the angle θ, read back by a pot.](figures/servo-loop-options.svg)
+*Figure 1. The two plants inside their outer loops. Option A has no integrator in the plant, so the outer loop needs PI; Option B's 1/s makes the loop type 1, and only the dead zone stands between P control and zero step error.*
 
 In **Option A** the servo already contains a motor, a gearbox, a potentiometer and its own analog loop (SparkFun's "Hobby Servo Tutorial", "Show Me The Guts", opens one up). From the outside, a commanded angle c (a pulse width) produces an output angle θ that follows c with a lag. A first-order model with a dead time, θ/c = K e^{−Ls}/(τs + 1), captures most of it: K is the ratio of the angle reached to the angle commanded (not exactly 1: the servo's pulse-to-angle mapping and its internal dead band see to that), τ is the lag, and L is the latency between the board writing a pulse width and the servo acting on it (up to one 20 ms frame). The outer loop's job is accuracy: it removes the servo's gain error and dead band, which an integrator does. It is type 0, so it needs PI.
 
@@ -154,13 +148,8 @@ The oracle is `scipy.signal`: `lti` and `step` reproduce the predicted closed-lo
 
 The bench (Option B shown; Option A replaces driver, motor and pot by the servo and its feedback wire):
 
-```
-  USB ── board ── PWM ×2 ──► H-bridge ──► gear motor ══ shaft ══ tube ══ 10 kΩ pot ── ADC pin
-          │  └── EN ───────►    ▲                │                          │
-          │  └── button ── GND  │ VM             └ pointer arm (card) over a printed protractor
-          │                     │
-          └──── GND ────────────┴──── AA pack (≤ 6.0 V) ── 0.5 A PTC fuse ── (+)
-```
+![Wiring of the Option B bench: USB powers the board; two PWM pins drive the H-bridge inputs and a board output its enable; the H-bridge drives the gear motor, whose shaft turns a 10 kΩ pot through a silicone tube and carries a card pointer over a printed protractor; the pot wiper goes to an ADC pin; a stop button connects an input pin to ground; the AA pack (at most 6.0 V) feeds the H-bridge motor supply VM through a 0.5 A PTC fuse; all grounds are common.](figures/servo-bench-wiring.svg)
+*Figure 2. The bench, Option B. The motor current flows only through the pack, the fuse and the H-bridge; the board, powered from USB, shares nothing with it but the ground.*
 
 Procedure in outline (full version in `procedure.md`):
 

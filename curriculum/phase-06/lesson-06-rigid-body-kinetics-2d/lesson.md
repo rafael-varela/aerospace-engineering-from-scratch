@@ -61,17 +61,8 @@ For the disk, μ_s ≥ tan θ/3. Below that the body slides (OpenStax 11.1 works
 
 ### 2.3 The touchdown: free-body diagrams
 
-```
-                 axle (share of aircraft, mass M)
-                    │  V →
-               ┌────●────┐          wheel: I about the axle, radius R
-               │    │ ω  │          ω positive when rolling forward (clockwise in this view)
-               │    ↻    │
-               └────┬────┘
-        ←── F  ═════╧═════  runway
-                    ↑ N
-                contact: slips forward at v_s = V − ωR
-```
+![Free-body diagram of a main wheel at touchdown: the axle and its share of the aircraft, mass M, move forward at V; the wheel, of moment of inertia I about the axle and radius R, spins at ω, positive clockwise when rolling forward; at the contact the runway pushes up with N and backward with the friction force F while the tyre slips forward at v_s = V − ωR.](figures/wheel-touchdown-fbd.svg)
+*Figure 1. At touchdown the tyre slides forward over the runway, so friction acts backward on the wheel: it slows the axle and spins the wheel up, the two effects in (5).*
 
 Take the axle and the aircraft share it carries as one body of mass M moving at V, and the rotating parts as a wheel of moment of inertia I about the axle. At the contact the runway pushes up with N and backwards with F. While the tyre slides forward (v_s > 0), (2) gives F = μ_k N. The axle's equation and the wheel's moment equation about its centre are
 

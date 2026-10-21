@@ -45,12 +45,8 @@ Lower case is for a 2-D section (S = c × span, forces per unit span ÷ qc); upp
 
 Put x along the chord (aft positive) and z normal to it (up). The balance reports a **normal force N** along +z and an **axial force A** along +x. The stream comes at angle α (nose-up positive) to the chord. Lift is perpendicular to the stream and drag along it:
 
-```
-              z  ↑ N                    L ↑   ↗ stream direction is rotated by α from x
-                 |                        |  /
-   ──────────────●────────→ x (chord)     | / α
-                 A →                      |/________ D
-```
+![Airfoil with body axes x along the chord and z normal to it. The stream arrives at angle α to the chord. Lift L is perpendicular to the stream and drag D lies along it; the balance measures the normal force N along z and the axial force A along x.](figures/body-wind-axes.svg)
+*Figure 1. Body axes (x along the chord, z normal to it) and wind axes. The balance measures N and A; lift and drag are the same force resolved perpendicular to and along the stream. α is drawn larger than in the experiment.*
 
 Projecting F = (A, N) on the stream direction (cos α, sin α) and on its normal (−sin α, cos α):
 

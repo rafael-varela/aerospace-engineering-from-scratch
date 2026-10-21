@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 390" width="720" height="390" role="img" aria-labelledby="title">
+  <title id="title">The trace–determinant plane with trace τ horizontal and determinant Δ vertical. Below the τ axis (Δ &lt; 0) are saddles. Above it the parabola τ² = 4Δ separates spirals (inside, above) from nodes (outside, below); the left half (τ &lt; 0) is stable and the right half unstable. Centers lie on the positive Δ axis, degenerate nodes and stars on the parabola, and non-isolated fixed points on the τ axis.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <rect class="body-2" x="17.0" y="290.0" width="516.0" height="84.0" rx="0" style="stroke:none"/>
+  <line class="axis" x1="11.0" y1="290.0" x2="545.0" y2="290.0" marker-end="url(#ah-blue)"/>
+  <line class="axis" x1="275.0" y1="374.0" x2="275.0" y2="32.0" marker-end="url(#ah-blue)"/>
+  <text x="551.0" y="296.0" class="sym t-blue">τ</text>
+  <text x="267.0" y="38.0" class="sym t-blue" text-anchor="end">Δ</text>
+  <path class="line" d="M38.0,56.0 L42.7,65.2 L47.5,74.3 L52.2,83.2 L57.0,91.9 L61.7,100.4 L66.4,108.8 L71.2,116.9 L75.9,124.9 L80.7,132.6 L85.4,140.2 L90.1,147.6 L94.9,154.8 L99.6,161.8 L104.4,168.7 L109.1,175.3 L113.8,181.8 L118.6,188.1 L123.3,194.1 L128.1,200.0 L132.8,205.7 L137.5,211.3 L142.3,216.6 L147.0,221.8 L151.8,226.7 L156.5,231.5 L161.2,236.1 L166.0,240.5 L170.7,244.7 L175.5,248.7 L180.2,252.6 L184.9,256.2 L189.7,259.7 L194.4,262.9 L199.2,266.0 L203.9,268.9 L208.6,271.7 L213.4,274.2 L218.1,276.5 L222.9,278.7 L227.6,280.6 L232.3,282.4 L237.1,284.0 L241.8,285.4 L246.6,286.6 L251.3,287.7 L256.0,288.5 L260.8,289.2 L265.5,289.6 L270.3,289.9 L275.0,290.0 L279.7,289.9 L284.5,289.6 L289.2,289.2 L294.0,288.5 L298.7,287.7 L303.4,286.6 L308.2,285.4 L312.9,284.0 L317.7,282.4 L322.4,280.6 L327.1,278.7 L331.9,276.5 L336.6,274.2 L341.4,271.7 L346.1,268.9 L350.8,266.0 L355.6,262.9 L360.3,259.7 L365.1,256.2 L369.8,252.6 L374.5,248.7 L379.3,244.7 L384.0,240.5 L388.8,236.1 L393.5,231.5 L398.2,226.7 L403.0,221.8 L407.7,216.6 L412.5,211.3 L417.2,205.7 L421.9,200.0 L426.7,194.1 L431.4,188.1 L436.2,181.8 L440.9,175.3 L445.6,168.7 L450.4,161.8 L455.1,154.8 L459.9,147.6 L464.6,140.2 L469.3,132.6 L474.1,124.9 L478.8,116.9 L483.6,108.8 L488.3,100.4 L493.0,91.9 L497.8,83.2 L502.5,74.3 L507.3,65.2 L512.0,56.0"/>
+  <line class="force" x1="275" y1="288" x2="275" y2="44.00000000000003"/>
+  <text x="197.0" y="116.0" class="head" text-anchor="middle">stable</text>
+  <text x="197.0" y="133.0" class="head" text-anchor="middle">spirals</text>
+  <text x="353.0" y="116.0" class="head" text-anchor="middle">unstable</text>
+  <text x="353.0" y="133.0" class="head" text-anchor="middle">spirals</text>
+  <text x="71.0" y="224.0" class="head" text-anchor="middle">stable</text>
+  <text x="71.0" y="241.0" class="head" text-anchor="middle">nodes</text>
+  <text x="479.0" y="224.0" class="head" text-anchor="middle">unstable</text>
+  <text x="479.0" y="241.0" class="head" text-anchor="middle">nodes</text>
+  <text x="275.0" y="335.0" class="head" text-anchor="middle">saddles  (Δ &lt; 0)</text>
+  <line class="thin" x1="493.0" y1="103.0" x2="547.0" y2="96.0"/>
+  <text x="555.0" y="100.0">on the parabola τ² = 4Δ:</text>
+  <text x="555.0" y="117.0" class="note">degenerate nodes, stars</text>
+  <text x="285.0" y="57.0">centers on the Δ axis</text>
+  <text x="285.0" y="74.0" class="note">(τ = 0, Δ &gt; 0)</text>
+  <line class="thin" x1="455.0" y1="293.0" x2="547.0" y2="332.0"/>
+  <text x="555.0" y="336.0">on the τ axis (Δ = 0):</text>
+  <text x="555.0" y="353.0" class="note">non-isolated fixed points</text>
+</svg>

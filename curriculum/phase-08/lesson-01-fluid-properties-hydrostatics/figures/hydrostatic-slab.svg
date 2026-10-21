@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="title">
+  <title id="title">A thin horizontal slab of fluid at rest, of area A, between heights h and h + dh: pressure p + dp pushes down on its top face, pressure p pushes up on its bottom face, and its weight ρ g A dh acts downward. Pressure on the side faces cancels horizontally.</title>
+  <style>
+    svg { --ink: #0f1620; --ink-2: #4a5666; --rule: #c9d1db; --blue: #214f7e; --orange: #d9571a; --fill: #e7ebf0; --fill-2: #d9e4f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --ink: #e8edf4; --ink-2: #9aa7b8; --rule: #3a4757; --blue: #8db2db; --orange: #ff7a3d; --fill: #182231; --fill-2: #16263a; }
+    }
+    text { font-family: Archivo, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--ink); }
+    .sym { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-style: italic; font-size: 17px; }
+    .note { font-size: 12.5px; fill: var(--ink-2); }
+    .head { font-weight: 700; font-size: 14px; }
+    .t-blue { fill: var(--blue); } .t-orange { fill: var(--orange); }
+    .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .thin { stroke: var(--ink-2); stroke-width: 1.25; fill: none; }
+    .dash { stroke-dasharray: 6 5; }
+    .axis { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .force { stroke: var(--orange); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .flow { stroke: var(--blue); stroke-width: 1.5; fill: none; }
+    .body { fill: var(--fill); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+    .body-2 { fill: var(--fill-2); stroke: var(--blue); stroke-width: 1.5; }
+    .ground { fill: url(#hatch); stroke: none; }
+    .dot { fill: var(--ink); } .dot-o { fill: var(--orange); }
+    .ah-ink { fill: var(--ink); } .ah-blue { fill: var(--blue); } .ah-orange { fill: var(--orange); } .ah-ink2 { fill: var(--ink-2); }
+    .hatch-line { stroke: var(--ink-2); stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-ink" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-blue" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path class="ah-orange" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ah-ink2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah-ink2" d="M0,0 L10,5 L0,10 z"/></marker>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="8"/></pattern>
+  </defs>
+  <rect class="body-2" x="210.0" y="120.0" width="260.0" height="90.0"/>
+  <line class="axis" x1="110.0" y1="280.0" x2="110.0" y2="40.0" marker-end="url(#ah-blue)"/>
+  <text x="100.0" y="52.0" class="sym t-blue" text-anchor="end">h</text>
+  <line class="thin dash" x1="104.0" y1="210.0" x2="204.0" y2="210.0"/>
+  <text x="98.0" y="215.0" class="sym" text-anchor="end">h</text>
+  <line class="thin dash" x1="104.0" y1="120.0" x2="204.0" y2="120.0"/>
+  <text x="98.0" y="125.0" class="sym" text-anchor="end">h + dh</text>
+  <line class="thin" x1="150.0" y1="208.0" x2="150.0" y2="122.0" marker-end="url(#ah-ink2)" marker-start="url(#ah-ink2)"/>
+  <text x="158.0" y="146.0" class="sym">dh</text>
+  <line class="force" x1="236.0" y1="80.0" x2="236.0" y2="117.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="236.0" y1="250.0" x2="236.0" y2="213.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="288.0" y1="80.0" x2="288.0" y2="117.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="288.0" y1="250.0" x2="288.0" y2="213.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="340.0" y1="80.0" x2="340.0" y2="117.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="340.0" y1="250.0" x2="340.0" y2="213.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="392.0" y1="80.0" x2="392.0" y2="117.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="392.0" y1="250.0" x2="392.0" y2="213.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="444.0" y1="80.0" x2="444.0" y2="117.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="444.0" y1="250.0" x2="444.0" y2="213.0" marker-end="url(#ah-orange)"/>
+  <text x="230.0" y="68.0" class="sym t-orange">p + dp</text>
+  <text x="292.0" y="68.0" class="note">acts down on the top face</text>
+  <text x="230.0" y="274.0" class="sym t-orange">p</text>
+  <text x="250.0" y="274.0" class="note">acts up on the bottom face</text>
+  <circle class="dot" cx="340.0" cy="153.0" r="3.5"/>
+  <line class="force" x1="340.0" y1="153.0" x2="340.0" y2="195.0" marker-end="url(#ah-orange)"/>
+  <text x="352.0" y="167.0" class="t-orange">weight ρ g A dh</text>
+  <line class="force" x1="170.0" y1="165.0" x2="207.0" y2="165.0" marker-end="url(#ah-orange)"/>
+  <line class="force" x1="510.0" y1="165.0" x2="473.0" y2="165.0" marker-end="url(#ah-orange)"/>
+  <text x="526.0" y="157.0">side faces:</text>
+  <text x="526.0" y="175.0" class="note">pressure only, cancels</text>
+  <text x="526.0" y="191.0" class="note">horizontally (no shear</text>
+  <text x="526.0" y="207.0" class="note">at rest)</text>
+  <text x="462.0" y="138.0" class="note" text-anchor="end">area A</text>
+</svg>

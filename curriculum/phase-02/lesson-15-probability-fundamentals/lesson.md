@@ -79,15 +79,8 @@ Apply (4) in the other direction and substitute (6) for the denominator:
 
 Introductory Statistics reaches (7) through tree diagrams (§3.5) without naming it; the 18.05 Reading 3 states it as above. The tree is the clearest way to compute it. An eddy-current inspection of fastener holes is applied to a batch in which 2 % of holes are cracked (the **prior**). The method detects a crack with probability 0.90 (its **sensitivity**) and flags an uncracked hole with probability 0.05 (its **false-alarm rate**):
 
-```
-                 ┌── flag   0.90  → cracked & flagged   0.02 × 0.90 = 0.0180
-   cracked 0.02 ─┤
-                 └── pass   0.10  → cracked & passed    0.02 × 0.10 = 0.0020
- ●
-                 ┌── flag   0.05  → good & flagged      0.98 × 0.05 = 0.0490
-   good   0.98 ──┤
-                 └── pass   0.95  → good & passed       0.98 × 0.95 = 0.9310
-```
+![A probability tree for eddy-current inspection. From the root, a hole is cracked with probability 0.02 or good with 0.98. A cracked hole is flagged with 0.90 and passed with 0.10; a good hole is flagged with 0.05 and passed with 0.95. The four leaves are cracked and flagged 0.0180, cracked and passed 0.0020, good and flagged 0.0490 and good and passed 0.9310.](figures/inspection-tree.svg)
+*Figure 1. Multiply along each path to get a leaf. P(flag) is the sum of the two flagged leaves, and the posterior P(cracked | flag) is the cracked-and-flagged leaf divided by that sum.*
 
 The four leaves sum to 1 (a check the code makes). P(flag) = 0.0180 + 0.0490 = 0.0670 by (6), and the **posterior** probability that a flagged hole is cracked is 0.0180/0.0670 = 0.26866 by (7). Nearly three of four flagged holes are good: the false alarms on the 98 % of good holes outnumber the true detections on the 2 % of cracked ones. The posterior for a hole that passed is 0.0020/0.9330 = 0.00214, nine times lower than the prior. Both numbers drive real decisions: whether to scrap flagged parts or re-inspect them, and whether a passed part can be trusted. Lesson 20 turns this single update into a full Bayesian inference.
 

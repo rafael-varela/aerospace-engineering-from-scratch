@@ -61,17 +61,8 @@ Write a sinusoid as the real part of a complex exponential:
 
 Z is the **phasor** of the signal: the arrow at t = 0. As time runs the arrow Z e^{iωt} rotates at ω rad/s and the signal is its projection on the real axis (`@mit-ocw-18-03-differential-equations` notes 6).
 
-```
-            Im
-             ▲        Z e^{iωt}
-             │      ↗
-             │    ↗   rotating at ω
-             │  ↗ φ + ωt
-             │↗
-    ─────────●──────────┼────▶ Re
-                        │
-                   x(t) = Re(Z e^{iωt})
-```
+![The complex plane with real axis Re and imaginary axis Im. The phasor Z = A e^{iφ} is the arrow at t = 0; as time runs the arrow Z e^{iωt} rotates counter-clockwise at ω around a circle of radius A, at angle φ + ωt from the real axis, and its projection onto the real axis is the signal x(t) = Re(Z e^{iωt}).](figures/rotating-phasor.svg)
+*Figure 1. A sinusoid as a rotating arrow. The phasor Z fixes the amplitude and the phase at t = 0; the signal is the shadow of the rotating arrow on the real axis.*
 
 Three operations become trivial.
 

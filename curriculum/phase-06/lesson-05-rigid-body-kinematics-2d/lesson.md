@@ -47,13 +47,8 @@ For several bodies, the instant centre I_jk of bodies j and k is the point where
 
 Number the links: 1 the ground (from the servo shaft O₂ to the hinge O₄, length r₁, along +x), 2 the crank (servo arm, O₂ to A, length r₂, angle θ₂), 3 the coupler (pushrod, A to B, r₃, θ₃), 4 the rocker (horn, O₄ to B, r₄, θ₄). Angles are counterclockwise from +x.
 
-```
-                 A ●───────── r3 (pushrod) ─────────● B
-                  /  θ3                               \
-         r2 (arm)/                                     \ r4 (horn)
-                / θ2                                θ4  \
-     O2 ●──────────────────── r1 (ground) ──────────────● O4
-```
+![Four-bar servo linkage: the ground link r1 runs along +x from the servo shaft O2 to the hinge O4; the servo arm r2 goes from O2 to A at angle θ2, the pushrod r3 from A to B at angle θ3, and the horn r4 from O4 to B at angle θ4, all measured counterclockwise from +x.](figures/four-bar-servo-linkage.svg)
+*Figure 1. The four-bar and its link vectors. The loop closure (3) adds r₂, r₃, −r₄ and −r₁ head to tail; all angles are measured counterclockwise from +x. The proportions are exaggerated so that the angles can be seen.*
 
 Going round the loop from O₂ to A to B to O₄ and back must close:
 

@@ -39,16 +39,8 @@ $$r(\theta) = \frac{p}{1 + e\cos\theta}, \qquad p = e\,d \quad [\mathrm{m}].$$  
 
 The constant $p$ is the **semi-latus rectum**, the radius at $\theta = \pm 90°$ ($\cos\theta = 0$ gives $r = p$ regardless of $e$), which is why the figure in part 3 draws all four conics with the same $p$: they all pass through the same two points above and below the focus.
 
-```
-                      directrix x = -d
-                         |          .  P = (r, θ)
-                         |        .   |
-                         |      r     |  distance to directrix = d + r cos θ
-                         |    .       |
-                         |  . θ       |
-     ────────────────────|F───────────┴──────── x   (F = focus = Earth's centre)
-                         |<--- d --->|
-```
+![Focus–directrix construction: the focus F (Earth’s centre) at the origin, the directrix the vertical line x = −d, and a point P = (r, θ) at distance r from F at polar angle θ; the horizontal distance from P to the directrix is d + r cos θ.](figures/conic-focus-directrix.svg)
+*Figure 1. The focus–directrix definition. A conic is the set of points P whose distance r to the focus is e times their distance d + r cos θ to the directrix.*
 
 The shape depends on $e$ alone (`@openstax-calculus-volume-2` §7.5):
 

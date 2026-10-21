@@ -33,19 +33,8 @@ Success criteria, written before we start: the library agrees with NumPy's `dot`
 
 A **vector** has a magnitude and a direction; a position, a velocity, a force, a moment. In right-handed axes with unit vectors $\hat{\mathbf i}, \hat{\mathbf j}, \hat{\mathbf k}$, a vector is three numbers, $\mathbf a = a_1\hat{\mathbf i} + a_2\hat{\mathbf j} + a_3\hat{\mathbf k}$, written $(a_1, a_2, a_3)$ (`@openstax-calculus-volume-3` §2.2). Its length is $|\mathbf a| = \sqrt{a_1^2 + a_2^2 + a_3^2}$ by Pythagoras applied twice, and $\hat{\mathbf a} = \mathbf a/|\mathbf a|$ is the **unit vector** in its direction (undefined for the zero vector; our `unit` raises). Addition and scaling are component-wise. Units: all three components carry the vector's unit (m, m/s, N), and a unit vector is dimensionless.
 
-```
-        z (k)                      right-handed: curl the fingers of the right hand
-        │                          from x toward y; the thumb points along z.
-        │     a = (a1, a2, a3)     i x j = k,  j x k = i,  k x i = j
-        │    /
-        │   /  |a| = sqrt(a1² + a2² + a3²)
-        │  /
-        │ /
-        └──────────── y (j)
-       /
-      /
-     x (i)
-```
+![Right-handed axes x, y and z with unit vectors i, j and k, and a vector a = (a1, a2, a3) drawn from the origin with dashed lines marking its three components.](figures/right-handed-axes.svg)
+*Figure 1. Right-handed axes and a vector’s components. The dashed box shows a1, a2 and a3, and |a| is Pythagoras applied twice across it.*
 
 ### 2.2 The dot product: "how much along?"
 

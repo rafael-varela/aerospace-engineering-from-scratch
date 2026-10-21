@@ -198,19 +198,8 @@ Two independent oracles. For the pendulum, `solve_ivp` with DOP853 at rtol 10⁻
 
 The setup, seen from the camera:
 
-```
-        rigid support (door frame clamp / weighted stick on a table)
-   ─────────────┬───────────────
-                │ ← pivot: string clamped, not tied loosely around a rod
-                │
-                │   L = pivot to CENTRE of the bob
-                │
-              .-●-.                    printed protractor taped behind
-             θ  :                      the pivot, in the camera's view
-   ←— arc ——————:—————— arc —→
-     (keep the arc + 0.5 m clear)          phone on a stand, 1.5–2 m back,
-                                           lens level with the bob
-```
+![The pendulum setup seen from the camera. A string is clamped at a pivot on a rigid support, with a printed protractor behind the pivot. The length L runs from the pivot to the centre of the bob, displaced by θ from the vertical. The swing arc, plus 0.5 m, is kept clear, and the phone stands 1.5–2 m in front of the swing plane with its lens level with the bob.](figures/pendulum-setup.svg)
+*Figure 1. Measure L to the centre of the bob, not to its top, and read the starting and ending amplitude θ on the protractor behind the pivot.*
 
 **Prediction first (in `data/prediction.md`, dated).** For L = 0.40, 0.60, 0.80, 1.00, 1.20, 1.50 m (or whatever your support allows, up to 2 m), compute T₀ = 2π√(L/g) with your local g (or 9.81 ± 0.03 m/s²), its uncertainty from u_L (typically 2 mm, mostly the bob-centre reference), and the frame term per period for N = 10 swings at your frame rate. At L = 1.00 m add the predicted periods at 10°, 20° and 30° from the exact formula, and state, using 2.5, whether each should be detectable. Then freeze the file.
 

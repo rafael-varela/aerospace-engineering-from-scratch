@@ -39,18 +39,8 @@ Four coordinates minus two constraints leave **two degrees of freedom**. Any two
 
 x₁ = l₁ sin θ₁,  y₁ = −l₁ cos θ₁,  x₂ = x₁ + l₂ sin θ₂,  y₂ = y₁ − l₂ cos θ₂.   (1)
 
-```
-          O  pivot (hover point)
-          |\
-          | \  l1, theta1 from the vertical
-          |  \
-          |   o m1  (hook block)
-          |   |\
-          |   | \  l2, theta2
-          |   |  \
-          |   |   O m2  (load)
-          y up, x right; theta positive counter-clockwise
-```
+![Double pendulum hanging from a pivot O at the hover point: link l1 to the hook block m1 at angle θ1 from the downward vertical, then link l2 to the load m2 at angle θ2 from the vertical; y is up, x right, and both angles are positive counter-clockwise.](figures/double-pendulum.svg)
+*Figure 1. The two link angles, each measured from the downward vertical, are the generalized coordinates of (1); they satisfy both length constraints automatically.*
 
 These coordinates satisfy the constraints automatically. That is the whole trick: the constraint forces (the link tensions) do no work on any motion the coordinates allow, because such motions keep the link lengths fixed, so they will not appear in equations written in θ₁, θ₂.
 
