@@ -2,11 +2,13 @@
 
 > **Learn aerospace engineering from first principles. Design it on your computer. Build it at home. Test it against reality.**
 
+The live site is [learnaerospace.engineering](https://learnaerospace.engineering).
+
 A free, open-source curriculum that takes a motivated self-learner from algebra to the capabilities expected of a graduate from a top aerospace engineering program: aerodynamics, structures, propulsion, flight dynamics and control, guidance and navigation, orbital mechanics, spacecraft systems, avionics, testing, systems engineering, and design.
 
 You need a computer, Python, basic hand tools, a modest and incremental budget, and no university lab. Every required step can be completed for free.
 
-**Status:** curriculum roadmap and lesson standard are drafted; lesson content is being written phase by phase. See [ROADMAP.md](ROADMAP.md) for every phase and lesson and their status.
+**Status:** Phases 00–10 are open, 201 lessons. The full curriculum is 27 phases and 467 lessons, with 14 home projects and 10 capstones; later phases are being written in roadmap order. See [ROADMAP.md](ROADMAP.md) for every phase and lesson and their status.
 
 ## How it works
 
